@@ -28,7 +28,8 @@ The MEL model is written for Modelshell, a free model development package. Model
 
 Detailed instructions for compiling and running the model are in "Install and Run MEL.docx"
 
-More information on Lazarus is available on the [Lazarus homepage](https://www.lazarus-ide.org/index.php)
+More information on Lazarus is available on the [Lazarus homepage](https://www.lazarus-ide.org)
+
 --------------------------------
 ### Funding
 This work was supported in part by the National Science Foundation under NSF grants 1651722 and 1637459. Any opinions, findings and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect those of the National Science Foundation.
