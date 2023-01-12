@@ -22,12 +22,13 @@ Rastetter, E., B. Kwiatkowski, D. Kicklighter, A. Barker Plotkin, H. Genet, J. N
 
 
 --------------------------------------------------------------------------
-### Code Instructions
+### Software
 
-The MEL model is written for Modelshell, a model development package, which is written in Lazarus/Free Pascal. Modelshell allows the user to create a model by making creating a plain text file description of the model. Modelshell provides a GUI interface, an integrator, file IO, and a simple graph. All files used and created by Modelshell are ASCII text files.
+The MEL model is written for Modelshell, a free model development package. Modelshell is written in the Lazarus IDE. Lazarus is a free and open source, Delphi compatible cross-platform IDE for Free Pascal. Lazarus and Free Pascal code can be compiled on Windows, Macintosh, and Linux based systems. Modelshell is a model development package that simplifies the creation of mass balance models. It allows the user to create a model using a plain text file. Modelshell provides a GUI interface, an integrator, file IO, and simple graphics. All files used and created by Modelshell are ASCII text files.
 
 Detailed instructions for compiling and running the model are in "Install and Run MEL.docx"
 
+More information on Lazarus is available on the [Lazarus homepage](https://www.lazarus-ide.org/index.php)
 --------------------------------
 ### Funding
 This work was supported in part by the National Science Foundation under NSF grants 1651722 and 1637459. Any opinions, findings and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect those of the National Science Foundation.
