@@ -1,42 +1,41 @@
 object FmBatchMain: TFmBatchMain
-  Left = 174
-  Height = 441
-  Top = 129
-  Width = 838
+  Left = 1380
+  Height = 294
+  Top = 569
+  Width = 559
   Caption = 'Modelshell Batch Mode Utility'
-  ClientHeight = 441
-  ClientWidth = 838
+  ClientHeight = 294
+  ClientWidth = 559
   Color = clBtnFace
-  DesignTimePPI = 144
   Font.Color = clWindowText
-  Font.Height = -17
+  Font.Height = -11
   Font.Name = 'MS Sans Serif'
   OnCreate = FormCreate
   OnShow = FormShow
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '3.4.0.0'
   object LblBatchFile: TLabel
-    Left = 72
-    Height = 20
-    Top = 252
-    Width = 110
+    Left = 48
+    Height = 13
+    Top = 168
+    Width = 73
     Caption = '&Batch file name'
     FocusControl = EdBatchFile
     Font.Color = clWindowText
-    Font.Height = -17
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
     ParentColor = False
     ParentFont = False
     OnClick = LblBatchFileClick
   end
   object LblNumSpecies: TLabel
-    Left = 72
-    Height = 20
-    Top = 348
-    Width = 135
+    Left = 48
+    Height = 13
+    Top = 232
+    Width = 90
     Caption = '&Number of Species'
     FocusControl = EdNumSpecies
     Font.Color = clWindowText
-    Font.Height = -17
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
     ParentColor = False
     ParentFont = False
@@ -44,25 +43,25 @@ object FmBatchMain: TFmBatchMain
     OnClick = LblBatchFileClick
   end
   object EdBatchFile: TEdit
-    Left = 72
-    Height = 28
-    Top = 288
-    Width = 542
+    Left = 48
+    Height = 21
+    Top = 192
+    Width = 361
     Font.Color = clWindowText
-    Font.Height = -17
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
-    OnExit = ChooseBatchFile
     ParentFont = False
     TabOrder = 0
+    OnExit = ChooseBatchFile
   end
   object MmDescription: TMemo
-    Left = 12
-    Height = 218
-    Top = 12
-    Width = 818
+    Left = 8
+    Height = 145
+    Top = 8
+    Width = 545
     Color = clScrollBar
     Font.Color = clWindowText
-    Font.Height = -18
+    Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Lines.Strings = (
       'This Utility runs modelshell in batch mode. Batch mode allows the user to run multiple simulations without user '
@@ -80,52 +79,52 @@ object FmBatchMain: TFmBatchMain
     TabOrder = 1
   end
   object BtnRunBatch: TButton
-    Left = 336
-    Height = 38
-    Top = 372
-    Width = 146
+    Left = 224
+    Height = 25
+    Top = 248
+    Width = 97
     Caption = '&Run Batch Job'
     Enabled = False
     Font.Color = clWindowText
-    Font.Height = -17
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
-    OnClick = BtnRunBatchClick
     ParentFont = False
     TabOrder = 2
+    OnClick = BtnRunBatchClick
   end
   object BtnCancelBatch: TButton
-    Left = 504
-    Height = 38
-    Top = 372
-    Width = 112
+    Left = 336
+    Height = 25
+    Top = 248
+    Width = 75
     Cancel = True
     Caption = '&Close'
     Font.Color = clWindowText
-    Font.Height = -17
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
-    OnClick = BtnCancelBatchClick
     ParentFont = False
     TabOrder = 3
+    OnClick = BtnCancelBatchClick
   end
   object EdNumSpecies: TEdit
-    Left = 72
-    Height = 28
-    Top = 372
-    Width = 62
+    Left = 48
+    Height = 21
+    Top = 248
+    Width = 41
     Font.Color = clWindowText
-    Font.Height = -17
+    Font.Height = -11
     Font.Name = 'MS Sans Serif'
-    OnChange = EdNumSpeciesChange
     ParentFont = False
     TabOrder = 4
     Visible = False
+    OnChange = EdNumSpeciesChange
   end
   object DlgOpenBatch: TOpenDialog
     Title = 'Choose Batch File'
     DefaultExt = '.bch'
     Filter = 'Comma Delimited Files|*.csv|Batch File (*.bch)|*.bch|All Files|*.*'
     Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist]
-    Left = 744
-    Top = 264
+    Left = 496
+    Top = 176
   end
 end

@@ -1,79 +1,113 @@
 object DlgReload: TDlgReload
-  Left = 565
-  Height = 191
-  Top = 197
-  Width = 313
+  Left = 269
+  Height = 175
+  Top = 1312
+  Width = 300
+  AutoSize = True
   BorderStyle = bsDialog
   Caption = 'Dialog'
-  ClientHeight = 191
-  ClientWidth = 313
+  ClientHeight = 175
+  ClientWidth = 300
   Color = clBtnFace
-  Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Arial'
+  Constraints.MinHeight = 175
+  Constraints.MinWidth = 300
+  OnCreate = FormCreate
+  ParentFont = True
   Position = poMainFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.8.4.0'
   object Bevel1: TBevel
-    Left = 8
-    Height = 129
-    Top = 8
-    Width = 297
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = MoDirections
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 125
+    Top = 3
+    Width = 300
+    Anchors = [akTop, akLeft, akRight]
     Shape = bsFrame
   end
-  object OKBtn: TButton
-    Left = 79
-    Height = 25
-    Top = 148
-    Width = 75
+  object BtnOK: TButton
+    AnchorSideTop.Control = Bevel1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 220
+    Height = 20
+    Top = 138
+    Width = 70
+    Anchors = [akTop, akRight]
+    AutoSize = True
+    BorderSpacing.Top = 10
+    BorderSpacing.Right = 10
     Caption = 'OK'
-    Default = True
+    Color = clBtnFace
     ModalResult = 1
-    OnClick = OKBtnClick
+    OnClick = BtnOKClick
     TabOrder = 0
   end
-  object CancelBtn: TButton
-    Left = 159
-    Height = 25
-    Top = 148
-    Width = 75
+  object BtnCancel: TButton
+    AnchorSideTop.Control = Bevel1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = BtnOK
+    Left = 140
+    Height = 20
+    Top = 138
+    Width = 70
+    Anchors = [akTop, akRight]
+    AutoSize = True
+    BorderSpacing.Top = 10
+    BorderSpacing.Right = 10
     Cancel = True
     Caption = 'Cancel'
     ModalResult = 2
     TabOrder = 1
   end
   object MoDirections: TMemo
-    Left = 16
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 3
     Height = 82
-    Top = 16
-    Width = 281
-    BorderStyle = bsNone
-    Color = clScrollBar
-    Font.Color = clBlack
-    Font.Height = -12
-    Font.Name = 'Arial'
+    Top = 3
+    Width = 294
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 3
+    BorderSpacing.Top = 3
+    BorderSpacing.Right = 3
     Lines.Strings = (
-      'Choose which items to reload from the parameter '
-      'file. Changes to parameters or state variables '
-      'which haven''t been saved will be lost when you '
-      'reload.'
+      'Choose items to read from the parameter file. Unsaved changes to parameter or state variables will be lost when you reload.'
     )
-    ParentFont = False
+    ParentColor = True
     ReadOnly = True
     TabOrder = 2
+    TabStop = False
   end
   object CbParams: TCheckBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = MoDirections
+    AnchorSideTop.Side = asrBottom
     Left = 40
     Height = 18
-    Top = 108
-    Width = 73
+    Top = 95
+    Width = 89
+    BorderSpacing.Left = 40
+    BorderSpacing.Top = 10
     Caption = 'Parameters'
     TabOrder = 3
   end
   object CbState: TCheckBox
-    Left = 168
+    AnchorSideLeft.Control = CbParams
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = MoDirections
+    AnchorSideTop.Side = asrBottom
+    Left = 169
     Height = 18
-    Top = 108
-    Width = 92
+    Top = 95
+    Width = 111
+    BorderSpacing.Left = 40
+    BorderSpacing.Top = 10
     Caption = 'State Variables'
     Checked = True
     State = cbChecked

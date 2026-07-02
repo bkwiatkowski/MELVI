@@ -1,38 +1,51 @@
 object DataForm: TDataForm
-  Left = 190
-  Height = 292
-  Top = 145
-  Width = 733
-  HorzScrollBar.Page = 560
-  HorzScrollBar.Range = 560
-  VertScrollBar.Page = 99
-  VertScrollBar.Range = 99
+  Left = 592
+  Height = 300
+  Top = 195
+  Width = 725
+  HorzScrollBar.Visible = False
   VertScrollBar.Visible = False
   ActiveControl = StringGrid1
-  ClientHeight = 292
-  ClientWidth = 733
+  AutoSize = True
+  ClientHeight = 300
+  ClientWidth = 725
   Color = clBtnFace
-  DefaultMonitor = dmMainForm
-  Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Arial'
+  Constraints.MinHeight = 300
+  Constraints.MinWidth = 725
   OnCreate = FormCreate
-  Position = poOwnerFormCenter
-  LCLVersion = '1.6.4.0'
+  ParentFont = True
+  Position = poMainFormCenter
+  LCLVersion = '1.8.4.0'
   object PnlTop: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = StringGrid1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 49
-    Top = 0
-    Width = 733
-    Align = alTop
-    ClientHeight = 49
-    ClientWidth = 733
+    Height = 60
+    Top = 240
+    Width = 725
+    Anchors = [akLeft, akRight, akBottom]
+    AutoSize = True
+    ClientHeight = 60
+    ClientWidth = 725
+    Constraints.MinHeight = 60
     TabOrder = 0
     object BtnOK: TButton
-      Left = 390
+      AnchorSideTop.Control = BtPrint
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = PnlTop
+      AnchorSideRight.Side = asrBottom
+      Left = 644
       Height = 20
-      Top = 13
-      Width = 71
+      Top = 20
+      Width = 70
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      BorderSpacing.Around = 10
       Caption = '&OK'
       Default = True
       ModalResult = 1
@@ -40,10 +53,16 @@ object DataForm: TDataForm
       TabOrder = 0
     end
     object BtnCancel: TButton
-      Left = 478
+      AnchorSideTop.Control = BtPrint
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = BtnOK
+      Left = 564
       Height = 20
-      Top = 13
-      Width = 81
+      Top = 20
+      Width = 70
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      BorderSpacing.Around = 10
       Cancel = True
       Caption = '&Cancel'
       ModalResult = 2
@@ -51,10 +70,15 @@ object DataForm: TDataForm
       TabOrder = 1
     end
     object BtPrint: TButton
-      Left = 190
-      Height = 19
-      Top = 13
-      Width = 61
+      AnchorSideLeft.Control = PnlTop
+      AnchorSideTop.Control = PnlTop
+      AnchorSideTop.Side = asrCenter
+      Left = 11
+      Height = 20
+      Top = 20
+      Width = 70
+      AutoSize = True
+      BorderSpacing.Around = 10
       Caption = '&Print'
       Enabled = False
       OnClick = BtPrintClick
@@ -63,11 +87,16 @@ object DataForm: TDataForm
     end
   end
   object StringGrid1: TStringGrid
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = PnlTop
     Left = 0
-    Height = 243
-    Top = 49
-    Width = 733
-    Align = alClient
+    Height = 240
+    Top = 0
+    Width = 725
+    Anchors = [akTop, akLeft, akRight, akBottom]
     AutoAdvance = aaDown
     ColCount = 6
     Columns = <    
@@ -84,30 +113,26 @@ object DataForm: TDataForm
         ValueUnchecked = 'False'
       end    
       item
+        ReadOnly = True
+        Title.Caption = 'Title'
+      end    
+      item
+        ReadOnly = True
         Title.Caption = 'Title'
       end    
       item
         Title.Caption = 'Title'
       end    
       item
-        Title.Caption = 'Title'
-      end    
-      item
+        ReadOnly = True
         Title.Caption = 'Title'
       end>
     DefaultColWidth = 150
     DefaultRowHeight = 25
     ExtendedSelect = False
     FixedCols = 0
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Arial'
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goEditing]
-    ParentFont = False
     TabOrder = 1
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Arial'
     TitleStyle = tsStandard
     OnCheckboxToggled = StringGrid1CheckboxToggled
     OnDrawCell = StringGrid1DrawCell

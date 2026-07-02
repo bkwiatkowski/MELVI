@@ -8,14 +8,18 @@ uses SysUtils, Classes, Graphics, Forms, Controls, StdCtrls,
   Buttons, ExtCtrls, Dialogs;
 
 type
+
+  { TDlgReload }
+
   TDlgReload = class(TForm)
-    OKBtn: TButton;
-    CancelBtn: TButton;
+    BtnOK: TButton;
+    BtnCancel: TButton;
     Bevel1: TBevel;
     MoDirections: TMemo;
     CbParams: TCheckBox;
     CbState: TCheckBox;
-    procedure OKBtnClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure BtnOKClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,7 +36,7 @@ uses stypes, fileio, frontend;
 {$R *.lfm}
 
 // Reload the selected items from the parameter file
-procedure TDlgReload.OKBtnClick(Sender: TObject);
+procedure TDlgReload.BtnOKClick(Sender: TObject);
 var
    temppar: paramarray;
    tempstat: statearray;
@@ -52,6 +56,17 @@ begin
      par := temppar
   else if CbState.Checked then
      stat := tempstat;
+end;
+
+procedure TDlgReload.FormCreate(Sender: TObject);
+begin
+   //Switch OK and cancel buttons on a Mac
+{$ifdef Darwin}
+ BtnCancel.AnchorSideRight.Control:=DlgReload;
+ BtnCancel.AnchorSideRight.Side:=asrRight;
+ BtnOK.AnchorSideRight.Control:=BtnCancel;
+ BtnOK.AnchorSideRight.Side:=asrLeft;
+{$endif}
 end;
 
 end.

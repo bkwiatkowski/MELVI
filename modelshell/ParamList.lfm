@@ -1,80 +1,157 @@
 object FmParamList: TFmParamList
-  Left = 855
-  Height = 642
-  Top = 234
-  Width = 758
-  ActiveControl = btnSelect
+  Left = 504
+  Height = 569
+  Top = 68
+  Width = 927
+  AutoSize = True
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Choose a parameter to display'
-  ClientHeight = 642
-  ClientWidth = 758
+  ClientHeight = 569
+  ClientWidth = 927
   Color = clBtnFace
-  Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Arial'
+  Constraints.MinHeight = 550
+  Constraints.MinWidth = 750
   OnCreate = FormCreate
+  ParentFont = True
   Position = poMainFormCenter
-  LCLVersion = '0.9.30'
-  object lbParamSymbols: TListBox
-    Left = 5
-    Height = 529
-    Top = 5
-    Width = 758
-    Columns = 3
-    ItemHeight = 0
-    OnClick = lbParamSymbolsClick
-    OnDblClick = btnSelectClick
-    TabOrder = 0
-  end
-  object btnSelect: TButton
-    Left = 8
-    Height = 25
-    Top = 552
-    Width = 100
-    Caption = '&Select'
-    OnClick = btnSelectClick
-    TabOrder = 1
-  end
-  object btnCancel: TButton
-    Left = 125
-    Height = 25
-    Top = 552
-    Width = 100
-    Caption = '&Cancel'
-    ModalResult = 2
-    TabOrder = 2
-  end
-  object lbParamNames: TListBox
+  LCLVersion = '1.8.4.0'
+  object PnlListBoxes: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = PnlButtons
     Left = 0
-    Height = 529
+    Height = 501
     Top = 0
-    Width = 758
-    Align = alTop
-    Columns = 3
-    ItemHeight = 0
-    OnClick = lbParamNamesClick
-    OnDblClick = btnSelectClick
-    TabOrder = 3
+    Width = 927
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'PnlListBoxes'
+    ClientHeight = 501
+    ClientWidth = 927
+    ParentFont = False
+    TabOrder = 0
+    object lbParamSymbols: TListBox
+      AnchorSideLeft.Control = PnlListBoxes
+      AnchorSideTop.Control = PnlListBoxes
+      AnchorSideRight.Control = PnlListBoxes
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = PnlListBoxes
+      AnchorSideBottom.Side = asrBottom
+      Left = 1
+      Height = 499
+      Top = 1
+      Width = 925
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Columns = 3
+      ExtendedSelect = False
+      ItemHeight = 0
+      OnClick = lbParamSymbolsClick
+      OnDblClick = btnSelectClick
+      ParentColor = True
+      TabOrder = 0
+    end
+    object lbParamNames: TListBox
+      AnchorSideLeft.Control = PnlListBoxes
+      AnchorSideTop.Control = PnlListBoxes
+      AnchorSideRight.Control = PnlListBoxes
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = PnlListBoxes
+      AnchorSideBottom.Side = asrBottom
+      Left = 1
+      Height = 499
+      Top = 1
+      Width = 925
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Columns = 3
+      ExtendedSelect = False
+      ItemHeight = 0
+      OnClick = lbParamNamesClick
+      OnDblClick = btnSelectClick
+      ParentColor = True
+      TabOrder = 1
+      Visible = False
+    end
   end
-  object rbParameterSymbol: TRadioButton
-    Left = 552
-    Height = 18
-    Top = 551
-    Width = 142
-    Caption = 'Show parameter s&ymbols'
-    Checked = True
-    OnClick = rbParameterSymbolClick
-    TabOrder = 4
-    TabStop = True
-  end
-  object rbParameterName: TRadioButton
-    Left = 552
-    Height = 18
-    Top = 574
-    Width = 134
-    Caption = 'Show parameter &names'
-    OnClick = rbParameterNameClick
-    TabOrder = 5
+  object PnlButtons: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = PnlListBoxes
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 68
+    Top = 501
+    Width = 927
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoSize = True
+    ClientHeight = 68
+    ClientWidth = 927
+    Constraints.MaxHeight = 100
+    TabOrder = 1
+    object btnCancel: TButton
+      AnchorSideTop.Control = btnSelect
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = btnSelect
+      Left = 766
+      Height = 20
+      Top = 24
+      Width = 70
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      BorderSpacing.Right = 10
+      Caption = '&Cancel'
+      ModalResult = 2
+      OnClick = btnCancelClick
+      TabOrder = 2
+    end
+    object btnSelect: TButton
+      AnchorSideTop.Control = PnlButtons
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = PnlButtons
+      AnchorSideRight.Side = asrBottom
+      Left = 846
+      Height = 20
+      Top = 24
+      Width = 70
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      BorderSpacing.Right = 10
+      Caption = '&Select'
+      ModalResult = 1
+      OnClick = btnSelectClick
+      TabOrder = 3
+    end
+    object rbParameterSymbol: TRadioButton
+      AnchorSideLeft.Control = PnlButtons
+      AnchorSideTop.Control = PnlButtons
+      Left = 11
+      Height = 18
+      Top = 11
+      Width = 173
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
+      Caption = 'Show parameter s&ymbols'
+      Checked = True
+      OnClick = rbParameterSymbolClick
+      TabOrder = 0
+      TabStop = True
+    end
+    object rbParameterName: TRadioButton
+      AnchorSideLeft.Control = PnlButtons
+      AnchorSideTop.Control = rbParameterSymbol
+      AnchorSideTop.Side = asrBottom
+      Left = 11
+      Height = 18
+      Top = 39
+      Width = 163
+      BorderSpacing.Around = 10
+      Caption = 'Show parameter &names'
+      OnClick = rbParameterNameClick
+      TabOrder = 1
+    end
   end
 end

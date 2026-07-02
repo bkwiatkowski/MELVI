@@ -6,7 +6,7 @@ interface
 
 uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  StdCtrls, ExtCtrls, ComCtrls, Menus, MaskEdit, stypes;
+  StdCtrls, ExtCtrls, ComCtrls, Menus, MaskEdit, lazfileutils, stypes;
 
 type
 
@@ -16,11 +16,25 @@ type
     BtnCancel: TButton;
     BtnOK: TButton;
     BtnDefaults: TButton;
+    CbxSavePar2Out: TCheckBox;
     CbxWriteEvery: TCheckBox;
+    CbxSaveBegin: TCheckBox;
+    CbxSaveEnd: TCheckBox;
+    EdSaveBegin: TEdit;
+    EdSaveEnd: TEdit;
     EdWriteEvery: TEdit;
-    LblTimeUnit5: TLabel;
+    GBSimulation: TGroupBox;
+    GBFile: TGroupBox;
+    LblSaveBegin: TLabel;
+    LblSaveEnd: TLabel;
+    LblSimOut: TLabel;
+    LblFileOut: TLabel;
     LblTimeUnit6: TLabel;
+    PnlButtons: TPanel;
+    PnlOutOpt: TPanel;
     PcOptions: TPageControl;
+    RbOutputFile: TRadioButton;
+    RbNoOutputFile: TRadioButton;
     TsRunOptions: TTabSheet;
     TsOutputOptions: TTabSheet;
     RbNormalRun: TRadioButton;
@@ -43,7 +57,6 @@ type
     LblDiscreteStep: TLabel;
     MEDiscreteStep: TMaskEdit;
     LblTimeUnit4: TLabel;
-    Panel1: TPanel;
     CbHoldStatesConstant: TCheckBox;
     CbAppendOutput: TCheckBox;
     RbOutputIntervals: TRadioButton;
@@ -57,8 +70,8 @@ type
     RbOutputIntervalsAnnual: TRadioButton;
     EdOutputDayofYear: TEdit;
     LblYearlyCaution: TLabel;
-    CbNoOutputFile: TCheckBox;
-    procedure CbxWriteEveryClick(Sender: TObject);
+    procedure CbxOutFileClick(Sender: TObject);
+    procedure EdSaveTimeExit(Sender: TObject);
     procedure EdWriteEveryExit(Sender: TObject);
     procedure EdWriteEveryKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
@@ -72,7 +85,6 @@ type
     procedure RbNormalRunClick(Sender: TObject);
     procedure BtnOKClick(Sender: TObject);
     procedure RbOutputIntervalsClick(Sender: TObject);
-    procedure CbAppendOutputClick(Sender: TObject);
     procedure CheckOutputStep(var newvalue:double);
     procedure CheckDiscreteStep(var newvalue:double);
     procedure CbRuntoSSClick(Sender: TObject);
@@ -102,11 +114,14 @@ type
     procedure CbNoOutputFileClick(Sender: TObject);
   private
     { Private declarations }
-    fIntialRunOptions: TRunOptions;
+    fInitialRunOptions: TRunOptions;
+    fNofilenameCaption: string;
   public
     { Public declarations }
     DefaultRunOptions: TRunOptions;
     RunOptions: TRunOptions;
+    BeginFile: string;
+    EndFile: string;
   end;
 
 var
@@ -120,43 +135,105 @@ uses frontend, data;
 
 procedure TFmOptions.FormCreate(Sender: TObject);
 begin
+   //Switch OK and cancel buttons on a Mac
+{$ifdef Darwin}
+  BtnCancel.AnchorSideRight.Control:=FmOptions;
+  BtnCancel.AnchorSideRight.Side:=asrRight;
+  BtnOK.AnchorSideRight.Control:=BtnCancel;
+  BtnOK.AnchorSideRight.Side:=asrLeft;
+{$endif}
+
  LblTimeUnit1.Caption := ModelDef.timeunit + '.';
  LblTimeUnit2.Caption := ModelDef.timeunit + '.';
  LblTimeUnit3.Caption := ModelDef.timeunit + '(s), beginning at ' + ModelDef.timeunit;
  LblTimeUnit4.Caption := ModelDef.timeunit + '.';
- LblTimeUnit5.Caption := ModelDef.timeunit + '. Use with extreme caution.';
- LblTimeUnit6.Caption := ModelDef.timeunit + '.';
+ LblTimeUnit6.Caption := ModelDef.timeunit + LblTimeUnit6.Caption;
+ LblSaveBegin.Caption := ModelDef.timeunit + LblSaveBegin.Caption;
+ LblSaveEnd.Caption := ModelDef.timeunit + LblSaveEnd.Caption;
  with RunOptions do
   begin
-    NormalRun := True;
+    Parfilename:=paramfilename;
+    DriverFilename:=driverfilename;
+    OutputFilename:=outfilename;
+    StartTime:=1;
+    StopTime:=2;
     Time_step := strtofloat(FmOptions.METimeStep.text);
-    DiscreteStep := Time_step;
+    NormalRun := True;
     RepeatDrivers := False;
     RepeatDriveTime := 0;
     ResetStates := False;
     ResetStateTime := 0;
+    HoldStatesConstant := False;
     RuntoSS := False;
     SSCriteria := 0;
     SSTime := 0;
-    HoldStatesConstant := False;
     Outputstep := time_step;
     Outputoffset := 0;
     OutputEORonly := False;
     OutputAnnually := False;
     OutputAnnuallyDay := 0;
     AppendOutputFile := False;
-    OutputFile := True;
+    SaveOutputFile := True;
+    WriteEvery := 0;
+    SaveBeginning := False;
+    SaveBeginTime := 0;
+    SaveEnding := False;
+    SaveEndTime := 0;
+    SavePar2Out := False;
+    AppendOutputFile:=False;
     stepcounter := 1;
     outcounter := 0;
-    WriteEvery := 0;
+    DiscreteStep := Time_step;
     ErrorMult := 1;
   end;
  DefaultRunOptions := RunOptions;
 end;
 
-procedure TFmOptions.CbxWriteEveryClick(Sender: TObject);
+procedure TFmOptions.EdSaveTimeExit(Sender: TObject);
+var
+  anEdit:TEdit;
 begin
-  if CbxWriteEvery.Checked then EdWriteEvery.SetFocus;
+  anEdit:=Sender as TEdit;
+  case anEdit.Tag of
+    2:
+     begin
+      RunOptions.SaveBeginTime:=strtofloat(anEdit.Caption);
+      BeginFile:=ExtractFileNameOnly(outfilename) +'Beginning.out';
+     end;
+    3:
+     begin
+      RunOptions.SaveEndTime:=strtofloat(anEdit.Caption);
+      EndFile:=ExtractFileNameOnly(outfilename)+'Ending.out';
+     end;
+  end;
+end;
+
+procedure TFmOptions.CbxOutFileClick(Sender: TObject);
+var
+  aCheckBox:TCheckBox;
+begin
+  aCheckBox:=Sender as TCheckBox;
+  case aCheckBox.Tag of
+    1:  // Write Every
+     begin
+      if CbxWriteEvery.Checked then EdWriteEvery.SetFocus;
+     end;
+    2:  // Beginning File
+     begin
+      RunOptions.SaveBeginning:=CbxSaveBegin.Checked;
+      if CbxSaveBegin.Checked then EdSaveBegin.SetFocus;
+     end;
+    3: // Ending File
+     begin
+      RunOptions.SaveEnding:=CbxSaveEnd.Checked;
+      if CbxSaveEnd.Checked then EdSaveEnd.SetFocus;
+     end;
+    4: // Save Parameters to Output
+      RunOptions.SavePar2Out:=CbxSavePar2Out.checked;
+    5: // Append Output
+      RunOptions.AppendOutputFile := CbAppendOutput.Checked;
+  end;
+  UpdateFmRunOptions(Sender);
 end;
 
 procedure TFmOptions.EdWriteEveryExit(Sender: TObject);
@@ -242,7 +319,7 @@ end;
 
 procedure TFmOptions.BtnCancelClick(Sender: TObject);
 begin
- RunOptions := fIntialRunOptions;
+ RunOptions := fInitialRunOptions;
  FmOptions.UpdateFmRunOptions(Sender);
  FmOptions.Close;
  FmShellMain.UpdateFmShellMain;
@@ -257,11 +334,15 @@ begin
  else
    PcOptions.ActivePage := TsOutputOptions;
  UpdateFmRunOptions(Sender);
- fIntialRunOptions := RunOptions;
+ fInitialRunOptions := RunOptions;
 end;
 
 procedure TFmOptions.UpdateFmRunOptions(Sender: TObject);
+var
+ WriteOptionsChanged:Boolean;
 begin
+ WriteOptionsChanged:=False;
+ // Sim Options
  if RunOptions.NormalRun then
    begin
      RbNormalRun.Checked := True;
@@ -300,16 +381,12 @@ begin
      EdSSTime.Enabled := True;
      LblSSTime.Enabled := True;
 
+ // Simulation options
+     CbRepeatDrivers.Checked := RunOptions.RepeatDrivers;
      if RunOptions.RepeatDrivers then
-      begin
-       CbRepeatDrivers.Checked := True;
-       EdRepeatDriveTime.Text := floattostr(RunOptions.RepeatDriveTime);
-      end
+       EdRepeatDriveTime.Text := floattostr(RunOptions.RepeatDriveTime)
      else
-      begin
-       CbRepeatDrivers.Checked := False;
        EdRepeatDriveTime.Text := floattostr(DefaultRunOptions.RepeatDriveTime);
-      end;
 
      CbResetStates.Checked := RunOptions.ResetStates;
      if RunOptions.ResetStates then
@@ -332,9 +409,6 @@ begin
       end;
    end;
 
- EdOutputOffset.Text := floattostr(RunOptions.Outputoffset);
- EdOutputTimeStep.Text := floattostr(RunOptions.Outputstep);
- EdOutputDayofYear.Text := floattostr(RunOptions.OutputAnnuallyDay);
  if RunOptions.OutputEORonly then
    begin
      RbOutEndofRunOnly.Checked := True;
@@ -365,30 +439,14 @@ begin
      FmShellMain.MIOutOptions.Checked := True;
    end;
 
- if RunOptions.AppendOutputFile then
-   begin
-     CbAppendOutput.Checked := True;
-     FmShellMain.MIOutOptions.Checked := True;
-   end
- else
-   begin
-     CbAppendOutput.Checked := False;
-   end;
-
- if RunOptions.outputfile then
-   begin
-     CbNooutputfile.Checked := False;
-     FmShellMain.MIOutOptions.Checked := True;
-   end
- else
-   begin
-     CbNooutputfile.Checked := True;
-   end;
+ // File Options
+ RbNoOutputFile.Checked:= not RunOptions.SaveOutputFile;
+ RbOutputFile.Checked:=RunOptions.SaveOutputFile;
+ if RbNoOutputFile.Checked then PnlOutOpt.Enabled:=False;
 
  if RunOptions.WriteEvery <> 0 then
    begin
     CbxWriteEvery.Checked:=True;
-    FmShellMain.MIOutOptions.Checked := True;
     EdWriteEvery.Text:= floattostr(RunOptions.WriteEvery);
    end
  else
@@ -396,8 +454,21 @@ begin
     CbxWriteEvery.Checked:=False;
     EdWriteEvery.Text:='0';
    end;
-// FIX Add code here to set Output options mI to unchecked if all the options have been turned off.
 
+ CbxSaveBegin.Checked:=RunOptions.SaveBeginning;
+ EdSaveBegin.Text:=floattostr(RunOptions.SaveBeginTime);
+ CbxSaveEnd.Checked:=RunOptions.SaveEnding;
+ EdSaveEnd.Text:=floattostr(RunOptions.SaveEndTime);
+ CbAppendOutput.Checked:=RunOptions.AppendOutputFile;
+
+ // Update main menu
+ WriteOptionsChanged:= RunOptions.OutputAnnually and RunOptions.OutputEORonly and
+   RunOptions.SaveOutputfile and RunOptions.SaveBeginning and
+   RunOptions.SaveEnding and RunOptions.AppendOutputFile;
+ if (RunOptions.WriteEvery <> 0) or (RunOptions.OutputOffset<>0) then WriteOptionsChanged:=True;
+ FmShellMain.MIOutOptions.Checked := WriteOptionsChanged;
+
+ // Time Steps
  METimeStep.text := floattostr(RunOptions.time_step);
  MEDiscreteStep.Text := floattostr(RunOptions.DiscreteStep);
  if (RunOptions.time_step = DefaultRunOptions.Time_step) and
@@ -431,13 +502,11 @@ end;
 
 procedure TFmOptions.CbNoOutputFileClick(Sender: TObject);
 begin
- RunOptions.outputfile := not CbNoOutputFile.Checked;
- UpdateFmRunOptions(Sender);
-end;
-
-procedure TFmOptions.CbAppendOutputClick(Sender: TObject);
-begin
- RunOptions.AppendOutputFile := CbAppendOutput.Checked;
+ RunOptions.SaveOutputFile := not RbNoOutputFile.Checked;
+ if RbOutputFile.Checked then
+   PnlOutOpt.Enabled := True
+ else
+   PnlOutOpt.Enabled := False;
  UpdateFmRunOptions(Sender);
 end;
 

@@ -11,20 +11,24 @@ uses SysUtils, Classes, Graphics, Forms, Controls, StdCtrls,
   Buttons, ExtCtrls, stypes;
 
 type
+
+  { TDlgScale }
+
   TDlgScale = class(TForm)
-    OKBtn: TButton;
-    CancelBtn: TButton;
-    Bevel1: TBevel;
+    BtnOK: TButton;
+    BtnCancel: TButton;
     LblMin: TLabel;
     LblMax: TLabel;
     EdMinValue: TEdit;
     EdMaxValue: TEdit;
     LblScale: TLabel;
+    Panel1: TPanel;
+    Panel2: TPanel;
     RGAxisType: TRadioGroup;
     LblIncrem: TLabel;
     EdIncrem: TEdit;
     CBAuto: TCheckBox;
-    procedure OKBtnClick(Sender: TObject);
+    procedure BtnOKClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure EditExit(Sender:TObject);
   private
@@ -49,7 +53,15 @@ uses display, dialogs;  { TODO 2 -obk : remove dialogs from uses clause once cha
   chart. }
 procedure TDlgScale.FormShow(Sender: TObject);
 begin
-  if FmDisplayOutput.CurrentAxis = axBottom then    // Independent Axis
+ //Switch OK and cancel buttons on a Mac
+{$ifdef Darwin}
+ BtnCancel.AnchorSideRight.Control:=DlgScale;
+ BtnCancel.AnchorSideRight.Side:=asrRight;
+ BtnOK.AnchorSideRight.Control:=BtnCancel;
+ BtnOK.AnchorSideRight.Side:=asrLeft;
+{$endif}
+
+ if FmDisplayOutput.CurrentAxis = axBottom then    // Independent Axis
     begin
       DlgScale.Caption := 'Independent Axis';
       if FmDisplayOutput.ChBAxisLogarithm.Enabled then
@@ -74,7 +86,7 @@ begin
 end;
 
 // Implement any changes made in this dialog
-procedure TDlgScale.OKBtnClick(Sender: TObject);
+procedure TDlgScale.BtnOKClick(Sender: TObject);
 begin
   { Changing the axis type won't work until the bug in TaChart that causes an access
      violation when setting the axis for the lineseries is fixed.  Sept 22, 2011 BK}
