@@ -1,413 +1,813 @@
 object FmOptions: TFmOptions
-  Left = -1137
-  Height = 330
-  Top = 465
-  Width = 740
+  Left = 1428
+  Height = 523
+  Top = 557
+  Width = 720
+  AutoSize = True
   BorderStyle = bsSingle
   Caption = 'Run and Output Options'
-  ClientHeight = 330
-  ClientWidth = 740
+  ClientHeight = 523
+  ClientWidth = 720
   Color = clBtnFace
-  Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Arial'
+  Constraints.MinHeight = 320
+  Constraints.MinWidth = 720
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '2.2.0.4'
-  object BtnCancel: TButton
-    Left = 500
-    Height = 25
-    Top = 272
-    Width = 75
-    Cancel = True
-    Caption = '&Cancel'
-    ModalResult = 2
-    OnClick = BtnCancelClick
-    TabOrder = 2
-  end
-  object BtnOK: TButton
-    Left = 408
-    Height = 25
-    Top = 272
-    Width = 74
-    Caption = 'O&K'
-    ModalResult = 1
-    OnClick = BtnOKClick
-    TabOrder = 1
-  end
-  object BtnDefaults: TButton
-    Left = 17
-    Height = 24
-    Top = 272
-    Width = 88
-    Caption = 'De&faults'
-    OnClick = BtnDefaultsClick
-    TabOrder = 3
-  end
+  LCLVersion = '3.4.0.0'
   object PcOptions: TPageControl
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
     Left = 0
-    Height = 257
+    Height = 469
     Top = 0
-    Width = 740
-    ActivePage = TsRunOptions
-    Align = alTop
-    TabIndex = 0
+    Width = 720
+    ActivePage = TsTimeSteps
+    Anchors = [akTop, akLeft, akRight]
+    ParentFont = False
+    TabIndex = 2
     TabOrder = 0
     object TsRunOptions: TTabSheet
       Caption = 'Run Options'
-      ClientHeight = 230
-      ClientWidth = 732
+      ClientHeight = 441
+      ClientWidth = 712
+      ParentFont = False
       object LblTimeUnit2: TLabel
-        Left = 254
-        Height = 14
-        Top = 64
-        Width = 49
-        AutoSize = False
+        AnchorSideLeft.Control = EdRepeatDriveTime
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = EdRepeatDriveTime
+        AnchorSideTop.Side = asrCenter
+        Left = 223
+        Height = 15
+        Top = 70
+        Width = 24
+        BorderSpacing.Left = 5
         Caption = 'da&ys'
         FocusControl = EdRepeatDriveTime
+        ParentColor = False
+        ParentFont = False
       end
       object LblTimeUnit1: TLabel
-        Left = 333
-        Height = 14
-        Top = 97
-        Width = 44
-        AutoSize = False
+        AnchorSideLeft.Control = EdResetStateTime
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = CbResetStates
+        AnchorSideTop.Side = asrCenter
+        Left = 300
+        Height = 15
+        Top = 99
+        Width = 24
+        BorderSpacing.Left = 5
         Caption = 'd&ays'
         FocusControl = EdResetStateTime
+        ParentColor = False
+        ParentFont = False
       end
       object LblSSCriteria: TLabel
-        Left = 32
-        Height = 14
-        Top = 192
-        Width = 174
+        AnchorSideLeft.Control = CbRuntoSS
+        AnchorSideTop.Control = CbRuntoSS
+        AnchorSideTop.Side = asrBottom
+        Left = 50
+        Height = 15
+        Top = 184
+        Width = 146
         Alignment = taRightJustify
-        AutoSize = False
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 10
         Caption = '&Percent error at steady state'
         FocusControl = EdSSCriteria
+        ParentColor = False
+        ParentFont = False
         Visible = False
       end
       object LblSSTime: TLabel
-        Left = 319
-        Height = 14
-        Top = 192
-        Width = 171
+        AnchorSideLeft.Control = EdSSCriteria
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = LblSSCriteria
+        AnchorSideTop.Side = asrCenter
+        Left = 311
+        Height = 15
+        Top = 184
+        Width = 140
         Alignment = taRightJustify
-        AutoSize = False
+        BorderSpacing.Left = 50
         Caption = 'T&ime to check steady state'
         FocusControl = EdSSTime
+        ParentColor = False
+        ParentFont = False
         Visible = False
       end
       object RbNormalRun: TRadioButton
-        Left = 8
+        AnchorSideLeft.Control = TsRunOptions
+        AnchorSideTop.Control = TsRunOptions
+        Left = 10
         Height = 19
         Top = 10
-        Width = 75
+        Width = 82
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
         Caption = '&Normal Run'
         Checked = True
-        OnClick = RbNormalRunClick
+        ParentFont = False
         TabOrder = 0
         TabStop = True
+        OnClick = RbNormalRunClick
       end
       object RbSpecialRun: TRadioButton
-        Left = 8
+        AnchorSideLeft.Control = TsRunOptions
+        AnchorSideTop.Control = RbNormalRun
+        AnchorSideTop.Side = asrBottom
+        Left = 10
         Height = 19
-        Top = 40
-        Width = 189
+        Top = 39
+        Width = 199
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
         Caption = '&Special Run (Select options below)'
-        OnClick = RbNormalRunClick
+        ParentFont = False
         TabOrder = 1
+        OnClick = RbNormalRunClick
       end
       object CbRepeatDrivers: TCheckBox
-        Left = 32
+        AnchorSideLeft.Control = RbSpecialRun
+        AnchorSideTop.Control = RbSpecialRun
+        AnchorSideTop.Side = asrBottom
+        Left = 30
         Height = 19
-        Top = 64
-        Width = 125
+        Top = 68
+        Width = 126
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 10
         Caption = 'Repeat &drivers every '
         Enabled = False
-        OnClick = CbRepeatDriversClick
+        ParentFont = False
         TabOrder = 2
+        OnClick = CbRepeatDriversClick
       end
       object EdRepeatDriveTime: TEdit
-        Left = 184
-        Height = 22
-        Top = 60
-        Width = 65
+        AnchorSideLeft.Control = CbRepeatDrivers
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = CbRepeatDrivers
+        AnchorSideTop.Side = asrCenter
+        AnchorSideRight.Control = LblTimeUnit1
+        Left = 158
+        Height = 23
+        Top = 66
+        Width = 60
+        BorderSpacing.Left = 2
+        BorderSpacing.Right = 2
         Enabled = False
+        ParentFont = False
+        TabOrder = 3
         OnExit = EdRepeatDriveTimeExit
         OnKeyPress = EdRepeatDriveTimeKeyPress
-        TabOrder = 3
       end
       object CbResetStates: TCheckBox
-        Left = 32
+        AnchorSideLeft.Control = RbSpecialRun
+        AnchorSideTop.Control = CbRepeatDrivers
+        AnchorSideTop.Side = asrBottom
+        Left = 30
         Height = 19
-        Top = 96
-        Width = 200
+        Top = 97
+        Width = 203
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 10
         Caption = '&Reset selected state variables every '
         Enabled = False
-        OnClick = CbResetStatesClick
+        ParentFont = False
         TabOrder = 4
+        OnClick = CbResetStatesClick
       end
       object EdResetStateTime: TEdit
-        Left = 264
-        Height = 22
-        Top = 93
-        Width = 65
+        AnchorSideLeft.Control = CbResetStates
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = CbResetStates
+        AnchorSideTop.Side = asrCenter
+        Left = 235
+        Height = 23
+        Top = 95
+        Width = 60
+        BorderSpacing.Left = 2
         Enabled = False
+        ParentFont = False
+        TabOrder = 5
         OnExit = EdResetStateTimeExit
         OnKeyPress = EdResetStateTimeKeyPress
-        TabOrder = 5
       end
       object BtnOpenStates: TButton
-        Left = 424
-        Height = 41
-        Top = 104
-        Width = 297
+        AnchorSideLeft.Control = LblTimeUnit1
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = EdResetStateTime
+        AnchorSideRight.Control = TsRunOptions
+        AnchorSideRight.Side = asrBottom
+        Left = 344
+        Height = 25
+        Top = 105
+        Width = 284
+        AutoSize = True
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 10
+        BorderSpacing.Right = 20
         Caption = 'Ch&oose state variables to reset or hold constant...'
-        OnClick = BtnOpenStatesClick
+        ParentFont = False
         TabOrder = 7
+        OnClick = BtnOpenStatesClick
       end
       object CbRuntoSS: TCheckBox
-        Left = 32
+        AnchorSideLeft.Control = RbSpecialRun
+        AnchorSideTop.Control = CbHoldStatesConstant
+        AnchorSideTop.Side = asrBottom
+        Left = 30
         Height = 19
-        Top = 161
-        Width = 119
+        Top = 155
+        Width = 123
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 10
         Caption = 'Run to S&teady State.'
-        OnClick = CbRuntoSSClick
-        OnKeyPress = CbRuntoSSKeyPress
+        ParentFont = False
         TabOrder = 8
         Visible = False
+        OnClick = CbRuntoSSClick
+        OnKeyPress = CbRuntoSSKeyPress
       end
       object EdSSCriteria: TEdit
-        Left = 212
-        Height = 22
-        Top = 189
-        Width = 65
-        OnExit = EdSSCriteriaExit
-        OnKeyPress = EdSSCriteriaKeyPress
+        AnchorSideLeft.Control = LblSSCriteria
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = LblSSCriteria
+        AnchorSideTop.Side = asrCenter
+        Left = 201
+        Height = 23
+        Top = 180
+        Width = 60
+        BorderSpacing.Left = 5
+        ParentFont = False
         TabOrder = 9
         Visible = False
+        OnExit = EdSSCriteriaExit
+        OnKeyPress = EdSSCriteriaKeyPress
       end
       object EdSSTime: TEdit
-        Left = 496
-        Height = 22
-        Top = 189
-        Width = 65
-        OnExit = EdSSTimeExit
-        OnKeyPress = EdSSTimeKeyPress
+        AnchorSideLeft.Control = LblSSTime
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = LblSSCriteria
+        AnchorSideTop.Side = asrCenter
+        Left = 456
+        Height = 23
+        Top = 180
+        Width = 60
+        BorderSpacing.Left = 5
+        ParentFont = False
         TabOrder = 10
         Visible = False
+        OnExit = EdSSTimeExit
+        OnKeyPress = EdSSTimeKeyPress
       end
       object CbHoldStatesConstant: TCheckBox
-        Left = 32
+        AnchorSideLeft.Control = RbSpecialRun
+        AnchorSideTop.Control = CbResetStates
+        AnchorSideTop.Side = asrBottom
+        Left = 30
         Height = 19
-        Top = 128
-        Width = 204
+        Top = 126
+        Width = 216
+        BorderSpacing.Left = 20
+        BorderSpacing.Top = 10
         Caption = '&Hold selected state variables constant'
         Enabled = False
-        OnClick = CbHoldStatesConstantClick
+        ParentFont = False
         TabOrder = 6
+        OnClick = CbHoldStatesConstantClick
       end
     end
     object TsOutputOptions: TTabSheet
       Caption = 'Output Options'
-      ClientHeight = 230
-      ClientWidth = 732
+      ClientHeight = 441
+      ClientWidth = 712
       ImageIndex = 1
-      object Panel1: TPanel
+      ParentFont = False
+      object GBSimulation: TGroupBox
+        AnchorSideLeft.Control = TsOutputOptions
+        AnchorSideTop.Control = TsOutputOptions
+        AnchorSideRight.Control = TsOutputOptions
+        AnchorSideRight.Side = asrBottom
         Left = 0
-        Height = 114
-        Top = 0
-        Width = 732
-        Align = alTop
-        BevelOuter = bvNone
-        BorderStyle = bsSingle
-        ClientHeight = 110
-        ClientWidth = 728
+        Height = 134
+        Top = 10
+        Width = 712
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Top = 10
+        Caption = 'Simulation Output Options'
+        ClientHeight = 114
+        ClientWidth = 708
+        ParentBackground = False
+        ParentFont = False
         TabOrder = 0
-        object LblTimeUnit3: TLabel
-          Left = 196
-          Height = 14
-          Top = 14
-          Width = 134
-          Alignment = taCenter
-          Caption = 'months, &beginning at month '
-          FocusControl = EdOutputOffset
-        end
         object LblYearlyCaution: TLabel
-          Left = 224
-          Height = 14
-          Top = 77
-          Width = 495
-          Caption = 'Only valid with daily models. Code must calculate the day of the year and store it in variable dayofyear.'
+          AnchorSideLeft.Control = EdOutputDayofYear
+          AnchorSideLeft.Side = asrBottom
+          AnchorSideTop.Control = RbOutputIntervalsAnnual
+          AnchorSideTop.Side = asrCenter
+          AnchorSideRight.Control = GBSimulation
+          AnchorSideRight.Side = asrBottom
+          Left = 213
+          Height = 30
+          Top = 79
+          Width = 493
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Left = 10
+          BorderSpacing.Right = 2
+          Caption = 'Only valid with daily models. Your code must calculate the day of the year and store it in a variable called dayofyear.'
+          ParentColor = False
+          ParentFont = False
           Visible = False
           WordWrap = True
         end
         object RbOutputIntervals: TRadioButton
-          Left = 8
+          AnchorSideLeft.Control = GBSimulation
+          AnchorSideTop.Control = LblSimOut
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Side = asrBottom
+          Left = 10
           Height = 19
-          Top = 14
-          Width = 86
-          Caption = 'O&utput every '
+          Top = 27
+          Width = 87
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 10
+          Caption = 'O&utput every'
           Checked = True
-          OnClick = RbOutputIntervalsClick
+          ParentFont = False
           TabOrder = 0
           TabStop = True
+          OnClick = RbOutputIntervalsClick
         end
         object EdOutputTimeStep: TEdit
-          Left = 133
-          Height = 22
-          Top = 11
-          Width = 57
+          AnchorSideLeft.Control = RbOutputIntervals
+          AnchorSideLeft.Side = asrBottom
+          AnchorSideTop.Control = RbOutputIntervals
+          AnchorSideTop.Side = asrCenter
+          Left = 101
+          Height = 23
+          Top = 25
+          Width = 60
+          BorderSpacing.Left = 4
+          ParentFont = False
+          TabOrder = 1
+          Text = '1'
           OnExit = EdOutputTimeStepExit
           OnKeyPress = EdOutputTimeStepKeyPress
-          TabOrder = 1
         end
         object EdOutputOffset: TEdit
-          Left = 400
-          Height = 22
-          Top = 11
-          Width = 58
+          AnchorSideLeft.Control = LblTimeUnit3
+          AnchorSideLeft.Side = asrBottom
+          AnchorSideTop.Control = RbOutputIntervals
+          AnchorSideTop.Side = asrCenter
+          Left = 322
+          Height = 23
+          Top = 25
+          Width = 60
+          BorderSpacing.Left = 4
+          ParentFont = False
+          TabOrder = 2
+          Text = '1'
           OnExit = EdOutputOffsetExit
           OnKeyPress = EdOutputOffsetKeyPress
-          TabOrder = 2
         end
         object RbOutEndofRunOnly: TRadioButton
-          Left = 8
+          AnchorSideLeft.Control = GBSimulation
+          AnchorSideTop.Control = RbOutputIntervals
+          AnchorSideTop.Side = asrBottom
+          Left = 10
           Height = 19
-          Top = 46
-          Width = 128
+          Top = 56
+          Width = 140
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 10
           Caption = 'Output &end of run only'
-          OnClick = RbOutputIntervalsClick
+          ParentFont = False
           TabOrder = 3
+          OnClick = RbOutputIntervalsClick
         end
         object RbOutputIntervalsAnnual: TRadioButton
-          Left = 8
+          AnchorSideLeft.Control = GBSimulation
+          AnchorSideTop.Control = RbOutEndofRunOnly
+          AnchorSideTop.Side = asrBottom
+          Left = 10
           Height = 19
-          Top = 78
-          Width = 124
-          Caption = 'Output &yearly on day '
-          OnClick = RbOutputIntervalsClick
+          Top = 85
+          Width = 129
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 10
+          Caption = 'Output &yearly on day'
+          ParentFont = False
           TabOrder = 4
           Visible = False
+          OnClick = RbOutputIntervalsClick
         end
         object EdOutputDayofYear: TEdit
-          Left = 144
-          Height = 22
-          Top = 75
-          Width = 68
-          OnExit = EdOutputDayofYearExit
-          OnKeyPress = EdOutputDayofYearKeyPress
+          AnchorSideLeft.Control = RbOutputIntervalsAnnual
+          AnchorSideLeft.Side = asrBottom
+          AnchorSideTop.Control = RbOutputIntervalsAnnual
+          AnchorSideTop.Side = asrCenter
+          Left = 143
+          Height = 23
+          Top = 83
+          Width = 60
+          BorderSpacing.Left = 4
+          ParentFont = False
           TabOrder = 5
           Visible = False
+          OnExit = EdOutputDayofYearExit
+          OnKeyPress = EdOutputDayofYearKeyPress
+        end
+        object LblTimeUnit3: TLabel
+          AnchorSideLeft.Control = EdOutputTimeStep
+          AnchorSideLeft.Side = asrBottom
+          AnchorSideTop.Control = RbOutputIntervals
+          AnchorSideTop.Side = asrCenter
+          Left = 165
+          Height = 15
+          Top = 29
+          Width = 153
+          Alignment = taCenter
+          BorderSpacing.Left = 4
+          Caption = 'months, &beginning at month'
+          FocusControl = EdOutputOffset
+          ParentColor = False
+          ParentFont = False
+        end
+        object LblSimOut: TLabel
+          AnchorSideLeft.Control = GBSimulation
+          AnchorSideTop.Control = GBSimulation
+          AnchorSideRight.Control = GBSimulation
+          AnchorSideRight.Side = asrBottom
+          Left = 2
+          Height = 15
+          Top = 2
+          Width = 704
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Around = 2
+          Caption = 'Model output is stored in memory during the simulation. These options control when output is saved to memory.'
+          ParentColor = False
+          ParentFont = False
         end
       end
-      object CbAppendOutput: TCheckBox
-        Left = 12
-        Height = 19
-        Top = 193
-        Width = 205
-        Caption = '&Append subsequent runs to output file'
-        OnClick = CbAppendOutputClick
-        ParentBidiMode = False
+      object GBFile: TGroupBox
+        AnchorSideLeft.Control = TsOutputOptions
+        AnchorSideTop.Control = GBSimulation
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = TsOutputOptions
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TsOutputOptions
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 287
+        Top = 154
+        Width = 712
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Top = 10
+        Caption = 'File Output Options'
+        ClientHeight = 267
+        ClientWidth = 708
+        ParentBackground = False
+        ParentFont = False
         TabOrder = 1
-        Visible = False
-      end
-      object CbNoOutputFile: TCheckBox
-        Left = 13
-        Height = 19
-        Top = 161
-        Width = 228
-        Caption = '&No output file, output stored in memory only'
-        OnClick = CbNoOutputFileClick
-        TabOrder = 2
-      end
-      object CbxWriteEvery: TCheckBox
-        Left = 13
-        Height = 19
-        Top = 127
-        Width = 138
-        Caption = '&Write output to file every'
-        OnClick = CbxWriteEveryClick
-        TabOrder = 3
-      end
-      object EdWriteEvery: TEdit
-        Left = 156
-        Height = 22
-        Top = 125
-        Width = 57
-        OnExit = EdWriteEveryExit
-        OnKeyPress = EdWriteEveryKeyPress
-        TabOrder = 4
-        Text = '0'
-      end
-      object LblTimeUnit6: TLabel
-        Left = 220
-        Height = 14
-        Top = 129
-        Width = 38
-        Alignment = taCenter
-        Caption = 'months.'
-        FocusControl = EdOutputOffset
+        object LblFileOut: TLabel
+          AnchorSideLeft.Control = GBFile
+          AnchorSideTop.Control = GBFile
+          AnchorSideRight.Control = GBFile
+          AnchorSideRight.Side = asrBottom
+          Left = 2
+          Height = 15
+          Top = 2
+          Width = 704
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Around = 2
+          Caption = 'At the end of the simulation, model output is written to a file using these options.'
+          ParentColor = False
+          ParentFont = False
+        end
+        object RbNoOutputFile: TRadioButton
+          AnchorSideLeft.Control = GBFile
+          AnchorSideTop.Control = LblFileOut
+          AnchorSideTop.Side = asrBottom
+          Left = 10
+          Height = 19
+          Top = 22
+          Width = 262
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 5
+          Caption = 'No output file. Output stored in memory only.'
+          ParentFont = False
+          TabOrder = 0
+          OnClick = CbNoOutputFileClick
+        end
+        object RbOutputFile: TRadioButton
+          AnchorSideLeft.Control = GBFile
+          AnchorSideTop.Control = RbNoOutputFile
+          AnchorSideTop.Side = asrBottom
+          Left = 10
+          Height = 19
+          Top = 51
+          Width = 266
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 10
+          Caption = 'Create output file/s. Choose file options below.'
+          Checked = True
+          ParentFont = False
+          TabOrder = 2
+          TabStop = True
+          OnClick = CbNoOutputFileClick
+        end
+        object PnlOutOpt: TPanel
+          AnchorSideLeft.Control = GBFile
+          AnchorSideTop.Control = RbOutputFile
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = GBFile
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = GBFile
+          AnchorSideBottom.Side = asrBottom
+          Left = 20
+          Height = 195
+          Top = 72
+          Width = 688
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          BorderSpacing.Left = 20
+          BorderSpacing.Top = 2
+          ClientHeight = 195
+          ClientWidth = 688
+          ParentBackground = False
+          ParentFont = False
+          TabOrder = 1
+          object CbAppendOutput: TCheckBox
+            AnchorSideLeft.Control = PnlOutOpt
+            AnchorSideTop.Control = CbxSavePar2Out
+            AnchorSideTop.Side = asrBottom
+            Left = 11
+            Height = 19
+            Top = 126
+            Width = 222
+            BorderSpacing.Left = 10
+            BorderSpacing.Top = 10
+            Caption = '&Append subsequent runs to output file'
+            ParentFont = False
+            ParentBidiMode = False
+            TabOrder = 0
+            Visible = False
+            OnClick = CbxOutFileClick
+          end
+          object CbxWriteEvery: TCheckBox
+            Tag = 1
+            AnchorSideLeft.Control = PnlOutOpt
+            AnchorSideTop.Side = asrBottom
+            Left = 11
+            Height = 19
+            Top = 10
+            Width = 141
+            BorderSpacing.Left = 10
+            BorderSpacing.Top = 10
+            Caption = 'Write data to disk every'
+            ParentFont = False
+            TabOrder = 1
+            OnClick = CbxOutFileClick
+          end
+          object EdWriteEvery: TEdit
+            Tag = 1
+            AnchorSideLeft.Control = CbxWriteEvery
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CbxWriteEvery
+            AnchorSideTop.Side = asrCenter
+            Left = 156
+            Height = 23
+            Top = 8
+            Width = 60
+            BorderSpacing.Left = 4
+            ParentFont = False
+            TabOrder = 2
+            Text = '0'
+            OnExit = EdWriteEveryExit
+            OnKeyPress = EdWriteEveryKeyPress
+          end
+          object LblTimeUnit6: TLabel
+            AnchorSideLeft.Control = EdWriteEvery
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CbxWriteEvery
+            AnchorSideTop.Side = asrCenter
+            Left = 220
+            Height = 15
+            Top = 12
+            Width = 262
+            Alignment = taCenter
+            BorderSpacing.Left = 4
+            Caption = '. Select this if your simulation output is very large.'
+            FocusControl = EdOutputOffset
+            ParentColor = False
+            ParentFont = False
+          end
+          object CbxSaveBegin: TCheckBox
+            Tag = 2
+            AnchorSideLeft.Control = PnlOutOpt
+            AnchorSideTop.Control = CbxWriteEvery
+            AnchorSideTop.Side = asrBottom
+            Left = 11
+            Height = 19
+            Top = 39
+            Width = 69
+            BorderSpacing.Left = 10
+            BorderSpacing.Top = 10
+            Caption = 'Write first'
+            ParentFont = False
+            TabOrder = 3
+            OnClick = CbxOutFileClick
+          end
+          object CbxSaveEnd: TCheckBox
+            Tag = 3
+            AnchorSideLeft.Control = PnlOutOpt
+            AnchorSideTop.Control = CbxSaveBegin
+            AnchorSideTop.Side = asrBottom
+            Left = 11
+            Height = 19
+            Top = 68
+            Width = 67
+            BorderSpacing.Left = 10
+            BorderSpacing.Top = 10
+            Caption = 'Write last'
+            ParentFont = False
+            TabOrder = 4
+            OnClick = CbxOutFileClick
+          end
+          object EdSaveBegin: TEdit
+            Tag = 2
+            AnchorSideLeft.Control = CbxSaveBegin
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CbxSaveBegin
+            AnchorSideTop.Side = asrCenter
+            Left = 84
+            Height = 23
+            Top = 37
+            Width = 60
+            BorderSpacing.Left = 4
+            ParentFont = False
+            TabOrder = 5
+            Text = '0'
+            OnChange = EdSaveTimeExit
+          end
+          object EdSaveEnd: TEdit
+            Tag = 3
+            AnchorSideLeft.Control = CbxSaveEnd
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CbxSaveEnd
+            AnchorSideTop.Side = asrCenter
+            Left = 82
+            Height = 23
+            Top = 66
+            Width = 60
+            BorderSpacing.Left = 4
+            ParentFont = False
+            TabOrder = 6
+            Text = '0'
+            OnChange = EdSaveTimeExit
+          end
+          object LblSaveBegin: TLabel
+            AnchorSideLeft.Control = EdSaveBegin
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CbxSaveBegin
+            AnchorSideTop.Side = asrCenter
+            Left = 148
+            Height = 15
+            Top = 41
+            Width = 92
+            BorderSpacing.Left = 4
+            Caption = ' to a separate file.'
+            ParentColor = False
+            ParentFont = False
+          end
+          object LblSaveEnd: TLabel
+            AnchorSideLeft.Control = EdSaveEnd
+            AnchorSideLeft.Side = asrBottom
+            AnchorSideTop.Control = CbxSaveEnd
+            AnchorSideTop.Side = asrCenter
+            Left = 146
+            Height = 15
+            Top = 70
+            Width = 92
+            BorderSpacing.Left = 4
+            Caption = ' to a separate file.'
+            ParentColor = False
+            ParentFont = False
+          end
+          object CbxSavePar2Out: TCheckBox
+            Tag = 4
+            AnchorSideLeft.Control = PnlOutOpt
+            AnchorSideTop.Control = CbxSaveEnd
+            AnchorSideTop.Side = asrBottom
+            Left = 11
+            Height = 19
+            Top = 97
+            Width = 196
+            BorderSpacing.Left = 10
+            BorderSpacing.Top = 10
+            Caption = '&Save parameters to the output file'
+            ParentFont = False
+            ParentBidiMode = False
+            TabOrder = 7
+            Visible = False
+            OnClick = CbxOutFileClick
+          end
+        end
       end
     end
     object TsTimeSteps: TTabSheet
       Caption = 'Time Steps'
-      ClientHeight = 230
-      ClientWidth = 732
+      ClientHeight = 441
+      ClientWidth = 712
       ImageIndex = 2
+      ParentFont = False
       object LblTimeStep: TLabel
-        Left = 11
-        Height = 14
-        Top = 40
-        Width = 134
-        Alignment = taRightJustify
-        AutoSize = False
+        AnchorSideLeft.Control = TsTimeSteps
+        AnchorSideTop.Control = TsTimeSteps
+        Left = 10
+        Height = 15
+        Top = 10
+        Width = 108
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 10
         Caption = '&Integrator Time Step'
         FocusControl = METimeStep
+        ParentColor = False
+        ParentFont = False
       end
       object LblDiscreteStep: TLabel
-        Left = 11
-        Height = 14
-        Top = 88
-        Width = 134
-        Alignment = taRightJustify
-        AutoSize = False
+        AnchorSideLeft.Control = TsTimeSteps
+        AnchorSideTop.Control = LblTimeStep
+        AnchorSideTop.Side = asrBottom
+        Left = 10
+        Height = 15
+        Top = 45
+        Width = 98
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 20
         Caption = 'Discrete Time Step'
         FocusControl = MEDiscreteStep
+        ParentColor = False
+        ParentFont = False
       end
       object LblTimeUnit4: TLabel
-        Left = 256
-        Height = 14
-        Top = 41
-        Width = 121
-        AutoSize = False
+        AnchorSideLeft.Control = METimeStep
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = LblTimeStep
+        AnchorSideTop.Side = asrCenter
+        Left = 198
+        Height = 15
+        Top = 10
+        Width = 71
+        BorderSpacing.Left = 10
         Caption = 'LblTimeUnit4'
+        ParentColor = False
+        ParentFont = False
       end
       object LblErrorMult: TLabel
-        Left = 11
-        Height = 14
-        Top = 168
-        Width = 134
-        Alignment = taRightJustify
-        AutoSize = False
+        AnchorSideLeft.Control = TsTimeSteps
+        AnchorSideTop.Control = LblDiscreteStep
+        AnchorSideTop.Side = asrBottom
+        Left = 10
+        Height = 15
+        Top = 80
+        Width = 79
+        BorderSpacing.Left = 10
+        BorderSpacing.Top = 20
         Caption = 'Error Multiplier'
         FocusControl = MeErrorMult
+        ParentColor = False
+        ParentFont = False
       end
       object LblErrorMult2: TLabel
-        Left = 256
-        Height = 14
-        Top = 169
-        Width = 289
-        AutoSize = False
+        AnchorSideLeft.Control = MeErrorMult
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = LblErrorMult
+        AnchorSideTop.Side = asrCenter
+        Left = 169
+        Height = 15
+        Top = 80
+        Width = 206
+        BorderSpacing.Left = 10
         Caption = 'integer, larger values allow larger errors'
+        ParentColor = False
+        ParentFont = False
       end
       object METimeStep: TMaskEdit
-        Left = 151
-        Height = 22
-        Top = 37
-        Width = 99
+        AnchorSideLeft.Control = LblTimeStep
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = LblTimeStep
+        AnchorSideTop.Side = asrCenter
+        Left = 128
+        Height = 23
+        Top = 6
+        Width = 60
+        BorderSpacing.Left = 10
+        EnableSets = False
         MaxLength = 5
+        ParentFont = False
         TabOrder = 0
         OnExit = METimeStepExit
         OnKeyPress = METimeStepKeyPress
@@ -416,11 +816,18 @@ object FmOptions: TFmOptions
         SpaceChar = ' '
       end
       object MEDiscreteStep: TMaskEdit
-        Left = 151
-        Height = 22
-        Top = 85
-        Width = 99
+        AnchorSideLeft.Control = LblDiscreteStep
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = LblDiscreteStep
+        AnchorSideTop.Side = asrCenter
+        Left = 118
+        Height = 23
+        Top = 41
+        Width = 60
+        BorderSpacing.Left = 10
+        EnableSets = False
         MaxLength = 5
+        ParentFont = False
         TabOrder = 1
         OnExit = MEDiscreteStepExit
         OnKeyPress = MEDiscreteStepKeyPress
@@ -429,11 +836,18 @@ object FmOptions: TFmOptions
         SpaceChar = ' '
       end
       object MeErrorMult: TMaskEdit
-        Left = 151
-        Height = 22
-        Top = 165
-        Width = 99
+        AnchorSideLeft.Control = LblErrorMult
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = LblErrorMult
+        AnchorSideTop.Side = asrCenter
+        Left = 99
+        Height = 23
+        Top = 76
+        Width = 60
+        BorderSpacing.Left = 10
+        EnableSets = False
         MaxLength = 0
+        ParentFont = False
         TabOrder = 2
         OnExit = MeErrorMultExit
         OnKeyPress = MeErrorMultKeyPress
@@ -442,12 +856,70 @@ object FmOptions: TFmOptions
       end
     end
   end
-  object LblTimeUnit5: TLabel
-    Left = 264
-    Height = 14
-    Top = 112
-    Width = 121
-    AutoSize = False
-    Caption = 'LblTimeUnit5'
+  object PnlButtons: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = PcOptions
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 54
+    Top = 469
+    Width = 720
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientHeight = 54
+    ClientWidth = 720
+    ParentBackground = False
+    TabOrder = 1
+    object BtnCancel: TButton
+      AnchorSideTop.Control = PnlButtons
+      AnchorSideRight.Control = BtnOK
+      Left = 595
+      Height = 25
+      Top = 11
+      Width = 62
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      BorderSpacing.Around = 10
+      Cancel = True
+      Caption = '&Cancel'
+      ModalResult = 2
+      ParentFont = False
+      TabOrder = 0
+      OnClick = BtnCancelClick
+    end
+    object BtnOK: TButton
+      AnchorSideTop.Control = PnlButtons
+      AnchorSideRight.Control = PnlButtons
+      AnchorSideRight.Side = asrBottom
+      Left = 667
+      Height = 25
+      Top = 11
+      Width = 42
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      BorderSpacing.Around = 10
+      Caption = 'O&K'
+      ModalResult = 1
+      ParentFont = False
+      TabOrder = 1
+      OnClick = BtnOKClick
+    end
+    object BtnDefaults: TButton
+      AnchorSideLeft.Control = PnlButtons
+      AnchorSideTop.Control = PnlButtons
+      Left = 11
+      Height = 25
+      Top = 11
+      Width = 69
+      AutoSize = True
+      BorderSpacing.Around = 10
+      Caption = 'De&faults'
+      ParentFont = False
+      TabOrder = 2
+      OnClick = BtnDefaultsClick
+    end
   end
 end

@@ -20,12 +20,13 @@ type
     MoDrivers: TMemo;
     Panel1: TPanel;
     BtnSaveFile: TButton;
-    BtnClose: TButton;
+    BtnCancel: TButton;
     BtnChooseFile: TButton;
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BtnSaveFileClick(Sender: TObject);
     procedure BtnChooseFileClick(Sender: TObject);
-    procedure BtnCloseClick(Sender: TObject);
+    procedure BtnCancelClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +50,15 @@ var
  ttstring:Tstringlist;
  ll: integer;
 begin
+ // Make sure form is visible and fits on the screen
+ with FmNote do
+  begin
+    if Width>Screen.WorkAreaWidth then Width:=Screen.WorkAreaWidth;
+    if Height>Screen.WorkAreaHeight then Height:=Screen.WorkAreaHeight;
+    if Left<Screen.WorkAreaLeft then Left:=Screen.WorkAreaLeft;
+    if Top<Screen.WorkAreaTop then Top:=Screen.WorkAreaTop;
+  end;
+
 // Clear the memo component of old data
   MoDrivers.Lines.Clear;
 
@@ -98,6 +108,17 @@ begin
  MoDrivers.Modified := False;
 end;
 
+procedure TFmNote.FormCreate(Sender: TObject);
+begin
+{$ifdef Darwin}
+  BtnCancel.AnchorSideRight.Control:=Panel1;
+  BtnCancel.AnchorSideRight.Side:=asrRight;
+  BtnSaveFile.AnchorSideRight.Control:=BtnCancel;
+  BtnSaveFile.AnchorSideRight.Side:=asrLeft;
+{$endif}
+
+end;
+
 { Save changes made to the drivers in the memo component. }
 procedure TFmNote.BtnSaveFileClick(Sender: TObject);
 begin
@@ -110,6 +131,7 @@ begin
   begin
    // Save the driver filename from the save dialog
    Driverfilename := FmShellMain.DlgSaveDriver.filename;
+   FmShellMain.DriverBox.Text:=Driverfilename;
    { Save the file. Note that this function does not use the WriteDriverFile
     procedure provided in fileio.pas. This is because it is easier to save the
     file from the memo component directly then to parse the lines in the memo
@@ -130,13 +152,13 @@ begin
  formshow(BtnChooseFile);
 end;
 
-procedure TFmNote.BtnCloseClick(Sender: TObject);
+procedure TFmNote.BtnCancelClick(Sender: TObject);
 begin
  if MoDrivers.Modified then
    begin
      if MessageDlg('The changes you made to the drivers are about to be lost. '
           + 'Do you want to save the driver file before proceeding?' ,
-          mtWarning,[mbyes,mbno],0) = mryes then BtnSaveFileClick(BtnClose);
+          mtWarning,[mbyes,mbno],0) = mryes then BtnSaveFileClick(BtnCancel);
    end;
 // FmNote.ModalResult := mrOK;
  FmNote.Close;

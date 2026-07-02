@@ -54,7 +54,7 @@ var
 
 implementation
 
-uses fileio, frontend;
+uses fileio, frontend, parameter;
 
 {$R *.lfm}
 
@@ -62,8 +62,20 @@ uses fileio, frontend;
 // Set up the form
 procedure TDataForm.FormCreate(Sender: TObject);
 begin
+// Resize form to account for different dpi
+ DataForm.DisableAutoSizing;
+ DataForm.EnableAutoSizing;
+ DataForm.AutoScroll:=false;
+
+// Switch buttons
+{$ifdef Darwin}
+  BtnCancel.AnchorSideRight.Control:=PnlTop;
+  BtnCancel.AnchorSideRight.Side:=asrRight;
+  BtnOK.AnchorSideRight.Control:=BtnCancel;
+  BtnOK.AnchorSideRight.Side:=asrLeft;
+{$endif}
+
   StringGrid1.RowCount := ModelDef.numstate;
-  StringGrid1.FocusColor := clRed;
   StringGrid1.cells[0,0]:='HoldConstant?';
   StringGrid1.cells[1,0]:='Reset?';
   StringGrid1.cells[2,0]:='Variable Symbol';
@@ -75,7 +87,19 @@ end;
 procedure TDataForm.ShowStates;
 var
   i:integer;
+  tempstring: string;
 begin
+  // Make sure form is visible and fits on the screen
+tempstring:=StringGrid1.cells[3,0] ;
+ with DataForm do
+   begin
+     if Width>Screen.WorkAreaWidth then Width:=Screen.WorkAreaWidth;
+     if Height>Screen.WorkAreaHeight then Height:=Screen.WorkAreaHeight;
+     if Left<Screen.WorkAreaLeft then Left:=Screen.WorkAreaLeft;
+     if Top<Screen.WorkAreaTop then Top:=Screen.WorkAreaTop;
+   end;
+
+ tempstring:=StringGrid1.cells[3,0] ;
  Ftempstate := Stat;
  Caption := 'State Variables';  // Form Caption
  DataShowing := dtstate;
@@ -97,13 +121,13 @@ begin
      if stat[i].Reset then StringGrid1.Cells[1,i] := 'True'
      else StringGrid1.Cells[1,i] := 'False';
    end;
- DataForm.Width := min(round(0.9*Screen.Width), Stringgrid1.colcount*Stringgrid1.defaultcolwidth+10);
- DataForm.Height := min(round(0.8*Screen.Height), StringGrid1.rowcount*Stringgrid1.defaultrowheight+ PnlTop.Height +10);
+// DataForm.Width := min(round(0.9*Screen.Width), Stringgrid1.colcount*Stringgrid1.defaultcolwidth+10);
+// DataForm.Height := min(round(0.8*Screen.Height), StringGrid1.rowcount*Stringgrid1.defaultrowheight+ PnlTop.Height +10);
  BtnOK.Visible := True;
  BtnOK.Enabled := True;
  BtnCancel.Caption := '&Cancel';
- BtnCancel.Left := 480;
  DataForm.ActiveControl := StringGrid1;
+ tempstring:=StringGrid1.cells[3,0] ;
  ShowModal;   // Show the form
 end;
 
@@ -111,6 +135,15 @@ end;
 // Set up the form to show process variables then show the data
 procedure tDataForm.ShowProcess;
 begin
+ // Make sure form is visible and fits on the screen
+ with DataForm do
+  begin
+    if Width>Screen.WorkAreaWidth then Width:=Screen.WorkAreaWidth;
+    if Height>Screen.WorkAreaHeight then Height:=Screen.WorkAreaHeight;
+    if Left<Screen.WorkAreaLeft then Left:=Screen.WorkAreaLeft;
+    if Top<Screen.WorkAreaTop then Top:=Screen.WorkAreaTop;
+  end;
+
  ftempState := stat; // Necessary so that initial state variable values are saved.
  Caption := 'Process Variables';    // Form Caption
  DataShowing := dtProcess;
@@ -122,12 +155,11 @@ begin
  StringGrid1.Options := [goFixedVertLine,goFixedHorzLine,goVertLine,goHorzLine,
            goColSizing,goThumbTracking];
  UpdateProcess;
- DataForm.Width := min(round(0.9*Screen.Width), (Stringgrid1.colcount-2)*Stringgrid1.defaultcolwidth+10);
- DataForm.Height := min(round(0.8*Screen.Height), StringGrid1.rowcount*Stringgrid1.defaultrowheight+ PnlTop.Height +10);
+// DataForm.Width := min(round(0.9*Screen.Width), (Stringgrid1.colcount-2)*Stringgrid1.defaultcolwidth+10);
+// DataForm.Height := min(round(0.8*Screen.Height), StringGrid1.rowcount*Stringgrid1.defaultrowheight+ PnlTop.Height +10);
  BtnOK.Visible := False;
  BtnOK.Enabled := False;
  BtnCancel.Caption := '&Close';
- BtnCancel.Left:=20;
  Show;
 end;
 
@@ -161,6 +193,7 @@ procedure TDataForm.BtnCancelClick(Sender: TObject);
 begin
  if datashowing = dtstate then stat := ftempState;  // Set states back to original values
  ClearGrid;
+ if FmParameter.Visible then FmParameter.BtnProcessVar.Caption:='Show Process';
  if DataForm.Visible then DataForm.Close;
 end;
 
@@ -196,7 +229,7 @@ var
  i,j : integer;
 begin    // Set grid cells to empty strings
  for i := 0 to StringGrid1.RowCount - 1 do
-   for j := 2 to StringGrid1.ColCount - 1 do        // Don't do columns 0 and 1 because their the check boxes
+   for j := 2 to StringGrid1.ColCount - 1 do        // Don't do columns 0 and 1 because they're the check boxes
     StringGrid1.Cells[j,i] := '';
  StringGrid1.RowCount := 3;   // Reset row count
 end;

@@ -51,6 +51,7 @@ type
     MIExit: TMenuItem;
     MIBar: TMenuItem;
     MIShowTable: TMenuItem;
+    PnlButtons: TPanel;
     ParamLabel: TLabel;
     DriverLabel: TLabel;
     OutputLabel: TLabel;
@@ -126,13 +127,13 @@ type
     procedure ResetStatesNow(Sender: TObject);
   public
     { Public declarations }
+    initialstates:statearray;
     CurrentPath:string;
     RunningInteractive: Boolean;
     lastitem: TComponent;
     CurrentResid: Double;
     BeginningofRun: Boolean;
     LargeOutput: Boolean;
-    initialstates:statearray;
     procedure ShowProgressBar;
     procedure CancelRun;
  end;
@@ -168,6 +169,20 @@ var
  tempstring, tempstring2: string;
  ll:integer;
 begin
+// Force From resize to account for different dpi screens
+  FmShellMain.DisableAutoSizing;
+  FmShellMain.EnableAutoSizing;
+//  FmShellMain.AutoAdjustLayout(lapAutoAdjustForDPI,FmShellMain.DesignTimeDPI,FmShellMain.PixelsPerInch,0,0);
+
+// Make sure form is visible and fits on the screen
+  with FmShellMain do
+   begin
+     if Width>Screen.WorkAreaWidth then Width:=Screen.WorkAreaWidth;
+     if Height>Screen.WorkAreaHeight then Height:=Screen.WorkAreaHeight;
+     if Left<Screen.WorkAreaLeft then Left:=Screen.WorkAreaLeft;
+     if Top<Screen.WorkAreaTop then Top:=Screen.WorkAreaTop;
+   end;
+
 // Determine current path for dialog box initial directories
   CurrentPath := GetResourcePath();
 
@@ -224,19 +239,28 @@ begin
  oldparamfilename := paramfilename;
  DlgOpenParam.InitialDir:=CurrentPath;
 
- // If the user typed directly in the box
- if Sender is TEdit then paramfilename := parambox.text  // Set paramfilename
- else if RunningInteractive then // The user used either the menu or clicked on the label
-   begin  // Show the open file dialog
+ if (RunningInteractive) then
+  begin
+   if (Sender is TEdit) then
+     paramfilename := parambox.text  // Set paramfilename
+   else if (Sender is Tmenuitem) or (Sender is Tlabel) then
+    // The user used either the menu or clicked on the label
+    begin  // Show the open file dialog
            // First set the dialog box default filename to the current paramfile
       DlgOpenParam.filename := paramfilename;
           // If the user chooses OK in the dialog then set the new paramfilename
       if DlgOpenParam.execute then paramfilename := DlgOpenParam.filename;
-   end;
+    end;
+   FmOptions.Runoptions.Parfilename:=paramfilename;
+  end
+ else
+  begin
+     paramfilename := FmOptions.Runoptions.Parfilename;
+  end;
 
  if (paramfilename <> oldparamfilename) or not RunningInteractive then
   begin
-   if paramfilename <> '' then  // Be sure something was entered for the filename
+   if paramfilename <> Emptystr then  // Be sure something was entered for the filename
      try
       if not LazFileUtils.FileExistsUTF8(paramfilename)  then  // If the paramter file doesn't exist
         // Create a new parameter file using values in memory
@@ -272,9 +296,10 @@ begin
    Readytorun := false;   // Can't run the model.
   end;
 
+ FmOptions.Runoptions.Parfilename:=paramfilename;
  CurrentPath := ExtractFilePath(paramfilename);
  LazFileUtils.SetCurrentDirUTF8(CurrentPath);
- UpdateFmShellMain;  // Update the form
+ if RunningInteractive then UpdateFmShellMain;  // Update the form
 end;
 
 procedure TFmShellMain.BtnCloseShellClick(Sender: TObject);
@@ -290,24 +315,31 @@ end;
 procedure TFmShellMain.ChooseDriver(Sender: TObject);
 var
  olddriverfilename : string;
- i:integer;
 begin
  DlgOpenDriver.InitialDir:=CurrentPath;
 
  olddriverfilename := driverfilename;
-// If the user typed directly in the edit box
- if Sender is TEdit then driverfilename:=DriverBox.text  // Set the driverfile
- else  // User used the menu or clicked on the Driver label
-  begin   // Show the open file dialog
-    // First set the default filename to the current driverfile
-   DlgOpenDriver.filename := driverfilename;
-    // Show the dialog and if the user clicks OK, set the new driver filename
-   if DlgOpenDriver.execute then driverfilename := DlgOpenDriver.filename;
+ if (RunningInteractive) then
+  begin
+   if (Sender is TEdit) then  // User typed directly into the edit box
+     driverfilename:=DriverBox.text  // Set the driverfile
+   else if (Sender is Tmenuitem) or (Sender is Tlabel) then
+     begin   // Show the open file dialog
+     // First set the default filename to the current driverfile
+       DlgOpenDriver.filename := driverfilename;
+     // Show the dialog and if the user clicks OK, set the new driver filename
+       if DlgOpenDriver.execute then driverfilename := DlgOpenDriver.filename;
+     end;
+   FmOptions.Runoptions.DriverFilename:=driverfilename;
+  end
+ else
+  begin
+   driverfilename := FmOptions.Runoptions.DriverFilename;
   end;
 
  if driverfilename <> olddriverfilename then
   begin
-   if driverfilename <> '' then    // Create a new empty file { TODO : When a new file is created the edit driver window should automatically pop up }
+   if driverfilename <> Emptystr then    // Create a new empty file { TODO : When a new file is created the edit driver window should automatically pop up }
      if not LazFileUtils.FileExistsUTF8(driverfilename)  then
        fileio.WriteDriverFile(driverfilename, fileio.driverlist);
    ReadytoRun := False; // This forces the edit boxes on the FmShellMain to be update with the new filename
@@ -315,8 +347,9 @@ begin
   end;
 
  CurrentPath := ExtractFilePath(paramfilename);
+ FmOptions.Runoptions.DriverFilename:=driverfilename;
  LazFileUtils.SetCurrentDirUTF8(CurrentPath);
- UpdateFmShellMain;
+ if RunningInteractive then  UpdateFmShellMain;
 end;
 
 { This procedure enables the user to choose an Output file using several
@@ -326,20 +359,39 @@ end;
   is displayed. }
 procedure TFmShellMain.ChooseOutputFile(Sender: TObject);
 var
- oldoutfilename : string;
+ oldoutfilename, filedir : string;
 begin     // If the user typed directly in the edit box
  DlgSaveOutput.InitialDir:=CurrentPath;
 
  oldoutfilename := outfilename;
 
- if Sender is TEdit then  Outfilename := OutputBox.text  // Set the output file
- else   // User used the menu or clicked on the Output label
-  begin  // Show the Save file dialog
-    // First set the default filename to the current output file.
-   DlgSaveOutput.filename := outfilename;
-   // Show the dialog and if the user chooses OK, set the outfilename to the new file.
-   if DlgSaveOutput.execute then outfilename := DlgSaveOutput.filename;
-  end;
+ if (RunningInteractive) then
+  begin
+   if (Sender is TEdit) then  // User used the menu or clicked on the Output label
+     Outfilename := OutputBox.text  // Set the output file
+   else if (Sender is Tmenuitem) or (Sender is Tlabel) then
+    begin  // Show the Save file dialog
+     // First set the default filename to the current output file.
+     if outfilename <> Emptystr then DlgSaveOutput.filename := outfilename;
+     // Show the dialog and if the user chooses OK, set the outfilename to the new file.
+     if DlgSaveOutput.execute then
+      begin
+       outfilename:= DlgSaveOutput.FileName;
+       filedir:=ExtractFilePath(outfilename);
+
+       if filedir = '/' then
+        begin
+         delete(outfilename,1,1);
+         outfilename := CurrentPath + outfilename;
+        end;
+      end;
+     FmOptions.Runoptions.OutputFilename:=outfilename;
+    end
+  end
+ else
+ begin
+  outfilename := FmOptions.Runoptions.OutputFilename;
+ end;
 
 {  if outfilename <> oldoutfilename then
   begin
@@ -355,11 +407,12 @@ begin     // If the user typed directly in the edit box
     end;              
   end;                 }
  FmDisplayOutput.DisplayFilename:=outfilename;
- CurrentPath := ExtractFilePath(paramfilename);
+ CurrentPath := ExtractFilePath(outfilename);
+ FmOptions.Runoptions.OutputFilename:=outfilename;
  LazFileUtils.SetCurrentDirUTF8(CurrentPath);
  RunComplete := False;
  ReadytoRun := False;  // Can't run without an output file.
- UpdateFmShellMain; // Update the form.
+ if RunningInteractive then  UpdateFmShellMain; // Update the form.
 end;
 
 { This procedure saves the current values of the state variables and the
@@ -392,6 +445,10 @@ with DlgSaveParam do
     // Set Ready to Run to false so the the edit boxes on the form will be
     // updated when UpdateFmShellMain is called.
 //    NewParamFile := False;
+
+    CurrentPath := ExtractFilePath(paramfilename);
+    LazFileUtils.SetCurrentDirUTF8(CurrentPath);
+
     ReadytoRun := False;
     RunComplete := False;
     UpdateFmShellMain;
@@ -401,7 +458,8 @@ end;
 
 procedure TFmShellMain.MISaveMemOutputClick(Sender: TObject);
 begin
-  FmDisplayOutput.WriteOutputfromMem;
+  FmDisplayOutput.WriteOutputfromMem(outFileName, strtofloat(FmDisplayOutput.SgModelOutput.Cells[0,3]),
+        strtofloat(FmDisplayOutput.SgModelOutput.Cells[0,FmDisplayOutput.SgModelOutput.RowCount-4]));
 end;
 
 { Procedure to allow the user to edit the parameter values. This procedure calls
@@ -577,13 +635,17 @@ end;
 // This procedure controls the actual running of a model scenario.
 procedure TFmShellMain.BtnRunClick(Sender: TObject);
 var
-  j, outputfreq, stepsperfullstep, nok, nbad, idx, endstate:integer;
+  j, outputfreq, stepsperfullstep, nok, nbad:integer;
   tempstat:yValueArray;
   drivetime, nextstep, remainder, errorest, SStest, SSstep, temp:double;
   steadystate, ResetDriverFile: Boolean;
-  previousstat, tempstate: statearray;
-  basename,anewname,theext:string;
+  previousstat: statearray;
 begin
+ ChooseParamFile(Sender);
+ ChooseDriver(Sender);
+ ChooseOutputFile(Sender);
+ MEStartTimeExit(Sender);
+ MEStopTimeExit(Sender);
  BeginningofRun := True;
  ResetDriverFile := False;
  LargeOutput := False;
@@ -629,7 +691,7 @@ begin
          processes(time, drivetime, drive, par, stat, proc, false)
       else
          processes(time, drivetime, drive, par, stat, proc, true);
-// Write output
+// Write output to memory
       FmOptions.RunOptions.outcounter := FmOptions.RunOptions.outcounter + 1;
       if FmOptions.RunOptions.OutputEORonly then
        begin
@@ -726,13 +788,21 @@ begin
       if stopRun then break;
     end;
  finally
-  if FmOptions.RunOptions.OutputFile then
-   if FmOptions.RunOptions.WriteEvery = 0 then FmDisplayOutput.WriteOutputfromMem;
+  if FmOptions.RunOptions.SaveOutputFile then
+   begin
+     if FmOptions.RunOptions.WriteEvery = 0 then
+       FmDisplayOutput.WriteOutputfromMem(outFileName, Time_Start,Time_Stop);  // Writes all output in memory
+     if FmOptions.RunOptions.SaveBeginning then
+       FmDisplayOutput.WriteOutputfromMem(FmOptions.BeginFile,0,0+strtofloat(FmOptions.EdSaveBegin.Caption)); // Writes the beginning of the output to a separate file
+     if FmOptions.RunOptions.SaveEnding then
+       FmDisplayOutput.WriteOutputfromMem(FmOptions.EndFile,Time_Stop-strtofloat(FmOptions.EdSaveEnd.Caption)+1,Time_Stop); // Writes the ending of the output to a separate file
+   end;
+
   stopRun := false;
   RunComplete := True;
   FmOptions.RunOptions.stepcounter := FmOptions.DefaultRunOptions.stepcounter;
   FmOptions.RunOptions.outcounter := FmOptions.DefaultRunOptions.outcounter;
-  ResetStatesNow(BtnRun);
+  if FmOptions.RunOptions.ResetStates then ResetStatesNow(BtnRun);
   if RunningInteractive then
    begin
     UpdateFmShellMain;
@@ -747,55 +817,6 @@ begin
       + 'written to the output file and removed from memory during the run. ' +
       'Only the final portion of the run is in memory. You will need to ' +
       'use a different program to view the results.' ,mtWarning,[mbOK],0);
-   end
-  else
-   begin
-     // Save parameter file if running a calibration in batch mode
-     if par[FmCalculate.GetArrayIndex(vtparameter,'calibrate')].value<>-999 then
-      begin
-     basename:=ExtractFileName(paramfilename);
-     theext:=ExtractFileExt(paramfilename);
-     delete(basename,pos(theext,basename),length(basename));
-     anewname:=basename+'.cal'+theext;
-     // Save the end of the calibration
-     WriteParamFile(anewname, ModelDef.numparam, par, ModelDef.numstate,
-                        stat, currentresid);
-     // Create a new parameter file for steady state run.
-     tempstate:=stat;
-     endstate:=FmCalculate.GetArrayIndex(vtstate,'RCa');
-     for idx := 1 to endstate do
-       tempstate[idx].Reset:=false;
-     anewname:=basename+'.final'+theext;
-     par[FmCalculate.GetArrayIndex(vtparameter,'calibrate')].value:=-999;
-     WriteParamFile(anewname, ModelDef.numparam, par, ModelDef.numstate,
-                        tempstate, currentresid);
-     // Create climate parameter files
-     //CO2
-     anewname:=basename+'.CO2'+theext;
-     par[FmCalculate.GetArrayIndex(vtparameter,'FlagCa')].value:=1;
-     WriteParamFile(anewname, ModelDef.numparam, par, ModelDef.numstate,
-                        tempstate, currentresid);
-     //T
-     anewname:=basename+'.T'+theext;
-     par[FmCalculate.GetArrayIndex(vtparameter,'FlagCa')].value:=0;
-     par[FmCalculate.GetArrayIndex(vtparameter,'FlagT')].value:=1;
-     WriteParamFile(anewname, ModelDef.numparam, par, ModelDef.numstate,
-                        tempstate, currentresid);
-     //Ppt
-     anewname:=basename+'.Ppt'+theext;
-     par[FmCalculate.GetArrayIndex(vtparameter,'FlagT')].value:=0;
-     par[FmCalculate.GetArrayIndex(vtparameter,'FlagPpt')].value:=1;
-     WriteParamFile(anewname, ModelDef.numparam, par, ModelDef.numstate,
-                        tempstate, currentresid);
-     //Call
-     anewname:=basename+'.Call'+theext;
-     par[FmCalculate.GetArrayIndex(vtparameter,'FlagCa')].value:=1;
-     par[FmCalculate.GetArrayIndex(vtparameter,'FlagT')].value:=1;
-     par[FmCalculate.GetArrayIndex(vtparameter,'FlagPpt')].value:=1;
-     WriteParamFile(anewname, ModelDef.numparam, par, ModelDef.numstate,
-                        tempstate, currentresid);
-
-      end;
    end;
  end;
  except
@@ -1006,18 +1027,34 @@ function TFmShellMain.GetResourcePath(): string;
 var
  pathRef:CFURLRef;
  pathCFStr: CFStringRef;
- pathStr: shortstring;
+ pathStr,newpathstr: shortstring;
+ tempstring:Tstringlist;
+ idx:integer;
 {$endif}
 begin
 {$ifdef Unix}
 {$ifdef Darwin}
-  pathRef := CFBundleCopyBundleURL(CFBundleGetMainBundle());
-  pathCFStr := CFURLCopyFileSystemPath(pathRef, kCFURLPOSIXPathStyle);
-  CFStringGetPascalString(pathCFStr, @pathStr, 255, CFStringGetSystemEncoding());
-  CFRelease(pathRef);
-  CFRelease(pathCFStr);
+  tempstring:=Tstringlist.create;
+  tempstring.Delimiter:='/';
+  tempstring.StrictDelimiter:=True;
+  try
+   pathRef := CFBundleCopyBundleURL(CFBundleGetMainBundle());
+   pathCFStr := CFURLCopyFileSystemPath(pathRef, kCFURLPOSIXPathStyle);
+   CFStringGetPascalString(pathCFStr, @pathStr, 255, CFStringGetSystemEncoding());
+   CFRelease(pathRef);
+   CFRelease(pathCFStr);
 
-  Result := pathStr + BundleResourceDirectory;
+  //Remove app name from the path
+   tempstring.DelimitedText:=pathStr;
+   newpathStr:='';
+   for idx := 1 to tempstring.Count-3 do  //starting at 1 because tempstring[0] is blank
+     begin                          // -3 so that the initial directory is one level above modelshell
+      newpathStr:=newpathStr+'/'+tempstring[idx];
+     end;
+   Result := newpathStr+'/'; //pathStr + BundleResourceDirectory;
+   finally
+     if assigned(tempstring) then FreeandNil(tempstring);
+   end;
 {$else}
   Result := DefaultUnixDirectory;
 {$endif}

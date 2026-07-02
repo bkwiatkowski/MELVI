@@ -1,6 +1,6 @@
 Model Definition File - 25 character maximum for all items
 Model Name= MELVI
-Model Version=	2.8.5
+Model Version= 3.5.0
 Model Time Unit= day
 Model Contact= Edward Rastetter
 Model Contact Address Line 1= The Ecosystems Center
@@ -9,52 +9,54 @@ Model Contact Address Line 3= Woods Hole, MA 02543
 
 States
 Name, Units, Symbol - Comma separated.
-biomass C, g C m-2, BC
-biomass N, g N m-2, BN
-biomass P, g P m-2, BP
-effort C, effort, VC 
-effort N, effort, VN 
-effort P, effort, VP
-sub effort CO2, effort, vCO2 
+Vegetation biomass C, g C m-2, BC
+Vegetation biomass N, g N m-2, BN
+Vegetation biomass P, g P m-2, BP
+Primary effort C, effort, VC
+Primary effort N, effort, VN
+Primary effort P, effort, VP
+sub effort CO2, effort, vCO2
 sub effort light, effort, vI
 sub effort H2O, effort, vW
 sub effort NH4, effort, vNH4
 sub effort NO3, effort, vNO3
 sub effort doN, effort, vdoN
-sub effort Nfix, effort, vNfix 
+sub effort Nfix, effort, vNfix
 Phase I SOM C, g C m-2, DC
 Phase I SOM N, g N m-2, DN
 Phase I SOM P, g P m-2, DP
-Woody debris C, g C m-2, WC
-Woody debris N, g N m-2, WN
-Woody debris P, g P m-2, WP
+Coarse debris C, g C m-2, WC
+Coarse debris N, g N m-2, WN
+Coarse debris P, g P m-2, WP
 Phase II SOM C, g C m-2, SC
 Phase II SOM N, g N m-2, SN
 Phase II SOM P, g P m-2, SP
-NH4, g N m-2, ENH4
-NO3, g N m-2, ENO3
-PO4, g P m-2, EPO4
-P Primary min, g P m-2, Pa
-P non-Occluded, g P m-2, Pno
-P Occluded, g P m-2, Poccl
-water, mm H2O, W
-snow pack, mm H2O, WSnow 
-Soil Heat, arbitrary, SQ
-canopy fraction, unitless, fc
-Ave requirement C, none, RCa
-Ave requirement N, none, RNa
-Ave requirement P, none, RPa
-Ave Acquisition C, none, UCa
-Ave Acquisition N, none, UNa
-Ave Acquisition P, none, UPa
-Degree day positive, oC day, DDayp
-Degree day negative, oC day, DDayn
+Total soil NH4, g N m-2, ENH4
+Total soil NO3, g N m-2, ENO3
+Total soil PO4, g P m-2, EPO4
+Primary min P, g P m-2, Pa
+non-Occluded P, g P m-2, Pno
+Occluded P, g P m-2, Poccl
+soil water, mm H2O, W
+snow water, mm H2O, WSnow
+Soil Heat density, MJ m-2, SQ
+fullness fraction canopy, none, fc
+LAI inhibit N fixation, m2 m-2, LAInfix
+Time-ave veg require C, g C m-2 day-1, RCa
+Time-ave veg require N, g N m-2 day-1, RNa
+Time-ave veg require P, g P m-2 day-1, RPa
+Time-ave veg uptake C, g C m-2 day-1, UCa
+Time-ave veg uptake N, g N m-2 day-1, UNa
+Time-ave veg uptake P, g P m-2 day-1, UPa
+Positive degree-day sum, oC, DDayp
+Negative degree-day sum, oC, DDayn
 Cum GPP, g C m-2, CumGPP
+Cum RCPt, g C m-2, CumRCPt
 Cum NPP, g C m-2, CumNPP
 Cum NEP, g C m-2, CumNEP
 Cum UdoC, g C m-2, CumUdoC
 Cum LitC, g C m-2, CumLitC
-Cum LcWC, g C m-2, CumLcWC 
+Cum LcWC, g C m-2, CumLcWC
 Cum Total Litter C, g C m-2, CumtotalLitC
 Cum Total Litter N, g N m-2, CumtotalLitN
 Cum Total Litter P, g P m-2, CumtotalLitP
@@ -84,9 +86,9 @@ Cum LcWPa, g P m-2, CumLcWPa
 Cum UPO4m, g P m-2, CumUPO4m
 Cum RPm, g P m-2, CumRPm
 Cum TiiP, g P m-2, CumTiiP
-Cum MiiC, g Cm-2,  CumMiiC
-Cum MiiN, g N m-2,  CumMiiN
-Cum MiiP, g P m-2,  CumMiiP
+Cum MiiC, g Cm-2, CumMiiC
+Cum MiiN, g N m-2, CumMiiN
+Cum MiiP, g P m-2, CumMiiP
 Cum INH4, g N m-2, CumINH4
 Cum LNH4, g N m-2, CumLNH4
 Cum nitrification, g N m-2, CumNitr
@@ -113,18 +115,19 @@ Cum rainfall, mm H2O, CumRfl
 Cum snowfall, mm H2O, CumSfl
 Cum snowmelt, mm H2O, CumSm
 Cum run in, mm H2O, CumRin
-Cum Rin doC, g C m-2 day-1, CumIRindoC
-Cum Rin doN, g N m-2 day-1, CumIRindoN
-Cum Rin NH4, g N m-2 day-1, CumIRinNH4
-Cum Rin NO3, g N m-2 day-1, CumIRinNO3
-Cum Rin PO4, g P m-2 day-1, CumIRinPO4
-Cum Overland flow, mm H2O, CumROvf 
+Cum Rin doC, g C m-2, CumIRindoC
+Cum Rin doN, g N m-2, CumIRindoN
+Cum Rin NH4, g N m-2, CumIRinNH4
+Cum Rin NO3, g N m-2, CumIRinNO3
+Cum Rin PO4, g P m-2, CumIRinPO4
+Cum Overland flow, mm H2O, CumROvf
 Cum Overland doC, g C m-2, CumROvfdoC
 Cum Overland doN, g N m-2, CumROvfdoN
 Cum Overland NH4, g N m-2, CumROvfNH4
 Cum Overland NO3, g N m-2, CumROvfNO3
 Cum Overland PO4, g P m-2, CumROvfPO4
 LAI peak season, m2 m-2, LAIpeak
+Day of fire, day of yr, DOf
 Cum BC fire loss, g C m-2, CumfBC
 Cum BN fire loss, g N m-2, CumfBN
 Cum BP fire loss, g P m-2, CumfBP
@@ -140,262 +143,266 @@ Cum TotP volatilized fire, g P m-2, CumFPvt
 Cum C FineLit to Debris, g C m-2, CumLitCDebris
 Cum N FineLit to Debris, g N m-2, CumLitNDebris
 Cum P FineLit to Debris, g P m-2, CumLitPDebris
-BC peak season, g C m-2, BCpeak 
+BC peak season, g C m-2, BCpeak
+sum Ps*T, oC g C m-2, SPsT
+sum Ps, g c m-2, SPs
+Opt temp photosynthesis, oC, Topt
+growing seson temp, oC, Tg
+Yr-to-date max snow H2O, mm H2O, WSmax
 End
 
 Process
 Process Name, Units, Symbol, Parameters, Process Type, IsDiscrete
 Parameters for each process: Name, Units, Symbol
-Temperature ave, oC, Ta, 0
-Biomass, g DW m-2, Bt, 0
-Biomass Active, g DW m-2, Ba, 5
-	Allometry alpha, , alphaB
-	Maximum Ba, g DW m-2, Bamax
-	Ba:Bt slope, none, gammaB
-	leaf area per DW, m2 g-1 DW, a_sla
-	C:DW ratio, g C g-1 DW, qC
-Biomass leaf, g DW m-2, BL, 0
-Biomass root, g DW m-2, BR, 0
-Biomass woody, g DW m-2, BW, 0
-leaf area, m2 m-2, L, 0
-Leaf area max, m2 m-2,L_max, 0
-canopy fraction growth, fraction day-1, Gfc, 6
-	evergreen canopy fraction, unitless, fcmin
-	canopy growth rate, deg-1 C day-1, alphaGfc
-	canopy growth water sens, unitless, betaGfc
-	wilting amplitude, unitless, gammaw
-	degree day bud break, deg C, Ddbud
-	canopy feedback exp, unitless, epsilonfc
-canopy growth water resp, unitless, deltaGcT, 0
-canopy fraction senescence, fraction day-1, Lfc, 3
-	day of year fall starts, day, Dfs
-	litter temperature rate, day-1, chicT
-	litter moisture rate, day-1, chicW
-canopy litter water resp, unitless, deltaLcW, 0
-VPD, MPa, Delta_E, 0
-soil potential, MPa, psiS, 24 
-	field capacity for plants, fraction of soil vol, theta_fp
-	field capacity for runoff, fraction of soil vol, theta_fro
-	wilting point, fraction of soil vol, theta_w
-	field potential, MPa, psi_f
-	wilting potential, MPa, psi_w
-	rooting depth, m, z0
-	soil porosity, fraction of soil vol, phis
-	bulk density, Mg m-3, rho_s
-	soil drain rate, day-1, drain
-	non-leaf sfc area, m2 m-2, NLsfc
-	branch exponent, none, NLe
-	Mid wood biomass, g DW m-2, MBW
-	intercept volume, mm m-2, Intv
-	NH4 sorption cap, g N Mg-1 dry soil, SNH4
-	NH4 affinity const, umol NH4 L-1, etaNH4
-	NO3 sorption cap, g N Mg-1 dry soil, SNO3
-	NO3 affinity const, umol NH4 L-1, etaNO3
-	PO4 sorption cap, g PO4 Mg-1 dry soil, SPO4
-	PO4 partition const, g sorbed g-1 solution, etaPO4
-        depth: hydraulically active, m, zW
-	PaDOC C:N cutoff, gC/gN, qPadoC
-	Nfix critical LAI, m2 m-2, Lcrit
-	doN runoff par, mm-1, aLdoN
-	Nfix Lcrit sens, none, eNfix
-P bal Apatite weathering, g P m-2 day-1, Paw, 1
-	apatite weathering rate, day-1, rPaw
-P bal PO4 precipitation, g P m-2 day-1, PO4P, 4
-	PO4 precip rate, day-1, rPO4P
-	non-occld weath rate, day-1, rPnow 
-	No-occld stab rate, day-1, rPnos
-	occlud weathering rate, day-1, rPocclw
-P bal Non-occl weathrng, g P m-2 day-1, Pnow, 0
-P bal occld weathering, g P m-2 day-1, Pocclw, 0
-P bal non-occld stablz, g P m-2 day-1, Pnos, 0
-canopy cond soil limited, mm H2O MPa-1 hr-1, c_cs, 0
-C bal Ps: Light limit, g C m-2 day-1, PsIrr, 0
-C bal Ps: CO2 limit, g C m-2 day-1, PsC, 0
-C bal Ps: Water limit, g C m-2 day-1, PsW, 0
-C bal photosynthesis, g C m-2 day-1, UC, 13
-	Neg leaching flag, none, FlagNegLeach
-	PET-root sensitivity, m2 soil m-1 root, kE
-	Ps CO2 rate constant, g C effort-1 day-1, gC
-	Ta Ps CA, oC, TaPs
-	Tb Ps CA, oC, TbPs
-	T exp a Ps CA, oC-1, aPs
-	T exp b Ps CA, oC-1, bPs
-	Ps light constant, g C effort-1 day-1, gI
-	light half sat, g C MJ-1, HSI
-	light extinct, none, kI
-	Ppt projection exp, mm-1, aPpt
-	UW Ps scaler, none, scg
-	Q10 resp, none, Q10R
-W bal water uptake, mm day-1, UW, 0
-potential ET, mm day-1, PET, 0
-aqueous NH4, umol NH4 L-1, NH4aq, 0
-N bal NH4 uptake, g N m-2 day-1, UNH4, 0
-aqueous NO3, umol NO3 L-1, NO3aq, 0
-N bal NO3 uptake, g N m-2 day-1, UNO3, 0
-Plant avail doC, umol C L-1, PaDoC, 0
-doC uptake, g C m-2 day-1, UdoC, 0
-N bal doN uptake, g N m-2 day-1, UdoN, 0
-N bal N fixation, g N m-2 day-1, UNfix, 0
-N bal total N uptake, g N m-2 day-1, UN, 16
-	NH4 uptake const, g N effort-1 day-1, gNH4
-	NH4 half sat const, umol L-1, kNH4
-	Q10 NH4 uptake, none, Q10NH4
-	NO3 uptake const, g N effort-1 day-1, gNO3
-	NO3 half sat const, umol L-1, kNO3
-	Q10 NO3 uptake, none, Q10NO3
-	Soil PadoC fraction, g N, bdoC
-	doC uptake const, g C effort-1 day-1, gdoC
-	doC half sat const, umol L-1, kdoC
-	Q10 doC uptake, none, Q10doC
-	N fix rate const, g N effort-1 day-1, gNfix
-	Q10 N fix, none, Q10Nfix
-	NH4 C cost, g C g-1 N, NH4Ccost
-	NO3 C cost, g C g-1 N, NO3Ccost
-	doN C cost, g C g-1 N, doNCcost
-	N fix C cost, g C g-1 N, NfixCcost
-aqueous PO4, umol PO4 L-1, PO4aq, 0
-P bal PO4 uptake, g P m-2 day-1, UPO4, 3
-	PO4 uptake const,g P effort-1 day-1, gPO4
-	PO4 half sat const, umol L-1, kPO4
-	Q10 PO4 uptake, none, Q10PO4
-actual N conc., g N g-1 DW, aqN, 0
-optimum N conc., g N g-1 DW, qN, 7
-	leaf N:DW, g N g-1 DW, qNL
-	Wood N:DW, g N g-1 DW, qNW
-	root N:DW, g N g-1 DW, qNR
-	leaf litter N:DW, g N g-1 DW, qNLl
-	wood litter N:DW, g N g-1 DW, qNWl
-	root litter N:DW, g N g-1 DW, qNRl
-	stoichio feedback, none, kq
-actual P conc., g P g-1 DW, aqP, 0
-optimum P conc., g P g-1 DW, qP, 6
-	leaf P:DW, g P g-1 DW, qPL
-	Wood P:DW, g P g-1 DW, qPW
-	root P:DW, g P g-1 DW, qPR
-	leaf litter P:DW, g P g-1 DW, qPLl
-	wood litter P:DW, g P g-1 DW, qPWl
-	root litter P:DW, g P g-1 DW, qPRl
-C bal Litter C, g C m-2 day-1, LitC, 3
-	leaf turnover evergreen, day-1, maL
-	BW turnover, day-1, mW
-	root turnover, day-1, maR
-N bal Litter N, g N m-2 day-1, LitN, 0
-P bal Litter P, g P m-2 day-1, LitP, 0
-C bal Fine-Debris Litter, g C m-2 day-1, LitCDebris, 3
-	Standing dead fine litt frac, fraction, fDebris
-	C:N LitCDebris, g C g-1 N, qNLDebris
-	C:P LitCDebris, g C g-1 P, qPLDebris	
-N bal Fine-Debris Litter, g N m-2 day-1, LitNDebris, 0
-P bal Fine-Debris Litter, g P m-2 day-1, LitPDebris, 0
-C coarse litter, g C m-2 day-1, LcWC, 4
-	coarse woody litter, day-1, mcw
-	wood litter exp, none, mcwex
-	coarse litter N:DW, g N g-1 DW, qNWwl
-	coarse litter P:DW, g P g-1 DW, qPWwl
-N coarse litter, g N m-2 day-1, LcWN, 0
-P coarse litter, g P m-2 day-1, LcWP, 0
-C CWD activation, g C m-2 day-1, LcWCa, 1
-	CWD turnover, day-1, omega
-N CWD activation, g N m-2 day-1, LcWNa, 0
-P CWD activation, g P m-2 day-1, LcWPa, 0
-maint C req, g C m-2 day-1, RCPm, 0
-C bal total plant resp, g C m-2 day-1, RCPt, 4
-	active resp, g C g-1 N day-1, rma
-	woody resp, g C g-1 N day-1, rmw
-	sapwd:heartwd parti exp, m2 g-1 DW, krmw
-	growth resp, fraction, rg
-N-use eff, unitless, NUE, 0
-P-use eff, unitless, PUE, 0
-H2O-use eff, unitless, WUE, 0
-allocatable effort, effort g-1 DW, Vstar, 6
-	acclim rate, day-1, acc
-	requirement turnover, day-1, tau
-	minimum effort, effort, chi0
-	C sub effort acclim rate, day-1, omegavC
-	N sub effort acclim rate, day-1, omegavN
-	max req to up index, none, lambda
+Ave daily Temperature, oC, Ta, 0
+Vegetation total biomass, g DW m-2, Bt, 0
+Vegetation active biomass, g DW m-2, Ba, 5
+  Veg allometry exponent, None, alphaB
+  Maximum active biomass, g DW m-2, Bamax
+  Slope Ba:Bt, none, gammaB
+  specific leaf area, m2 g-1 DW, a_sla
+  Veg biomass C:DW ratio, g C g-1 DW, sigmaC
+Vegetation leaf biomass, g DW m-2, BL, 0
+Vegetation fineroot biom, g DW m-2, BR, 0
+Vegetation Woody Biomass, g DW m-2, BW, 0
+Leaf area index, m2 m-2, L, 0
+Leaf area max, m2 m-2, L_max, 0
+canopy development rate, fraction day-1, Gfc, 6
+  evergreen canopy fraction, fraction, fcmin
+  canopy developmemt rate, deg-1 C day-1, alphaGfc
+  canopy growth water sens, none, betaGfc
+  canopy wilting coefficient, none, gammaw
+  degree-day of bud break, deg C, Ddbud
+  canopy dynamics exp, none, epsilonfc
+canopy growth water resp, none, deltaGcT, 0
+Rate canopy senescence, fraction day-1, Lfc, 3
+  Day of year fall starts, day, Dfs
+  Canopy scenecence rate, day-1, chicT
+  Drought canopy-loss rate, day-1, chicW
+Water limit canopy loss, none, deltaLcW, 0
+Index evap potential, MPa, Delta_e, 0
+Soil water potential, MPa, psiS, 24
+  Soil moist field capacity, fraction of soil vol, theta_fp
+  Soil moist begin drain, fraction of soil vol, theta_fro
+  Soil moist wilting point, fraction of soil vol, theta_w
+  Soil water pot field cap, MPa, psi_f
+  Soil water pot wilting, MPa, psi_w
+  Soil depth, m, z
+  soil porosity, fraction of soil vol, phis
+  bulk density, Mg m-3, rho_s
+  soil drain rate, day-1, drain
+  Woody sfc intercept area, m2 m-2, NLsfc
+  Woody sfc intercept exp, none, NLe
+  Woody biomass scf slope, g DW m-2, MBW
+  Daily intercept volume, L m-2 day-1, Intv
+  Soil sorption cap NH4, g N Mg-1 dry soil, SNH4
+  Soil affinity NH4, umol NH4 L-1, etaNH4
+  Soil sorption cap NO3, g N Mg-1 dry soil, SNO3
+  Soil affinity NO3, umol NO3 L-1, etaNO3
+  Soil sorption cap PO4, g P Mg-1 dry soil, SPO4
+  Soil affinity PO4, umol PO4 L-1, etaPO4
+  Calibration decay, none, CalDec
+  root soil-sat par, m3 m-1, kRl
+  LAI Nfix 50% max, m2 m-2, Lcrit
+  DON leaching constant, m2 g-1 C mm-1, aLdoN
+  Nfix shading sens, none, epsilonNfix
+Primary min P weathering, g P m-2 day-1, Paw, 1
+  Prim Min P weather rate, day-1, rPaw
+PO4 precipitate to nonocl, g P m-2 day-1, PO4P, 4
+  Non-occld P form rate, mm H2O g P umol-1 P day-1, rPO4P
+  Non-occld P weather rate, day-1, rPnow
+  Occld P form rate par, day-1, rPnos
+  Occlud P weather rate par, day-1, rPocclw
+Non-occl P weathering, g P m-2 day-1, Pnow, 0
+Occld P weathering, g P m-2 day-1, Pocclw, 0
+Non-occld P stabilize, g P m-2 day-1, Pnos, 0
+canopy cond light CO2 adj, m hr-1, c_sc, 0
+Light limit Ps, g C m-2 day-1, PsIrr, 0
+CO2 limit Ps, g C m-2 day-1, PsC, 0
+Water limit Ps, g C m-2 day-1, PsW, 0
+photosynthesis, g C m-2 day-1, UC, 13
+  Neg leaching flag, none, FlagNegLeach
+  Rate const H2O uptake, mm H2O hr-1, gW
+  Rate const CO2-limited Ps, g C m-2 leaf hr-1, gC
+  Fire loss fraction, fraction, FLF
+  unused, , unused2
+  unused, , unused3
+  unused, , unused4
+  Rate const light-lim Ps, g C m-2 leaf hr-1, gI
+  light half sat for Ps, MJ m-2 hr-1, HSI
+  Beers light extinct, m2 m-2, kI
+  unused, , unused4a
+  water lim Ps scale const, none, scg
+  Q10 autotroph resp, none, Q10R
+water uptake by veg, mm day-1, UW, 0
+water uptake potential, mm hr-1, UWmax, 0
+Soil-solution NH4, umol NH4 L-1, NH4aq, 0
+NH4 uptake by veg, g N m-2 day-1, UNH4, 0
+Soil-solution NO3, umol NO3 L-1, NO3aq, 0
+NO3 uptake by veg, g N m-2 day-1, UNO3, 0
+Plant avail DOC, umol C L-1, PaDoC, 0
+doC uptake by veg, g C m-2 day-1, UdoC, 0
+DON uptake by veg, g N m-2 day-1, UdoN, 0
+Symbiotic N fixation, g N m-2 day-1, UNfix, 0
+total N uptake by veg, g N m-2 day-1, UN, 16
+  Rate const NH4 uptake, g N m-2 day-1, gNH4
+  Half-sat NH4 uptake, umol N L-1, kNH4
+  Q10 NH4 uptake, none, Q10NH4
+  Rate cosnt NO3 uptake, g N m-2 day-1, gNO3
+  NO3 half sat const, umol N L-1, kNO3
+  Q10 NO3 uptake, none, Q10NO3
+  DOC solubility constant, g C m-2, bdoC
+  Rate const DOC uptake, g C m-2 day-1, gdoC
+  Half-sat DOC uptake, umol C L-1, kdoC
+  Q10 DOC uptake, none, Q10DOC
+  N fix rate const, g N m-2 day-1, gNfix
+  Q10 symb Nfix, none, Q10Nfix
+  NH4 C cost, g C g-1 N, phiNH4
+  NO3 C cost, g C g-1 N, phiNO3
+  DON C cost, g C g-1 N, phiDON
+  N fix C cost, g C g-1 N, phiNfix
+Soil-solution PO4, umol PO4 L-1, PO4aq, 0
+PO4 uptake by veg, g P m-2 day-1, UPO4, 3
+  Rate const PO4 uptake, g P m-2 day-1, gPO4
+  PO4 half sat const, umol P L-1, kPO4
+  Q10 PO4 uptake, none, Q10PO4
+actual N conc., g N g-1 DW, sigmaNa, 0
+optimum N conc., g N g-1 DW, sigmaN, 7
+  optimum leaf N:DW, g N g-1 DW, sigmaNL
+  optimum Wood N:DW, g N g-1 DW, sigmaNw
+  optimum root N:DW, g N g-1 DW, sigmaNr
+  optimum leaf litter N:DW, g N g-1 DW, sigmaNLL
+  optimum wood litter N:DW, g N g-1 DW, sigmaNwl
+  optimum root litter N:DW, g N g-1 DW, sigmaNrl
+  stoichiometric feedback, none, kq
+actual P conc., g P g-1 DW, sigmaPa, 0
+optimum P conc., g P g-1 DW, sigmaP, 6
+  optimum leaf P:DW, g P g-1 DW, sigmaPl
+  optimum Wood P:DW, g P g-1 DW, sigmaPW
+  optimum root P:DW, g P g-1 DW, sigmaPr
+  optimum leaf litter P:DW, g P g-1 DW, sigmaPll
+  optimum wood litter P:DW, g P g-1 DW, sigmaPWl
+  optimum root litter P:DW, g P g-1 DW, sigmaPrl
+Fine Litterfall C, g C m-2 day-1, LitC, 3
+  evergreen leaf turnover, day-1, maL
+  Fine wood turnover, day-1, mW
+  fine root turnover, day-1, maR
+Fine Litterfall N, g N m-2 day-1, LitN, 0
+Fine Litterfall P, g P m-2 day-1, LitP, 0
+Fine Litter C standing, g C m-2 day-1, LitCDebris, 3
+  Frac leaf lit Standing, fraction, fDebris
+  C:N standing fine litter, g C g-1 N, qNLDebris
+  C:P standing fine litter, g C g-1 P, qPLDebris
+Fine Litter N standing, g N m-2 day-1, LitNDebris, 0
+Fine Litter P standing, g P m-2 day-1, LitPDebris, 0
+Coarse litter C prod, g C m-2 day-1, LcWC, 4
+  coarse litter rate par, g C m-2 day-1, mcw
+  coarse litter modify exp, none, mcwex
+  coarse litter N:DW, g N g-1 DW, sigmaNwwl
+  coarse litter P:DW, g P g-1 DW, sigmaPWwl
+Coarse litter N prod, g N m-2 day-1, LcWN, 0
+Coarse litter P prod, g P m-2 day-1, LcWP, 0
+Coarse litter C to PhsI, g C m-2 day-1, LcWCa, 1
+  Coarse litter turnover, day-1, omega
+Coarse litter N to PhsI, g N m-2 day-1, LcWNa, 0
+Coarse litter P to PhsI, g P m-2 day-1, LcWPa, 0
+Metabolic resp vegetation, g C m-2 day-1, RCPm, 0
+Total vegetation resp, g C m-2 day-1, RCPt, 4
+  active-tissue resp rate, g C g-1 N day-1, rma
+  woody-tissue resp rate, g C g-1 N day-1, rmw
+  sapwd:heartwd parti exp, m2 g-1 DW, krmw
+  growth resp const, fraction, rg
+N-use eff, g C g-1 N, NUE, 0
+P-use eff, g C g-1 P, PUE, 0
+H2O-use eff, g C mm-1 H2O, WUE, 0
+allocatable effort, effort, Vstar, 6
+  acclim rate const, day-1, acc
+  require-uptake turnover, day-1, tau
+  minimum effort, effort, chi0
+  acclim rate C sub effort, day-1, omegavC
+  acclim rate N sub effort, day-1, omegavN
+  req-to-up weighting const, none, lambda
 growth C req, g C m-2 day-1, RCg, 0
 growth N req, g N m-2 day-1, RNg, 0
 growth P req, g P m-2 day-1, RPg, 0
-marginal yield NH4, g N effort-1 m-2 day-1, yNH4, 0
-marginal yield NO3, g N effort-1 m-2 day-1, yNO3, 0
-marginal yield doN, g N effort-1 m-2 day-1, ydoN, 0
-marginal yield Nfix, g N effort-1 m-2 day-1, yNfix, 0
-marginal yield CO2, g C effort-1 m-2 day-1, yCO2, 0
-marginal yield light, g C effort-1 m-2 day-1, yI, 0
-marginal yield H2O, g C effort-1 m-2 day-1, yW, 0
+N marginal yield NH4, g N effort-1 m-2 day-1, yNH4, 0
+N marginal yield NO3, g N effort-1 m-2 day-1, yNO3, 0
+N marginal yield doN, g N effort-1 m-2 day-1, ydoN, 0
+N marginal yield Nfix, g N effort-1 m-2 day-1, yNfix, 0
+C marginal yield CO2, g C effort-1 m-2 day-1, yCO2, 0
+C marginal yield light, g C effort-1 m-2 day-1, yI, 0
+C marginal yield H2O, g C effort-1 m-2 day-1, yW, 0
 average C yield, g C effort-1 m-2 day-1, yCa, 0
 average N yield, g N effort-1 m-2 day-1, yNa, 0
 Total C req, g C m-2 day-1, RCt, 0
 Total N req, g N m-2 day-1, RNt, 0
 Total P req, g P m-2 day-1, RPt, 0
-Mean req:uptake, none, phi, 0
-mesophyll CO2, ppm, Ci, 0
-Total effort, none, VTot, 0
-Total root effort, none, VR, 0
-Total leaf effort, none, VL, 0
-Total soil C, g C/m2, SoCt, 0
-Total soil N, g N/m2, SoNt, 0
-Total soil P, g P/m2, SoPt, 0
+Geom weighted mean req:up, none, phi, 0
+Total effort, effort, VTot, 0
+Total fine root effort, effort, VR, 0
+Total canopy effort, effort, VL, 0
+Total soil C, g C m-2, SoCt, 0
+Total soil N, g N m-2, SoNt, 0
+Total soil P, g P m-2, SoPt, 0
 C bal NPP, g C m-2 day-1, NPP, 0
-W bal runoff, mm day-1, Ro, 0
-NH4 leach, g N m-2 day-1, LNH4, 0
-NO3 leach, g N m-2 day-1, LNO3, 0
-C bal doC leach, g C m-2 day-1, LdoC, 0
-N bal doN leach, g N m-2 day-1, LdoN, 1
-	C:N dom leach, g C g-1 N, qLdom
+Runoff soil drainage, mm day-1, Ro, 0
+Leaching loss NH4, g N m-2 day-1, LNH4, 0
+Leaching loss NO3, g N m-2 day-1, LNO3, 0
+Leaching loss DOC, g C m-2 day-1, LdoC, 0
+Leaching loss DON, g N m-2 day-1, LdoN, 1
+  C:N leaching DOM, g C g-1 N, qLdom
 N bal total N leach, g N m-2 day-1, LNtot, 0
-P bal PO4 leach, g P m-2 day-1, LPO4, 0
-thetaN, g C/g N, thetaN, 0
-thetaP, g C/g P, thetaP, 0
-N bal Micr NH4 uptake, g N m-2 day-1, UNH4m, 0
-N bal Micr NO3 uptake, g N m-2 day-1, UNO3m, 0
-N bal tot Micr N uptake, g N m-2 day-1, UNmtot, 9
-	microb return C:N, g C g-1 N, phiN
-	Phase II OM C:N, g C g-1 N, qNSii
-	NH4 up par m, g N m-2 day-1, alphaNH4
-	NH4 half sat m, umol N L-1, kNH4m
-	NO3 up par m, g N m-2 day-1, alphaNO3
-	NO3 half sat m, umol N L-1, kNO3m
-	C:N Plant avail dom, g C g-1 N, qdom
-	Nitrifica rate, g N m-2 day-1, rrNitr
-	Nitrifica half sat const, umol N L-1, kNitr
-P bal Micr P uptake, g P m-2 day-1, UPO4m, 4
-	microb return C:P, g C g-1 P, phiP
-	Phase II OM C:P, g C g-1 P, qPSii
-	PO4 up par m, g P m-2 day-1, alphaPO4
-	PO4 half sat m, umol P L-1, kPO4m
-total C consump, g C m-2 day-1, MC, 0
-total N consump, g N m-2 day-1, MN, 0
-total P consump, g P m-2 day-1, MP, 0
-C efficiency, none, LambdaC,0
-N efficiency, none, LambdaN,0
-P efficiency, none, LambdaP,0
-C bal Microbial resp, g C m-2 day-1, RCm, 8 
-	max C eff, none, xiC
-	N pref coef, none, psiN
-	P pref coef, none, psiP
-	metabolic const, day-1, psiC
-	Q10 microb resp, none, Q10m
-	opt moisture, pore fraction, Wopt
-	J parameter, none, Jmoist
-	minimum moist, pore fraction, Wmin
-N bal gross N min, g N m-2 day-1, RNm, 0
-P bal gross P min, g P m-2 day-1, RPm, 0
-C bal Phase II tran, g C m-2 day-1, TiiC, 1
-	Si->Sii transit. modifier, none, aTii
-N bal Phase II tran, g N m-2 day-1, TiiN, 0
-P bal Phase II tran, g P m-2 day-1, TiiP, 0
-C bal Phase II min, g C m-2 day-1, MiiC, 1
-	Sii min rate modifier, none, aMii
-N bal Phase II min, g N m-2 day-1, MiiN, 0
-P bal Phase II min, g P m-2 day-1, MiiP, 0
-N Bal Non Sym N fix, g N m-2 day-1, Nnsfix, 3
-	lichen rate const, g N m-2 day-1, betaNfix
-	soil Nfix rate const, g2 N g-2 C day-1, gammaNfix
-	Nfix crit C:N, g C g-1 N, qSfix
-N bal Nitrification, g N m-2 day-1, Nitr, 0
-delta effort total, effort g-2 DW day-1, dVtot, 0
+Leaching loss PO4, g P m-2 day-1, LPO4, 0
+C:N microb weight N up, g C g-1 N, thetaN, 0
+C:P microb weight P up, g C g-1 P, thetaP, 0
+NH4 uptake by microbes, g N m-2 day-1, UNH4m, 0
+NO3 uptake by microbes, g N m-2 day-1, UNO3m, 0
+Total Micr N uptake, g N m-2 day-1, UNmtot, 9
+  C:N microbe byprod, g C g-1 N, phiN
+  Phase II OM C:N, g C g-1 N, qNSii
+  microbe NH4 up par, g N g-1 C day-1, alphaNH4
+  Half-sat micrb NH4 uptake, umol N L-1, kNH4m
+  microbe NO3 up par, g N g-1 C day-1, alphaNO3
+  NO3 half sat m, umol N L-1, kNO3m
+  C:N Plant avail dom, g C g-1 N, qdom
+  Nitrification rate par, g N m-2 day-1, rrNitr
+  Nitrifica half sat const, umol N L-1, kNitr
+P uptake by microbes, g P m-2 day-1, UPO4m, 4
+  C:P microbe byprod, g C g-1 P, phiP
+  Phase II OM C:P, g C g-1 P, qPSii
+  microbe PO4 up par, g P g-1 C day-1, alphaPO4
+  PO4 half sat m, umol P L-1, kPO4m
+Microbial C consumption, g C m-2 day-1, MC, 0
+Microbial N consumption, g N m-2 day-1, MN, 0
+Microbial P consumption, g P m-2 day-1, MP, 0
+Microbe C efficiency, none, LambdaC, 0
+Microbe N efficiency, none, LambdaN, 0
+Microbe P efficiency, none, LambdaP, 0
+Microbial resp, g C m-2 day-1, RCm, 8
+  max microbe C eff, none, epsilonC
+  PhsI N consume rate par, none, psiN
+  PhsI P consume rate par, none, psiP
+  PhsI C consume rate par, day-1, psiC
+  Q10 microb processes, none, Q10m
+  opt H2O microbes, pore fraction, Wopt
+  Microb sens to soil moist, none, Jmoist
+  minimum H2O microbes, pore fraction, Wmin
+Gross N min PhsI, g N m-2 day-1, RNm, 0
+Gross P min PhsI, g P m-2 day-1, RPm, 0
+PhsI to PhsII C tran, g C m-2 day-1, TiiC, 1
+  PhsI->II SOM convrt const, m4 g-1 N g-1 P day-1, aTii
+PhsI to PhsII N tran, g N m-2 day-1, TiiN, 0
+PhsI to PhsII P tran, g P m-2 day-1, TiiP, 0
+Mineralize PhsII C, g C m-2 day-1, MiiC, 1
+  Ps II SOM turnover const, day-1, aMii
+Mineralize PhsII N, g N m-2 day-1, MiiN, 0
+Mineralize PhsII P, g P m-2 day-1, MiiP, 0
+Non Sym N fix, g N m-2 day-1, Nnsfix, 3
+  lichen N fix rate const, g N m-2 day-1, betaNfix
+  soil Nfix rate const, g2 N g-2 C day-1, gammaNfix
+  Crit soil C:N for NS Nfix, g C g-1 N, qNnsfix
+Nitrification rate, g N m-2 day-1, Nitr, 0
+delta effort total, effort day-1, dVtot, 0
 N bal total Ndep, g N m-2 day-1, Ndept, 0
 N bal net N min, g N m-2 day-1, netNmin, 0
 P bal net P min, g P m-2 day-1, netPmin, 0
@@ -403,363 +410,399 @@ C bal NEP, g C m-2 day-1, NEP, 0
 N bal Net ecos, g N m-2 day-1, NeNb, 0
 P bal Net ecos, g P m-2 day-1, NePB, 0
 C bal Net ecos, g C m-2 day-1, NeCB, 0
-W bal Net ecos, mm H2O m-2 day-1, NEWB, 0
+W bal Net ecos, mm H2O day-1, NEWB, 0
 Cum Net Eco C bal, g C m-2, CumNeCB, 0
-Cum Net Eco N bal, g C m-2, CumNeNB, 0
-Cum Net Eco P bal, g C m-2, CumNePB, 0
-Cum Net Eco W bal, g C m-2, CumNeWB, 0
-biomass w full canopy, g C m-2, Btstar, 0
-Canopy litter, g C m-2 day-1, LL, 0 
+Cum Net Eco N bal, g N m-2, CumNeNB, 0
+Cum Net Eco P bal, g P m-2, CumNePB, 0
+Cum Net Eco W bal, mm H2O, CumNeWB, 0
+Vegetation biom fullcanpy, g DW m-2, Btm, 0
+Canopy litterfall, g C m-2 day-1, LL, 0
 Snow melt, mm day-1, Sm, 5
-	short wave coef, none, SWC
-	longwave coef, none, sB
-	latent heat of fusion H2O, MJ mm-1 m-2, LHF
-	convective coef, mm oC-1 day-1, CC
-	snow crit temp, oC, Tcrit
+  Snowmelt radiation coeff, L MJ-1, mQ
+  Snowmelt temp coeff, mm deg C-1 day-1, ar
+  Clear-sky transmissivity, none, sIsw
+  crit temp rain, oC, TcritR
+  crit temp snow, oC, TcritS
 Day of year, day, Doy, 4
-	degree day start, day, Ddds
-	time offset, days, Tly
-	latitude, degrees, lat
-	Doy divisor, days, DoyD 
+  Day of yr degreeday start, day, Ddds
+  time offset, days, Tly
+  Site latitude, degrees, lat
+  Doy divisor, days, DoyD
 Day length, hr day-1, Dl, 0
-declination, radians, delta, 0
+declination angle, radians, deltaA, 0
 Interception, mm day-1, Intr, 0
-requirement ratio CA, none, OmegaC, 0
-requirement ratio N, none, OmegaN, 0
-requirement ratio PO4, none, OmegaP, 0
+C require:uptake index, none, OmegaC, 0
+N require:uptake index, none, OmegaN, 0
+P require:uptake index, none, OmegaP, 0
 dUC dvCO2, g C m-2 day-1 effort-1, dUCdvCO2, 0
 dUC dvW, g C m-2 day-1 effort-1, dUCdvW, 0
 dUC dvI, g C m-2 day-1 effort-1, dUCdvI, 0
-dUC dvNH4, g N m-2 day-1 effort-1, dUNdvNH4, 0
-dUC dvNO3, g N m-2 day-1 effort-1, dUNdvNO3, 0
-dUC dvdoN, g N m-2 day-1 effort-1, dUNdvdoN, 0
-dUC dvNfix, g N m-2 day-1 effort-1, dUNdvNfix, 0
+dUN dvNH4, g N m-2 day-1 effort-1, dUNdvNH4, 0
+dUN dvNO3, g N m-2 day-1 effort-1, dUNdvNO3, 0
+dUN dvdoN, g N m-2 day-1 effort-1, dUNdvdoN, 0
+dUN dvNfix, g N m-2 day-1 effort-1, dUNdvNfix, 0
 dUC dVC, g C m-2 day-1 effort-1, dUCdVC, 0
-kickstarter: C effort, effort day-1,chiC, 0
-kickstarter: N effort, effort day-1,chiN, 0
-kickstarter: P effort, effort day-1,chiP, 0
-kickstarter: CO2 subeffort, effort day-1, zetaCO2,0
-kickstarter: W subeffort, effort day-1,zetaW,0
-kickstarter: I subeffort, effort day-1,zetaI,0
-kickstarter: NH4 subeffort, effort day-1,zetaNH4,0
-kickstarter: NO3 subeffort, effort day-1,zetaNO3,0
-kickstarter: Nfix subeffort, effort day-1,zetaNfix,0
-kickstarter: doN subeffort, effort day-1,zetadoN,0
-rooting depth: actual, m, z, 0
-near root depletion factor, none, betanRd, 0
-between root half distance, none, Rd, 1
-	Max between root half distance, none, Rdmax
-Root Length, m m-2 soil, Rl, 6
-	specific root length, m g-1 DW, asRl
-	root radius, m, Rr
-	diffusion NH4,m2 d-1, DNH4
-	diffusion NO3,m2 d-1, DNO3
-	diffusion dom,m2 d-1, Ddom
-	diffusion PO4,m2 d-1, DPO4
-Denitrification, g N m-2 day-1, DNtr, 3
-	Dntr rate constant, g N m-2 day-1, aDNtr
-	minimum moisture, fraction soil volume, thetaD
-	half sat DNtr, umol L-1, kDNtr 
+kickstart C effort, effort day-1, chiC, 0
+kickstart N effort, effort day-1, chiN, 0
+kickstart P effort, effort day-1, chiP, 0
+kickstart CO2 subeff, effort day-1, zetaCO2, 0
+kickstart W subeffort, effort day-1, zetaW, 0
+kickstart I subeffort, effort day-1, zetaI, 0
+kickstart NH4 subeff, effort day-1, zetaNH4, 0
+kickstart NO3 subeff, effort day-1, zetaNO3, 0
+kickstart Nfix subeff, effort day-1, zetaNfix, 0
+kickstart doN subeff, effort day-1, zetadoN, 0
+near root depletion fac, none, betanRd, 0
+Ave dist between roots, m, Rd, 1
+  Max bet root dist, m, Rdmax
+Fine-root Length, m m-2 soil, Rl, 6
+  specific fine-root length, m g-1 DW, asRl
+  fine-root radius, m, Rr
+  diffusion const for NH4, m2 d-1, DNH4
+  diffusion const for NO3, m2 d-1, DNO3
+  diffusion const for DOM, m2 d-1, Ddom
+  diffusion const for PO4, m2 d-1, DPO4
+Denitrification rate, g N m-2 day-1, DNtr, 3
+  Denitrificatn rate const, g N m-2 day-1, aDNtr
+  crit moist denitrify, fraction soil volume, thetaD
+  NO3 half-sat Denitrificat, umol N L-1, kDNtr
 Depth of peat, m, Dop, 0
-Soil volume per g C, m3/g C, VpC, 2
-	initial SOC, g C/m2, SoC0
-	initial depth of peat, m, Dop0
-Unfrozen soil fraction,fraction, fuf, 0
+Soil volume per g C, m3 g-1 C, VpC, 2
+  initial total SOC, g C m-2, SoC0
+  initial depth of peat, m, Dop0
+Unfrozen soil fraction, fraction, fuf, 0
 Soil temperature, oC, Ts, 15
-	downward cond, none, kds
-	radiation term, heat m2 day MJ-1, bI
-	cond organic soil, heat oC-1, kso
-	cond mineral soil, heat oC-1, ksm
-	cond water, heat oC-1, kw
-	snow conductance, heat oC-1 mm-1, ksnow
-	heat cap organic soil, oC heat-1, cso
-	heat cap min soil, oC heat-1, csm
-	heat cap water, oC heat-1, cw
-	zero low limit, heat, Ql
-	zero high limit, heat, Qh
-	deep soil temperature, oC, Tds
-	snow albedo, fraction, alpha
-	distance Dop to deep soil, m, zTds
-	depth of surface soil T, m, zTs
-Upward cond, heat oC-1, ks, 0
-Upward thaw cond, heat oC-1, kst, 0
-Upward frozen cond, heat oC-1, ksf, 0
-Frozen heat cap, oC heat-1, aQl, 0
-Thawed heat cap, oC heat-1, aQh, 0
-Snowfall, mm, Sfl, 0
-Rainfall, mm, Rfl, 0
-Volumetric water content, unitless,theta, 0
-Overland flow:Runin, mm H2O day-1, OvfR, 0
-Overland doC:Runin, g C m-2 day-1, ROvfdoC,0
-Overland doN:Runin, g N m-2 day-1, ROvfdoN,0
-Overland NH4:Runin, g N m-2 day-1, ROvfNH4,0
-Overland NO3:Runin, g N m-2 day-1, ROvfNO3,0
-Overland PO4:Runin, g P m-2 day-1, ROvfPO4,0
-Overland flow:Infil, mm H2O day-1, OvfI, 0
+  deep-soil thermal cond, MJ m-1 oC-1 day-1, kds
+  radiative soil warm par, day, bI
+  Thermal cond organic soil, MJ m-1 oC-1 day-1, kso
+  Thermal cond mineral soil, MJ m-1 oC-1 day-1, ksm
+  Thermal cond water, MJ m-1 oC-1 day-1, kw
+  Thermal conductivity snow, mm H2O MJ m-1 oC-1 day-1, ksnow
+  heat cap organic soil, MJ m-3 oC-1, cso
+  heat cap min soil, MJ m-3 oC-1, csm
+  heat cap water, MJ m-3 oC-1, cw
+  Soil heat thaw starts, MJ, Ql
+  Soil heat freeze starts, MJ, Qh
+  deep soil temperature, oC, Tds
+  minimum snow albedo, fraction, alphamin
+  Depth of deep soil temp, m, zTds
+  Depth of sfc soil Temp, m, zTs
+snow albedo, fraction, alpha, 0
+Thermal conductivity soil, MJ m-1 oC-1 day-1, ks, 0
+Thermal cond thawed soil, MJ m-1 oC-1 day-1, kst, 0
+Thermal cond Frozen soil, MJ m-1 oC-1 day-1, ksf, 0
+Frozen heat capacity, MJ m-3 oC-1, aQl, 0
+Thawed heat capacity, MJ m-3 oC-1, aQh, 0
+Snowfall, mm day-1, Sfl, 0
+Rainfall rate, mm day-1, Rfl, 0
+Volumetric water content, none, theta, 0
+Overland flow:Runin, mm H2O day-1, ROLFc, 0
+Overland doC:Runin, g C m-2 day-1, ROvfdoC, 0
+Overland doN:Runin, g N m-2 day-1, ROvfdoN, 0
+Overland NH4:Runin, g N m-2 day-1, ROvfNH4, 0
+Overland NO3:Runin, g N m-2 day-1, ROvfNO3, 0
+Overland PO4:Runin, g P m-2 day-1, ROvfPO4, 0
+Overland flow, mm H2O day-1, ROLFd, 0
 Depth of thaw, m, Dot, 7
-	Initial moisture, unitless, thetab
-	Initial soil T, oC, Tsb
-	Dot par1, oC-1, xi1
-	Dot par2, oC-1, xi2
-	Dot par3, m oC-1, xi3
-	Dot par4, m, xi4
-	Dot par5, m oC-1, xi5
+  Initial moisture, none, thetab
+  Initial soil T, oC, Tsb
+  Empirical par1 Depth thaw, none, xi1
+  Empirical par2 Depth thaw, none, xi2
+  Empirical par3 Depth thaw, m oC-2, xi3
+  Empirical par4 Depth thaw, m oC-1, xi4
+  Empirical par5 Depth thaw, m oC-1, xi5
 Calibration, none, calib, 68
-    calibrate, none, calibrate
-	Secondary calibrate , none, calibrate2nd
-	Peak season BC target, g C m-2, BCpeaktar
-	gI target, effort, gItar 
-	LAI peak target, m2 m-2, LAItar
-	GPP target, g C m-2 yr-1, GPPtar
-	NPP target, g C m-2 yr-1, NPPtar
-	Fast Fine Lit C target, g C m-2 yr-1, LitCtar
-	LcWC target, g C m-2 yr-1, LcWCtar
-	veg NH4 uptake target, g N m-2 yr-1, UNH4tar
-	veg NO3 uptake target, g N m-2 yr-1, UNO3tar
-	veg doN uptake target, g N m-2 yr-1, UdoNtar
-	Nfix target, g N m-2 yr-1, UNfixtar
-	Fast Fine Lit N target, g N m-2 yr-1, LitNtar
-	LcWN target, g N m-2 yr-1, LcWNtar
-	veg PO4 uptake target, g P m-2 yr-1, UPO4tar
-	Fast Fine Lit P target, g P m-2 yr-1, LitPtar
-	LcWP target, g P m-2 yr-1, LcWPtar
-	LcWCa target, g C m-2 yr-1, LcWCatar
-	LcWNa target, g N m-2 yr-1, LcWNatar
-	LcWPa target, g P m-2 yr-1, LcWPatar
-	Phase I resp tar, g C m-2 yr-1, RCmtar
-	TiiC target, g C m-2 yr-1, TiiCtar
-	microbe NH4 uptake target, g N m-2 yr-1, UNH4mtar
-	microbe NO3 uptake target, g N m-2 yr-1, UNO3mtar
-	Phase I N min target, g N m-2 yr-1, RNmtar
-	nonsymb Nfix target, g N m-2 yr-1, Nnsfixtar
-	microbe PO4 uptake target, g P m-2 yr-1, UPO4mtar
-	Phase I P min target, g P m-2 yr-1, RPmtar
-	MiiC target, g C m-2 yr-1, MiiCtar
-	LNH4 target, g N m-2 yr-1, LNH4tar
-	Nitrification target, g N m-2 yr-1, Nitrtar
-	LNO3 target, g N m-2 yr-1, LNO3tar
-	Denitr target, g N m-2 yr-1, DNtrtar
-	Paw target, g P m-2 yr-1, Pawtar
-	Pnow target, g P m-2 yr-1, Pnowtar
-	LPO4 target, g P m-2 yr-1, LPO4tar
-	PO4P target, g P m-2 yr-1, PO4Ptar
-	Pocclw target, g P m-2 yr-1, PocclWtar
-	Pnos target, g P m-2 yr-1, Pnostar
-	LdoC target, g C m-2 yr-1, LdoCtar
-	UW target, mm H2O yr-1, UWtar
-	Ro target, mm H2O yr-1, Rotar
-	Intercept target, mm H2O yr-1, Intrtar
-	VC target, effort, VCtar
-	VN target, effort, VNtar
-	VP target, effort, VPtar
-	vCO2 target, effort, vCO2tar
-	vI target, effort, vItar
-	vW target, effort, vWtar
-	vNH4 target, effort, vNH4tar
-	vNO3 target, effort, vNO3tar
-	vDON target, effort, vDONtar
-	vNfix target, effort, vNfixtar
-	C Fine-Debris Tar, g C m-2 yr-1, LitCDebristar
-	N Fine-Debris Tar, g N m-2 yr-1, LitNDebristar
-	P Fine-Debris Tar, g P m-2 yr-1, LitPDebristar	
-    Fire BC loss tar, g C m-2 yr-1, FBCtar
-    Fire BN loss tar, g N m-2 yr-1, FBNtar
-    Fire BP loss tar, g P m-2 yr-1, FBPtar
-    Fire WC loss tar, g C m-2 yr-1, FWCtar
-    Fire WN loss tar, g N m-2 yr-1, FWNtar
-    Fire WP loss tar, g P m-2 yr-1, FWPtar
-    Fire DC loss tar, g C m-2 yr-1, FDCtar
-    Fire DN loss tar, g N m-2 yr-1, FDNtar
-    Fire DP loss tar, g P m-2 yr-1, FDPtar
-	Fire totN volatilized tar, g N m-2 yr-1, FNvttar
-	Fire totP volatilized tar, g P m-2 yr-1, FPvttar
-Soil temp water response, dum, deltaDW, 0
+  calibrate, none, calibrate
+  Secondary calibrate, none, calibrate2nd
+  Peak season BC target, g C m-2, BCpeaktar
+  not used, none, unused4b
+  LAI peak target, m2 m-2, LAItar
+  GPP target, g C m-2 yr-1, GPPtar
+  NPP target, g C m-2 yr-1, NPPtar
+  Fast Fine Lit C target, g C m-2 yr-1, LitCtar
+  LcWC target, g C m-2 yr-1, LcWCtar
+  veg NH4 uptake target, g N m-2 yr-1, UNH4tar
+  veg NO3 uptake target, g N m-2 yr-1, UNO3tar
+  veg doN uptake target, g N m-2 yr-1, UdoNtar
+  Nfix target, g N m-2 yr-1, UNfixtar
+  Fast Fine Lit N target, g N m-2 yr-1, LitNtar
+  LcWN target, g N m-2 yr-1, LcWNtar
+  veg PO4 uptake target, g P m-2 yr-1, UPO4tar
+  Fast Fine Lit P target, g P m-2 yr-1, LitPtar
+  LcWP target, g P m-2 yr-1, LcWPtar
+  LcWCa target, g C m-2 yr-1, LcWCatar
+  LcWNa target, g N m-2 yr-1, LcWNatar
+  LcWPa target, g P m-2 yr-1, LcWPatar
+  Phase I resp tar, g C m-2 yr-1, RCmtar
+  TiiC target, g C m-2 yr-1, TiiCtar
+  microbe NH4 uptake target, g N m-2 yr-1, UNH4mtar
+  microbe NO3 uptake target, g N m-2 yr-1, UNO3mtar
+  Phase I N min target, g N m-2 yr-1, RNmtar
+  nonsymb Nfix target, g N m-2 yr-1, Nnsfixtar
+  microbe PO4 uptake target, g P m-2 yr-1, UPO4mtar
+  Phase I P min target, g P m-2 yr-1, RPmtar
+  MiiC target, g C m-2 yr-1, MiiCtar
+  LNH4 target, g N m-2 yr-1, LNH4tar
+  Nitrification target, g N m-2 yr-1, Nitrtar
+  LNO3 target, g N m-2 yr-1, LNO3tar
+  Denitr target, g N m-2 yr-1, DNtrtar
+  Paw target, g P m-2 yr-1, Pawtar
+  Pnow target, g P m-2 yr-1, Pnowtar
+  LPO4 target, g P m-2 yr-1, LPO4tar
+  PO4P target, g P m-2 yr-1, PO4Ptar
+  Pocclw target, g P m-2 yr-1, PocclWtar
+  Pnos target, g P m-2 yr-1, Pnostar
+  LdoC target, g C m-2 yr-1, LdoCtar
+  UW target, mm H2O yr-1, UWtar
+  Ro target, mm H2O yr-1, Rotar
+  Intercept target, mm H2O yr-1, Intrtar
+  VC target, effort, VCtar
+  VN target, effort, VNtar
+  VP target, effort, VPtar
+  vCO2 target, effort, vCO2tar
+  vI target, effort, vItar
+  vW target, effort, vWtar
+  vNH4 target, effort, vNH4tar
+  vNO3 target, effort, vNO3tar
+  vDON target, effort, vDONtar
+  vNfix target, effort, vNfixtar
+  C Fine-Debris Tar, g C m-2 yr-1, LitCDebristar
+  N Fine-Debris Tar, g N m-2 yr-1, LitNDebristar
+  P Fine-Debris Tar, g P m-2 yr-1, LitPDebristar
+  Fire BC loss tar, g C m-2 yr-1, fBCtar
+  Fire BN loss tar, g N m-2 yr-1, fBNtar
+  Fire BP loss tar, g P m-2 yr-1, fBPtar
+  Fire WC loss tar, g C m-2 yr-1, fWCtar
+  Fire WN loss tar, g N m-2 yr-1, fWNtar
+  Fire WP loss tar, g P m-2 yr-1, fWPtar
+  Fire DC loss tar, g C m-2 yr-1, fDCtar
+  Fire DN loss tar, g N m-2 yr-1, fDNtar
+  Fire DP loss tar, g P m-2 yr-1, fDPtar
+  Fire totN volatilized tar, g N m-2 yr-1, FNvttar
+  Fire totP volatilized tar, g P m-2 yr-1, FPvttar
+Soil T H2O limit microbe, none, deltaDW, 0
 Years since 2005, year, Yf, 0
 CO2 deviation, ppm, SCdev, 3
-	Flag: Project CO2?, none, FlagCa
-	CO2 dev slope, ppm/year, mCdev
-	CO2 dev intercept, ppm, bCdev
+  Flag: Project CO2?, none, FlagCa
+  CO2 dev slope, ppm/year, mCdev
+  CO2 dev intercept, ppm, bCdev
 Temp Summer Dev, deg C, STdev, 8
-	Flag: Project Temp?, none, FlagT
-	summer T dev max, deg C, VSTd
-	Flag: 3.5 deg change?, none, FlagT35
-	Deltaz per time, m day-1, deltaz
-	Phase II C conc, g C m-1, Ccpii
-	Primary min P conc, g P m-1, PcPa
-	Pno P conc, g P m-1, PcPno
-	Poccl P conc, g P m-1, PcPoccl
+  Flag: Project Temp?, none, FlagT
+  summer T dev max, deg C, VSTd
+  Flag: 3.5 deg change?, none, FlagT35
+  Deltaz per time, m day-1, deltaz
+  Phase II C conc, g C m-1, Ccpii
+  Primary min P conc, g P m-1, PcPa
+  Pno P conc, g P m-1, PcPno
+  Poccl P conc, g P m-1, PcPoccl
 Temp Winter Dev, deg C, WTdev, 1
-	winter T dev slope, deg C, VWTd
+  winter T dev slope, deg C, VWTd
 Ppt Simulated, mm H2O, Pptsim, 7
-	Simulate Ppt?,none, FlagSimPpt
-	DOY Sum Ppt begin, day, DoySPpts
-	DOY Sum Ppt end, day, DoySPpte
-	Frac Dry Summer days, fraction, phiSdry
-	Summer Ppt intensity, mm-1 H2O, alphaSPpt
-	Frac Dry Winter days, fraction, phiWdry
-	Winter Ppt intensity, mm-1 H2O, alphaWPpt
+  Simulate Ppt?, none, FlagSimPpt
+  DOY Sum Ppt begin, day, DoySPpts
+  DOY Sum Ppt end, day, DoySPpte
+  Frac Dry Summer days, fraction, phiSdry
+  Summer Ppt intensity, mm-1 H2O, alphaSPpt
+  Frac Dry Winter days, fraction, phiWdry
+  Winter Ppt intensity, mm-1 H2O, alphaWPpt
 Ppt Summer Dev, mm H2O, SPdev, 3
-	Flag: Project precip?, none, FlagPpt
-	summer Ppt dev max, mm H2O, VSPd
-	summer Ppt dev half sat, year, kSPd
+  Flag: Project precip?, none, FlagPpt
+  summer Ppt dev max, mm H2O, VSPd
+  summer Ppt dev half sat, year, kSPd
 Ppt Winter Dev, mm H2O, WPdev, 3
-	winter Ppt dev max, mm H2O, VWPd
-	winter Ppt dev half sat, year, kWPd
-	Days with precip, days, DaysPpt
+  winter Ppt dev max, mm H2O, VWPd
+  winter Ppt dev half sat, year, kWPd
+  Days with precip, days, DaysPpt
 Projected CO2, ppm, Proj_Ca, 0
 Projected Tmax, deg C, Proj_Tmax, 8
-	T winter slope, oC yr-1, Tmwi
-	T spring slope, oC yr-1, Tmsp
-	T summer slope, oC yr-1, Tmsu
-	T fall   slope, oC yr-1, Tmfa
-	T winter half sat, days, Tkwi
-	T spring half sat, days, Tksp
-	T summer half sat, days, Tksu
-	T fall   half sat, days, Tkfa	
+  T winter slope, oC yr-1, Tmwi
+  T spring slope, oC yr-1, Tmsp
+  T summer slope, oC yr-1, Tmsu
+  T fall   slope, oC yr-1, Tmfa
+  T winter half sat, days, Tkwi
+  T spring half sat, days, Tksp
+  T summer half sat, days, Tksu
+  T fall   half sat, days, Tkfa
 Projected Tmin, deg C, Proj_Tmin, 0
 Projected Precip, mm H2O, Proj_Ppt, 0
 Ave grow season Temp, oC, Tave, 1
-	calib Tave, oC, Tave0
-Biomass C Fire loss, g C m-2 day-1, FBC, 12
-	fire interval, yrs, FI
-	day of fire, Julian day, DOYfire
-    fire leaf biomass loss, fraction, ffLL
-    fire woody biomass loss, fraction, ffWL
-    fire woody debris loss, fraction, ffWDL
-    fire Phase I soil loss, fraction, ffSL
-    fraction FBN volatilized, fraction, fBNv
-    fraction FBP volatilized, fraction, fBPv
-    fraction FWN volatilized, fraction, fWNv
-    fraction FWP volatilized, fraction, fWPv
-    fraction FDN volatilized, fraction, fDNv
-    fraction FDP volatilized, fraction, fDPv	
-Biomass N Fire loss, g N m-2 day-1, FBN, 0
-Biomass P Fire loss, g P m-2 day-1, FBP, 0
-Debris C Fire loss, g C m-2 day-1, FWC, 0
-Debris N Fire loss, g N m-2 day-1, FWN, 0
-Debris P Fire loss, g P m-2 day-1, FWP, 0
-Phase I C Fire loss, g C m-2 day-1, FDC, 0
-Phase I N Fire loss, g N m-2 day-1, FDN, 0
-Phase I P Fire loss, g P m-2 day-1, FDP, 0
+  calib Tave, oC, Tave0
+Fire vegetation C loss, g C m-2 day-1, FBC, 12
+  fire interval, yrs, FI
+  not used, none, unused5
+  daily frac leaf fire loss, day-1, ffLL
+  daily frac BW fire loss, day-1, ffWL
+  daily frac WC fire loss, day-1, ffWDL
+  daily frac PhsI fire loss, day-1, ffDL
+  fraction FBN volatilized, fraction, fBNv
+  fraction FBP volatilized, fraction, fBPv
+  fraction FWN volatilized, fraction, fWNv
+  fraction FWP volatilized, fraction, fWPv
+  fraction FDN volatilized, fraction, fDNv
+  fraction FDP volatilized, fraction, fDPv
+Fire vegetation N loss, g N m-2 day-1, FBN, 0
+Fire vegetation P loss, g P m-2 day-1, FBP, 0
+Fire coarse Lit C loss, g C m-2 day-1, FWC, 0
+Fire coarse Lit N loss, g N m-2 day-1, FWN, 0
+Fire coarse Lit P loss, g P m-2 day-1, FWP, 0
+Fire Phase I C loss, g C m-2 day-1, FDC, 0
+Fire Phase I N loss, g N m-2 day-1, FDN, 0
+Fire Phase I P loss, g P m-2 day-1, FDP, 0
 Fire NO3 deposition, g N m-2 day-1, FNO3, 0
 Fire PO4 deposition, g P m-2 day-1, FPO4, 0
 Fire N volatilized, g N m-2 day-1, FNvol, 0
 Fire P volatilized, g P m-2 day-1, FPvol, 0
-Standing dead LAI Equiv, m2 m-2, LW, 1
-	specif dead leaf area, m2 gDW, a_sdla
+Standing dead shade area, m2 m-2, LW, 1
+  specific area stand dead, m2 gDW, a_sdla
 Projected Runin, mm H2O day-1, Proj_Rin, 0
-End 
-	
+TAR qNSiicalc, g C g-1 N, qNSiicalc, 0
+TAR qPSiicalc, g C g-1 P, qPSiicalc, 0
+TAR phiNcalc, g C g-1 N, phiNcalc, 0
+TAR phiPcalc, g C g-1 P, phiPcalc, 0
+TAR LcwCatarcalc, g C m-2 yr-1, LcwCatarcalc, 0
+TAR LcwNatarcalc, g N m-2 yr-1, LcwNatarcalc, 0
+TAR LcWPatarcalc, g P m-2 yr-1, LcWPatarcalc, 0
+TAR LitNDebristarcalc, g N m-2 yr-1, LitNDebristarcalc, 0
+TAR LitPDebristarcalc, g P m-2 yr-1, LitPDebristarcalc, 0
+TAR LitCtarcalc, g C m-2 yr-1, LitCtarcalc, 0
+TAR LitNtarcalc, g N m-2 yr-1, LitNtarcalc, 0
+TAR LitPtarcalc, g P m-2 yr-1, LitPtarcalc, 0
+TAR RCmtarcalc, g C m-2 yr-1, RCmtarcalc, 0
+TAR RNmtarcalc, g N m-2 yr-1, RNmtarcalc, 0
+TAR RPmtarcalc, g P m-2 yr-1, RPmtarcalc, 0
+TAR MiiCtarcalc, g C m-2 yr-1, MiiCtarcalc, 0
+TAR DNtrtarcalc, g N m-2 yr-1, DNtrtarcalc, 0
+TAR Nitrtarcalc, g N m-2 yr-1, Nitrtarcalc, 0
+TAR LNO3tarcalc, g N m-2 yr-1, LNO3tarcalc, 0
+TAR LNH4tarcalc, g N m-2 yr-1, LNH4tarcalc, 0
+TAR LPO4tarcalc, g P m-2 yr-1, LPO4tarcalc, 0
+TAR LDOCtarcalc, g C m-2 yr-1, LDOCtarcalc, 0
+TAR FNvttarcalc, g N m-2 yr-1, FNvttarcalc, 0
+TAR FPvttarcalc, g P m-2 yr-1, FPvttarcalc, 0
+Vapor pressure, mbar, ea, 0
+Cloud-free Shortwave rad, MJ m-2 day-1, Iswmax, 1
+  solar constant, MJ/m2/day, So
+sunrise hour angle, radians, ho, 0
+Earth-sun separation, AU, dAU, 0
+Shortwave down net, MJ m-2 day-1, Sdnet, 1
+  Canopy height > snow?, none, rc
+Cloud+canopy fraction, none, fcc, 0
+Longwave rad incoming, MJ m-2 day-1, Ld, 0
+Longwave rad from snow, MJ m-2 day-1, Lu, 0
+Net rad on snow, MJ m-2 day-1, Rnets, 0
+Snow temperature, oC, Tsnow, 0
+End
+
 Drive
 Name,Units,Symbol - Comma separated.
-D: total short wave, MJ m-2 day-1, Isw
-D: Temperature min, oC, Tmin
-D: Temperature max, oC, Tmax
-D: carbon dioxide, umol mol-1, Ca
-D: NH4 input,g N m-2 day-1,INH4
-D: NO3 input,g N m-2 day-1,INO3
-D: PO4 input, g P m-2 day-1, IPO4
+D: Incoming short wave, MJ m-2 day-1, Isw
+D: daily min temperature, oC, Tmin
+D: daily max temperature, oC, Tmax
+D: Atm carbon dioxide, umol mol-1, Ca
+D: Input of NH4, g N m-2 day-1, INH4
+D: Input of NO3, g N m-2 day-1, INO3
+D: Input of PO4, g P m-2 day-1, IPO4
 D: Precipitation, mm day-1, Ppt
-D: doC input, g C m-2 day-1,IdoC
-D: doN input, g N m-2 day-1, IdoN
-D: apatite input, g P m-2 day-1,IPa
-D: Run in, mm H2O day-1, Rin
-D: doC in Run in, g C m-2 day-1,IRindoC
-D: doN in Run in, g N m-2 day-1, IRindoN
-D: NH4 in Run in,g N m-2 day-1,IRinNH4
-D: NO3 in Run in,g N m-2 day-1,IRinNO3
-D: PO4 in Run in, g P m-2 day-1, IRinPO4
+D: Input of DOC, g C m-2 day-1, IdoC
+D: Input of DON, g N m-2 day-1, IdoN
+D: Input of prim P minerals, g P m-2 day-1, IPa
+D: Lateral Run-in, mm H2O day-1, Rin
+D: Input DOC in Run-in, g C m-2 day-1, IRindoC
+D: Input DON in Run-in, g N m-2 day-1, IRindoN
+D: Input NH4 in Run-in, g N m-2 day-1, IRinNH4
+D: Input NO3 in Run-in, g N m-2 day-1, IRinNO3
+D: Input PO4 in Run-in, g P m-2 day-1, IRinPO4
 D: Observed series 1, various, OTS1
 D: Observed series 2, various, OTS2
 End
 
 Other Double Variables
 Name,Units,Symbol - Comma separated.
-dum,dum,dum
-dum,dum,Thf
-dum,dum,InfS
-dum,dum,InfR
-dum,dum,divsr
-dum,dum,R
-dum,dum,S
-dum,dum,C
-dum,dum,Tsnow
-dum,dum,alphaVC
-dum,dum,alphaVN
-dum,dum,alphaVP
-dum,dum,etaVC
-dum,dum,etaVN
-dum,dum,etaVP
-dum,dum,lambdavCO2
-dum,dum,lambdavI
-dum,dum,lambdavW
-dum,dum,lambdavNH4
-dum,dum,lambdavNO3
-dum,dum,lambdavNfix
-dum,dum,lambdavdoN
-dum,dum,muvCO2
-dum,dum,muvI
-dum,dum,muvW
-dum,dum,muvNH4
-dum,dum,muvNO3
-dum,dum,muvNfix
-dum,dum,muvdoN
-dum,dum,deltaPII
+dum, dum, Thf
+dum, dum, InfS
+dum, dum, InfR
+dum, dum, divsr
+dum, dum, R
+dum, dum, S
+dum, dum, C
+dum, dum, alphaVC
+dum, dum, alphaVN
+dum, dum, alphaVP
+dum, dum, etaVC
+dum, dum, etaVN
+dum, dum, etaVP
+dum, dum, lambdavCO2
+dum, dum, lambdavI
+dum, dum, lambdavW
+dum, dum, lambdavNH4
+dum, dum, lambdavNO3
+dum, dum, lambdavNfix
+dum, dum, lambdavdoN
+dum, dum, muvCO2
+dum, dum, muvI
+dum, dum, muvW
+dum, dum, muvNH4
+dum, dum, muvNO3
+dum, dum, muvNfix
+dum, dum, muvdoN
+dum, dum, deltaPII
 total N up tar, g N m-2 yr-1, UNttar
 Nfix decay, time-1, kPa
+dumcum, dum, cumdum
+dumBCtar, dum, dumBCtar
+dumtar, dum, dumtar
+fcs, fcs, fcs
+dum, dum, dum
 End
 
 Other Integer Variables
 Name,Units,Symbol - Comma separated.
 End
 
+Other Boolean Variables
+Name,Units,Symbol - Comma separated.
+End
+
 Functions
-Function FindBtstar:double;
+Function FindBtm:double;
 var
- deltaB, rhs, currBtstar: double;
+ deltaB, rhs, currBtm: double;
 begin
   deltaB:=Bt/10;
-  currBtstar:=Bt-deltaB;      // Subtract deltaB because deltaB is added first thing in the loop
+  currBtm:=Bt-deltaB;      // Subtract deltaB because deltaB is added first thing in the loop
   repeat
-    currBtstar:=currBtstar+deltaB;
-    rhs:=Bt + currBtstar*Bamax*VL*(1-fc)*gammaB/(power(power(Bamax,alphaB)+power(gammaB*currBtstar,alphaB),1/alphaB));
-      if (rhs>currBtstar) and (deltaB<0) then
-        deltaB:=-abs(currBtstar-rhs)
+    currBtm:=currBtm+deltaB;
+    rhs:=Bt + currBtm*Bamax*VL*(1-fc)*gammaB/(power(power(Bamax,alphaB)+power(gammaB*currBtm,alphaB),1/alphaB));
+      if (rhs>currBtm) and (deltaB<0) then
+        deltaB:=-abs(currBtm-rhs)
       else
-        if (rhs<currBtstar) and (deltaB>0) then deltaB:=-abs(currBtstar-rhs)
-        else deltaB:=abs(currBtstar-rhs);
-  until (abs(currBtstar-rhs)<epsilon);// or (deltaB<epsilon);
-  FindBtstar:=currBtstar;
+        if (rhs<currBtm) and (deltaB>0) then deltaB:=-abs(currBtm-rhs)
+        else deltaB:=abs(currBtm-rhs);
+  until (abs(currBtm-rhs)<epsilon);// or (deltaB<epsilon);
+  FindBtm:=currBtm;
 end;
 
 Procedure Assess_Allometry(VC,vW:double);
 begin {allometry}
    {Biomass (DW)}
-   Bt:= BC/qC;
+   Bt:= BC/sigmaC;
    if Bt<1e-6 then Bt:=1e-6;
    {canopy allocation}
    VL:=VC*(1-vW);
    {Root allocation}
    VR:=1-VL;
-   {find Ba & BtStar = biomass if canopy were full}
-///   Bs:=Bamax-B0;
-{   y:=VL*(1-fc);
-{   a:=gammaB;
-   b:=Bs-gammaB*Bt-Bamax*y*gammaB;
-   c:=-Bs*Bt-B0*Bs*y;
-   Btstar:=(-b+sqrt(b*b-4*a*c))/(2*a);
-   Btstar:=min(Btstar, Bt/(1-y));}
+   {find Ba & Btm = biomass if canopy were full}
    
-   Btstar:=FindBtstar;
-   Ba:=Bamax*gammaB*Btstar/(power(power(Bamax,alphaB)+power(gammaB*Btstar,alphaB),1/alphaB));
-   if Ba>Btstar then Ba:=Btstar;
+   Btm:=FindBtm;
+   Ba:=Bamax*gammaB*Btm/(power(power(Bamax,alphaB)+power(gammaB*Btm,alphaB),1/alphaB));
+   if Ba>Btm then Ba:=Btm;
    {woody biomass}
-   BW:=max(0,Btstar-Ba);
+   BW:=max(0,Btm-Ba);
    {leaf biomass}
    BL:=fc*VL*Ba;
    {leaf area}
    L:=a_sla*BL;
-   LW:=a_sdla*WC/qC;
+   LW:=a_sdla*WC/sigmaC;
    {full-canopy leaf area}
    L_max:=a_sla*VL*Ba;
    {root biomass}
@@ -788,44 +831,53 @@ begin
 end;
 
 Function photosynthesis(vc,vi,vw:double; var PsC, PsIrr, PsW:double):double;
-var dum, c_cmax, CiI, CiC, fpt, PIx, PCx, kC, gamma:double;
+var dum, fpt, PImax, PCmax, kC, gamma,c_sc0:double;
 begin
-   Gamma:=42*exp(9.46*(Ta-25)/(Ta+273.2)); //McMurtrie et al (1992) Eq 18.
-   kC:=310*exp(23.956*(Ta-25)/(Ta+273.2)); //McMurtrie et al (1992) Eq 18.
-   kC:=kC*(1+200/(155*exp(14.509*(Ta-25)/(Ta+273.2))));//McMurtrie et al (1992) Eq 18. in umol/mol
+
+     {7.775 = mm H2O/m/MPa =rhoa*Cp/(lambda*gamma); c_sc in m/hr}
+     {0.000335=1/1.6*(12e-6 gC/umolCO2)*(1000L/m3)*(1/22.4 mol/L)}
+
+   Gamma:=42*exp(9.46*(Ta-25)/(Ta+273.15)); //McMurtrie et al (1992) Eq 18.
+   kC:=310*exp(23.956*(Ta-25)/(Ta+273.15)); //McMurtrie et al (1992) Eq 18.
+   kC:=kC*(1+200/(155*exp(14.509*(Ta-25)/(Ta+273.15))));//McMurtrie et al (1992) Eq 18. in umol/mol
    
-   if fuf>0 then UW:=Dl*Delta_e*(L*kE*Rl*fuf*vw/VR/z0/phis)*(Psis-Psi_w)/abs(Psi_w) 
-   else UW:=0;
-   if UW<0 then UW:=0;
-   if Dl>0 then c_cs:=UW/(Dl*Delta_e) else c_cs:=0;
-   if Ta> 0 then 
-     fpt:=exp(0.0397*(Tave-Tave0))/((1+exp(-aPs*exp(0.0165*(Tave-Tave0))*(Ta-TaPs)))*(1+exp(bPs*(Ta-TbPs))))
-   else 
-     fpt:=0;
-   // Based on Hikosaka et al, Eq 5. Modified based on acclimation 
+   if (Ta>0) and (Ta<2*Topt) then fpT:= Ta*(2*Topt-Ta)/sqr(Topt)
+   else fpT:=0; //Hikosaka et al. 2006 Fig 1 scaled to fpT=1 at Ta = Topt
+
+   UWmax:=gW*fuf*(vW/VR);			      // note vw in call = vW *VC
+
+   UW:= UWmax*(1-exp(-kRl*RL/z))*DL*(Psis-Psi_w)/(-Psi_w); // changed 20 June 2024
+   if UW<0 then UW:=0; 			              // note vW in call = vW *VC
+
+   if Dl>0 then c_sc0:=UW/(7.775*Dl*Delta_e) else c_sc0:=0; //c_sc0 units  m/hr
+  
    if VL=0 then
      begin
-       PIx:=0;
-       PCx:=0;
+       PImax:=0;
+       PCmax:=0;
      end
    else
      begin
-       if Dl>0 then PIx:=L*gI*(vi/VL)*ln((HSI+Isw/Dl)/(HSI+Isw*exp(-kI*(L+LW))/Dl))/(kI*(L+LW))
-       else PIx:=0;
-       PCx:=gC*(vc/VL)*L;
-     end; 
-	 
-	 // Check on where the exp(0.0397 came from. Showed up in v2.6.4, Ps temp response change but it's not listed in Ed's notes???
-	 
-   PsC:= Dl*fpt*PCx*(5*Ca/7+gamma)/(kC+5*Ca/7); 
-   PsIrr:= Dl*fpt*PIx*(5*Ca/7+gamma)/(2*gamma+5*Ca/7);
-   PsW:= Dl*fpt*scg*c_cs*2*Ca/7;                                                     
-   dum:=min(PsC,min(PsIrr,PsW));                                                    
-   if (DL>0) and (fpt>0) then c_cs:=7*dum/DL/fpt/scg/2/Ca else c_cs:=0;                            
-   UW:=c_cs*DL*Delta_e;                                                                 
-   Photosynthesis:=min(PsC,min(PsIrr,PsW));
-end;
+        PImax:=gI*(vI/VL)*fpT; 			// note vI in call = vi *VC
+        PCmax:=gC*(vC/VL)*fpT;              	// note vC in call = vco2 *VC
+     end;
 
+   PsW:=c_sc0*scg*DL*(2*Ca/7)*0.000335;
+   PsC:= DL*L*PCmax*((5*Ca/7)-gamma)/(kC+5*Ca/7); 
+
+   PsIrr:= DL*((5*Ca/7)-gamma)/(2*gamma+5*Ca/7);
+   PsIrr:= PsIrr*L*PImax/(L+LW)/kI;
+   if DL>0 then PsIrr:=PsIrr* ln((HSI+Isw/Dl)/(HSI+Isw*exp(-kI*(L+LW))/Dl))
+   else PsIrr:=0;
+
+   dum:=min(PsC,min(PsIrr,PsW));   
+                                                 
+   if DL>0 then c_sc:=dum/(scg*DL*(2*Ca/7)*0.000335) else c_sc:=0;
+                            
+   UW:=c_sc*7.775*DL*Delta_e;    
+                                                             
+   Photosynthesis:=dum;
+end;
 
 function uptake(Cbar,vi,km,D,g,Q10,psi:double):double;
 var
@@ -834,7 +886,7 @@ begin
    if Rl>0 then
      begin
         Cbar2:=Cbar; if Cbar2<0 then Cbar2:=0;
-        V:=g*(vi/VR)*Rl*power(Q10,Ts/10);
+        V:=g*(vi/VR)*(1-exp(-kRl*RL/z))*power(Q10,Ts/10); //changed 20 June 2024
         Croot:=km-Cbar2-V*betanRd/(D*Rl*psi);
         Croot:=0.5*(-Croot+sqrt(sqr(Croot)+4*km*Cbar2));
         Uptake:=V*Croot/(km+Croot);
@@ -843,8 +895,9 @@ begin
 end;{uptake}
 
 function Nfix(vi,g,Q10:double):double;
+var dum:double;
 begin
-  Nfix:=g*(vi/VR)*power(Q10,Ts/10)*Rl/(1+power(L_max/Lcrit, Lcrit*eNfix));
+  Nfix:=g*(vi/VR)*power(Q10,Ts/10)*(1-exp(-kRl*RL/z))/(1+power(LAInfix/Lcrit, epsilonNfix)); // changed 20 June 2024
 end;{Nfix}
 
 function water_tension(W:double):double;
@@ -909,9 +962,13 @@ Begin
    Tdev:=a*DOY*DOY*DOY+b*DOY*DOY+c*DOY+d;
 end;
 
+
+
+
+
 End Functions
 
-Equations –See the Computer Programming handout for instructions on writing equations in Pascal.
+Equations – See the Computer Programming handout for instructions on writing equations in Pascal.
 // Initialize discrete variables
 FBC:=0;
 FBN:=0;
@@ -926,6 +983,10 @@ FNvol:=0;
 FPvol:=0;
 FNO3:=0;
 FPO4:=0;
+Sm:=0;
+Intr:=0;
+Proj_Ppt:=Ppt;
+Proj_Rin:=0;
 
 // drivers to specify ENH4, ENO3, EPO4, and W
 if INH4<0 then ENH4:=-INH4;
@@ -973,11 +1034,6 @@ if vI<=epsilon then vI:=epsilon;
 if vW<=epsilon then vW:=epsilon;
 Vstar:= vCO2+vI+vW;
 
-{Vstar:=0;
-if vCO2>0 then Vstar:=Vstar+vCO2 else vCO2:=0;
-if vI>0 then   Vstar:=Vstar+vI   else vI:=0;
-if vW>0 then   Vstar:=Vstar+vW   else vW:=0;   }
-
 vCO2:=vCO2/Vstar;            tstat[7].value:=vCO2;
 vI:=vI/Vstar;                tstat[8].value:=vI;
 vW:=vW/Vstar;                tstat[9].value:=vW;
@@ -993,32 +1049,50 @@ vNO3:=vNO3/Vstar;            tstat[11].value:=vNO3;
 vdoN:=vdoN/Vstar;            tstat[12].value:=vdoN; 
 vNfix:=vNfix/Vstar;          tstat[13].value:=vNfix;
 
-{This isn't used. Ppt is actually set in the calculatediscrete section. It's here so that the Proj_Ppt<>-999 on day 0}
-Proj_Ppt:=Ppt;
-Proj_Rin:=0;
-
-{Set rooting depth}
-z:=z0;
-
 {Julian Day}
 Doy:= tan(pi*((time+Tly)/DoyD -0.50001));
 Doy:= arctan(Doy)+pi/2;
 Doy:=trunc((DoyD/pi)*Doy+0.9);
 
 {Day length}
-delta:=0.1303*pi*cos(2*pi*(Doy-172)/365);
-Dl:=-tan(lat*pi/180)*tan(delta);
+deltaA:=0.1303*pi*cos(2*pi*(Doy-172)/365);
+Dl:=-tan(lat*pi/180)*tan(deltaA);
 if Dl>1 then Dl:=1;
 if Dl<-1 then Dl:=-1;
 Dl:= 24*arccos(Dl)/pi;
 
+{Average daily temperature}
+Ta:=(Tmax+Tmin)/2;
+Tsnow:=min(0,Ta-2.5);
+
+{Assess allometry of vegetation}
+Assess_Allometry(VC,vW);
+
+
+{snowpack max}
+WSmax:=Max(WSmax,WSnow);
+if DOY = 250 then WSmax:=0;
+if Wsmax > 0 then alpha:=max(alphamin,0.8*WSnow/WSmax)
+else alpha:=alphamin;
+
+{ Radiation }    
+ea:=6.1078*exp(17.269*Tmin/(237.3+Tmin)); // vapor pressure McMutrie 1993
+Sdnet:=(1-alpha)*Isw*exp(-kI*L*rc); // net shortwave
+dAU:=1-0.01672*cos(2*pi*(doy-4)/365); //earth-sun distance
+ho:=Dl*pi/24; // sunrise angle radians
+Iswmax:=sIsw*(So/pi)*power(1/dAU,2)*(ho*sin(lat*pi/180)*sin(deltaA)+cos(lat*pi/180)*cos(deltaA)*sin(ho));// daily max sunlight Hartmann 2016
+if Iswmax<=0 then Ld:=0.6 // cloud cover Curry, 1996 Fig 1, surface observations for Nov-Mar
+else Ld:=1-Isw/Iswmax;// cloud cover Wang & Liang 2009 used cloud cover = n in Eq 4 in Pluss & Ohmura 1997
+Ld:=(0.23+0.483*power(ea/(Ta+273.15),1/8))*(1-power(Ld,3))+0.963*power(Ld,3); // sky/cloud longwave Pluss & Ohmura 1997 Eq 4
+Ld:=Ld*exp(-kI*L*rc) + (1-exp(-kI*L*rc)); // correct for sky visible thru canopy and adding canopy
+Ld:=Ld*4.9e-9*power(273.15+Ta,4); //4.9e-9 Stefan-Boltzmann constant in MJ/m2/day/K4
+
+Lu:=4.9e-9*power(273.15+Tsnow,4); //snow emmited longwave 
+Rnets:=Sdnet+Ld-Lu; // net radiation
+
 Ndept:=INH4+INO3+IdoN;
 VpC:=Dop0/SoC0;
 Dop:=VpC*(DC+SC-SoC0) + Dop0;
-
-{Discrete processes}
-Sm:=0;
-Intr:=0;
 
 {Projected climate}
 Tave:=Tave0;
@@ -1067,7 +1141,6 @@ if FlagT>0 then
    if FlagT35>0 then
      STdev:=STdev
    else
-//     STdev:=Tdev(Doy,Tywi*(time-1)/365/(50+(time-1)/365), Tysp*(time-1)/365/(50+(time-1)/365), Tysu*(time-1)/365/(50+(time-1)/365), Tyfa*(time-1)/365/(50+(time-1)/365));
      STdev:=Tdev(Doy,Tmwi*time/(Tkwi+time), Tmsp*time/(Tksp+time), Tmsu*time/(Tksu+time), Tmfa*time/(Tkfa+time));
    Tmin:=Tmin+STdev;
    Tmax:=Tmax+STdev;
@@ -1088,11 +1161,8 @@ Proj_Rin:=Rin;
 {Depth of thaw}
 if Tsb<100 then
      Dot:=max(0,(xi1*thetab+xi2)*(xi3*Tsb+xi4)*Ddayp+xi5*Ddayn)/100
-else DOT:=zW;
+else DOT:=z;
 {Rooting depth and Phase II soil - see discrete section}
-
-{Average daily temperature}
-Ta:=(Tmax+Tmin)/2;
 
 {Soil Water fraction}
 theta:= W/1000/z;
@@ -1100,7 +1170,7 @@ if theta>phis then theta:=phis;
 if theta<theta_w then theta:=theta_w;
 
 {unfrozen soil fraction}
-fuf:=min(zW,Dot)/zW; 
+fuf:=min(z,Dot)/z; 
 
 {soil heat conductance calculations}
 C:=min(Dop/z,1);
@@ -1121,16 +1191,16 @@ else ks:=ksf;
 
 {Run in excess}
 if Rin>(1000*z*phis-W) then 
-   OvfR:=Rin-1000*z*phis+W
+   ROLFc:=Rin-1000*z*phis+W
 else
-   OvfR:=0;
+   ROLFc:=0;
 if Rin>0 then
  begin
-  ROvfdoC:=IRindoC*OvfR/Rin;
-  ROvfdoN:=IRindoN*OvfR/Rin;
-  ROvfNH4:=IRinNH4*OvfR/Rin;
-  ROvfNO3:=IRinNO3*OvfR/Rin;
-  ROvfPO4:=IRinPO4*OvfR/Rin;
+  ROvfdoC:=IRindoC*ROLFc/Rin;
+  ROvfdoN:=IRindoN*ROLFc/Rin;
+  ROvfNH4:=IRinNH4*ROLFc/Rin;
+  ROvfNO3:=IRinNO3*ROLFc/Rin;
+  ROvfPO4:=IRinPO4*ROLFc/Rin;
  end
 else
  begin
@@ -1139,7 +1209,7 @@ else
   ROvfNH4:=0;
   ROvfNO3:=0;
   ROvfPO4:=0;
- end;            
+ end;
    
 {soil water tension}
 PsiS:=water_tension(max(1e-6,W));
@@ -1155,7 +1225,7 @@ NO3aq:= ENO3 - 14E-6*W*etaNO3 - z*rho_s*SNO3;
 NO3aq:= NO3aq + sqrt(sqr(NO3aq)+ 56e-6*W*ENO3*etaNO3);
 NO3aq:=NO3aq/(28e-6*W);
 {doC}
-PadoC:= bdoC*qDOM*(DN*qPadoC/DC)/12e-6/W;
+PadoC:= bdoC*z*theta_fro*qDOM*(DN/DC)/12e-6/W;
 
 {aqueous PO4, 31e-6 converts umoles to g P}
 PO4aq:= EPO4 - 31E-6*W*etaPO4 - z*rho_s*SPO4; 
@@ -1165,26 +1235,29 @@ PO4aq:=PO4aq/(62e-6*W);
 {Canopy fraction; included in allometric table}
 deltaGcT:=min(power((theta-theta_w)/(theta_fp-theta_w),betaGfc),1);
 deltaLcW:=max(min((gammaw*theta_w-theta)/(gammaw-1),1),0);
-if (DDayp>Ddbud) and (theta>gammaw*theta_w) and (Doy<Dfs) then
+if (DDayp>Ddbud) and (theta>gammaw*theta_w) and (Doy<Dfs) and (Ta>0) then
   Gfc:=alphaGfc*Ta*deltaGcT*power(1-fc,epsilonfc)
 else
   Gfc:=0;
 if Doy=1 then Gfc:=0;
-if (Doy<=Dfs) then
-  Lfc:=(chicW*deltaLcW)*power(fc-fcmin,epsilonfc)
-else
-  Lfc:=chicT*(1-0.99*fc)*(fc-fcmin)+(chicW*deltaLcW)*power(fc-fcmin,epsilonfc);
+if fc<=fcmin then Lfc:=0
+else  
+  begin
+    if (Doy<=Dfs) then
+      Lfc:=(chicW*deltaLcW)*power(fc-fcmin,epsilonfc)
+    else
+      Lfc:=chicT*(1-0.99*fc)*(fc-fcmin)+(chicW*deltaLcW)*power(fc-fcmin,epsilonfc);
+  end;
 
-Assess_Allometry(VC,vW);
 UC:= photosynthesis(VC*vCO2,VC*vI,VC*vW,PsC,PsIrr,PsW);
 
 {optimum element concentrations; included in allometric table}
-qN:=(VL*Ba*(qNL-qNLl)+qNLl*BL+qNW*BW+qNR*BR)/Bt;{corrected for not full canopy}
-qP:=(VL*Ba*(qPL-qPLl)+qPLl*BL+qPW*BW+qPR*BR)/Bt;{corrected for not full canopy}
+sigmaN:=(VL*Ba*(sigmaNL-sigmaNLL)+sigmaNLL*BL+sigmaNw*BW+sigmaNr*BR)/Bt;{corrected for not full canopy}
+sigmaP:=(VL*Ba*(sigmaPl-sigmaPll)+sigmaPll*BL+sigmaPW*BW+sigmaPr*BR)/Bt;{corrected for not full canopy}
 
 {actual element concentrations; included in allometric table}
-aqN:=BN/Bt;
-aqP:=BP/Bt;
+sigmaNa:=BN/Bt;
+sigmaPa:=BP/Bt;
 
 {WUE}
 if UW>0 then WUE:=UC/UW else WUE:=0;
@@ -1195,7 +1268,8 @@ UdoC:=uptake(PadoC,VN*vdoN,kdoC,Ddom,gdoC,Q10doC,12e-3);
 UdoN:=UdoC/qdom;
 UNfix:=Nfix(VN*vNfix,gNfix,Q10Nfix);
 UN:=UNH4+UNO3+UdoN+UNfix;
-UPO4:=uptake(PO4aq,VP,kPO4,DPO4,gPO4,Q10PO4,31e-3);
+UPO4:=uptake(PO4aq,VP,kPO4,DPO4,gPO4,Q10PO4,31e-3);            
+   
 
 
 {Assess dUCdvCO2}
@@ -1223,11 +1297,11 @@ dUNdvNfix:=(Nfix(VN*(vNfix+0.001),gNfix,Q10Nfix)-UNfix)/(0.001);
 {Assess dUCdVC}
 dUCdVC:= (photosynthesis((VC+0.001)*vCO2,(VC+0.001)*vI,(VC+0.001)*vW,PsC,PsIrr,PsW)-UC)/0.001;
 
-UC:= photosynthesis(VC*vCO2,VC*vI,VC*vW,PsC,PsIrr,PsW);// need recall to calculate PET, UW, c_cs, Ci correctly 
+UC:= photosynthesis(VC*vCO2,VC*vI,VC*vW,PsC,PsIrr,PsW);// need recall to calculate PET, UW, c_sc, Ci correctly 
 
 Paw:= rPaw*Pa;                            {apatite weathering}
 
-PO4P:=rPO4P*PO4aq;                        {PO4 precipitation to nonoccluded}
+PO4P:=rPO4P*PO4aq;                        {PO4 precipitation to nonoccluded; rPO4P includes units conversion from umol/L to g P/m2}
 Pnow:=rPnow*Pno;                          {release of non occl to PO4}
 Pocclw:=rPocclw*Poccl;                    {weathering on occluded to non occl}
 Pnos:=rPnos*Pno;                          {stabilization of non occ to occl}
@@ -1235,21 +1309,23 @@ Pnos:=rPnos*Pno;                          {stabilization of non occ to occl}
 {litter}
 LL:=Lfc*VL*Ba+maL*VL*Ba*fcmin;
 
-if BW>1 then LcWC:=mcw *power(BW,mcwex)
-else LcWC:=mcw *BW;
-LcWN:=LcWC*qNWwl;
-LcWP:=LcWC*qPWwl;
+if BW>1 then LcWC:=mcw *power(BW/1,mcwex) //units on the 1 are g C m-2
+else LcWC:=mcw *BW/1;                     //units on the 1 are g C m-2
+
+LcWN:=LcWC*sigmaNwwl;
+LcWP:=LcWC*sigmaPWwl;
 LcWC:=BC*LcWC/Bt;
 
 LitC:=BC*(mW*BW + maR*BR + LL)/Bt;
-LitN:=BN*(mW*BW*qNWl + maR*BR*qNRl + LL*qNLl)/(qN*Bt); 
-LitP:=BP*(mW*BW*qPWl + maR*BR*qPRl + LL*qPLl)/(qP*Bt);
+LitN:=BN*(mW*BW*sigmaNwl + maR*BR*sigmaNrl + LL*sigmaNLL)/(sigmaN*Bt); 
+LitP:=BP*(mW*BW*sigmaPWl + maR*BR*sigmaPrl + LL*sigmaPll)/(sigmaP*Bt);
 
 if fDebris>0 then
  begin
-   LitCDebris:=fDebris*LL;
+   LitCDebris:=fDebris*Lfc*VL*Ba*BC/BT;
+  
    LitNDebris:=LitCDebris/qNLDebris;
-   LitPDebris:=LitCDebris/qPLDebris;
+   LitPDebris:=LitCDebris/qPLDebris;  
  end
 else
  begin
@@ -1268,19 +1344,22 @@ if LitP<0 then LitP:=0;
 
 
 {NUE & PUE}
-NUE:=(LitC+LitCDebris+LcWC)/(LitN+LitNDebris+LcWN);
-PUE:=(LitC+LitCDebris+LcWC)/(LitP+LitPDebris+LcWP);
+NUE:=LitN+LitNDebris+LcWN; 
+PUE:=LitP+LitPDebris+LcWP; 
+if NUE>0 then NUE:= (LitC+LitCDebris+LcWC)/NUE; 
+if PUE>0 then  PUE:= (LitC+LitCDebris+LcWC)/PUE;  
+
 
 {Resource requirement}
 {for maintenance}
-RCPm:=power(Q10R,Ta/10)*(rma*qNL*BL+rmw*qNW*BW*exp(-BW*krmw));
-RCPm:=RCPm + power(Q10R,Ts/10)*rma*qNR*BR;
-RCPm:=RCPm*aqN/qN;
+RCPm:=power(Q10R,Ta/10)*(rma*sigmaNL*BL+rmw*sigmaNw*BW*exp(-BW*krmw));
+RCPm:=RCPm + power(Q10R,Ts/10)*rma*sigmaNr*BR;
+RCPm:=RCPm*sigmaNa/sigmaN;
 
-NPP:=UC-RCPm-UNH4*NH4Ccost-UNO3*NO3Ccost-UdoN*doNCcost-UNfix*NfixCcost;
+NPP:=UC-RCPm-UNH4*phiNH4-UNO3*phiNO3-UdoN*phiDON-UNfix*phiNfix;
 
 {Respiration}
-RCPt:=RCPm+UNH4*NH4Ccost+UNO3*NO3Ccost+UdoN*doNCcost+UNfix*NfixCcost;
+RCPt:=RCPm+UNH4*phiNH4+UNO3*phiNO3+UdoN*phiDON+UNfix*phiNfix;
 if NPP>0 then 
   begin
     NPP:=NPP/(1+rg);
@@ -1288,9 +1367,9 @@ if NPP>0 then
   end;
 
 {Resource requirement, replacement growth}
-RCg:= (LitC+LitCDebris+LcWC)*(1+rg)*power(sqrt((BN/(Bt*qN))*(BP/(Bt*qP))),kq);
-RNg:= (LitN+LitNDebris+LcWN)*power(qN*Bt/BN,kq);
-RPg:= (LitP+LitPDebris+LcWP)*power(qP*Bt/BP,kq);
+RCg:= (LitC+LitCDebris+LcWC)*(1+rg)*power(sqrt((BN/(Bt*sigmaN))*(BP/(Bt*sigmaP))),kq);
+RNg:= (LitN+LitNDebris+LcWN)*power(sigmaN*Bt/BN,kq);
+RPg:= (LitP+LitPDebris+LcWP)*power(sigmaP*Bt/BP,kq);
 
 {total requirement}
 {nitrogen}
@@ -1298,7 +1377,7 @@ RNt:= RNg;
 {Phosphorus}
 RPt:= RPg;
 {carbon}
-RCt:=RCPm + RCg + UNH4*NH4Ccost+UNO3*NO3Ccost+UdoN*doNCcost+UNfix*NfixCcost;
+RCt:=RCPm + RCg + UNH4*phiNH4+UNO3*phiNO3+UdoN*phiDON+UNfix*phiNfix;
 
 {C yield} 
 if UC=0 then
@@ -1332,10 +1411,10 @@ end;
 {N yield}
 //if dUCdVC>0 then
   begin
-    yNH4:=dUNdvNH4/(VN+dUNdvNH4*NH4Ccost/(dUCdVC+1e-6)); {yield}
-    yNO3:=dUNdvNO3/(VN+dUNdvNO3*NO3Ccost/(dUCdVC+1e-6)); {yield}
-    ydoN:=dUNdvdoN/(VN+dUNdvdoN*doNCcost/(dUCdVC+1e-6));{yield}
-    yNfix:=dUNdvNfix/(VN+dUNdvNfix*NfixCcost/(dUCdVC+1e-6)); {yield}
+    yNH4:=dUNdvNH4/(VN+dUNdvNH4*phiNH4/(dUCdVC+1e-6)); {yield}
+    yNO3:=dUNdvNO3/(VN+dUNdvNO3*phiNO3/(dUCdVC+1e-6)); {yield}
+    ydoN:=dUNdvdoN/(VN+dUNdvdoN*phiDON/(dUCdVC+1e-6));{yield}
+    yNfix:=dUNdvNfix/(VN+dUNdvNfix*phiNfix/(dUCdVC+1e-6)); {yield}
   end;
 {else
   begin
@@ -1540,6 +1619,7 @@ if z>0 then
    R:=W/(z*1000*phis)
 else
    R:=0; 
+if R>1 then R:=1;
 S:=Wopt-Wmin;
 deltadW:=1-sqr((Wopt-R)/S)/(1+Jmoist*((R-Wmin)/S));
 deltadW:=deltadW*power(Q10m,Ts/10);
@@ -1553,11 +1633,13 @@ TiiP:=TiiC/qPSii;
 MiiC:=deltadW*aMii*SC;
 MiiN:=deltadW*aMii*SN;
 MiiP:=deltadW*aMii*SP;
-if BW>0 then Nnsfix:=deltadW*betaNfix*power(BW,NLe)*(1-MBW/sqrt(sqr(MBW)+sqr(BW)))
+
+if BW>0 then Nnsfix:=deltadW*betaNfix*power(BW/1,NLe)*(1-MBW/sqrt(sqr(MBW)+sqr(BW)))  //units on the 1 are g C m-2
 else Nnsfix:=0;
-if DC/DN>qSfix then Nnsfix:=Nnsfix+deltadW*gammaNfix*(DC/DN-qSfix)*DC;
-thetaN:=phiN/xiC;
-thetaP:=phiP/xiC;
+
+if DC/DN>qNnsfix then Nnsfix:=Nnsfix+deltadW*gammaNfix*(DC/DN-qNnsfix)*DC;
+thetaN:=phiN/epsilonC;
+thetaP:=phiP/epsilonC;
 UNH4m:=deltadW*alphaNH4*sqr(DC)*NH4aq/(thetaN*DN*(kNH4m+NH4aq));
 UNO3m:=deltadW*alphaNO3*sqr(DC)*NO3aq/(thetaN*DN*(kNO3m+NO3aq));
 UPO4m:=deltadW*alphaPO4*sqr(DC)*PO4aq/(thetaP*DP*(kPO4m+PO4aq));
@@ -1566,7 +1648,7 @@ MC:=deltadW*psiC*DC;
 MN:=deltadW*psiN*DN+UNH4m+UNO3m+Nnsfix;
 MP:=deltadW*psiP*DP+UPO4m;
 divsr:=thetaN*MN*thetaP*MP+MC*thetaP*MP+MC*thetaN*MN;
-LambdaC:=xiC*thetaN*MN*thetaP*MP/divsr;
+LambdaC:=epsilonC*thetaN*MN*thetaP*MP/divsr;
 LambdaN:=MC*thetaP*MP/divsr;
 LambdaP:=MC*thetaN*MN/divsr;
 RCm:=MC*(1-LambdaC);
@@ -1581,7 +1663,7 @@ NEP:=NPP-RCm-MiiC;
 NeCB:=NPP-RCm+IdoC+IRindoC-LdoC-MiiC-ROvfdoC;
 NeNb:=INH4+INO3+IdoN+IRindoN+IRinNH4+IRinNO3+UNfix+Nnsfix-LNH4-LNO3-LdoN-DNtr-ROvfdoN-ROvfNH4-ROvfNO3;
 NePB:=IPa+IPO4+IRinPO4-LPO4-ROvfPO4;
-NeWB:=Ppt+Rin-UW-Intr-Ro-OvfR;
+NeWB:=Ppt+Rin-UW-Intr-Ro-ROLFc;
 
 CumNeCB:=CumNPP-CumRCm+CumIdoC+CumIRindoC-CumLdoC-CumMiiC-CumROvfdoC;
 CumNeNB:=CumINH4+CumINO3+CumIdoN+CumIRindoN+CumIRinNH4+CumIRinNO3+CumUNfix+CumNnsfix-CumLNH4-CumLNO3-CumLdoC/qLdom-CumDNtr-CumROvfdoN-CumROvfNH4-CumROvfNO3;
@@ -1595,79 +1677,110 @@ if CalculateDiscrete then
  {time step size}
       R:=FmOptions.RunOptions.discretestep;
 
+if DOY = 1 then 
+  begin
+    SPsT:=0;
+    SPs:=0;
+  end;
+SPst:=SPsT+UC*Ta;
+SPs:=SPs+UC;
+if DOY =365 then 
+  begin
+     Tg:=SPsT/SPs;
+     Topt:=25.5+0.39*Tg; //Kattge & Knorr 2007 fig 2g&h
+     LAInfix:=LAIpeak;
+  end;
+
+
+If (DOf = 0) and (DDayP>=DdBud) then DOf:=DOY;
+
 {fire losses}
-  if (FI<>0) or (DOYfire<>0) then
+  if doy=DOf then 
+    Begin 
+	  fBCtar:=FLF*BL*sigmaC;
+	  par[FmCalculate.GetArrayIndex(vtparameter,'fBCtar')].value:=fBCtar;
+	end;  
+  if (FI<>0) and (DOf<>0) then
   begin
    if YF>=0 then
    begin
-   If ((YF+1)/FI - trunc((YF+1)/FI) < 0.0001) and (abs(DOY-DOYfire) < 0.001) then
+   If ((YF+1)/FI - trunc((YF+1)/FI) < 0.0001) and (abs(DOY-DOf) < 0.001) then
      begin
-       fc:=fc*ffLL; // Decrease canopy fraction by the same amount as leaves
-       FBC:=R*(ffLL*BL*qC+ffWL*BW*qC);
-       FBN:=R*(ffLL*BL*qNL+ffWL*BW*qNW);
-       FBP:=R*(ffLL*BL*qPL+ffWL*BW*qPW);
+       fc:=fc*(1-ffLL); // Decrease canopy fraction by the same amount as leaves
+       FBC:=R*(ffLL*BL*sigmaC+ffWL*BW*sigmaC);
+       FBN:=R*(ffLL*BL*sigmaNL+ffWL*BW*sigmaNw)*BN/sigmaN/Bt;
+       FBP:=R*(ffLL*BL*sigmaPl+ffWL*BW*sigmaPW)*BP/sigmaP/Bt;
+
+       RCt:= RCt + FBC*(1+rg)*power(sqrt((BN/(Bt*sigmaN))*(BP/(Bt*sigmaP))),kq);
+       RNt:= RNt + FBN*power(sigmaN*Bt/BN,kq); 
+       RPt:= RPt + FBP*power(sigmaP*Bt/BP,kq); 
+
        FWC:=R*ffWDL*WC;
        FWN:=FWC*WN/WC;
        FWP:=FWC*WP/WC;
-       FDC:=R*ffSL*DC;
+       FDC:=R*ffDL*DC;
        FDN:=FDC*DN/DC;
        FDP:=FDC*DP/DC;
-	   FNvol:=fBNv*FBN+fWNv*FWN+fDNv*FDN;
-	   FPvol:=fBPv*FBP+fWPv*FWP+fDPv*FDP;
-	   FNO3:=FBN+FDN+FWN-FNvol;
-	   FPO4:=FBP+FDP+FWP-FPvol;
-         
-       if not(FmOptions.RunOptions.HoldStatesConstant) then
-         begin
-       if stat[FmCalculate.GetArrayIndex(vtstate,'BC')].holdconstant=false then
-       BC:=BC-FBC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'BN')].holdconstant=false then
-       BN:=BN-FBN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'BP')].holdconstant=false then
-       BP:=BP-FBP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'WC')].holdconstant=false then
-       WC:=WC-FWC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'WN')].holdconstant=false then
-       WN:=WN-FWN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'WP')].holdconstant=false then
-       WP:=WP-FWP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'DC')].holdconstant=false then
-       DC:=DC-FDC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'DN')].holdconstant=false then
-       DN:=DN-FDN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'DP')].holdconstant=false then
-       DP:=DP-FDP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'ENO3')].holdconstant=false then
-       ENO3:=ENO3+FNO3;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'EPO4')].holdconstant=false then
-       EPO4:=EPO4+FPO4;
+       FNvol:=fBNv*FBN+fWNv*FWN+fDNv*FDN;
+       FPvol:=fBPv*FBP+fWPv*FWP+fDPv*FDP;
+       FNO3:=FBN+FDN+FWN-FNvol;
+       FPO4:=FBP+FDP+FWP-FPvol;
 
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfBC')].holdconstant=false then
-       CumfBC:=CumfBC+FBC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfBN')].holdconstant=false then
-       CumfBN:=CumfBN+FBN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfBP')].holdconstant=false then
-       CumfBP:=CumfBP+FBP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfWC')].holdconstant=false then
-       CumfWC:=CumfWC+FWC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfWN')].holdconstant=false then
-       CumfWN:=CumfWN+FWN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfWP')].holdconstant=false then
-       CumfWP:=CumfWP+FWP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfDC')].holdconstant=false then
-       CumfDC:=CumfDC+FDC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfDN')].holdconstant=false then
-       CumfDN:=CumfDN+FDN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfDP')].holdconstant=false then
-       CumfDP:=CumfDP+FDP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumFCvt')].holdconstant=false then
-       CumFCvt:=CumFCvt+FBC+FWC+FDC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumFNvt')].holdconstant=false then
-       CumFNvt:=CumFNvt+FNvol;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumFCvt')].holdconstant=false then
-       CumFPvt:=CumFPvt+FPvol;
-         end;
-	  end;
+      
+//********************************************
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'BC')].holdconstant=true) then
+          BC:=BC else BC:=BC-FBC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'BN')].holdconstant=true) then
+          BN:=BN else BN:=BN-FBN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'BP')].holdconstant=true) then
+          BP:=BP else BP:=BP-FBP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'WC')].holdconstant=true) then
+          WC:=WC else WC:=WC-FWC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'WN')].holdconstant=true) then
+          WN:=WN else WN:=WN-FWN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'WP')].holdconstant=true) then
+          WP:=WP else WP:=WP-FWP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'DC')].holdconstant=true) then
+          DC:=DC else DC:=DC-FDC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'DN')].holdconstant=true) then
+          DN:=DN else DN:=DN-FDN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'DP')].holdconstant=true) then
+          DP:=DP else DP:=DP-FDP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'ENO3')].holdconstant=true) then
+          ENO3:=ENO3 else ENO3:=ENO3+FNO3;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'EPO4')].holdconstant=true) then
+          EPO4:=EPO4 else EPO4:=EPO4+FPO4;
+
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfBC')].holdconstant=true) then
+          CumfBC:=CumfBC else CumfBC:=CumfBC+FBC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfBN')].holdconstant=true) then
+          CumfBN:=CumfBN else CumfBN:=CumfBN+FBN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfBP')].holdconstant=true) then
+          CumfBP:=CumfBP else CumfBP:=CumfBP+FBP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfWC')].holdconstant=true) then
+          CumfWC:=CumfWC else CumfWC:=CumfWC+FWC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfWN')].holdconstant=true) then
+          CumfWN:=CumfWN else CumfWN:=CumfWN+FWN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfWP')].holdconstant=true) then
+          CumfWP:=CumfWP else CumfWP:=CumfWP+FWP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfDC')].holdconstant=true) then
+          CumfDC:=CumfDC else CumfDC:=CumfDC+FDC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfDN')].holdconstant=true) then
+          CumfDN:=CumfDN else CumfDN:=CumfDN+FDN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfDP')].holdconstant=true) then
+          CumfDP:=CumfDP else CumfDP:=CumfDP+FDP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumFCvt')].holdconstant=true) then
+          CumFCvt:=CumFCvt else CumFCvt:=CumFCvt+FBC+FWC+FDC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumFNvt')].holdconstant=true) then
+          CumFNvt:=CumFNvt else CumFNvt:=CumFNvt+FNvol;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumFCvt')].holdconstant=true) then
+          CumFPvt:=CumFPvt else CumFPvt:=CumFPvt+FPvol;
+
+//*********************************************
+
+
+
+     end;
    end;  
   end;
 
@@ -1685,24 +1798,7 @@ if CalculateDiscrete then
       if L > LAIpeak then LAIpeak := L;
       if BC > BCpeak then BCpeak := BC;
 
-     {Increasing active layer}
-      z:=z+deltaz*time;
-      SC:=SC+deltaz*time*Ccpii;
-      SN:=SC/qNSii;
-      SP:=SC/qPSii;
-      Pa:=Pa+deltaz*time*PcPa;
-      Pno:=Pno+deltaz*time*PcPno;
-      Poccl:=Poccl+deltaz*time*PcPoccl;
-
-     {Save the new values}
-      par[FmCalculate.GetArrayIndex(vtparameter,'z0')].value:=z;
-      stat[FmCalculate.GetArrayIndex(vtstate,'SC')].value:=SC;
-      stat[FmCalculate.GetArrayIndex(vtstate,'SN')].value:=SN;
-      stat[FmCalculate.GetArrayIndex(vtstate,'SP')].value:=SP;
-      stat[FmCalculate.GetArrayIndex(vtstate,'Pa')].value:=Pa;
-      stat[FmCalculate.GetArrayIndex(vtstate,'Pno')].value:=Pno;
-      stat[FmCalculate.GetArrayIndex(vtstate,'Poccl')].value:=Poccl;
-
+    
      {Simulated Precipitation}
       if FlagSimPpt=1 then
       begin
@@ -1737,11 +1833,14 @@ if CalculateDiscrete then
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumPpt')].holdconstant=false then
          CumPpt:=CumPpt+Ppt*R;
       if Bw=0 then
-        Intr:=Intv*L
+        Intr:=Intv*(L+LW)
       else
-        Intr:= Intv*(NLsfc*power(BW,NLe)*(1-MBW/sqrt(sqr(MBW)+sqr(Bw)))+L);
+        Intr:= Intv*(NLsfc*power(BW/1,NLe)+L+LW);  //units on the 1 are g C m-2
 
-      if Ppt > Intr then
+
+      if Wsnow>0 then Intr:=Intr*rc;
+
+      if Ppt*R > Intr then
          begin
             Thf:= Ppt*R - Intr;
          end
@@ -1754,45 +1853,164 @@ if CalculateDiscrete then
          CumIntr:=CumIntr+Intr;
       
       {Rain or Snow}
-      OvfI:=0;
-      if Ta>Tcrit then  
+      if TcritR<=TcritS then TcritR:=1.001*TcritS;
+      ROLFd:=0;
+       if Ta>=TcritR then  
         begin
           Rfl:=Ppt;
           Sfl := 0;
           InfR:= max(0,min(Thf,(1000*phis*z-W)));
-          OvfI:=max(0,Thf-InfR);
+          ROLFd:=max(0,Thf-InfR);
           if stat[FmCalculate.GetArrayIndex(vtstate,'W')].holdconstant=false then
              W:=W + InfR;
           if stat[FmCalculate.GetArrayIndex(vtstate,'CumRO')].holdconstant=false then
-             CumRO:=CumRO+OvfI;
-        end
-      else
+             CumRO:=CumRO+ROLFd;
+           if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvf')].holdconstant=false then
+             CumROvf:=CumROvf+ROLFd;
+           if ROLFd>0 then Begin
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoC')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*aLdoN*DN*DC*qLdom;
+                 CumROvfdoC:=CumROvfdoC+dum;
+				 DC:=DC-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoN')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*aLdoN*DN*DC;
+                 CumROvfdoN:=CumROvfdoN+dum;
+			     DN:=DN-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNH4')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*NH4aq*14e-6;
+				 CumROvfNH4:=CumROvfNH4+dum;
+				 ENH4:=ENH4-dum;
+			   end;  
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNO3')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*NO3aq*14e-6;
+				 CumROvfNO3:=CumROvfNO3+dum;
+				 ENO3:=ENO3-dum;
+			   end;               
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfPO4')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*PO4aq*31e-6;
+                 CumROvfPO4:=CumROvfPO4+dum;
+				 EPO4:=EPO4-dum;
+			   end;
+		   end;
+        end;
+
+      if (Ta>TcritS) AND (Ta<TcritR) then
+        begin
+          Rfl:=Ppt*(Ta-TcritS)/(TcritR-TcritS);
+          Sfl:=Ppt*(TcritR-Ta)/(TcritR-TcritS);
+
+          InfR:= max(0,min(Thf*(Ta-TcritS)/(TcritR-TcritS),(1000*phis*z-W)));
+          ROLFd:=max(0,Thf*(Ta-TcritS)/(TcritR-TcritS)-InfR);
+          if stat[FmCalculate.GetArrayIndex(vtstate,'W')].holdconstant=false then
+             W:=W + InfR;
+          if stat[FmCalculate.GetArrayIndex(vtstate,'CumRO')].holdconstant=false then
+             CumRO:=CumRO+ROLFd;
+           if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvf')].holdconstant=false then
+             CumROvf:=CumROvf+ROLFd;
+           if ROLFd>0 then Begin
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoC')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*aLdoN*DN*DC*qLdom;
+                 CumROvfdoC:=CumROvfdoC+dum;
+				 DC:=DC-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoN')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*aLdoN*DN*DC;
+                 CumROvfdoN:=CumROvfdoN+dum;
+			     DN:=DN-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNH4')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*NH4aq*14e-6;
+				 CumROvfNH4:=CumROvfNH4+dum;
+				 ENH4:=ENH4-dum;
+			   end;  
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNO3')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*NO3aq*14e-6;
+				 CumROvfNO3:=CumROvfNO3+dum;
+				 ENO3:=ENO3-dum;
+			   end;               
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfPO4')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*PO4aq*31e-6;
+                 CumROvfPO4:=CumROvfPO4+dum;
+				 EPO4:=EPO4-dum;
+			   end;
+		   end;
+
+          if stat[FmCalculate.GetArrayIndex(vtstate,'WSnow')].holdconstant=false then
+             WSnow:=WSnow+Thf*(TcritR-Ta)/(TcritR-TcritS);
+        end;
+
+      if Ta<=TcritS then
         begin
           Sfl:=Ppt;
           Rfl:=0;
           if stat[FmCalculate.GetArrayIndex(vtstate,'WSnow')].holdconstant=false then
              WSnow:=WSnow+Thf;
         end;
+
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumRfl')].holdconstant=false then
          CumRfl:= CumRfl + Rfl;
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumSfl')].holdconstant=false then
          CumSfl:= CumSfl + Sfl;
 
+
+
      {snow melt}
-      if Ta > 2.5 then Tsnow:=0 else Tsnow:=Ta-2.5; {snow sfc temperature}
-      {Dunne and Leopold 1978}
-      Sm:=SWC*Isw*exp(-kI*L)+4.9e-9*(1-exp(-kI*L))*(SB*power(273.15+Ta,4)                 
-               -power(273.15+Tsnow,4));//4.9e-9 Stefan-Boltzmann constant
-      if Ta>0 then Sm:=Sm/LHF+CC*Ta else Sm:=0;
-      if Sm>WSnow     
-         then Sm:=WSnow;
+      Sm:=mQ*max(0,Rnets)+ar*max(0,Ta); //Zhou et al. 2021
       if Sm<0 then Sm:=0;
+      if Sm>WSnow then Sm:=WSnow;
       InfS:= max(0,min(Sm,(1000*phis*z-W)));
-      OvfI:=OvfI+max(0,Sm-InfS);
+      ROLFd:=ROLFd+max(0,Sm-InfS);                         //***************************************here
       if stat[FmCalculate.GetArrayIndex(vtstate,'W')].holdconstant=false then
          W:=W + InfS;
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumRO')].holdconstant=false then
-         CumRO:=CumRO+OvfI;
+         CumRO:=CumRO+ROLFd;
+      if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvf')].holdconstant=false then
+         CumROvf:=CumROvf+ROLFd;
+      
+           if ROLFd>0 then Begin
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoC')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*aLdoN*DN*DC*qLdom;
+                 CumROvfdoC:=CumROvfdoC+dum;
+				 DC:=DC-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoN')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*aLdoN*DN*DC;
+                 CumROvfdoN:=CumROvfdoN+dum;
+			     DN:=DN-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNH4')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*NH4aq*14e-6;
+				 CumROvfNH4:=CumROvfNH4+dum;
+				 ENH4:=ENH4-dum;
+			   end;  
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNO3')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*NO3aq*14e-6;
+				 CumROvfNO3:=CumROvfNO3+dum;
+				 ENO3:=ENO3-dum;
+			   end;               
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfPO4')].holdconstant=false then
+			   begin
+			     dum:=ROLFd*PO4aq*31e-6;
+                 CumROvfPO4:=CumROvfPO4+dum;
+				 EPO4:=EPO4-dum;
+			   end;
+	   end;
       if stat[FmCalculate.GetArrayIndex(vtstate,'WSnow')].holdconstant=false then
          WSnow:= Wsnow - Sm;
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumSm')].holdconstant=false then
@@ -1806,16 +2024,22 @@ if CalculateDiscrete then
  {calibrate}
       if (calibrate>-100) and (abs(Doy-365)<0.001) then
         begin
-       
+
+{subtract out non zero initial values}
+          for jj:= FmCalculate.GetArrayIndex(vtstate,'CumGPP') to
+                  FmCalculate.GetArrayIndex(vtstate,'CumLitPDebris') do
+                     if jj<> FmCalculate.GetArrayIndex(vtstate,'LAIpeak') then
+                     stat[jj].value:=stat[jj].value-FmShellMain.initialstates[jj].value;
+
          FlagNegLeach:=0;
    
          IF CALIBRATE <0 THEN
           begin
-           calibrate :=-calibrate*exp(-5e-6*time);
+           calibrate :=-calibrate*exp(-CalDec*time);
           end;
  
      // v2.8.5 begin
-         if calibrate2nd=1 then
+         if calibrate2nd=1 then //adjust 1 Jan biomass to match peak-season biomass
            begin
               dum:=0.1*(BCpeaktar-BCpeak)/BCpeaktar;
               FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'BC')].value:=
@@ -1833,51 +2057,78 @@ if CalculateDiscrete then
           phiN:=qNSii;       // Not saved to global par array, v2.4.17
           phiP:=qPSii;       // Not saved to global par array, v2.4.17
 
- // v2.8.5 
-          LcwNatar:=CumLcWNa;
-          LcWPatar:=CumLcWPa;
-          FBNtar:=CumfBN;
-          FBPtar:=CumfBP;
-// ********
-          if CumLcWCa>0 then LcwNatar:=CumLcWNa * LcWCatar / CumLcWCa;
-          if CumLcWCa>0 then LcWPatar:=CumLcWPa * LcWCatar / CumLcWCa;
-          if CumfBC>0 then FBNtar:=CumfBN * FBCtar / CumfBC;
-          if CumfBC>0 then FBPtar:=CumfBP * FBCtar / CumfBC;
+ 
+// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+//MASS BALANCE to correct round off errors
+LitNDebristar:=cumLitNDebris;
+LitPDebristar:=cumLitPDebris;
 
-          if fDebris>0 then
-           begin
-            LitCDebristar:=LcwCatar+FWCtar-LcWCtar;
-            LitNDebristar:=LcWNatar+FWNtar-LcWNtar;
-            LitPDebristar:=LcWPatar+FWPtar-LcWPtar;
-           end;
+MIICtar:=TIICtar;
 
-          LitCtar:=NPPtar+UdoNtar*qDOM-LcWCtar-FBCtar-LitCDebristar;
-          LitNtar:=UNH4tar+UNO3tar+UdoNtar+UNfixtar-LcWNtar-FBNtar-LitNDebristar;   
-          LitPtar:=UPO4tar-LcWPtar-FBPtar-LitPDebristar;
+// phosphorus
+FPvttar:=((fBPv+fWPv+fDPv)/3)*(cumFBP+cumFWP+cumFDP); //Collins & Wallace 1990 Fire in N Am Tallgrass Prairie p121 (Book)
 
-          RCmtar:=LitCtar+LcWCatar+cumIdoC+cumIRinDOC-UdoNtar*qDOM-TiiCtar-LdoCtar-CumROvfdoC-FDCtar;
-          RNmtar:=LitNtar+LcWNatar+UNH4mtar+UNO3mtar+cumIdoN+cumIRinDON+Nnsfixtar-UdoNtar-LdoCtar/qLDOM-TiiCtar/qNSii-CumROvfdoN-FDNtar;
-          RPmtar:=LitPtar+LcWPatar+UPO4mtar-TiiCtar/qPSii-FDPtar;
+LitPtar:=max(0, UPO4tar-LitPDebristar-cumFBP-LcWPtar);
+LcWPatar:=max(0, LcWPtar+LitPDebristar-cumFWP);
+RPmtar:=max(0, LitPtar+LcWPatar+UPO4mtar-cumFDP-TiiCtar/qPSii);
+LPO4tar:=max(0, Pawtar+Pnowtar+cumIPO4+RPmtar+MiiCtar/qPSii+cumIRinPO4-cumROvfPO4+cumFBP+cumFWP+cumFDP-FPvttar-UPO4tar-UPO4mtar-PO4Ptar);
 
-          MiiCtar:=TiiCtar;
+// nitrogen
+FNvttar:=((fBNv+fWNv+fDNv)/3)*(cumFBN+cumFWN+cumFDN); //Collins & Wallace 1990 Fire in N Am Tallgrass Prairie p121 (Book)
+LitNtar:=max(0, UNH4tar+UNO3tar+UdoNtar+UNfixtar-LitNDebristar-cumFBN-LcWNtar);
+LcWNatar:=max(0, LcWNtar+LitNDebristar-cumFWN);
 
-          PAWtar:=cumIPa; 
-          Pocclwtar:=Pnostar;
-          Pnowtar:=Pocclwtar+PO4Ptar-Pnostar;
+DUM:=cumINH4+cumINO3+cumIdoN+UNFixtar+Nnsfixtar+cumIRinNH4+cumIRinNO3+cumIRindoN-cumROvfNH4-cumROvfNO3-cumROvfdoN-FNvttar;
+ 
+DUMTAR:=LDOCtar/qLdom+LNH4tar+LNO3tar+DNtrtar;
+    DUM:=DUM/DUMTAR;
 
-   // v2.8.5 
-          dum:=DNtrtar;
-          DNtrtar:=CUMIdoN+cumINH4+cumINO3+cumIRindoN+cumIRinNH4+cumIRinNO3+UNfixtar+Nnsfixtar
-           -cumROvfdoN-cumROvfNH4-cumROvfNO3-LNH4tar-LNO3tar-LdoCtar/qLdom
-           -cumFNvt;
-          if DNtrtar<0 then DNtrtar:=dum;   
+    LDOCtar:=LDOCtar*DUM;
+    LNH4tar:=LNH4tar*DUM;
+    LNO3tar:=LNO3tar*DUM;
+    DNtrtar:=DNtrtar*DUM;
 
-         if Nitrtar>0 then  
-            Nitrtar:=-cumINO3-cumIRinNO3+UNO3tar+UNO3mtar+LNO3tar+DNtrtar+CumROvfNO3-((1-fBNv)*CumfBN+(1-fDNv)*CumfDN+(1-fWNv)*CumfWN)
-          else
-            LNO3tar:=cumINO3+cumIRinNO3-UNO3tar-UNO3mtar+Nitrtar-DNtrtar-CumROvfNO3+((1-fBNv)*CumfBN+(1-fDNv)*CumfDN+(1-fWNv)*CumfWN);
-          LNH4tar:=cumINH4+cumIRinNH4-UNH4tar-UNH4mtar+RNmtar-Nitrtar+MiiCtar/qNSii-CumROvfNH4;
-          LPO4tar:=Pawtar+Pnowtar+cumIPO4+cumIRinPO4-UPO4tar-UPO4mtar+RPmtar-PO4Ptar+MiiCtar/qPSii-CumROvfPO4+((1-fBPv)*CumfBP+(1-fDPv)*CumfDP+(1-fWPv)*CumfWP);
+RNmtar:=max(0, LitNtar+LcWNatar+UNH4mtar+UNO3mtar-LDOCtar/qLdom+cumIdoN+Nnsfixtar+cumIRindoN-cumROvfdoN-cumFDN-TiiCtar/qNSii-UdoNtar);
+Nitrtar:=max(0, cumINH4+RNmtar+MiiCtar/qNSii+cumIRinNH4-cumROvfNH4-UNH4tar-UNH4mtar-LNH4tar);
+//if DNtrtar>0 then  DNtrtar:=max(0, cumINO3+Nitrtar+cumIRinNO3-cumROvfNO3+cumFBN+cumFWN+cumFDN-FNvttar-UNO3tar-UNO3mtar-LNO3tar);
+ 
+//carbon
+LitCtar:=max(0, NPPtar+UdoNtar*qDOM-FBCtar-LitCDebristar-LcWCtar);
+LcWCatar:=max(0, LcWCtar+LitCDebristar-FWCtar);
+RCmtar:=max(0, LitCtar+LcWCatar+cumIdoC+cumIRindoC-cumROvfdoC-UdoNtar*qDOM-LDOCtar-TIICtar-FDCtar);
+
+//adjust NPP to prpportion of current GPP+UDOC
+dumBCtar:=GPPtar+UdoNtar*qDOM;
+cumdum:= cumGPP+cumUdoC;
+NPPtar:=cumdum*NPPtar/dumBCtar;
+              
+// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+         
+
+qNSiicalc  := qNSii; 
+qPSiicalc := qPSii ;
+phiNcalc := phiN;
+phiPcalc := phiP;
+LcwCatarcalc := LcwCatar;
+LcwNatarcalc := LcwNatar;
+LcWPatarcalc := LcWPatar;  
+LitNDebristarcalc := LitNDebristar;
+LitPDebristarcalc := LitPDebristar;
+LitCtarcalc    := LitCtar;   
+LitNtarcalc  := LitNtar; 
+LitPtarcalc := LitPtar;
+RCmtarcalc := RCmtar;
+RNmtarcalc := RNmtar;
+RPmtarcalc := RPmtar;
+MiiCtarcalc := MiiCtar;
+DNtrtarcalc := DNtrtar;
+Nitrtarcalc := Nitrtar;
+LNO3tarcalc := LNO3tar;
+LNH4tarcalc := LNH4tar;
+LPO4tarcalc := LPO4tar;
+LDOCtarcalc := LDOCtar;
+FNvttarcalc := FNvttar;
+FPvttarcalc := FPvttar;
 
          
           if LNH4tar<0 then FlagNegLeach:=1;
@@ -1887,96 +2138,75 @@ if CalculateDiscrete then
 //********
           if VN>VNtar then 
             begin
-              qNL:=qNL*(1-calibrate); 
-              qNW:=qNW*(1-calibrate); 
-              qNR:=qNR*(1-calibrate);
+              sigmaNL:=sigmaNL*(1-calibrate); 
+              sigmaNw:=sigmaNw*(1-calibrate); 
+              sigmaNr:=sigmaNr*(1-calibrate);
             end
           else 
             begin
-              qNL:=qNL*(1+calibrate); 
-              qNW:=qNW*(1+calibrate); 
-              qNR:=qNR*(1+calibrate);
+              sigmaNL:=sigmaNL*(1+calibrate); 
+              sigmaNw:=sigmaNw*(1+calibrate); 
+              sigmaNr:=sigmaNr*(1+calibrate);
             end; 
 
           if VP>VPtar then 
             begin
-              qPL:=qPL*(1-calibrate); 
-              qPW:=qPW*(1-calibrate); 
-              qPR:=qPR*(1-calibrate);
+              sigmaPl:=sigmaPl*(1-calibrate); 
+              sigmaPW:=sigmaPW*(1-calibrate); 
+              sigmaPr:=sigmaPr*(1-calibrate);
             end
           else 
             begin
-              qPL:=qPL*(1+calibrate); 
-              qPW:=qPW*(1+calibrate); 
-              qPR:=qPR*(1+calibrate);
-            end;
-
-
-          if CumGPP>GPPtar then
-            begin
-              scg:= scg*(1-calibrate);
-            end
-          else
-            begin
-              scg:= scg*(1+calibrate);
+              sigmaPl:=sigmaPl*(1+calibrate); 
+              sigmaPW:=sigmaPW*(1+calibrate); 
+              sigmaPr:=sigmaPr*(1+calibrate);
             end;
 
           if LAIpeak > LAItar then
            begin
- //            scg:= scg *(1+calibrate)
-             gC:=gC*(1+calibrate);
-             gi:=gi*(1+calibrate);
+             vCO2tar:=vCO2tar*(1-0.1*calibrate);  // 0.1 used to damp oscillations in calibration
+             vitar:=vitar*(1-0.1*calibrate);
+             vWtar:=1-vCO2tar-vItar;
            end
           else
            begin
-             gC:=gC*(1-calibrate);
-             gi:=gi*(1-calibrate);
- //            scg:= scg *(1-calibrate);
-           end;    
+             vCO2tar:=1-(1-vCO2tar)*(1-0.1*calibrate); // this formulation to keep vCO2 < 1
+             vitar:=1-(1-vitar)*(1-0.1*calibrate);     // this formulation to keep vI < 1
+             dum:=vCO2tar+vItar;
+             if dum > 0.999 then
+               begin
+                 vCO2tar:=0.999*vCO2tar/dum;
+                 vitar:=0.999*vitar/dum;
+               end;
+             vWtar:=1-vCO2tar-vItar;
+            end;   
+
+           if CumGPP>GPPtar then scg:=scg*(1-calibrate)
+           else                  scg:=scg*(1+calibrate);  
+
+           if vCO2>vCO2tar then gC:=gC*(1+calibrate)
+           else                 gC:=gC*(1-calibrate);  
+
+           if vI>vItar then gI:=gI*(1+calibrate)
+           else             gI:=gI*(1-calibrate); 
 
                		  
-          if CumUW>=UWtar then
-            begin
-              ke:= ke*(1-calibrate);
-              scg:=scg*(1+0.5*calibrate);//here
-  	        end
-          else 
-            begin
-        	  ke:= ke*(1+calibrate);
-              scg:=scg*(1-0.5*calibrate);//here
-            end;		
-          			
- 
-   {       vW:=max(0,(VR-VN-VP)/VC);
-          vCO2:=(1-vW)*vCO2/(vCO2+vI);
-          vI:=1-vCO2-vW; 		  
-           
-           if CumGPP<GPPtar then
-            begin
-              gNH4:=gNH4*(1+calibrate);
-              gNO3:=gNO3*(1+calibrate);
-              gNFix:=gNfix*(1+calibrate);
-              gdoC:=gdoC*(1+calibrate);	
-              gPO4:=gPO4*(1+calibrate);	  
-            end			
-          else   
-	        begin
-              gNH4:=gNH4*(1-calibrate);
-              gNO3:=gNO3*(1-calibrate);
-              gNFix:=gNfix*(1-calibrate);
-              gdoC:=gdoC*(1-calibrate);
-              gPO4:=gPO4*(1-calibrate);	  
-	        end;}
+          if CumUW>UWtar then gW:= gW*(1-calibrate)
+          else                gW:= gW*(1+calibrate);
 
-         If CumGPP-CumNPP>GPPtar-NPPtar then 
+     {     if CumIntr>Intrtar then Intv:=Intv*(1-calibrate)
+          else                    Intv:=Intv*(1+calibrate);}
+        			
+ 
+          If CumGPP-CumNPP>GPPtar-NPPtar then 
             begin
-              rma:=rma*(1-calibrate);//here
-              rmw:=rmw*(1-calibrate);//here
+              rma:=rma*(1-calibrate);
+              rmw:=rmw*(1-calibrate);
             end
           else 
             begin
-              rma:=rma*(1+calibrate);//here
-              rmw:=rmw*(1+calibrate);//here
+              rma:=rma*(1+calibrate);
+              rmw:=rmw*(1+calibrate);
             end; 
 
           If CumLitC>LitCtar then 
@@ -1992,33 +2222,49 @@ if CalculateDiscrete then
               mW:=mW*(1+calibrate);
             end;
 			
-          If (CumLitN>0) and (CumLitN>LitNtar) then 
+          If (CumLitN+CumLitNdebris>0) and (CumLitN+CumLitNdebris>LitNtar+LitNdebristar) then 
             begin
-              qNWl:= qNWl *(1-calibrate);
-              qNRl:= qNRl *(1-calibrate); 
-              qNLl:= qNLl *(1-calibrate);
+              sigmaNwl:= sigmaNwl *(1-calibrate);
+              sigmaNrl:= sigmaNrl *(1-calibrate); 
+              sigmaNLL:= sigmaNLL *(1-calibrate);
+              qNLDebris:=qNLDebris/(1-calibrate); //added 
+
             end
           else 
             begin
-              qNWl:= qNWl *(1+calibrate);
-              qNRl:= qNRl *(1+calibrate); 
-              qNLl:= qNLl *(1+calibrate);
+              sigmaNwl:= sigmaNwl *(1+calibrate);
+              sigmaNrl:= sigmaNrl *(1+calibrate); 
+              sigmaNLL:= sigmaNLL *(1+calibrate);
+              qNLDebris:=qNLDebris/(1+calibrate); //added
+
             end;
+
+           If sigmaNLL>0.999*sigmaNL then sigmaNLL:=0.999*sigmaNL;
+           If qNLDebris<1/(0.999*sigmaNL) then qNLDebris:=1/(0.999*sigmaNL); //added 
+
          
-          If (CumLitP>0) and (CumLitP>LitPtar) then 
+          If (CumLitP+CumLitPdebris>0) and (CumLitP+CumLitPdebris>LitPtar+LitPdebristar) then 
             begin
-              qPWl:= qPWl *(1-calibrate);
-              qPRl:= qPRl *(1-calibrate); 
-              qPLl:= qPLl *(1-calibrate);
+              sigmaPWl:= sigmaPWl *(1-calibrate);
+              sigmaPrl:= sigmaPrl *(1-calibrate); 
+              sigmaPll:= sigmaPll *(1-calibrate);
+              qPLDebris:=qPLDebris/(1-calibrate); //added 
+
             end
           else 
             begin
-              qPWl:= qPWl *(1+calibrate);
-              qPRl:= qPRl *(1+calibrate); 
-              qPLl:= qPLl *(1+calibrate);
+              sigmaPWl:= sigmaPWl *(1+calibrate);
+              sigmaPrl:= sigmaPrl *(1+calibrate); 
+              sigmaPll:= sigmaPll *(1+calibrate);
+              qPLDebris:=qPLDebris/(1+calibrate); //added 
+
             end; 
+          If sigmaPll>0.999*sigmaPl then sigmaPll:=0.999*sigmaPl;
+          If qPLDebris<1/(0.999*sigmaPl) then qPLDebris:=1/(0.999*sigmaPl); //added 
+
+
 			
-          if CumLitCDebris>LitCDebristar then
+          if CumLitCDebris-1>LitCDebristar then
             fDebris:=fDebris*(1-calibrate)
           else
             fDebris:=fDebris*(1+calibrate);
@@ -2027,53 +2273,16 @@ if CalculateDiscrete then
 
           if CumLcWC>LcWCtar then mcw:=mcw*(1-calibrate)
           else                    mcw:=mcw*(1+calibrate);
-          if CumLcWN>LcWNtar then qNWwl:=qNWwl*(1-calibrate)
-          else                    qNWwl:=qNWwl*(1+calibrate);
-          if CumLcWP>LcWPtar then qPWwl:=qPWwl*(1-calibrate)
-          else                    qPWwl:=qPWwl*(1+calibrate);
+          if CumLcWN>LcWNtar then sigmaNwwl:=sigmaNwwl*(1-calibrate)
+          else                    sigmaNwwl:=sigmaNwwl*(1+calibrate);
+          if CumLcWP>LcWPtar then sigmaPWwl:=sigmaPWwl*(1-calibrate)
+          else                    sigmaPWwl:=sigmaPWwl*(1+calibrate);
 
           if CumLcWCa>LcWCatar then omega:=omega*(1-calibrate)
           else                      omega:=omega*(1+calibrate);
 
 
-//***************************************************************************************************
- { If calNtar > 0 then
-    begin
-          UNttar:=UNH4tar+UNO3tar+UDONtar+UNfixtar;
-          if vNH4>vNH4tar then
-            begin
-               UNO3tar :=UNO3tar+ UNH4tar*calibrate* UNO3tar/(UNttar-UNH4tar);
-               UDONtar :=UDONtar+ UNH4tar*calibrate* UDONtar/(UNttar-UNH4tar);
-               UNfixtar:=UNfixtar+UNH4tar*calibrate*UNfixtar/(UNttar-UNH4tar);
-               UNH4tar :=UNH4tar*(1-calibrate);
-             end;
 
-          if vNO3>vNO3tar then
-            begin
-               UNH4tar:= UNH4tar+ UNO3tar*calibrate* UNH4tar/(UNttar-UNO3tar);
-               UDONtar:= UDONtar+ UNO3tar*calibrate* UDONtar/(UNttar-UNO3tar);
-               UNfixtar:=UNfixtar+UNO3tar*calibrate*UNfixtar/(UNttar-UNO3tar);
-               UNO3tar:= UNO3tar*(1-calibrate);
-             end;
-
-          if vDON>vDONtar then
-            begin
-               UNH4tar:= UNH4tar+ UDONtar*calibrate* UNH4tar/(UNttar-UDONtar);
-               UNO3tar:= UNO3tar+ UDONtar*calibrate* UNO3tar/(UNttar-UDONtar);
-               UNfixtar:=UNfixtar+UDONtar*calibrate*UNfixtar/(UNttar-UDONtar);
-               UDONtar:= UDONtar*(1-calibrate);
-             end;
-
-          if vNfix>vNfixtar then
-            begin
-               UNH4tar:=UNH4tar+UNfixtar*calibrate*UNH4tar/(UNttar-UNfixtar);
-               UNO3tar:=UNO3tar+UNfixtar*calibrate*UNO3tar/(UNttar-UNfixtar);
-               UDONtar:=UDONtar+UNfixtar*calibrate*UDONtar/(UNttar-UNfixtar);
-               UNfixtar:=UNfixtar*(1-calibrate);
-            end;
-     end;
-             }
-//***************************************************************************************************
           If UNh4tar= 0 then gnh4:=0
           else
            begin
@@ -2107,7 +2316,7 @@ if CalculateDiscrete then
             else   
               begin
                if (CumUNfix>=UNfixtar) then
-                gdoC:=gdoC*(1+1.5*calibrate); //here
+                gdoC:=gdoC*(1+1.5*calibrate); 
               end;
           end;
           
@@ -2136,45 +2345,7 @@ if CalculateDiscrete then
 
           if CumMiiC>MiiCtar then    aMii:=aMii*(1-calibrate)
            else                       aMii:=aMii*(1+calibrate);
-// v2.8.5
-{ PIIflag was set to 0, this code never ran, removed it
-      if (PIIflag>0.8) then
-      begin
-          if CumMiiC>MiiCtar then 
-           begin
-              DC:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SC')].value*calibrate;
-              DN:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SN')].value*calibrate;
-              DP:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SP')].value*calibrate;
-              SC:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SC')].value*(1-calibrate);
-              SN:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SN')].value*(1-calibrate);
-              SP:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SP')].value*(1-calibrate);
-           end
-          else
-           begin
-              deltaPII:=min(DC*SN/(SC*DN),DC*SP/(SC*DP));
-              deltaPII:=min(DN*SC/(SN*DC),deltaPII);
-              deltaPII:=min(DN*SP/(SN*DP),deltaPII);
-              deltaPII:=min(DP*SC/(SP*DC),deltaPII);
-              deltaPII:=min(DP*SN/(SP*DN),deltaPII);
-              deltaPII:=min(1,deltaPII);
-              DC:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value-
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value*calibrate*deltaPII;
-              DN:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value-
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value*calibrate*deltaPII;
-              DP:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value-
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value*calibrate*deltaPII;
-              SC:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SC')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value*calibrate*deltaPII;
-              SN:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SN')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value*calibrate*deltaPII;
-              SP:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SP')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value*calibrate*deltaPII;
-           end;
-      end;
-}      
+
 // ****************
           SoC0:=DC+SC;
 		  
@@ -2259,58 +2430,39 @@ if CalculateDiscrete then
           if CumPnos>Pnostar then rPnos:= rPnos *(1-calibrate)
           else                    rPnos:= rPnos *(1+calibrate); 
  
-          if CumIntr>Intrtar then Intv:= Intv *(1-calibrate)
-          else                  Intv:= Intv *(1+calibrate);
-
- {         if gI>gItar then
-            VCtar:=VCtar*(1-calibrate)
-          else
-            VCtar:=VCtar*(1+calibrate);
-		  VCtar:=min(0.95,max(0.05,VCtar));
-          FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'VC')].value:= VCtar;
-          VNtar:=(1-VCtar)/2;
-          VPtar:=VNtar; 
-          FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'VN')].value:= VNtar;
-          FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'VP')].value:= VPtar;}
-
- 
+          
  {Fire Parameters}
           if CumfBC>FBCtar then
              begin
                ffWL:=ffWL*(1-calibrate);
-               ffLL:=ffLL*(1-calibrate);
+              // ffLL:=ffLL*(1-calibrate);
              end
 	      else
              begin
                ffWL:=ffWL*(1+calibrate);
-               ffLL:=ffLL*(1+calibrate);
+              // ffLL:=ffLL*(1+calibrate);
              end;
           if CumfWC>FWCtar then ffWDL:=ffWDL*(1-calibrate)
 		          else           ffWDL:=ffWDL*(1+calibrate);
-          if CumfDC>FDCtar then ffSL:=ffSL*(1-calibrate)
-		          else           ffSL:=ffSL*(1+calibrate);
+          if CumfDC>FDCtar then ffDL:=ffDL*(1-calibrate)
+		          else           ffDL:=ffDL*(1+calibrate);
 			 
        // You can't burn more than there is
           if ffLL>1 then ffLL:=1;
           if ffWL>1 then ffWL:=1;
           if ffWDL>1 then ffWDL:=1;
-          if ffSL>1 then ffSL:=1;
+          if ffDL>1 then ffDL:=1;
 				  
-          if CumLitNDebris>LitNDebristar then qNLdebris:=qNLdebris*(1+calibrate)
-                  else           qNLdebris:=qNLdebris*(1-calibrate);
-          if CumLitPDebris>LitPDebristar then qPLdebris:=qPLdebris*(1+calibrate)
-                  else           qPLdebris:=qPLdebris*(1-calibrate);				  
-
-		  
-          if CumFNvt>FNvttar then
+   	  
+ {         if CumFNvt>FNvttar then
             begin
 	            fBNv:=fBNv*(1-calibrate);
 	            fWNv:=fWNv*(1-calibrate);
-                fDNv:=fDNv*(1-calibrate);
+                 fDNv:=fDNv*(1-calibrate);
             end
           else
             begin
-	            fBNv:=fBNv*(1+calibrate);
+	           fBNv:=fBNv*(1+calibrate);
                 fWNv:=fWNv*(1+calibrate);
                 fDNv:=fDNv*(1+calibrate);
             end;
@@ -2334,19 +2486,15 @@ if CalculateDiscrete then
           if fDNv>1 then fDNv:=1;
           if fBPv>1 then fBPv:=1;
           if fWPv>1 then fWPv:=1;
-          if fDPv>1 then fDPv:=1;
+          if fDPv>1 then fDPv:=1;}
 
  
-// v2.8.5
-     //     FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'BC')].value:=BC;
-
 
           par[FmCalculate.GetArrayIndex(vtparameter,'FlagNegLeach')].value:=FlagNegLeach;
-// ********
           par[FmCalculate.GetArrayIndex(vtparameter,'ffWL')].value:=ffWL;
           par[FmCalculate.GetArrayIndex(vtparameter,'ffLL')].value:=ffLL;
           par[FmCalculate.GetArrayIndex(vtparameter,'ffWDL')].value:=ffWDL;
-          par[FmCalculate.GetArrayIndex(vtparameter,'ffSL')].value:=ffSL;
+          par[FmCalculate.GetArrayIndex(vtparameter,'ffDL')].value:=ffDL;
           par[FmCalculate.GetArrayIndex(vtparameter,'fBNv')].value:=fBNv;
           par[FmCalculate.GetArrayIndex(vtparameter,'fBPv')].value:=fBPv;
           par[FmCalculate.GetArrayIndex(vtparameter,'fWNv')].value:=fWNv;
@@ -2357,12 +2505,11 @@ if CalculateDiscrete then
           par[FmCalculate.GetArrayIndex(vtparameter,'kNH4')].value:=kNH4;
           par[FmCalculate.GetArrayIndex(vtparameter,'kNO3')].value:=kNO3;
           par[FmCalculate.GetArrayIndex(vtparameter,'kdoC')].value:=kdoC;
-          par[FmCalculate.GetArrayIndex(vtparameter,'NfixCcost')].value:=NfixCcost;
+          par[FmCalculate.GetArrayIndex(vtparameter,'phiNfix')].value:=phiNfix;
          
           par[FmCalculate.GetArrayIndex(vtparameter,'gC')].value:=gC;
           par[FmCalculate.GetArrayIndex(vtparameter,'gI')].value:=gI; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'kE')].value:=kE;
-          par[FmCalculate.GetArrayIndex(vtparameter,'scg')].value:=scg;
+          par[FmCalculate.GetArrayIndex(vtparameter,'gW')].value:=gW;
           par[FmCalculate.GetArrayIndex(vtparameter,'rma')].value:= rma;
           par[FmCalculate.GetArrayIndex(vtparameter,'rmw')].value:= rmw; 
           par[FmCalculate.GetArrayIndex(vtparameter,'maL')].value:= maL;
@@ -2373,22 +2520,26 @@ if CalculateDiscrete then
           par[FmCalculate.GetArrayIndex(vtparameter,'gNO3')].value:=gNO3;
           par[FmCalculate.GetArrayIndex(vtparameter,'gdoC')].value:=gdoC;
           par[FmCalculate.GetArrayIndex(vtparameter,'gNfix')].value:=gNfix; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'qNLl')].value:= qNLl;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qNWl')].value:= qNWl;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qNRl')].value:= qNRl; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'qNL')].value:= qNL;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qNW')].value:= qNW;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qNR')].value:= qNR;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaNLL')].value:= sigmaNLL;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaNwl')].value:= sigmaNwl;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaNrl')].value:= sigmaNrl; 
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaNL')].value:= sigmaNL;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaNw')].value:= sigmaNw;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaNr')].value:= sigmaNr;
           par[FmCalculate.GetArrayIndex(vtparameter,'gPO4')].value:=gPO4; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'qPLl')].value:= qPLl;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qPWl')].value:= qPWl;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qPR')].value:= qPR; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'qPL')].value:= qPL;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qPW')].value:= qPW;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qPRl')].value:= qPRl;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaPll')].value:= sigmaPll;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaPWl')].value:= sigmaPWl;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaPr')].value:= sigmaPr; 
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaPl')].value:= sigmaPl;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaPW')].value:= sigmaPW;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaPrl')].value:= sigmaPrl;
           par[FmCalculate.GetArrayIndex(vtparameter,'omega')].value:= omega; 
           par[FmCalculate.GetArrayIndex(vtparameter,'psiC')].value:= psiC; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'aTii')].value:= aTii; 
+          par[FmCalculate.GetArrayIndex(vtparameter,'aTii')].value:= aTii;  
+          par[FmCalculate.GetArrayIndex(vtparameter,'scg')].value:= scg;  
+          par[FmCalculate.GetArrayIndex(vtparameter,'vCO2tar')].value:= vCO2tar;  
+          par[FmCalculate.GetArrayIndex(vtparameter,'vItar')].value:= vItar;  
+          par[FmCalculate.GetArrayIndex(vtparameter,'vWtar')].value:= vWtar;
 
  
           par[FmCalculate.GetArrayIndex(vtparameter,'UNH4tar')].value:= UNH4tar;
@@ -2396,19 +2547,6 @@ if CalculateDiscrete then
           par[FmCalculate.GetArrayIndex(vtparameter,'UdoNtar')].value:= UDONtar;
           par[FmCalculate.GetArrayIndex(vtparameter,'UNfixtar')].value:= UNfixtar;
 
-// v2.8.5
-{
-          if PIIflag>0.8 then
-          begin
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SC')].value:=SC;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SN')].value:=SN;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SP')].value:=SP;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value:=DC;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value:=DN;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value:=DP;
-          end;
-}
-// ***********
           par[FmCalculate.GetArrayIndex(vtparameter,'SoC0')].value:=SoC0;
           par[FmCalculate.GetArrayIndex(vtparameter,'alphaNH4')].value:=alphaNH4;
           par[FmCalculate.GetArrayIndex(vtparameter,'alphaNO3')].value:= alphaNO3; 
@@ -2431,30 +2569,53 @@ if CalculateDiscrete then
           par[FmCalculate.GetArrayIndex(vtparameter,'qPSii')].value:=qPSii; 
           par[FmCalculate.GetArrayIndex(vtparameter,'phiN')].value:= phiN; 
           par[FmCalculate.GetArrayIndex(vtparameter,'phiP')].value:= phiP;
-          par[FmCalculate.GetArrayIndex(vtparameter,'qNWwl')].value:= qNWwl; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'qPWwl')].value:= qPWwl;
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaNwwl')].value:= sigmaNwwl; 
+          par[FmCalculate.GetArrayIndex(vtparameter,'sigmaPWwl')].value:= sigmaPWwl;
           par[FmCalculate.GetArrayIndex(vtparameter,'fDebris')].value:= fDebris;
           par[FmCalculate.GetArrayIndex(vtparameter,'qNLDebris')].value:= qNLDebris;
           par[FmCalculate.GetArrayIndex(vtparameter,'qPLDebris')].value:= qPLDebris;		  
           par[FmCalculate.GetArrayIndex(vtparameter,'LcWNatar')].value:= LcWNatar;
           par[FmCalculate.GetArrayIndex(vtparameter,'LcWPatar')].value:= LcWPatar;		  
+          par[FmCalculate.GetArrayIndex(vtparameter,'fBNtar')].value:= fBNtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'fBPtar')].value:= fBPtar;	
+
+         { par[FmCalculate.GetArrayIndex(vtparameter,'LitCtar')].value:= LitCtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LcWCatar')].value:= LcWCatar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'RCmtar')].value:= RCmtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'RNmtar')].value:= RNmtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'Nitrtar')].value:= Nitrtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'DNtrtar')].value:= DNtrtar;
+          //par[FmCalculate.GetArrayIndex(vtparameter,'NPPtar')].value:= NPPtar;
+         // par[FmCalculate.GetArrayIndex(vtparameter,'LDOCtar')].value:= LDOCtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LNH4tar')].value:= LNH4tar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LNO3tar')].value:= LNO3tar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LitNDebristar')].value:= LitNDebristar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LitPDebristar')].value:= LitPDebristar;
+          //par[FmCalculate.GetArrayIndex(vtparameter,'MIICtar')].value:= MIICtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LitPtar')].value:= LitPtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LcWPatar’)].value:= LcWPatar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'RPmtar')].value:= RPmtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LPO4tar')].value:= LPO4tar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LitNtar')].value:= LitNtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LcWNatar')].value:= LcWNatar;}	  
+ 	  
         end;
    end;
 End Equations
 
 Derivatives
-dBCdt   :=NPP+UdoC-LitC-LitCDebris-LcWC{-FBC};
-dBNdt   :=UNH4+UNO3+UdoN+UNfix-LitN-LitNDebris-LcWN{-FBN};
-dBPdt   :=UPO4-LitP-LitPDebris-LcWP{-FBP};
-dVCdt   :=dVCdt;
-dVNdt   :=dVNdt;
-dVPdt   :=dVPdt;
-dvCO2dt :=dvCO2dt;
-dvIdt   :=dvIdt;
-dvWdt   :=dvWdt;
-dvNH4dt :=dvNH4dt;
-dvNO3dt :=dvNO3dt;
-dvdoNdt :=dvdoNdt;
+dBCdt:=NPP+UdoC-LitC-LitCDebris-LcWC{-FBC};
+dBNdt:=UNH4+UNO3+UdoN+UNfix-LitN-LitNDebris-LcWN{-FBN};
+dBPdt:=UPO4-LitP-LitPDebris-LcWP{-FBP};
+dVCdt:=dVCdt;
+dVNdt:=dVNdt;
+dVPdt:=dVPdt;
+dvCO2dt:=dvCO2dt;
+dvIdt:=dvIdt;
+dvWdt:=dvWdt;
+dvNH4dt:=dvNH4dt;
+dvNO3dt:=dvNO3dt;
+dvdoNdt:=dvdoNdt;
 dvNfixdt:=dvNfixdt;
 dDCdt:=LitC+LcWCa+IdoC-UdoC-RCm-TiiC-LdoC+IRindoC-ROvfdoC{-FDC};
 dDNdt:=LitN+LcWNa+UNH4m+UNO3m+IdoN+Nnsfix-RNm-UdoN-LdoN-TiiN+IRindoN-ROvfdoN{-FDN};
@@ -2471,10 +2632,11 @@ dEPO4dt:=Paw+Pnow+IPO4-UPO4-LPO4-UPO4m+RPm-PO4P+MiiP+IRinPO4-ROvfPO4{+FPO4};
 dPadt:=IPa-Paw;
 dPnodt:=Pocclw+PO4P-Pnow-Pnos;
 dPoccldt:=Pnos-Pocclw;
-dWdt:=-UW-Ro+Rin-OvfR;
-dWsnowdt:=0 ;
+dWdt:=-UW-Ro+Rin-ROLFc;
+dWSnowdt:=0 ;
 dSQdt:=0;
 dfcdt:=Gfc-Lfc;
+dLAInfixdt:=0;
 dRCadt:=tau*(RCt-RCa);
 dRNadt:=tau*(RNt-RNa);
 dRPadt:=tau*(RPt-RPa);
@@ -2484,6 +2646,7 @@ dUPadt:=tau*(UPO4-UPa);
 dDDaypdt:=0;
 dDDayndt:=0;
 dCumGPPdt:=UC;
+dcumRCPtdt:=RCPt;
 dCumNPPdt:=NPP;
 dCumNEPdt:=NEP;
 dCumUdoCdt:=UdoC;
@@ -2540,7 +2703,7 @@ dCumIdoNdt:=IdoN;
 dCumLdoCdt:=LdoC;
 dCumLdoNdt:=LdoN;
 dCumUWdt:=UW;
-dCumRodt:=Ro+OvfR;
+dCumROdt:=Ro+ROLFc;
 dCumPptdt:=0;
 dCumIntrdt:=0;
 dCumRfldt:=0;
@@ -2552,22 +2715,23 @@ dCumIRindoNdt:=IRindoN;
 dCumIRinNH4dt:=IRinNH4;
 dCumIRinNO3dt:=IRinNO3;
 dCumIRinPO4dt:=IRinPO4;
-dCumROvfdt:=OvfR;
+dCumROvfdt:=ROLFc;
 dCumROvfdoCdt:=ROvfdoC;
 dCumROvfdoNdt:=ROvfdoN;
 dCumROvfNH4dt:=ROvfNH4;
 dCumROvfNO3dt:=ROvfNO3;
 dCumROvfPO4dt:=ROvfPO4;
 dLAIpeakdt:=0;
-dCumFBCdt:=0;
-dCumFBNdt:=0;
-dCumFBPdt:=0;
-dCumFWCdt:=0;
-dCumFWNdt:=0;
-dCumFWPdt:=0;
-dCumFDCdt:=0;
-dCumFDNdt:=0;
-dCumFDPdt:=0;
+dDOfdt:=0;
+dCumfBCdt:=0;
+dCumfBNdt:=0;
+dCumfBPdt:=0;
+dCumfWCdt:=0;
+dCumfWNdt:=0;
+dCumfWPdt:=0;
+dCumfDCdt:=0;
+dCumfDNdt:=0;
+dCumfDPdt:=0;
 dCumFCvtdt:=0;
 dCumFNvtdt:=0;
 dCumFPvtdt:=0;
@@ -2575,4 +2739,9 @@ dCumLitCDebrisdt:=LitCDebris;
 dCumLitNDebrisdt:=LitNDebris;
 dCumLitPDebrisdt:=LitPDebris;
 dBCpeakdt:=0; // v2.8.5
+dSPsTdt:=0;
+dSPsdt:=0;
+dToptdt:=0;
+dTgdt:=0;
+dWSmaxdt:=0;
 End

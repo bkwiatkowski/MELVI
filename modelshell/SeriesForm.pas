@@ -9,15 +9,19 @@ uses SysUtils, Classes, Graphics, Forms, Controls, StdCtrls,
   Buttons, ExtCtrls, Dialogs, stypes;
 
 type
+
+  { TFmSeries }
+
   TFmSeries = class(TForm)
     Panel1: TPanel;
     LbxChooseSeries: TListBox;
     Panel2: TPanel;
-    OKBtn: TButton;
-    CancelBtn: TButton;
+    BtnOK: TButton;
+    BtnCancel: TButton;
     BtnClearSelection: TButton;
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure OKBtnClick(Sender: TObject);
+    procedure BtnOKClick(Sender: TObject);
     procedure BtnClearSelectionClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
   private
@@ -42,6 +46,15 @@ var
  i, seriesindex:integer;
  seriesname:string;
 begin
+  // Make sure form is visible and fits on the screen
+ with FmSeries do
+   begin
+     if Width>Screen.WorkAreaWidth then Width:=Screen.WorkAreaWidth;
+     if Height>Screen.WorkAreaHeight then Height:=Screen.WorkAreaHeight;
+     if Left<Screen.WorkAreaLeft then Left:=Screen.WorkAreaLeft;
+     if Top<Screen.WorkAreaTop then Top:=Screen.WorkAreaTop;
+   end;
+
  FmDisplayOutput.FillListBox(FmSeries.LbxChooseSeries);
  if FmDisplayOutput.CurrentAxis = axBottom then   // Choosing Independent Axis
   begin
@@ -68,8 +81,19 @@ begin
   end;
 end;
 
+procedure TFmSeries.FormCreate(Sender: TObject);
+begin
+{$ifdef Darwin}
+  BtnCancel.AnchorSideRight.Control:=Panel2;
+  BtnCancel.AnchorSideRight.Side:=asrRight;
+  BtnOK.AnchorSideRight.Control:=BtnCancel;
+  BtnOK.AnchorSideRight.Side:=asrLeft;
+{$endif}
+
+end;
+
 {}
-procedure TFmSeries.OKBtnClick(Sender: TObject);
+procedure TFmSeries.BtnOKClick(Sender: TObject);
 var
  i:integer;
 begin

@@ -49,7 +49,7 @@ var
 begin
 { Set the modelname, version and time unit. }
 ModelDef.modelname := 'MELVI';
-ModelDef.versionnumber := '2.8.5';
+ModelDef.versionnumber := '3.5.0';
 ModelDef.timeunit := 'day';
 ModelDef.contactperson := 'Edward Rastetter';
 ModelDef.contactaddress1 := 'The Ecosystems Center';
@@ -58,7 +58,7 @@ ModelDef.contactaddress3 := 'Woods Hole, MA 02543';
 
 { Set the number of state variables in the model. The maximum number of state
   variables is maxstate, in unit stypes. }
-ModelDef.numstate := 132;
+ModelDef.numstate := 140;
 
 { Enter the name, units and symbol for each state variable. The maximum length
   of the state variable name is 17 characters and the maximum length for units
@@ -227,508 +227,548 @@ with stat[32] do
  
 with stat[33] do
  begin
-    name:='Ave requirement C';  units:='none';  symbol:='RCa';
+    name:='LAI MAX nfix';  units:='m2 m-2';  symbol:='LAInfix';
  end;
  
 with stat[34] do
  begin
-    name:='Ave requirement N';  units:='none';  symbol:='RNa';
+    name:='Ave requirement C';  units:='none';  symbol:='RCa';
  end;
  
 with stat[35] do
  begin
-    name:='Ave requirement P';  units:='none';  symbol:='RPa';
+    name:='Ave requirement N';  units:='none';  symbol:='RNa';
  end;
  
 with stat[36] do
  begin
-    name:='Ave Acquisition C';  units:='none';  symbol:='UCa';
+    name:='Ave requirement P';  units:='none';  symbol:='RPa';
  end;
  
 with stat[37] do
  begin
-    name:='Ave Acquisition N';  units:='none';  symbol:='UNa';
+    name:='Ave Acquisition C';  units:='none';  symbol:='UCa';
  end;
  
 with stat[38] do
  begin
-    name:='Ave Acquisition P';  units:='none';  symbol:='UPa';
+    name:='Ave Acquisition N';  units:='none';  symbol:='UNa';
  end;
  
 with stat[39] do
  begin
-    name:='Degree day positive';  units:='oC day';  symbol:='DDayp';
+    name:='Ave Acquisition P';  units:='none';  symbol:='UPa';
  end;
  
 with stat[40] do
  begin
-    name:='Degree day negative';  units:='oC day';  symbol:='DDayn';
+    name:='Degree day positive';  units:='oC day';  symbol:='DDayp';
  end;
  
 with stat[41] do
  begin
-    name:='Cum GPP';  units:='g C m-2';  symbol:='CumGPP';
+    name:='Degree day negative';  units:='oC day';  symbol:='DDayn';
  end;
  
 with stat[42] do
  begin
-    name:='Cum NPP';  units:='g C m-2';  symbol:='CumNPP';
+    name:='Cum GPP';  units:='g C m-2';  symbol:='CumGPP';
  end;
  
 with stat[43] do
  begin
-    name:='Cum NEP';  units:='g C m-2';  symbol:='CumNEP';
+    name:='Cum RCPt';  units:='g C m-2';  symbol:='CumRCPt';
  end;
  
 with stat[44] do
  begin
-    name:='Cum UdoC';  units:='g C m-2';  symbol:='CumUdoC';
+    name:='Cum NPP';  units:='g C m-2';  symbol:='CumNPP';
  end;
  
 with stat[45] do
  begin
-    name:='Cum LitC';  units:='g C m-2';  symbol:='CumLitC';
+    name:='Cum NEP';  units:='g C m-2';  symbol:='CumNEP';
  end;
  
 with stat[46] do
  begin
-    name:='Cum LcWC';  units:='g C m-2';  symbol:='CumLcWC';
+    name:='Cum UdoC';  units:='g C m-2';  symbol:='CumUdoC';
  end;
  
 with stat[47] do
  begin
-    name:='Cum Total Litter C';  units:='g C m-2';  symbol:='CumtotalLitC';
+    name:='Cum LitC';  units:='g C m-2';  symbol:='CumLitC';
  end;
  
 with stat[48] do
  begin
-    name:='Cum Total Litter N';  units:='g N m-2';  symbol:='CumtotalLitN';
+    name:='Cum LcWC';  units:='g C m-2';  symbol:='CumLcWC';
  end;
  
 with stat[49] do
  begin
-    name:='Cum Total Litter P';  units:='g P m-2';  symbol:='CumtotalLitP';
+    name:='Cum Total Litter C';  units:='g C m-2';  symbol:='CumtotalLitC';
  end;
  
 with stat[50] do
  begin
-    name:='Cum Tot microb resp';  units:='g C m-2';  symbol:='CumRCmtotal';
+    name:='Cum Total Litter N';  units:='g N m-2';  symbol:='CumtotalLitN';
  end;
  
 with stat[51] do
  begin
-    name:='Cum net N min';  units:='g N m-2';  symbol:='CumNmintot';
+    name:='Cum Total Litter P';  units:='g P m-2';  symbol:='CumtotalLitP';
  end;
  
 with stat[52] do
  begin
-    name:='Cum net P min';  units:='g P m-2';  symbol:='CumPmintot';
+    name:='Cum Tot microb resp';  units:='g C m-2';  symbol:='CumRCmtotal';
  end;
  
 with stat[53] do
  begin
-    name:='Cum Total N uptake';  units:='g N m-2';  symbol:='CumUN';
+    name:='Cum net N min';  units:='g N m-2';  symbol:='CumNmintot';
  end;
  
 with stat[54] do
  begin
-    name:='Cum UNH4';  units:='g N m-2';  symbol:='CumUNH4';
+    name:='Cum net P min';  units:='g P m-2';  symbol:='CumPmintot';
  end;
  
 with stat[55] do
  begin
-    name:='Cum UNO3';  units:='g N m-2';  symbol:='CumUNO3';
+    name:='Cum Total N uptake';  units:='g N m-2';  symbol:='CumUN';
  end;
  
 with stat[56] do
  begin
-    name:='Cum UdoN';  units:='g N m-2';  symbol:='CumUdoN';
+    name:='Cum UNH4';  units:='g N m-2';  symbol:='CumUNH4';
  end;
  
 with stat[57] do
  begin
-    name:='Cum N fixation';  units:='g N m-2';  symbol:='CumUNfix';
+    name:='Cum UNO3';  units:='g N m-2';  symbol:='CumUNO3';
  end;
  
 with stat[58] do
  begin
-    name:='Cum LitN';  units:='g N m-2';  symbol:='CumLitN';
+    name:='Cum UdoN';  units:='g N m-2';  symbol:='CumUdoN';
  end;
  
 with stat[59] do
  begin
-    name:='Cum LcWN';  units:='g N m-2';  symbol:='CumLcWN';
+    name:='Cum N fixation';  units:='g N m-2';  symbol:='CumUNfix';
  end;
  
 with stat[60] do
  begin
-    name:='Cum UPO4';  units:='g P m-2';  symbol:='CumUPO4';
+    name:='Cum LitN';  units:='g N m-2';  symbol:='CumLitN';
  end;
  
 with stat[61] do
  begin
-    name:='Cum LitP';  units:='g P m-2';  symbol:='CumLitP';
+    name:='Cum LcWN';  units:='g N m-2';  symbol:='CumLcWN';
  end;
  
 with stat[62] do
  begin
-    name:='Cum LcWP';  units:='g P m-2';  symbol:='CumLcWP';
+    name:='Cum UPO4';  units:='g P m-2';  symbol:='CumUPO4';
  end;
  
 with stat[63] do
  begin
-    name:='Cum LcWCa';  units:='g C m-2';  symbol:='CumLcWCa';
+    name:='Cum LitP';  units:='g P m-2';  symbol:='CumLitP';
  end;
  
 with stat[64] do
  begin
-    name:='Cum RCm';  units:='g C m-2';  symbol:='CumRCm';
+    name:='Cum LcWP';  units:='g P m-2';  symbol:='CumLcWP';
  end;
  
 with stat[65] do
  begin
-    name:='Cum TiiC';  units:='g C m-2';  symbol:='CumTiiC';
+    name:='Cum LcWCa';  units:='g C m-2';  symbol:='CumLcWCa';
  end;
  
 with stat[66] do
  begin
-    name:='Cum LcWNa';  units:='g N m-2';  symbol:='CumLcWNa';
+    name:='Cum RCm';  units:='g C m-2';  symbol:='CumRCm';
  end;
  
 with stat[67] do
  begin
-    name:='Cum UNH4m';  units:='g N m-2';  symbol:='CumUNH4m';
+    name:='Cum TiiC';  units:='g C m-2';  symbol:='CumTiiC';
  end;
  
 with stat[68] do
  begin
-    name:='Cum UNO3m';  units:='g N m-2';  symbol:='CumUNO3m';
+    name:='Cum LcWNa';  units:='g N m-2';  symbol:='CumLcWNa';
  end;
  
 with stat[69] do
  begin
-    name:='Cum RNm';  units:='g N m-2';  symbol:='CumRNm';
+    name:='Cum UNH4m';  units:='g N m-2';  symbol:='CumUNH4m';
  end;
  
 with stat[70] do
  begin
-    name:='Cum TiiN';  units:='g N m-2';  symbol:='CumTiiN';
+    name:='Cum UNO3m';  units:='g N m-2';  symbol:='CumUNO3m';
  end;
  
 with stat[71] do
  begin
-    name:='Cum nonsym Nfix';  units:='g N m-2';  symbol:='CumNnsfix';
+    name:='Cum RNm';  units:='g N m-2';  symbol:='CumRNm';
  end;
  
 with stat[72] do
  begin
-    name:='Cum LcWPa';  units:='g P m-2';  symbol:='CumLcWPa';
+    name:='Cum TiiN';  units:='g N m-2';  symbol:='CumTiiN';
  end;
  
 with stat[73] do
  begin
-    name:='Cum UPO4m';  units:='g P m-2';  symbol:='CumUPO4m';
+    name:='Cum nonsym Nfix';  units:='g N m-2';  symbol:='CumNnsfix';
  end;
  
 with stat[74] do
  begin
-    name:='Cum RPm';  units:='g P m-2';  symbol:='CumRPm';
+    name:='Cum LcWPa';  units:='g P m-2';  symbol:='CumLcWPa';
  end;
  
 with stat[75] do
  begin
-    name:='Cum TiiP';  units:='g P m-2';  symbol:='CumTiiP';
+    name:='Cum UPO4m';  units:='g P m-2';  symbol:='CumUPO4m';
  end;
  
 with stat[76] do
  begin
-    name:='Cum MiiC';  units:='g Cm-2';  symbol:='CumMiiC';
+    name:='Cum RPm';  units:='g P m-2';  symbol:='CumRPm';
  end;
  
 with stat[77] do
  begin
-    name:='Cum MiiN';  units:='g N m-2';  symbol:='CumMiiN';
+    name:='Cum TiiP';  units:='g P m-2';  symbol:='CumTiiP';
  end;
  
 with stat[78] do
  begin
-    name:='Cum MiiP';  units:='g P m-2';  symbol:='CumMiiP';
+    name:='Cum MiiC';  units:='g Cm-2';  symbol:='CumMiiC';
  end;
  
 with stat[79] do
  begin
-    name:='Cum INH4';  units:='g N m-2';  symbol:='CumINH4';
+    name:='Cum MiiN';  units:='g N m-2';  symbol:='CumMiiN';
  end;
  
 with stat[80] do
  begin
-    name:='Cum LNH4';  units:='g N m-2';  symbol:='CumLNH4';
+    name:='Cum MiiP';  units:='g P m-2';  symbol:='CumMiiP';
  end;
  
 with stat[81] do
  begin
-    name:='Cum nitrification';  units:='g N m-2';  symbol:='CumNitr';
+    name:='Cum INH4';  units:='g N m-2';  symbol:='CumINH4';
  end;
  
 with stat[82] do
  begin
-    name:='Cum INO3';  units:='g N m-2';  symbol:='CumINO3';
+    name:='Cum LNH4';  units:='g N m-2';  symbol:='CumLNH4';
  end;
  
 with stat[83] do
  begin
-    name:='Cum LNO3';  units:='g N m-2';  symbol:='CumLNO3';
+    name:='Cum nitrification';  units:='g N m-2';  symbol:='CumNitr';
  end;
  
 with stat[84] do
  begin
-    name:='Cum DNtr';  units:='g N m-2';  symbol:='CumDNtr';
+    name:='Cum INO3';  units:='g N m-2';  symbol:='CumINO3';
  end;
  
 with stat[85] do
  begin
-    name:='Cum Paw';  units:='g P m-2';  symbol:='CumPaw';
+    name:='Cum LNO3';  units:='g N m-2';  symbol:='CumLNO3';
  end;
  
 with stat[86] do
  begin
-    name:='Cum Pnow';  units:='g P m-2';  symbol:='CumPnow';
+    name:='Cum DNtr';  units:='g N m-2';  symbol:='CumDNtr';
  end;
  
 with stat[87] do
  begin
-    name:='Cum IPO4';  units:='g P m-2';  symbol:='CumIPO4';
+    name:='Cum Paw';  units:='g P m-2';  symbol:='CumPaw';
  end;
  
 with stat[88] do
  begin
-    name:='Cum LPO4';  units:='g P m-2';  symbol:='CumLPO4';
+    name:='Cum Pnow';  units:='g P m-2';  symbol:='CumPnow';
  end;
  
 with stat[89] do
  begin
-    name:='Cum PO4P';  units:='g P m-2';  symbol:='CumPO4P';
+    name:='Cum IPO4';  units:='g P m-2';  symbol:='CumIPO4';
  end;
  
 with stat[90] do
  begin
-    name:='Cum IPa';  units:='g P m-2';  symbol:='CumIPa';
+    name:='Cum LPO4';  units:='g P m-2';  symbol:='CumLPO4';
  end;
  
 with stat[91] do
  begin
-    name:='Cum Pocclw';  units:='g P m-2';  symbol:='CumPocclw';
+    name:='Cum PO4P';  units:='g P m-2';  symbol:='CumPO4P';
  end;
  
 with stat[92] do
  begin
-    name:='Cum Pnos';  units:='g P m-2';  symbol:='CumPnos';
+    name:='Cum IPa';  units:='g P m-2';  symbol:='CumIPa';
  end;
  
 with stat[93] do
  begin
-    name:='Cum IdoC';  units:='g C m-2';  symbol:='CumIdoC';
+    name:='Cum Pocclw';  units:='g P m-2';  symbol:='CumPocclw';
  end;
  
 with stat[94] do
  begin
-    name:='Cum IdoN';  units:='g C m-2';  symbol:='CumIdoN';
+    name:='Cum Pnos';  units:='g P m-2';  symbol:='CumPnos';
  end;
  
 with stat[95] do
  begin
-    name:='Cum LdoC';  units:='g C m-2';  symbol:='CumLdoC';
+    name:='Cum IdoC';  units:='g C m-2';  symbol:='CumIdoC';
  end;
  
 with stat[96] do
  begin
-    name:='Cum LdoN';  units:='g N m-2';  symbol:='CumLdoN';
+    name:='Cum IdoN';  units:='g C m-2';  symbol:='CumIdoN';
  end;
  
 with stat[97] do
  begin
-    name:='Cum UW';  units:='mm H2O';  symbol:='CumUW';
+    name:='Cum LdoC';  units:='g C m-2';  symbol:='CumLdoC';
  end;
  
 with stat[98] do
  begin
-    name:='Cum runoff';  units:='mm H2O';  symbol:='CumRO';
+    name:='Cum LdoN';  units:='g N m-2';  symbol:='CumLdoN';
  end;
  
 with stat[99] do
  begin
-    name:='Cum precipitation';  units:='mm H2O';  symbol:='CumPpt';
+    name:='Cum UW';  units:='mm H2O';  symbol:='CumUW';
  end;
  
 with stat[100] do
  begin
-    name:='Cum interception';  units:='mm H2O';  symbol:='CumIntr';
+    name:='Cum runoff';  units:='mm H2O';  symbol:='CumRO';
  end;
  
 with stat[101] do
  begin
-    name:='Cum rainfall';  units:='mm H2O';  symbol:='CumRfl';
+    name:='Cum precipitation';  units:='mm H2O';  symbol:='CumPpt';
  end;
  
 with stat[102] do
  begin
-    name:='Cum snowfall';  units:='mm H2O';  symbol:='CumSfl';
+    name:='Cum interception';  units:='mm H2O';  symbol:='CumIntr';
  end;
  
 with stat[103] do
  begin
-    name:='Cum snowmelt';  units:='mm H2O';  symbol:='CumSm';
+    name:='Cum rainfall';  units:='mm H2O';  symbol:='CumRfl';
  end;
  
 with stat[104] do
  begin
-    name:='Cum run in';  units:='mm H2O';  symbol:='CumRin';
+    name:='Cum snowfall';  units:='mm H2O';  symbol:='CumSfl';
  end;
  
 with stat[105] do
  begin
-    name:='Cum Rin doC';  units:='g C m-2 day-1';  symbol:='CumIRindoC';
+    name:='Cum snowmelt';  units:='mm H2O';  symbol:='CumSm';
  end;
  
 with stat[106] do
  begin
-    name:='Cum Rin doN';  units:='g N m-2 day-1';  symbol:='CumIRindoN';
+    name:='Cum run in';  units:='mm H2O';  symbol:='CumRin';
  end;
  
 with stat[107] do
  begin
-    name:='Cum Rin NH4';  units:='g N m-2 day-1';  symbol:='CumIRinNH4';
+    name:='Cum Rin doC';  units:='g C m-2 day-1';  symbol:='CumIRindoC';
  end;
  
 with stat[108] do
  begin
-    name:='Cum Rin NO3';  units:='g N m-2 day-1';  symbol:='CumIRinNO3';
+    name:='Cum Rin doN';  units:='g N m-2 day-1';  symbol:='CumIRindoN';
  end;
  
 with stat[109] do
  begin
-    name:='Cum Rin PO4';  units:='g P m-2 day-1';  symbol:='CumIRinPO4';
+    name:='Cum Rin NH4';  units:='g N m-2 day-1';  symbol:='CumIRinNH4';
  end;
  
 with stat[110] do
  begin
-    name:='Cum Overland flow';  units:='mm H2O';  symbol:='CumROvf';
+    name:='Cum Rin NO3';  units:='g N m-2 day-1';  symbol:='CumIRinNO3';
  end;
  
 with stat[111] do
  begin
-    name:='Cum Overland doC';  units:='g C m-2';  symbol:='CumROvfdoC';
+    name:='Cum Rin PO4';  units:='g P m-2 day-1';  symbol:='CumIRinPO4';
  end;
  
 with stat[112] do
  begin
-    name:='Cum Overland doN';  units:='g N m-2';  symbol:='CumROvfdoN';
+    name:='Cum Overland flow';  units:='mm H2O';  symbol:='CumROvf';
  end;
  
 with stat[113] do
  begin
-    name:='Cum Overland NH4';  units:='g N m-2';  symbol:='CumROvfNH4';
+    name:='Cum Overland doC';  units:='g C m-2';  symbol:='CumROvfdoC';
  end;
  
 with stat[114] do
  begin
-    name:='Cum Overland NO3';  units:='g N m-2';  symbol:='CumROvfNO3';
+    name:='Cum Overland doN';  units:='g N m-2';  symbol:='CumROvfdoN';
  end;
  
 with stat[115] do
  begin
-    name:='Cum Overland PO4';  units:='g P m-2';  symbol:='CumROvfPO4';
+    name:='Cum Overland NH4';  units:='g N m-2';  symbol:='CumROvfNH4';
  end;
  
 with stat[116] do
  begin
-    name:='LAI peak season';  units:='m2 m-2';  symbol:='LAIpeak';
+    name:='Cum Overland NO3';  units:='g N m-2';  symbol:='CumROvfNO3';
  end;
  
 with stat[117] do
  begin
-    name:='Cum BC fire loss';  units:='g C m-2';  symbol:='CumfBC';
+    name:='Cum Overland PO4';  units:='g P m-2';  symbol:='CumROvfPO4';
  end;
  
 with stat[118] do
  begin
-    name:='Cum BN fire loss';  units:='g N m-2';  symbol:='CumfBN';
+    name:='LAI peak season';  units:='m2 m-2';  symbol:='LAIpeak';
  end;
  
 with stat[119] do
  begin
-    name:='Cum BP fire loss';  units:='g P m-2';  symbol:='CumfBP';
+    name:='day of fire';  units:='day of yr';  symbol:='DOYfire';
  end;
  
 with stat[120] do
  begin
-    name:='Cum WC fire loss';  units:='g C m-2';  symbol:='CumfWC';
+    name:='Cum BC fire loss';  units:='g C m-2';  symbol:='CumfBC';
  end;
  
 with stat[121] do
  begin
-    name:='Cum WN fire loss';  units:='g N m-2';  symbol:='CumfWN';
+    name:='Cum BN fire loss';  units:='g N m-2';  symbol:='CumfBN';
  end;
  
 with stat[122] do
  begin
-    name:='Cum WP fire loss';  units:='g P m-2';  symbol:='CumfWP';
+    name:='Cum BP fire loss';  units:='g P m-2';  symbol:='CumfBP';
  end;
  
 with stat[123] do
  begin
-    name:='Cum DC fire loss';  units:='g C m-2';  symbol:='CumfDC';
+    name:='Cum WC fire loss';  units:='g C m-2';  symbol:='CumfWC';
  end;
  
 with stat[124] do
  begin
-    name:='Cum DN fire loss';  units:='g N m-2';  symbol:='CumfDN';
+    name:='Cum WN fire loss';  units:='g N m-2';  symbol:='CumfWN';
  end;
  
 with stat[125] do
  begin
-    name:='Cum DP fire loss';  units:='g P m-2';  symbol:='CumfDP';
+    name:='Cum WP fire loss';  units:='g P m-2';  symbol:='CumfWP';
  end;
  
 with stat[126] do
  begin
-    name:='Cum TotC volatilized fire';  units:='g C m-2';  symbol:='CumFCvt';
+    name:='Cum DC fire loss';  units:='g C m-2';  symbol:='CumfDC';
  end;
  
 with stat[127] do
  begin
-    name:='Cum TotN volatilized fire';  units:='g N m-2';  symbol:='CumFNvt';
+    name:='Cum DN fire loss';  units:='g N m-2';  symbol:='CumfDN';
  end;
  
 with stat[128] do
  begin
-    name:='Cum TotP volatilized fire';  units:='g P m-2';  symbol:='CumFPvt';
+    name:='Cum DP fire loss';  units:='g P m-2';  symbol:='CumfDP';
  end;
  
 with stat[129] do
  begin
-    name:='Cum C FineLit to Debris';  units:='g C m-2';  symbol:='CumLitCDebris';
+    name:='Cum TotC volatilized fire';  units:='g C m-2';  symbol:='CumFCvt';
  end;
  
 with stat[130] do
  begin
-    name:='Cum N FineLit to Debris';  units:='g N m-2';  symbol:='CumLitNDebris';
+    name:='Cum TotN volatilized fire';  units:='g N m-2';  symbol:='CumFNvt';
  end;
  
 with stat[131] do
  begin
-    name:='Cum P FineLit to Debris';  units:='g P m-2';  symbol:='CumLitPDebris';
+    name:='Cum TotP volatilized fire';  units:='g P m-2';  symbol:='CumFPvt';
  end;
  
 with stat[132] do
  begin
+    name:='Cum C FineLit to Debris';  units:='g C m-2';  symbol:='CumLitCDebris';
+ end;
+ 
+with stat[133] do
+ begin
+    name:='Cum N FineLit to Debris';  units:='g N m-2';  symbol:='CumLitNDebris';
+ end;
+ 
+with stat[134] do
+ begin
+    name:='Cum P FineLit to Debris';  units:='g P m-2';  symbol:='CumLitPDebris';
+ end;
+ 
+with stat[135] do
+ begin
     name:='BC peak season';  units:='g C m-2';  symbol:='BCpeak';
+ end;
+ 
+with stat[136] do
+ begin
+    name:='sum Ps*T';  units:='oC';  symbol:='SPsT';
+ end;
+ 
+with stat[137] do
+ begin
+    name:='sum Ps';  units:='none';  symbol:='SPs';
+ end;
+ 
+with stat[138] do
+ begin
+    name:='Ps opt temp';  units:='oC';  symbol:='Topt';
+ end;
+ 
+with stat[139] do
+ begin
+    name:='growing seson temp';  units:='oC';  symbol:='Tg';
+ end;
+ 
+with stat[140] do
+ begin
+    name:='Peak snowpack';  units:='mm';  symbol:='WSmax';
  end;
 
 { Set the total number of processes in the model. The first numstate processes
   are the derivatives of the state variables. The maximum number of processes is
   maxparam, in unit stypes. }
-ModelDef.numprocess := ModelDef.numstate + 208;
+ModelDef.numprocess := ModelDef.numstate + 244;
 
 { For each process, set proc[i].parameters equal to the number of parameters
   associated with that process, and set IsDiscrete to true or false. After each
@@ -885,7 +925,7 @@ With proc[CurrentProc] do
 CurrentProc := ModelDef.numstate + 11;
 With proc[CurrentProc] do
    begin
-      name       := 'canopy fraction senescence';
+      name       := 'canopy fraction senesc';
       units       := 'fraction day-1';
       symbol       := 'Lfc';
       parameters       := 3;
@@ -1013,15 +1053,15 @@ with par[npar + 19] do
  end;
 with par[npar + 20] do
  begin
-    name:='depth: hydraulically active';  units:='m';  symbol:='zW';
+    name:='Calibration decay';  units:='none';  symbol:='CalDec';
  end;
 with par[npar + 21] do
  begin
-    name:='PaDOC C:N cutoff';  units:='gC/gN';  symbol:='qPadoC';
+    name:='root half sat';  units:='unitless';  symbol:='kRl';
  end;
 with par[npar + 22] do
  begin
-    name:='Nfix critical LAI';  units:='m2 m-2';  symbol:='Lcrit';
+    name:='Nfix critical LAI';  units:='gC m-2';  symbol:='Lcrit';
  end;
 with par[npar + 23] do
  begin
@@ -1160,7 +1200,7 @@ with par[npar + 1] do
  end;
 with par[npar + 2] do
  begin
-    name:='PET-root sensitivity';  units:='m2 soil m-1 root';  symbol:='kE';
+    name:='Ps W rate constant';  units:='fix';  symbol:='gW';
  end;
 with par[npar + 3] do
  begin
@@ -1168,19 +1208,19 @@ with par[npar + 3] do
  end;
 with par[npar + 4] do
  begin
-    name:='Ta Ps CA';  units:='oC';  symbol:='TaPs';
+    name:='Fire loss fraction';  units:='fraction';  symbol:='FLF';
  end;
 with par[npar + 5] do
  begin
-    name:='Tb Ps CA';  units:='oC';  symbol:='TbPs';
+    name:='unused';  units:='';  symbol:='unused2';
  end;
 with par[npar + 6] do
  begin
-    name:='T exp a Ps CA';  units:='oC-1';  symbol:='aPs';
+    name:='unused';  units:='';  symbol:='unused3';
  end;
 with par[npar + 7] do
  begin
-    name:='T exp b Ps CA';  units:='oC-1';  symbol:='bPs';
+    name:='unused';  units:='';  symbol:='unused4';
  end;
 with par[npar + 8] do
  begin
@@ -1200,7 +1240,7 @@ with par[npar + 11] do
  end;
 with par[npar + 12] do
  begin
-    name:='UW Ps scaler';  units:='none';  symbol:='scg';
+    name:='GPP UW scaler';  units:='none';  symbol:='scg';
  end;
 with par[npar + 13] do
  begin
@@ -1220,6 +1260,16 @@ With proc[CurrentProc] do
 CurrentProc := ModelDef.numstate + 26;
 With proc[CurrentProc] do
    begin
+      name       := 'W bal max water uptake';
+      units       := 'mm hr-1';
+      symbol       := 'UWmax';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 27;
+With proc[CurrentProc] do
+   begin
       name       := 'potential ET';
       units       := 'mm day-1';
       symbol       := 'PET';
@@ -1227,7 +1277,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 27;
+CurrentProc := ModelDef.numstate + 28;
 With proc[CurrentProc] do
    begin
       name       := 'aqueous NH4';
@@ -1237,7 +1287,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 28;
+CurrentProc := ModelDef.numstate + 29;
 With proc[CurrentProc] do
    begin
       name       := 'N bal NH4 uptake';
@@ -1247,7 +1297,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 29;
+CurrentProc := ModelDef.numstate + 30;
 With proc[CurrentProc] do
    begin
       name       := 'aqueous NO3';
@@ -1257,7 +1307,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 30;
+CurrentProc := ModelDef.numstate + 31;
 With proc[CurrentProc] do
    begin
       name       := 'N bal NO3 uptake';
@@ -1267,7 +1317,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 31;
+CurrentProc := ModelDef.numstate + 32;
 With proc[CurrentProc] do
    begin
       name       := 'Plant avail doC';
@@ -1277,7 +1327,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 32;
+CurrentProc := ModelDef.numstate + 33;
 With proc[CurrentProc] do
    begin
       name       := 'doC uptake';
@@ -1287,7 +1337,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 33;
+CurrentProc := ModelDef.numstate + 34;
 With proc[CurrentProc] do
    begin
       name       := 'N bal doN uptake';
@@ -1297,7 +1347,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 34;
+CurrentProc := ModelDef.numstate + 35;
 With proc[CurrentProc] do
    begin
       name       := 'N bal N fixation';
@@ -1307,7 +1357,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 35;
+CurrentProc := ModelDef.numstate + 36;
 With proc[CurrentProc] do
    begin
       name       := 'N bal total N uptake';
@@ -1382,7 +1432,7 @@ with par[npar + 16] do
     name:='N fix C cost';  units:='g C g-1 N';  symbol:='NfixCcost';
  end;
  
-CurrentProc := ModelDef.numstate + 36;
+CurrentProc := ModelDef.numstate + 37;
 With proc[CurrentProc] do
    begin
       name       := 'aqueous PO4';
@@ -1392,7 +1442,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 37;
+CurrentProc := ModelDef.numstate + 38;
 With proc[CurrentProc] do
    begin
       name       := 'P bal PO4 uptake';
@@ -1415,7 +1465,7 @@ with par[npar + 3] do
     name:='Q10 PO4 uptake';  units:='none';  symbol:='Q10PO4';
  end;
  
-CurrentProc := ModelDef.numstate + 38;
+CurrentProc := ModelDef.numstate + 39;
 With proc[CurrentProc] do
    begin
       name       := 'actual N conc.';
@@ -1425,7 +1475,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 39;
+CurrentProc := ModelDef.numstate + 40;
 With proc[CurrentProc] do
    begin
       name       := 'optimum N conc.';
@@ -1464,7 +1514,7 @@ with par[npar + 7] do
     name:='stoichio feedback';  units:='none';  symbol:='kq';
  end;
  
-CurrentProc := ModelDef.numstate + 40;
+CurrentProc := ModelDef.numstate + 41;
 With proc[CurrentProc] do
    begin
       name       := 'actual P conc.';
@@ -1474,7 +1524,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 41;
+CurrentProc := ModelDef.numstate + 42;
 With proc[CurrentProc] do
    begin
       name       := 'optimum P conc.';
@@ -1509,7 +1559,7 @@ with par[npar + 6] do
     name:='root litter P:DW';  units:='g P g-1 DW';  symbol:='qPRl';
  end;
  
-CurrentProc := ModelDef.numstate + 42;
+CurrentProc := ModelDef.numstate + 43;
 With proc[CurrentProc] do
    begin
       name       := 'C bal Litter C';
@@ -1532,7 +1582,7 @@ with par[npar + 3] do
     name:='root turnover';  units:='day-1';  symbol:='maR';
  end;
  
-CurrentProc := ModelDef.numstate + 43;
+CurrentProc := ModelDef.numstate + 44;
 With proc[CurrentProc] do
    begin
       name       := 'N bal Litter N';
@@ -1542,7 +1592,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 44;
+CurrentProc := ModelDef.numstate + 45;
 With proc[CurrentProc] do
    begin
       name       := 'P bal Litter P';
@@ -1552,7 +1602,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 45;
+CurrentProc := ModelDef.numstate + 46;
 With proc[CurrentProc] do
    begin
       name       := 'C bal Fine-Debris Litter';
@@ -1564,7 +1614,7 @@ With proc[CurrentProc] do
 npar:=ParCount(CurrentProc);
 with par[npar + 1] do
  begin
-    name:='Standing dead fine litt frac';  units:='fraction';  symbol:='fDebris';
+    name:='Stand dead fine litt frac';  units:='fraction';  symbol:='fDebris';
  end;
 with par[npar + 2] do
  begin
@@ -1575,7 +1625,7 @@ with par[npar + 3] do
     name:='C:P LitCDebris';  units:='g C g-1 P';  symbol:='qPLDebris';
  end;
  
-CurrentProc := ModelDef.numstate + 46;
+CurrentProc := ModelDef.numstate + 47;
 With proc[CurrentProc] do
    begin
       name       := 'N bal Fine-Debris Litter';
@@ -1585,7 +1635,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 47;
+CurrentProc := ModelDef.numstate + 48;
 With proc[CurrentProc] do
    begin
       name       := 'P bal Fine-Debris Litter';
@@ -1595,7 +1645,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 48;
+CurrentProc := ModelDef.numstate + 49;
 With proc[CurrentProc] do
    begin
       name       := 'C coarse litter';
@@ -1622,7 +1672,7 @@ with par[npar + 4] do
     name:='coarse litter P:DW';  units:='g P g-1 DW';  symbol:='qPWwl';
  end;
  
-CurrentProc := ModelDef.numstate + 49;
+CurrentProc := ModelDef.numstate + 50;
 With proc[CurrentProc] do
    begin
       name       := 'N coarse litter';
@@ -1632,7 +1682,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 50;
+CurrentProc := ModelDef.numstate + 51;
 With proc[CurrentProc] do
    begin
       name       := 'P coarse litter';
@@ -1642,7 +1692,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 51;
+CurrentProc := ModelDef.numstate + 52;
 With proc[CurrentProc] do
    begin
       name       := 'C CWD activation';
@@ -1657,7 +1707,7 @@ with par[npar + 1] do
     name:='CWD turnover';  units:='day-1';  symbol:='omega';
  end;
  
-CurrentProc := ModelDef.numstate + 52;
+CurrentProc := ModelDef.numstate + 53;
 With proc[CurrentProc] do
    begin
       name       := 'N CWD activation';
@@ -1667,7 +1717,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 53;
+CurrentProc := ModelDef.numstate + 54;
 With proc[CurrentProc] do
    begin
       name       := 'P CWD activation';
@@ -1677,7 +1727,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 54;
+CurrentProc := ModelDef.numstate + 55;
 With proc[CurrentProc] do
    begin
       name       := 'maint C req';
@@ -1687,7 +1737,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 55;
+CurrentProc := ModelDef.numstate + 56;
 With proc[CurrentProc] do
    begin
       name       := 'C bal total plant resp';
@@ -1714,7 +1764,7 @@ with par[npar + 4] do
     name:='growth resp';  units:='fraction';  symbol:='rg';
  end;
  
-CurrentProc := ModelDef.numstate + 56;
+CurrentProc := ModelDef.numstate + 57;
 With proc[CurrentProc] do
    begin
       name       := 'N-use eff';
@@ -1724,7 +1774,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 57;
+CurrentProc := ModelDef.numstate + 58;
 With proc[CurrentProc] do
    begin
       name       := 'P-use eff';
@@ -1734,7 +1784,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 58;
+CurrentProc := ModelDef.numstate + 59;
 With proc[CurrentProc] do
    begin
       name       := 'H2O-use eff';
@@ -1744,7 +1794,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 59;
+CurrentProc := ModelDef.numstate + 60;
 With proc[CurrentProc] do
    begin
       name       := 'allocatable effort';
@@ -1779,7 +1829,7 @@ with par[npar + 6] do
     name:='max req to up index';  units:='none';  symbol:='lambda';
  end;
  
-CurrentProc := ModelDef.numstate + 60;
+CurrentProc := ModelDef.numstate + 61;
 With proc[CurrentProc] do
    begin
       name       := 'growth C req';
@@ -1789,7 +1839,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 61;
+CurrentProc := ModelDef.numstate + 62;
 With proc[CurrentProc] do
    begin
       name       := 'growth N req';
@@ -1799,7 +1849,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 62;
+CurrentProc := ModelDef.numstate + 63;
 With proc[CurrentProc] do
    begin
       name       := 'growth P req';
@@ -1809,7 +1859,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 63;
+CurrentProc := ModelDef.numstate + 64;
 With proc[CurrentProc] do
    begin
       name       := 'marginal yield NH4';
@@ -1819,7 +1869,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 64;
+CurrentProc := ModelDef.numstate + 65;
 With proc[CurrentProc] do
    begin
       name       := 'marginal yield NO3';
@@ -1829,7 +1879,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 65;
+CurrentProc := ModelDef.numstate + 66;
 With proc[CurrentProc] do
    begin
       name       := 'marginal yield doN';
@@ -1839,7 +1889,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 66;
+CurrentProc := ModelDef.numstate + 67;
 With proc[CurrentProc] do
    begin
       name       := 'marginal yield Nfix';
@@ -1849,7 +1899,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 67;
+CurrentProc := ModelDef.numstate + 68;
 With proc[CurrentProc] do
    begin
       name       := 'marginal yield CO2';
@@ -1859,7 +1909,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 68;
+CurrentProc := ModelDef.numstate + 69;
 With proc[CurrentProc] do
    begin
       name       := 'marginal yield light';
@@ -1869,7 +1919,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 69;
+CurrentProc := ModelDef.numstate + 70;
 With proc[CurrentProc] do
    begin
       name       := 'marginal yield H2O';
@@ -1879,7 +1929,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 70;
+CurrentProc := ModelDef.numstate + 71;
 With proc[CurrentProc] do
    begin
       name       := 'average C yield';
@@ -1889,7 +1939,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 71;
+CurrentProc := ModelDef.numstate + 72;
 With proc[CurrentProc] do
    begin
       name       := 'average N yield';
@@ -1899,7 +1949,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 72;
+CurrentProc := ModelDef.numstate + 73;
 With proc[CurrentProc] do
    begin
       name       := 'Total C req';
@@ -1909,7 +1959,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 73;
+CurrentProc := ModelDef.numstate + 74;
 With proc[CurrentProc] do
    begin
       name       := 'Total N req';
@@ -1919,7 +1969,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 74;
+CurrentProc := ModelDef.numstate + 75;
 With proc[CurrentProc] do
    begin
       name       := 'Total P req';
@@ -1929,7 +1979,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 75;
+CurrentProc := ModelDef.numstate + 76;
 With proc[CurrentProc] do
    begin
       name       := 'Mean req:uptake';
@@ -1939,7 +1989,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 76;
+CurrentProc := ModelDef.numstate + 77;
 With proc[CurrentProc] do
    begin
       name       := 'mesophyll CO2';
@@ -1949,7 +1999,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 77;
+CurrentProc := ModelDef.numstate + 78;
 With proc[CurrentProc] do
    begin
       name       := 'Total effort';
@@ -1959,7 +2009,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 78;
+CurrentProc := ModelDef.numstate + 79;
 With proc[CurrentProc] do
    begin
       name       := 'Total root effort';
@@ -1969,7 +2019,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 79;
+CurrentProc := ModelDef.numstate + 80;
 With proc[CurrentProc] do
    begin
       name       := 'Total leaf effort';
@@ -1979,7 +2029,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 80;
+CurrentProc := ModelDef.numstate + 81;
 With proc[CurrentProc] do
    begin
       name       := 'Total soil C';
@@ -1989,7 +2039,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 81;
+CurrentProc := ModelDef.numstate + 82;
 With proc[CurrentProc] do
    begin
       name       := 'Total soil N';
@@ -1999,7 +2049,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 82;
+CurrentProc := ModelDef.numstate + 83;
 With proc[CurrentProc] do
    begin
       name       := 'Total soil P';
@@ -2009,7 +2059,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 83;
+CurrentProc := ModelDef.numstate + 84;
 With proc[CurrentProc] do
    begin
       name       := 'C bal NPP';
@@ -2019,7 +2069,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 84;
+CurrentProc := ModelDef.numstate + 85;
 With proc[CurrentProc] do
    begin
       name       := 'W bal runoff';
@@ -2029,7 +2079,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 85;
+CurrentProc := ModelDef.numstate + 86;
 With proc[CurrentProc] do
    begin
       name       := 'NH4 leach';
@@ -2039,7 +2089,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 86;
+CurrentProc := ModelDef.numstate + 87;
 With proc[CurrentProc] do
    begin
       name       := 'NO3 leach';
@@ -2049,7 +2099,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 87;
+CurrentProc := ModelDef.numstate + 88;
 With proc[CurrentProc] do
    begin
       name       := 'C bal doC leach';
@@ -2059,7 +2109,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 88;
+CurrentProc := ModelDef.numstate + 89;
 With proc[CurrentProc] do
    begin
       name       := 'N bal doN leach';
@@ -2074,7 +2124,7 @@ with par[npar + 1] do
     name:='C:N dom leach';  units:='g C g-1 N';  symbol:='qLdom';
  end;
  
-CurrentProc := ModelDef.numstate + 89;
+CurrentProc := ModelDef.numstate + 90;
 With proc[CurrentProc] do
    begin
       name       := 'N bal total N leach';
@@ -2084,7 +2134,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 90;
+CurrentProc := ModelDef.numstate + 91;
 With proc[CurrentProc] do
    begin
       name       := 'P bal PO4 leach';
@@ -2094,7 +2144,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 91;
+CurrentProc := ModelDef.numstate + 92;
 With proc[CurrentProc] do
    begin
       name       := 'thetaN';
@@ -2104,7 +2154,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 92;
+CurrentProc := ModelDef.numstate + 93;
 With proc[CurrentProc] do
    begin
       name       := 'thetaP';
@@ -2114,7 +2164,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 93;
+CurrentProc := ModelDef.numstate + 94;
 With proc[CurrentProc] do
    begin
       name       := 'N bal Micr NH4 uptake';
@@ -2124,7 +2174,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 94;
+CurrentProc := ModelDef.numstate + 95;
 With proc[CurrentProc] do
    begin
       name       := 'N bal Micr NO3 uptake';
@@ -2134,7 +2184,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 95;
+CurrentProc := ModelDef.numstate + 96;
 With proc[CurrentProc] do
    begin
       name       := 'N bal tot Micr N uptake';
@@ -2181,7 +2231,7 @@ with par[npar + 9] do
     name:='Nitrifica half sat const';  units:='umol N L-1';  symbol:='kNitr';
  end;
  
-CurrentProc := ModelDef.numstate + 96;
+CurrentProc := ModelDef.numstate + 97;
 With proc[CurrentProc] do
    begin
       name       := 'P bal Micr P uptake';
@@ -2208,7 +2258,7 @@ with par[npar + 4] do
     name:='PO4 half sat m';  units:='umol P L-1';  symbol:='kPO4m';
  end;
  
-CurrentProc := ModelDef.numstate + 97;
+CurrentProc := ModelDef.numstate + 98;
 With proc[CurrentProc] do
    begin
       name       := 'total C consump';
@@ -2218,7 +2268,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 98;
+CurrentProc := ModelDef.numstate + 99;
 With proc[CurrentProc] do
    begin
       name       := 'total N consump';
@@ -2228,7 +2278,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 99;
+CurrentProc := ModelDef.numstate + 100;
 With proc[CurrentProc] do
    begin
       name       := 'total P consump';
@@ -2238,7 +2288,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 100;
+CurrentProc := ModelDef.numstate + 101;
 With proc[CurrentProc] do
    begin
       name       := 'C efficiency';
@@ -2248,7 +2298,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 101;
+CurrentProc := ModelDef.numstate + 102;
 With proc[CurrentProc] do
    begin
       name       := 'N efficiency';
@@ -2258,7 +2308,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 102;
+CurrentProc := ModelDef.numstate + 103;
 With proc[CurrentProc] do
    begin
       name       := 'P efficiency';
@@ -2268,7 +2318,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 103;
+CurrentProc := ModelDef.numstate + 104;
 With proc[CurrentProc] do
    begin
       name       := 'C bal Microbial resp';
@@ -2311,7 +2361,7 @@ with par[npar + 8] do
     name:='minimum moist';  units:='pore fraction';  symbol:='Wmin';
  end;
  
-CurrentProc := ModelDef.numstate + 104;
+CurrentProc := ModelDef.numstate + 105;
 With proc[CurrentProc] do
    begin
       name       := 'N bal gross N min';
@@ -2321,7 +2371,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 105;
+CurrentProc := ModelDef.numstate + 106;
 With proc[CurrentProc] do
    begin
       name       := 'P bal gross P min';
@@ -2331,7 +2381,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 106;
+CurrentProc := ModelDef.numstate + 107;
 With proc[CurrentProc] do
    begin
       name       := 'C bal Phase II tran';
@@ -2346,7 +2396,7 @@ with par[npar + 1] do
     name:='Si->Sii transit. modifier';  units:='none';  symbol:='aTii';
  end;
  
-CurrentProc := ModelDef.numstate + 107;
+CurrentProc := ModelDef.numstate + 108;
 With proc[CurrentProc] do
    begin
       name       := 'N bal Phase II tran';
@@ -2356,7 +2406,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 108;
+CurrentProc := ModelDef.numstate + 109;
 With proc[CurrentProc] do
    begin
       name       := 'P bal Phase II tran';
@@ -2366,7 +2416,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 109;
+CurrentProc := ModelDef.numstate + 110;
 With proc[CurrentProc] do
    begin
       name       := 'C bal Phase II min';
@@ -2381,7 +2431,7 @@ with par[npar + 1] do
     name:='Sii min rate modifier';  units:='none';  symbol:='aMii';
  end;
  
-CurrentProc := ModelDef.numstate + 110;
+CurrentProc := ModelDef.numstate + 111;
 With proc[CurrentProc] do
    begin
       name       := 'N bal Phase II min';
@@ -2391,7 +2441,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 111;
+CurrentProc := ModelDef.numstate + 112;
 With proc[CurrentProc] do
    begin
       name       := 'P bal Phase II min';
@@ -2401,7 +2451,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 112;
+CurrentProc := ModelDef.numstate + 113;
 With proc[CurrentProc] do
    begin
       name       := 'N Bal Non Sym N fix';
@@ -2424,7 +2474,7 @@ with par[npar + 3] do
     name:='Nfix crit C:N';  units:='g C g-1 N';  symbol:='qSfix';
  end;
  
-CurrentProc := ModelDef.numstate + 113;
+CurrentProc := ModelDef.numstate + 114;
 With proc[CurrentProc] do
    begin
       name       := 'N bal Nitrification';
@@ -2434,7 +2484,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 114;
+CurrentProc := ModelDef.numstate + 115;
 With proc[CurrentProc] do
    begin
       name       := 'delta effort total';
@@ -2444,7 +2494,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 115;
+CurrentProc := ModelDef.numstate + 116;
 With proc[CurrentProc] do
    begin
       name       := 'N bal total Ndep';
@@ -2454,7 +2504,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 116;
+CurrentProc := ModelDef.numstate + 117;
 With proc[CurrentProc] do
    begin
       name       := 'N bal net N min';
@@ -2464,7 +2514,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 117;
+CurrentProc := ModelDef.numstate + 118;
 With proc[CurrentProc] do
    begin
       name       := 'P bal net P min';
@@ -2474,7 +2524,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 118;
+CurrentProc := ModelDef.numstate + 119;
 With proc[CurrentProc] do
    begin
       name       := 'C bal NEP';
@@ -2484,7 +2534,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 119;
+CurrentProc := ModelDef.numstate + 120;
 With proc[CurrentProc] do
    begin
       name       := 'N bal Net ecos';
@@ -2494,7 +2544,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 120;
+CurrentProc := ModelDef.numstate + 121;
 With proc[CurrentProc] do
    begin
       name       := 'P bal Net ecos';
@@ -2504,7 +2554,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 121;
+CurrentProc := ModelDef.numstate + 122;
 With proc[CurrentProc] do
    begin
       name       := 'C bal Net ecos';
@@ -2514,7 +2564,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 122;
+CurrentProc := ModelDef.numstate + 123;
 With proc[CurrentProc] do
    begin
       name       := 'W bal Net ecos';
@@ -2524,7 +2574,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 123;
+CurrentProc := ModelDef.numstate + 124;
 With proc[CurrentProc] do
    begin
       name       := 'Cum Net Eco C bal';
@@ -2534,7 +2584,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 124;
+CurrentProc := ModelDef.numstate + 125;
 With proc[CurrentProc] do
    begin
       name       := 'Cum Net Eco N bal';
@@ -2544,7 +2594,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 125;
+CurrentProc := ModelDef.numstate + 126;
 With proc[CurrentProc] do
    begin
       name       := 'Cum Net Eco P bal';
@@ -2554,7 +2604,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 126;
+CurrentProc := ModelDef.numstate + 127;
 With proc[CurrentProc] do
    begin
       name       := 'Cum Net Eco W bal';
@@ -2564,7 +2614,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 127;
+CurrentProc := ModelDef.numstate + 128;
 With proc[CurrentProc] do
    begin
       name       := 'biomass w full canopy';
@@ -2574,7 +2624,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 128;
+CurrentProc := ModelDef.numstate + 129;
 With proc[CurrentProc] do
    begin
       name       := 'Canopy litter';
@@ -2584,7 +2634,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 129;
+CurrentProc := ModelDef.numstate + 130;
 With proc[CurrentProc] do
    begin
       name       := 'Snow melt';
@@ -2596,26 +2646,26 @@ With proc[CurrentProc] do
 npar:=ParCount(CurrentProc);
 with par[npar + 1] do
  begin
-    name:='short wave coef';  units:='none';  symbol:='SWC';
+    name:='Sm radiation coeff';  units:='mm m2 MJ-1';  symbol:='mQ';
  end;
 with par[npar + 2] do
  begin
-    name:='longwave coef';  units:='none';  symbol:='sB';
+    name:='Sm temp coeff';  units:='mm deg C-1 day-1';  symbol:='ar';
  end;
 with par[npar + 3] do
  begin
-    name:='latent heat of fusion H2O';  units:='MJ mm-1 m-2';  symbol:='LHF';
+    name:='local scaler of Iswmax';  units:='fraction';  symbol:='sIsw';
  end;
 with par[npar + 4] do
  begin
-    name:='convective coef';  units:='mm oC-1 day-1';  symbol:='CC';
+    name:='rain crit temp';  units:='oC';  symbol:='TcritR';
  end;
 with par[npar + 5] do
  begin
-    name:='snow crit temp';  units:='oC';  symbol:='Tcrit';
+    name:='snow crit temp';  units:='oC';  symbol:='TcritS';
  end;
  
-CurrentProc := ModelDef.numstate + 130;
+CurrentProc := ModelDef.numstate + 131;
 With proc[CurrentProc] do
    begin
       name       := 'Day of year';
@@ -2642,7 +2692,7 @@ with par[npar + 4] do
     name:='Doy divisor';  units:='days';  symbol:='DoyD';
  end;
  
-CurrentProc := ModelDef.numstate + 131;
+CurrentProc := ModelDef.numstate + 132;
 With proc[CurrentProc] do
    begin
       name       := 'Day length';
@@ -2652,7 +2702,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 132;
+CurrentProc := ModelDef.numstate + 133;
 With proc[CurrentProc] do
    begin
       name       := 'declination';
@@ -2662,7 +2712,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 133;
+CurrentProc := ModelDef.numstate + 134;
 With proc[CurrentProc] do
    begin
       name       := 'Interception';
@@ -2672,7 +2722,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 134;
+CurrentProc := ModelDef.numstate + 135;
 With proc[CurrentProc] do
    begin
       name       := 'requirement ratio CA';
@@ -2682,7 +2732,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 135;
+CurrentProc := ModelDef.numstate + 136;
 With proc[CurrentProc] do
    begin
       name       := 'requirement ratio N';
@@ -2692,7 +2742,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 136;
+CurrentProc := ModelDef.numstate + 137;
 With proc[CurrentProc] do
    begin
       name       := 'requirement ratio PO4';
@@ -2702,7 +2752,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 137;
+CurrentProc := ModelDef.numstate + 138;
 With proc[CurrentProc] do
    begin
       name       := 'dUC dvCO2';
@@ -2712,7 +2762,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 138;
+CurrentProc := ModelDef.numstate + 139;
 With proc[CurrentProc] do
    begin
       name       := 'dUC dvW';
@@ -2722,7 +2772,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 139;
+CurrentProc := ModelDef.numstate + 140;
 With proc[CurrentProc] do
    begin
       name       := 'dUC dvI';
@@ -2732,7 +2782,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 140;
+CurrentProc := ModelDef.numstate + 141;
 With proc[CurrentProc] do
    begin
       name       := 'dUC dvNH4';
@@ -2742,7 +2792,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 141;
+CurrentProc := ModelDef.numstate + 142;
 With proc[CurrentProc] do
    begin
       name       := 'dUC dvNO3';
@@ -2752,7 +2802,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 142;
+CurrentProc := ModelDef.numstate + 143;
 With proc[CurrentProc] do
    begin
       name       := 'dUC dvdoN';
@@ -2762,7 +2812,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 143;
+CurrentProc := ModelDef.numstate + 144;
 With proc[CurrentProc] do
    begin
       name       := 'dUC dvNfix';
@@ -2772,7 +2822,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 144;
+CurrentProc := ModelDef.numstate + 145;
 With proc[CurrentProc] do
    begin
       name       := 'dUC dVC';
@@ -2782,7 +2832,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 145;
+CurrentProc := ModelDef.numstate + 146;
 With proc[CurrentProc] do
    begin
       name       := 'kickstarter: C effort';
@@ -2792,7 +2842,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 146;
+CurrentProc := ModelDef.numstate + 147;
 With proc[CurrentProc] do
    begin
       name       := 'kickstarter: N effort';
@@ -2802,7 +2852,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 147;
+CurrentProc := ModelDef.numstate + 148;
 With proc[CurrentProc] do
    begin
       name       := 'kickstarter: P effort';
@@ -2812,17 +2862,17 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 148;
+CurrentProc := ModelDef.numstate + 149;
 With proc[CurrentProc] do
    begin
-      name       := 'kickstarter: CO2 subeffort';
+      name       := 'kickstarter: CO2 subeff';
       units       := 'effort day-1';
       symbol       := 'zetaCO2';
       parameters       := 0;
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 149;
+CurrentProc := ModelDef.numstate + 150;
 With proc[CurrentProc] do
    begin
       name       := 'kickstarter: W subeffort';
@@ -2832,7 +2882,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 150;
+CurrentProc := ModelDef.numstate + 151;
 With proc[CurrentProc] do
    begin
       name       := 'kickstarter: I subeffort';
@@ -2842,22 +2892,12 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 151;
-With proc[CurrentProc] do
-   begin
-      name       := 'kickstarter: NH4 subeffort';
-      units       := 'effort day-1';
-      symbol       := 'zetaNH4';
-      parameters       := 0;
-      ptype       := ptGroup1;
-   end;
- 
 CurrentProc := ModelDef.numstate + 152;
 With proc[CurrentProc] do
    begin
-      name       := 'kickstarter: NO3 subeffort';
+      name       := 'kickstarter: NH4 subeff';
       units       := 'effort day-1';
-      symbol       := 'zetaNO3';
+      symbol       := 'zetaNH4';
       parameters       := 0;
       ptype       := ptGroup1;
    end;
@@ -2865,9 +2905,9 @@ With proc[CurrentProc] do
 CurrentProc := ModelDef.numstate + 153;
 With proc[CurrentProc] do
    begin
-      name       := 'kickstarter: Nfix subeffort';
+      name       := 'kickstarter: NO3 subeff';
       units       := 'effort day-1';
-      symbol       := 'zetaNfix';
+      symbol       := 'zetaNO3';
       parameters       := 0;
       ptype       := ptGroup1;
    end;
@@ -2875,14 +2915,24 @@ With proc[CurrentProc] do
 CurrentProc := ModelDef.numstate + 154;
 With proc[CurrentProc] do
    begin
-      name       := 'kickstarter: doN subeffort';
+      name       := 'kickstarter: Nfix subeff';
+      units       := 'effort day-1';
+      symbol       := 'zetaNfix';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 155;
+With proc[CurrentProc] do
+   begin
+      name       := 'kickstarter: doN subeff';
       units       := 'effort day-1';
       symbol       := 'zetadoN';
       parameters       := 0;
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 155;
+CurrentProc := ModelDef.numstate + 156;
 With proc[CurrentProc] do
    begin
       name       := 'rooting depth: actual';
@@ -2892,20 +2942,20 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 156;
+CurrentProc := ModelDef.numstate + 157;
 With proc[CurrentProc] do
    begin
-      name       := 'near root depletion factor';
+      name       := 'near root depletion fac';
       units       := 'none';
       symbol       := 'betanRd';
       parameters       := 0;
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 157;
+CurrentProc := ModelDef.numstate + 158;
 With proc[CurrentProc] do
    begin
-      name       := 'between root half distance';
+      name       := 'between root half dist';
       units       := 'none';
       symbol       := 'Rd';
       parameters       := 1;
@@ -2914,10 +2964,10 @@ With proc[CurrentProc] do
 npar:=ParCount(CurrentProc);
 with par[npar + 1] do
  begin
-    name:='Max between root half distance';  units:='none';  symbol:='Rdmax';
+    name:='Max bet root half dist';  units:='none';  symbol:='Rdmax';
  end;
  
-CurrentProc := ModelDef.numstate + 158;
+CurrentProc := ModelDef.numstate + 159;
 With proc[CurrentProc] do
    begin
       name       := 'Root Length';
@@ -2952,7 +3002,7 @@ with par[npar + 6] do
     name:='diffusion PO4';  units:='m2 d-1';  symbol:='DPO4';
  end;
  
-CurrentProc := ModelDef.numstate + 159;
+CurrentProc := ModelDef.numstate + 160;
 With proc[CurrentProc] do
    begin
       name       := 'Denitrification';
@@ -2975,7 +3025,7 @@ with par[npar + 3] do
     name:='half sat DNtr';  units:='umol L-1';  symbol:='kDNtr';
  end;
  
-CurrentProc := ModelDef.numstate + 160;
+CurrentProc := ModelDef.numstate + 161;
 With proc[CurrentProc] do
    begin
       name       := 'Depth of peat';
@@ -2985,7 +3035,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 161;
+CurrentProc := ModelDef.numstate + 162;
 With proc[CurrentProc] do
    begin
       name       := 'Soil volume per g C';
@@ -3004,7 +3054,7 @@ with par[npar + 2] do
     name:='initial depth of peat';  units:='m';  symbol:='Dop0';
  end;
  
-CurrentProc := ModelDef.numstate + 162;
+CurrentProc := ModelDef.numstate + 163;
 With proc[CurrentProc] do
    begin
       name       := 'Unfrozen soil fraction';
@@ -3014,7 +3064,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 163;
+CurrentProc := ModelDef.numstate + 164;
 With proc[CurrentProc] do
    begin
       name       := 'Soil temperature';
@@ -3074,7 +3124,7 @@ with par[npar + 12] do
  end;
 with par[npar + 13] do
  begin
-    name:='snow albedo';  units:='fraction';  symbol:='alpha';
+    name:='minimum snow albedo';  units:='fraction';  symbol:='alphamin';
  end;
 with par[npar + 14] do
  begin
@@ -3085,7 +3135,17 @@ with par[npar + 15] do
     name:='depth of surface soil T';  units:='m';  symbol:='zTs';
  end;
  
-CurrentProc := ModelDef.numstate + 164;
+CurrentProc := ModelDef.numstate + 165;
+With proc[CurrentProc] do
+   begin
+      name       := 'snow albedo';
+      units       := 'fraction';
+      symbol       := 'alpha';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 166;
 With proc[CurrentProc] do
    begin
       name       := 'Upward cond';
@@ -3095,7 +3155,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 165;
+CurrentProc := ModelDef.numstate + 167;
 With proc[CurrentProc] do
    begin
       name       := 'Upward thaw cond';
@@ -3105,7 +3165,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 166;
+CurrentProc := ModelDef.numstate + 168;
 With proc[CurrentProc] do
    begin
       name       := 'Upward frozen cond';
@@ -3115,7 +3175,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 167;
+CurrentProc := ModelDef.numstate + 169;
 With proc[CurrentProc] do
    begin
       name       := 'Frozen heat cap';
@@ -3125,7 +3185,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 168;
+CurrentProc := ModelDef.numstate + 170;
 With proc[CurrentProc] do
    begin
       name       := 'Thawed heat cap';
@@ -3135,7 +3195,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 169;
+CurrentProc := ModelDef.numstate + 171;
 With proc[CurrentProc] do
    begin
       name       := 'Snowfall';
@@ -3145,7 +3205,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 170;
+CurrentProc := ModelDef.numstate + 172;
 With proc[CurrentProc] do
    begin
       name       := 'Rainfall';
@@ -3155,7 +3215,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 171;
+CurrentProc := ModelDef.numstate + 173;
 With proc[CurrentProc] do
    begin
       name       := 'Volumetric water content';
@@ -3165,7 +3225,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 172;
+CurrentProc := ModelDef.numstate + 174;
 With proc[CurrentProc] do
    begin
       name       := 'Overland flow:Runin';
@@ -3175,7 +3235,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 173;
+CurrentProc := ModelDef.numstate + 175;
 With proc[CurrentProc] do
    begin
       name       := 'Overland doC:Runin';
@@ -3185,7 +3245,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 174;
+CurrentProc := ModelDef.numstate + 176;
 With proc[CurrentProc] do
    begin
       name       := 'Overland doN:Runin';
@@ -3195,7 +3255,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 175;
+CurrentProc := ModelDef.numstate + 177;
 With proc[CurrentProc] do
    begin
       name       := 'Overland NH4:Runin';
@@ -3205,7 +3265,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 176;
+CurrentProc := ModelDef.numstate + 178;
 With proc[CurrentProc] do
    begin
       name       := 'Overland NO3:Runin';
@@ -3215,7 +3275,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 177;
+CurrentProc := ModelDef.numstate + 179;
 With proc[CurrentProc] do
    begin
       name       := 'Overland PO4:Runin';
@@ -3225,7 +3285,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 178;
+CurrentProc := ModelDef.numstate + 180;
 With proc[CurrentProc] do
    begin
       name       := 'Overland flow:Infil';
@@ -3235,7 +3295,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 179;
+CurrentProc := ModelDef.numstate + 181;
 With proc[CurrentProc] do
    begin
       name       := 'Depth of thaw';
@@ -3274,7 +3334,7 @@ with par[npar + 7] do
     name:='Dot par5';  units:='m oC-1';  symbol:='xi5';
  end;
  
-CurrentProc := ModelDef.numstate + 180;
+CurrentProc := ModelDef.numstate + 182;
 With proc[CurrentProc] do
    begin
       name       := 'Calibration';
@@ -3514,39 +3574,39 @@ with par[npar + 57] do
  end;
 with par[npar + 58] do
  begin
-    name:='Fire BC loss tar';  units:='g C m-2 yr-1';  symbol:='FBCtar';
+    name:='Fire BC loss tar';  units:='g C m-2 yr-1';  symbol:='fBCtar';
  end;
 with par[npar + 59] do
  begin
-    name:='Fire BN loss tar';  units:='g N m-2 yr-1';  symbol:='FBNtar';
+    name:='Fire BN loss tar';  units:='g N m-2 yr-1';  symbol:='fBNtar';
  end;
 with par[npar + 60] do
  begin
-    name:='Fire BP loss tar';  units:='g P m-2 yr-1';  symbol:='FBPtar';
+    name:='Fire BP loss tar';  units:='g P m-2 yr-1';  symbol:='fBPtar';
  end;
 with par[npar + 61] do
  begin
-    name:='Fire WC loss tar';  units:='g C m-2 yr-1';  symbol:='FWCtar';
+    name:='Fire WC loss tar';  units:='g C m-2 yr-1';  symbol:='fWCtar';
  end;
 with par[npar + 62] do
  begin
-    name:='Fire WN loss tar';  units:='g N m-2 yr-1';  symbol:='FWNtar';
+    name:='Fire WN loss tar';  units:='g N m-2 yr-1';  symbol:='fWNtar';
  end;
 with par[npar + 63] do
  begin
-    name:='Fire WP loss tar';  units:='g P m-2 yr-1';  symbol:='FWPtar';
+    name:='Fire WP loss tar';  units:='g P m-2 yr-1';  symbol:='fWPtar';
  end;
 with par[npar + 64] do
  begin
-    name:='Fire DC loss tar';  units:='g C m-2 yr-1';  symbol:='FDCtar';
+    name:='Fire DC loss tar';  units:='g C m-2 yr-1';  symbol:='fDCtar';
  end;
 with par[npar + 65] do
  begin
-    name:='Fire DN loss tar';  units:='g N m-2 yr-1';  symbol:='FDNtar';
+    name:='Fire DN loss tar';  units:='g N m-2 yr-1';  symbol:='fDNtar';
  end;
 with par[npar + 66] do
  begin
-    name:='Fire DP loss tar';  units:='g P m-2 yr-1';  symbol:='FDPtar';
+    name:='Fire DP loss tar';  units:='g P m-2 yr-1';  symbol:='fDPtar';
  end;
 with par[npar + 67] do
  begin
@@ -3557,7 +3617,7 @@ with par[npar + 68] do
     name:='Fire totP volatilized tar';  units:='g P m-2 yr-1';  symbol:='FPvttar';
  end;
  
-CurrentProc := ModelDef.numstate + 181;
+CurrentProc := ModelDef.numstate + 183;
 With proc[CurrentProc] do
    begin
       name       := 'Soil temp water response';
@@ -3567,7 +3627,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 182;
+CurrentProc := ModelDef.numstate + 184;
 With proc[CurrentProc] do
    begin
       name       := 'Years since 2005';
@@ -3577,7 +3637,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 183;
+CurrentProc := ModelDef.numstate + 185;
 With proc[CurrentProc] do
    begin
       name       := 'CO2 deviation';
@@ -3600,7 +3660,7 @@ with par[npar + 3] do
     name:='CO2 dev intercept';  units:='ppm';  symbol:='bCdev';
  end;
  
-CurrentProc := ModelDef.numstate + 184;
+CurrentProc := ModelDef.numstate + 186;
 With proc[CurrentProc] do
    begin
       name       := 'Temp Summer Dev';
@@ -3643,7 +3703,7 @@ with par[npar + 8] do
     name:='Poccl P conc';  units:='g P m-1';  symbol:='PcPoccl';
  end;
  
-CurrentProc := ModelDef.numstate + 185;
+CurrentProc := ModelDef.numstate + 187;
 With proc[CurrentProc] do
    begin
       name       := 'Temp Winter Dev';
@@ -3658,7 +3718,7 @@ with par[npar + 1] do
     name:='winter T dev slope';  units:='deg C';  symbol:='VWTd';
  end;
  
-CurrentProc := ModelDef.numstate + 186;
+CurrentProc := ModelDef.numstate + 188;
 With proc[CurrentProc] do
    begin
       name       := 'Ppt Simulated';
@@ -3697,7 +3757,7 @@ with par[npar + 7] do
     name:='Winter Ppt intensity';  units:='mm-1 H2O';  symbol:='alphaWPpt';
  end;
  
-CurrentProc := ModelDef.numstate + 187;
+CurrentProc := ModelDef.numstate + 189;
 With proc[CurrentProc] do
    begin
       name       := 'Ppt Summer Dev';
@@ -3720,7 +3780,7 @@ with par[npar + 3] do
     name:='summer Ppt dev half sat';  units:='year';  symbol:='kSPd';
  end;
  
-CurrentProc := ModelDef.numstate + 188;
+CurrentProc := ModelDef.numstate + 190;
 With proc[CurrentProc] do
    begin
       name       := 'Ppt Winter Dev';
@@ -3743,7 +3803,7 @@ with par[npar + 3] do
     name:='Days with precip';  units:='days';  symbol:='DaysPpt';
  end;
  
-CurrentProc := ModelDef.numstate + 189;
+CurrentProc := ModelDef.numstate + 191;
 With proc[CurrentProc] do
    begin
       name       := 'Projected CO2';
@@ -3753,7 +3813,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 190;
+CurrentProc := ModelDef.numstate + 192;
 With proc[CurrentProc] do
    begin
       name       := 'Projected Tmax';
@@ -3796,7 +3856,7 @@ with par[npar + 8] do
     name:='T fall   half sat';  units:='days';  symbol:='Tkfa';
  end;
  
-CurrentProc := ModelDef.numstate + 191;
+CurrentProc := ModelDef.numstate + 193;
 With proc[CurrentProc] do
    begin
       name       := 'Projected Tmin';
@@ -3806,7 +3866,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 192;
+CurrentProc := ModelDef.numstate + 194;
 With proc[CurrentProc] do
    begin
       name       := 'Projected Precip';
@@ -3816,7 +3876,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 193;
+CurrentProc := ModelDef.numstate + 195;
 With proc[CurrentProc] do
    begin
       name       := 'Ave grow season Temp';
@@ -3831,7 +3891,7 @@ with par[npar + 1] do
     name:='calib Tave';  units:='oC';  symbol:='Tave0';
  end;
  
-CurrentProc := ModelDef.numstate + 194;
+CurrentProc := ModelDef.numstate + 196;
 With proc[CurrentProc] do
    begin
       name       := 'Biomass C Fire loss';
@@ -3847,7 +3907,7 @@ with par[npar + 1] do
  end;
 with par[npar + 2] do
  begin
-    name:='day of fire';  units:='Julian day';  symbol:='DOYfire';
+    name:='not used';  units:='none';  symbol:='unused5';
  end;
 with par[npar + 3] do
  begin
@@ -3890,7 +3950,7 @@ with par[npar + 12] do
     name:='fraction FDP volatilized';  units:='fraction';  symbol:='fDPv';
  end;
  
-CurrentProc := ModelDef.numstate + 195;
+CurrentProc := ModelDef.numstate + 197;
 With proc[CurrentProc] do
    begin
       name       := 'Biomass N Fire loss';
@@ -3900,7 +3960,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 196;
+CurrentProc := ModelDef.numstate + 198;
 With proc[CurrentProc] do
    begin
       name       := 'Biomass P Fire loss';
@@ -3910,7 +3970,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 197;
+CurrentProc := ModelDef.numstate + 199;
 With proc[CurrentProc] do
    begin
       name       := 'Debris C Fire loss';
@@ -3920,7 +3980,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 198;
+CurrentProc := ModelDef.numstate + 200;
 With proc[CurrentProc] do
    begin
       name       := 'Debris N Fire loss';
@@ -3930,7 +3990,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 199;
+CurrentProc := ModelDef.numstate + 201;
 With proc[CurrentProc] do
    begin
       name       := 'Debris P Fire loss';
@@ -3940,7 +4000,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 200;
+CurrentProc := ModelDef.numstate + 202;
 With proc[CurrentProc] do
    begin
       name       := 'Phase I C Fire loss';
@@ -3950,7 +4010,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 201;
+CurrentProc := ModelDef.numstate + 203;
 With proc[CurrentProc] do
    begin
       name       := 'Phase I N Fire loss';
@@ -3960,7 +4020,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 202;
+CurrentProc := ModelDef.numstate + 204;
 With proc[CurrentProc] do
    begin
       name       := 'Phase I P Fire loss';
@@ -3970,7 +4030,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 203;
+CurrentProc := ModelDef.numstate + 205;
 With proc[CurrentProc] do
    begin
       name       := 'Fire NO3 deposition';
@@ -3980,7 +4040,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 204;
+CurrentProc := ModelDef.numstate + 206;
 With proc[CurrentProc] do
    begin
       name       := 'Fire PO4 deposition';
@@ -3990,7 +4050,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 205;
+CurrentProc := ModelDef.numstate + 207;
 With proc[CurrentProc] do
    begin
       name       := 'Fire N volatilized';
@@ -4000,7 +4060,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 206;
+CurrentProc := ModelDef.numstate + 208;
 With proc[CurrentProc] do
    begin
       name       := 'Fire P volatilized';
@@ -4010,7 +4070,7 @@ With proc[CurrentProc] do
       ptype       := ptGroup1;
    end;
  
-CurrentProc := ModelDef.numstate + 207;
+CurrentProc := ModelDef.numstate + 209;
 With proc[CurrentProc] do
    begin
       name       := 'Standing dead LAI Equiv';
@@ -4025,12 +4085,362 @@ with par[npar + 1] do
     name:='specif dead leaf area';  units:='m2 gDW';  symbol:='a_sdla';
  end;
  
-CurrentProc := ModelDef.numstate + 208;
+CurrentProc := ModelDef.numstate + 210;
 With proc[CurrentProc] do
    begin
       name       := 'Projected Runin';
       units       := 'mm H2O day-1';
       symbol       := 'Proj_Rin';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 211;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR qNSiicalc';
+      units       := 'aaa';
+      symbol       := 'qNSiicalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 212;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR qPSiicalc';
+      units       := 'aaa';
+      symbol       := 'qPSiicalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 213;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR phiNcalc';
+      units       := 'aaa';
+      symbol       := 'phiNcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 214;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR phiPcalc';
+      units       := 'aaa';
+      symbol       := 'phiPcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 215;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LcwCatarcalc';
+      units       := 'aaa';
+      symbol       := 'LcwCatarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 216;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LcwNatarcalc';
+      units       := 'aaa';
+      symbol       := 'LcwNatarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 217;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LcWPatarcalc';
+      units       := 'aaa';
+      symbol       := 'LcWPatarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 218;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LitNDebristarcalc';
+      units       := 'aaa';
+      symbol       := 'LitNDebristarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 219;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LitPDebristarcalc';
+      units       := 'aaa';
+      symbol       := 'LitPDebristarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 220;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LitCtarcalc';
+      units       := 'aaa';
+      symbol       := 'LitCtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 221;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LitNtarcalc';
+      units       := 'aaa';
+      symbol       := 'LitNtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 222;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LitPtarcalc';
+      units       := 'aaa';
+      symbol       := 'LitPtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 223;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR RCmtarcalc';
+      units       := 'aaa';
+      symbol       := 'RCmtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 224;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR RNmtarcalc';
+      units       := 'aaa';
+      symbol       := 'RNmtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 225;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR RPmtarcalc';
+      units       := 'aaa';
+      symbol       := 'RPmtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 226;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR MiiCtarcalc';
+      units       := 'aaa';
+      symbol       := 'MiiCtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 227;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR DNtrtarcalc';
+      units       := 'aaa';
+      symbol       := 'DNtrtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 228;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR Nitrtarcalc';
+      units       := 'aaa';
+      symbol       := 'Nitrtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 229;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LNO3tarcalc';
+      units       := 'aaa';
+      symbol       := 'LNO3tarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 230;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LNH4tarcalc';
+      units       := 'aaa';
+      symbol       := 'LNH4tarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 231;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LPO4tarcalc';
+      units       := 'aaa';
+      symbol       := 'LPO4tarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 232;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR LDOCtarcalc';
+      units       := 'aaa';
+      symbol       := 'LDOCtarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 233;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR FNvttarcalc';
+      units       := 'aaa';
+      symbol       := 'FNvttarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 234;
+With proc[CurrentProc] do
+   begin
+      name       := 'TAR FPvttarcalc';
+      units       := 'aaa';
+      symbol       := 'FPvttarcalc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 235;
+With proc[CurrentProc] do
+   begin
+      name       := 'Vapor pressure';
+      units       := 'mbar';
+      symbol       := 'ea';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 236;
+With proc[CurrentProc] do
+   begin
+      name       := 'Shortwave down theoret';
+      units       := 'MJ m-2 day-1';
+      symbol       := 'Iswmax';
+      parameters       := 1;
+      ptype       := ptGroup1;
+   end;
+npar:=ParCount(CurrentProc);
+with par[npar + 1] do
+ begin
+    name:='solar constant';  units:='MJ/m2/day';  symbol:='So';
+ end;
+ 
+CurrentProc := ModelDef.numstate + 237;
+With proc[CurrentProc] do
+   begin
+      name       := 'Hour angle';
+      units       := 'radians';
+      symbol       := 'ho';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 238;
+With proc[CurrentProc] do
+   begin
+      name       := 'Earth-sun separation';
+      units       := 'AU';
+      symbol       := 'dAU';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 239;
+With proc[CurrentProc] do
+   begin
+      name       := 'Shortwave down net';
+      units       := 'MJ m-2 day-1';
+      symbol       := 'Sdnet';
+      parameters       := 1;
+      ptype       := ptGroup1;
+   end;
+npar:=ParCount(CurrentProc);
+with par[npar + 1] do
+ begin
+    name:='Canopy height > snow?';  units:='none';  symbol:='rc';
+ end;
+ 
+CurrentProc := ModelDef.numstate + 240;
+With proc[CurrentProc] do
+   begin
+      name       := 'Cloud+canopy fraction';
+      units       := 'none';
+      symbol       := 'fcc';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 241;
+With proc[CurrentProc] do
+   begin
+      name       := 'Longwave rad-incoming';
+      units       := 'MJ m-2 day-1';
+      symbol       := 'Ld';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 242;
+With proc[CurrentProc] do
+   begin
+      name       := 'Longwave rad-outgoing';
+      units       := 'MJ m-2 day-1';
+      symbol       := 'Lu';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 243;
+With proc[CurrentProc] do
+   begin
+      name       := 'Net rad on snow';
+      units       := 'MJ m-2 day-1';
+      symbol       := 'Rnets';
+      parameters       := 0;
+      ptype       := ptGroup1;
+   end;
+ 
+CurrentProc := ModelDef.numstate + 244;
+With proc[CurrentProc] do
+   begin
+      name       := 'Snow temperature';
+      units       := 'oC';
+      symbol       := 'Tsnow';
       parameters       := 0;
       ptype       := ptGroup1;
    end;
@@ -4247,6 +4657,7 @@ W, dWdt,
 WSnow, dWSnowdt, 
 SQ, dSQdt, 
 fc, dfcdt, 
+LAInfix, dLAInfixdt, 
 RCa, dRCadt, 
 RNa, dRNadt, 
 RPa, dRPadt, 
@@ -4256,6 +4667,7 @@ UPa, dUPadt,
 DDayp, dDDaypdt, 
 DDayn, dDDayndt, 
 CumGPP, dCumGPPdt, 
+CumRCPt, dCumRCPtdt, 
 CumNPP, dCumNPPdt, 
 CumNEP, dCumNEPdt, 
 CumUdoC, dCumUdoCdt, 
@@ -4331,6 +4743,7 @@ CumROvfNH4, dCumROvfNH4dt,
 CumROvfNO3, dCumROvfNO3dt, 
 CumROvfPO4, dCumROvfPO4dt, 
 LAIpeak, dLAIpeakdt, 
+DOYfire, dDOYfiredt, 
 CumfBC, dCumfBCdt, 
 CumfBN, dCumfBNdt, 
 CumfBP, dCumfBPdt, 
@@ -4347,6 +4760,11 @@ CumLitCDebris, dCumLitCDebrisdt,
 CumLitNDebris, dCumLitNDebrisdt, 
 CumLitPDebris, dCumLitPDebrisdt, 
 BCpeak, dBCpeakdt, 
+SPsT, dSPsTdt, 
+SPs, dSPsdt, 
+Topt, dToptdt, 
+Tg, dTgdt, 
+WSmax, dWSmaxdt, 
 
 {processes and associated parameters}
 Ta, 
@@ -4362,7 +4780,7 @@ deltaGcT,
 Lfc, Dfs, chicT, chicW, 
 deltaLcW, 
 Delta_E, 
-psiS, theta_fp, theta_fro, theta_w, psi_f, psi_w, z0, phis, rho_s, drain, NLsfc, NLe, MBW, Intv, SNH4, etaNH4, SNO3, etaNO3, SPO4, etaPO4, zW, qPadoC, Lcrit, aLdoN, eNfix, 
+psiS, theta_fp, theta_fro, theta_w, psi_f, psi_w, z0, phis, rho_s, drain, NLsfc, NLe, MBW, Intv, SNH4, etaNH4, SNO3, etaNO3, SPO4, etaPO4, CalDec, kRl, Lcrit, aLdoN, eNfix, 
 Paw, rPaw, 
 PO4P, rPO4P, rPnow, rPnos, rPocclw, 
 Pnow, 
@@ -4372,8 +4790,9 @@ c_cs,
 PsIrr, 
 PsC, 
 PsW, 
-UC, FlagNegLeach, kE, gC, TaPs, TbPs, aPs, bPs, gI, HSI, kI, aPpt, scg, Q10R, 
+UC, FlagNegLeach, gW, gC, FLF, unused2, unused3, unused4, gI, HSI, kI, aPpt, scg, Q10R, 
 UW, 
+UWmax, 
 PET, 
 NH4aq, 
 UNH4, 
@@ -4477,7 +4896,7 @@ CumNePB,
 CumNeWB, 
 Btstar, 
 LL, 
-Sm, SWC, sB, LHF, CC, Tcrit, 
+Sm, mQ, ar, sIsw, TcritR, TcritS, 
 Doy, Ddds, Tly, lat, DoyD, 
 Dl, 
 delta, 
@@ -4511,7 +4930,8 @@ DNtr, aDNtr, thetaD, kDNtr,
 Dop, 
 VpC, SoC0, Dop0, 
 fuf, 
-Ts, kds, bI, kso, ksm, kw, ksnow, cso, csm, cw, Ql, Qh, Tds, alpha, zTds, zTs, 
+Ts, kds, bI, kso, ksm, kw, ksnow, cso, csm, cw, Ql, Qh, Tds, alphamin, zTds, zTs, 
+alpha, 
 ks, 
 kst, 
 ksf, 
@@ -4528,7 +4948,7 @@ ROvfNO3,
 ROvfPO4, 
 OvfI, 
 Dot, thetab, Tsb, xi1, xi2, xi3, xi4, xi5, 
-calib, calibrate, calibrate2nd, BCpeaktar, gItar, LAItar, GPPtar, NPPtar, LitCtar, LcWCtar, UNH4tar, UNO3tar, UdoNtar, UNfixtar, LitNtar, LcWNtar, UPO4tar, LitPtar, LcWPtar, LcWCatar, LcWNatar, LcWPatar, RCmtar, TiiCtar, UNH4mtar, UNO3mtar, RNmtar, Nnsfixtar, UPO4mtar, RPmtar, MiiCtar, LNH4tar, Nitrtar, LNO3tar, DNtrtar, Pawtar, Pnowtar, LPO4tar, PO4Ptar, PocclWtar, Pnostar, LdoCtar, UWtar, Rotar, Intrtar, VCtar, VNtar, VPtar, vCO2tar, vItar, vWtar, vNH4tar, vNO3tar, vDONtar, vNfixtar, LitCDebristar, LitNDebristar, LitPDebristar, FBCtar, FBNtar, FBPtar, FWCtar, FWNtar, FWPtar, FDCtar, FDNtar, FDPtar, FNvttar, FPvttar, 
+calib, calibrate, calibrate2nd, BCpeaktar, gItar, LAItar, GPPtar, NPPtar, LitCtar, LcWCtar, UNH4tar, UNO3tar, UdoNtar, UNfixtar, LitNtar, LcWNtar, UPO4tar, LitPtar, LcWPtar, LcWCatar, LcWNatar, LcWPatar, RCmtar, TiiCtar, UNH4mtar, UNO3mtar, RNmtar, Nnsfixtar, UPO4mtar, RPmtar, MiiCtar, LNH4tar, Nitrtar, LNO3tar, DNtrtar, Pawtar, Pnowtar, LPO4tar, PO4Ptar, PocclWtar, Pnostar, LdoCtar, UWtar, Rotar, Intrtar, VCtar, VNtar, VPtar, vCO2tar, vItar, vWtar, vNH4tar, vNO3tar, vDONtar, vNfixtar, LitCDebristar, LitNDebristar, LitPDebristar, fBCtar, fBNtar, fBPtar, fWCtar, fWNtar, fWPtar, fDCtar, fDNtar, fDPtar, FNvttar, FPvttar, 
 deltaDW, 
 Yf, 
 SCdev, FlagCa, mCdev, bCdev, 
@@ -4542,7 +4962,7 @@ Proj_Tmax, Tmwi, Tmsp, Tmsu, Tmfa, Tkwi, Tksp, Tksu, Tkfa,
 Proj_Tmin, 
 Proj_Ppt, 
 Tave, Tave0, 
-FBC, FI, DOYfire, ffLL, ffWL, ffWDL, ffSL, fBNv, fBPv, fWNv, fWPv, fDNv, fDPv, 
+FBC, FI, unused5, ffLL, ffWL, ffWDL, ffSL, fBNv, fBPv, fWNv, fWPv, fDNv, fDPv, 
 FBN, 
 FBP, 
 FWC, 
@@ -4557,6 +4977,40 @@ FNvol,
 FPvol, 
 LW, a_sdla, 
 Proj_Rin, 
+qNSiicalc, 
+qPSiicalc, 
+phiNcalc, 
+phiPcalc, 
+LcwCatarcalc, 
+LcwNatarcalc, 
+LcWPatarcalc, 
+LitNDebristarcalc, 
+LitPDebristarcalc, 
+LitCtarcalc, 
+LitNtarcalc, 
+LitPtarcalc, 
+RCmtarcalc, 
+RNmtarcalc, 
+RPmtarcalc, 
+MiiCtarcalc, 
+DNtrtarcalc, 
+Nitrtarcalc, 
+LNO3tarcalc, 
+LNH4tarcalc, 
+LPO4tarcalc, 
+LDOCtarcalc, 
+FNvttarcalc, 
+FPvttarcalc, 
+ea, 
+Iswmax, So, 
+ho, 
+dAU, 
+Sdnet, rc, 
+fcc, 
+Ld, 
+Lu, 
+Rnets, 
+Tsnow, 
 
 {drivers}
 Isw, 
@@ -4577,18 +5031,16 @@ IRinNH4,
 IRinNO3, 
 IRinPO4, 
 OTS1, 
-OTS2, 
+OTS2
+:double;
 
 {Other double}
-dum, 
-Thf, 
 InfS, 
 InfR, 
 divsr, 
 R, 
 S, 
 C, 
-Tsnow, 
 alphaVC, 
 alphaVN, 
 alphaVP, 
@@ -4611,12 +5063,17 @@ muvNfix,
 muvdoN, 
 deltaPII, 
 UNttar, 
-kPa
+kPa, 
+cumdum, 
+dumBCtar, 
+dumtar, 
+fcs, 
+dum, 
+Thf:Double;
 
-:double; {Final double}
 
 {Other integers}
-npar, j, jj, kk,  tnum:integer;
+npar, j, jj, kk, tnum:integer;
 
 { Boolean Variables }
 
@@ -4650,13 +5107,6 @@ begin {allometry}
    {Root allocation}
    VR:=1-VL;
    {find Ba & BtStar = biomass if canopy were full}
-///   Bs:=Bamax-B0;
-{   y:=VL*(1-fc);
-{   a:=gammaB;
-   b:=Bs-gammaB*Bt-Bamax*y*gammaB;
-   c:=-Bs*Bt-B0*Bs*y;
-   Btstar:=(-b+sqrt(b*b-4*a*c))/(2*a);
-   Btstar:=min(Btstar, Bt/(1-y));}
    
    Btstar:=FindBtstar;
    Ba:=Bamax*gammaB*Btstar/(power(power(Bamax,alphaB)+power(gammaB*Btstar,alphaB),1/alphaB));
@@ -4696,21 +5146,26 @@ begin
 end;
 
 Function photosynthesis(vc,vi,vw:double; var PsC, PsIrr, PsW:double):double;
-var dum, c_cmax, CiI, CiC, fpt, PIx, PCx, kC, gamma:double;
+var dum, fpt, PIx, PCx, kC, gamma:double;
 begin
-   Gamma:=42*exp(9.46*(Ta-25)/(Ta+273.2)); //McMurtrie et al (1992) Eq 18.
-   kC:=310*exp(23.956*(Ta-25)/(Ta+273.2)); //McMurtrie et al (1992) Eq 18.
-   kC:=kC*(1+200/(155*exp(14.509*(Ta-25)/(Ta+273.2))));//McMurtrie et al (1992) Eq 18. in umol/mol
+
+     {7.775 = mm H2O/m/MPa =rhoa*Cp/(lambda*gamma); c_cs in m/hr}
+     {0.000335=1/1.6*(12e-6 gC/umolCO2)*(1000L/m3)*(1/22.4 mol/L)}
+
+   Gamma:=42*exp(9.46*(Ta-25)/(Ta+273.15)); //McMurtrie et al (1992) Eq 18.
+   kC:=310*exp(23.956*(Ta-25)/(Ta+273.15)); //McMurtrie et al (1992) Eq 18.
+   kC:=kC*(1+200/(155*exp(14.509*(Ta-25)/(Ta+273.15))));//McMurtrie et al (1992) Eq 18. in umol/mol
    
-   if fuf>0 then UW:=Dl*Delta_e*(L*kE*Rl*fuf*vw/VR/z0/phis)*(Psis-Psi_w)/abs(Psi_w) 
-   else UW:=0;
-   if UW<0 then UW:=0;
-   if Dl>0 then c_cs:=UW/(Dl*Delta_e) else c_cs:=0;
-   if Ta> 0 then 
-     fpt:=exp(0.0397*(Tave-Tave0))/((1+exp(-aPs*exp(0.0165*(Tave-Tave0))*(Ta-TaPs)))*(1+exp(bPs*(Ta-TbPs))))
-   else 
-     fpt:=0;
-   // Based on Hikosaka et al, Eq 5. Modified based on acclimation 
+   if (Ta>0) and (Ta<2*Topt) then fpT:= Ta*(2*Topt-Ta)/sqr(Topt)
+   else fpT:=0; //Hikosaka et al. 2006 Fig 1 scaled to fpT=1 at Ta = Topt
+
+   UWmax:=gW*fuf*(vW/VR);			      // note vw in call = vW *VC
+
+   UW:= UWmax*(1-exp(-kRl*RL/z0))*DL*(Psis-Psi_w)/(-Psi_w); // changed 20 June 2024
+   if UW<0 then UW:=0; 			              // note vW in call = vW *VC
+
+   if Dl>0 then c_cs:=UW/(7.775*Dl*Delta_e) else c_cs:=0; //c_cs units  m/hr
+  
    if VL=0 then
      begin
        PIx:=0;
@@ -4718,22 +5173,26 @@ begin
      end
    else
      begin
-       if Dl>0 then PIx:=L*gI*(vi/VL)*ln((HSI+Isw/Dl)/(HSI+Isw*exp(-kI*(L+LW))/Dl))/(kI*(L+LW))
-       else PIx:=0;
-       PCx:=gC*(vc/VL)*L;
-     end; 
-	 
-	 // Check on where the exp(0.0397 came from. Showed up in v2.6.4, Ps temp response change but it's not listed in Ed's notes???
-	 
-   PsC:= Dl*fpt*PCx*(5*Ca/7+gamma)/(kC+5*Ca/7); 
-   PsIrr:= Dl*fpt*PIx*(5*Ca/7+gamma)/(2*gamma+5*Ca/7);
-   PsW:= Dl*fpt*scg*c_cs*2*Ca/7;                                                     
-   dum:=min(PsC,min(PsIrr,PsW));                                                    
-   if (DL>0) and (fpt>0) then c_cs:=7*dum/DL/fpt/scg/2/Ca else c_cs:=0;                            
-   UW:=c_cs*DL*Delta_e;                                                                 
-   Photosynthesis:=min(PsC,min(PsIrr,PsW));
-end;
+        PIx:=gI*(vI/VL)*fpT; 			// note vI in call = vi *VC
+        PCx:=gC*(vC/VL)*fpT;              	// note vC in call = vco2 *VC
+     end;
 
+   PsW:=c_cs*scg*DL*(2*Ca/7)*0.000335;
+   PsC:= DL*L*PCx*((5*Ca/7)-gamma)/(kC+5*Ca/7); 
+
+   PsIrr:= DL*((5*Ca/7)-gamma)/(2*gamma+5*Ca/7);
+   PsIrr:= PsIrr*L*PIx/(L+LW)/kI;
+   if DL>0 then PsIrr:=PsIrr* ln((HSI+Isw/Dl)/(HSI+Isw*exp(-kI*(L+LW))/Dl))
+   else PsIrr:=0;
+
+   dum:=min(PsC,min(PsIrr,PsW));   
+                                                 
+   if DL>0 then c_cs:=dum/(scg*DL*(2*Ca/7)*0.000335) else c_cs:=0;
+                            
+   UW:=c_cs*7.775*DL*Delta_e;    
+                                                             
+   Photosynthesis:=dum;
+end;
 
 function uptake(Cbar,vi,km,D,g,Q10,psi:double):double;
 var
@@ -4742,7 +5201,7 @@ begin
    if Rl>0 then
      begin
         Cbar2:=Cbar; if Cbar2<0 then Cbar2:=0;
-        V:=g*(vi/VR)*Rl*power(Q10,Ts/10);
+        V:=g*(vi/VR)*(1-exp(-kRl*RL/z0))*power(Q10,Ts/10); //changed 20 June 2024
         Croot:=km-Cbar2-V*betanRd/(D*Rl*psi);
         Croot:=0.5*(-Croot+sqrt(sqr(Croot)+4*km*Cbar2));
         Uptake:=V*Croot/(km+Croot);
@@ -4751,8 +5210,9 @@ begin
 end;{uptake}
 
 function Nfix(vi,g,Q10:double):double;
+var dum:double;
 begin
-  Nfix:=g*(vi/VR)*power(Q10,Ts/10)*Rl/(1+power(L_max/Lcrit, Lcrit*eNfix));
+  Nfix:=g*(vi/VR)*power(Q10,Ts/10)*(1-exp(-kRl*RL/z0))/(1+power(LAInfix/Lcrit, eNfix)); // changed 20 June 2024
 end;{Nfix}
 
 function water_tension(W:double):double;
@@ -4818,6 +5278,10 @@ Begin
 end;
 
 
+
+
+
+
 begin
 { Copy the drivers from the global array, drive, into the local variables. }
 Isw := tdrive[1].value;
@@ -4873,106 +5337,114 @@ W := tstat[29].value;
 WSnow := tstat[30].value;
 SQ := tstat[31].value;
 fc := tstat[32].value;
-RCa := tstat[33].value;
-RNa := tstat[34].value;
-RPa := tstat[35].value;
-UCa := tstat[36].value;
-UNa := tstat[37].value;
-UPa := tstat[38].value;
-DDayp := tstat[39].value;
-DDayn := tstat[40].value;
-CumGPP := tstat[41].value;
-CumNPP := tstat[42].value;
-CumNEP := tstat[43].value;
-CumUdoC := tstat[44].value;
-CumLitC := tstat[45].value;
-CumLcWC := tstat[46].value;
-CumtotalLitC := tstat[47].value;
-CumtotalLitN := tstat[48].value;
-CumtotalLitP := tstat[49].value;
-CumRCmtotal := tstat[50].value;
-CumNmintot := tstat[51].value;
-CumPmintot := tstat[52].value;
-CumUN := tstat[53].value;
-CumUNH4 := tstat[54].value;
-CumUNO3 := tstat[55].value;
-CumUdoN := tstat[56].value;
-CumUNfix := tstat[57].value;
-CumLitN := tstat[58].value;
-CumLcWN := tstat[59].value;
-CumUPO4 := tstat[60].value;
-CumLitP := tstat[61].value;
-CumLcWP := tstat[62].value;
-CumLcWCa := tstat[63].value;
-CumRCm := tstat[64].value;
-CumTiiC := tstat[65].value;
-CumLcWNa := tstat[66].value;
-CumUNH4m := tstat[67].value;
-CumUNO3m := tstat[68].value;
-CumRNm := tstat[69].value;
-CumTiiN := tstat[70].value;
-CumNnsfix := tstat[71].value;
-CumLcWPa := tstat[72].value;
-CumUPO4m := tstat[73].value;
-CumRPm := tstat[74].value;
-CumTiiP := tstat[75].value;
-CumMiiC := tstat[76].value;
-CumMiiN := tstat[77].value;
-CumMiiP := tstat[78].value;
-CumINH4 := tstat[79].value;
-CumLNH4 := tstat[80].value;
-CumNitr := tstat[81].value;
-CumINO3 := tstat[82].value;
-CumLNO3 := tstat[83].value;
-CumDNtr := tstat[84].value;
-CumPaw := tstat[85].value;
-CumPnow := tstat[86].value;
-CumIPO4 := tstat[87].value;
-CumLPO4 := tstat[88].value;
-CumPO4P := tstat[89].value;
-CumIPa := tstat[90].value;
-CumPocclw := tstat[91].value;
-CumPnos := tstat[92].value;
-CumIdoC := tstat[93].value;
-CumIdoN := tstat[94].value;
-CumLdoC := tstat[95].value;
-CumLdoN := tstat[96].value;
-CumUW := tstat[97].value;
-CumRO := tstat[98].value;
-CumPpt := tstat[99].value;
-CumIntr := tstat[100].value;
-CumRfl := tstat[101].value;
-CumSfl := tstat[102].value;
-CumSm := tstat[103].value;
-CumRin := tstat[104].value;
-CumIRindoC := tstat[105].value;
-CumIRindoN := tstat[106].value;
-CumIRinNH4 := tstat[107].value;
-CumIRinNO3 := tstat[108].value;
-CumIRinPO4 := tstat[109].value;
-CumROvf := tstat[110].value;
-CumROvfdoC := tstat[111].value;
-CumROvfdoN := tstat[112].value;
-CumROvfNH4 := tstat[113].value;
-CumROvfNO3 := tstat[114].value;
-CumROvfPO4 := tstat[115].value;
-LAIpeak := tstat[116].value;
-CumfBC := tstat[117].value;
-CumfBN := tstat[118].value;
-CumfBP := tstat[119].value;
-CumfWC := tstat[120].value;
-CumfWN := tstat[121].value;
-CumfWP := tstat[122].value;
-CumfDC := tstat[123].value;
-CumfDN := tstat[124].value;
-CumfDP := tstat[125].value;
-CumFCvt := tstat[126].value;
-CumFNvt := tstat[127].value;
-CumFPvt := tstat[128].value;
-CumLitCDebris := tstat[129].value;
-CumLitNDebris := tstat[130].value;
-CumLitPDebris := tstat[131].value;
-BCpeak := tstat[132].value;
+LAInfix := tstat[33].value;
+RCa := tstat[34].value;
+RNa := tstat[35].value;
+RPa := tstat[36].value;
+UCa := tstat[37].value;
+UNa := tstat[38].value;
+UPa := tstat[39].value;
+DDayp := tstat[40].value;
+DDayn := tstat[41].value;
+CumGPP := tstat[42].value;
+CumRCPt := tstat[43].value;
+CumNPP := tstat[44].value;
+CumNEP := tstat[45].value;
+CumUdoC := tstat[46].value;
+CumLitC := tstat[47].value;
+CumLcWC := tstat[48].value;
+CumtotalLitC := tstat[49].value;
+CumtotalLitN := tstat[50].value;
+CumtotalLitP := tstat[51].value;
+CumRCmtotal := tstat[52].value;
+CumNmintot := tstat[53].value;
+CumPmintot := tstat[54].value;
+CumUN := tstat[55].value;
+CumUNH4 := tstat[56].value;
+CumUNO3 := tstat[57].value;
+CumUdoN := tstat[58].value;
+CumUNfix := tstat[59].value;
+CumLitN := tstat[60].value;
+CumLcWN := tstat[61].value;
+CumUPO4 := tstat[62].value;
+CumLitP := tstat[63].value;
+CumLcWP := tstat[64].value;
+CumLcWCa := tstat[65].value;
+CumRCm := tstat[66].value;
+CumTiiC := tstat[67].value;
+CumLcWNa := tstat[68].value;
+CumUNH4m := tstat[69].value;
+CumUNO3m := tstat[70].value;
+CumRNm := tstat[71].value;
+CumTiiN := tstat[72].value;
+CumNnsfix := tstat[73].value;
+CumLcWPa := tstat[74].value;
+CumUPO4m := tstat[75].value;
+CumRPm := tstat[76].value;
+CumTiiP := tstat[77].value;
+CumMiiC := tstat[78].value;
+CumMiiN := tstat[79].value;
+CumMiiP := tstat[80].value;
+CumINH4 := tstat[81].value;
+CumLNH4 := tstat[82].value;
+CumNitr := tstat[83].value;
+CumINO3 := tstat[84].value;
+CumLNO3 := tstat[85].value;
+CumDNtr := tstat[86].value;
+CumPaw := tstat[87].value;
+CumPnow := tstat[88].value;
+CumIPO4 := tstat[89].value;
+CumLPO4 := tstat[90].value;
+CumPO4P := tstat[91].value;
+CumIPa := tstat[92].value;
+CumPocclw := tstat[93].value;
+CumPnos := tstat[94].value;
+CumIdoC := tstat[95].value;
+CumIdoN := tstat[96].value;
+CumLdoC := tstat[97].value;
+CumLdoN := tstat[98].value;
+CumUW := tstat[99].value;
+CumRO := tstat[100].value;
+CumPpt := tstat[101].value;
+CumIntr := tstat[102].value;
+CumRfl := tstat[103].value;
+CumSfl := tstat[104].value;
+CumSm := tstat[105].value;
+CumRin := tstat[106].value;
+CumIRindoC := tstat[107].value;
+CumIRindoN := tstat[108].value;
+CumIRinNH4 := tstat[109].value;
+CumIRinNO3 := tstat[110].value;
+CumIRinPO4 := tstat[111].value;
+CumROvf := tstat[112].value;
+CumROvfdoC := tstat[113].value;
+CumROvfdoN := tstat[114].value;
+CumROvfNH4 := tstat[115].value;
+CumROvfNO3 := tstat[116].value;
+CumROvfPO4 := tstat[117].value;
+LAIpeak := tstat[118].value;
+DOYfire := tstat[119].value;
+CumfBC := tstat[120].value;
+CumfBN := tstat[121].value;
+CumfBP := tstat[122].value;
+CumfWC := tstat[123].value;
+CumfWN := tstat[124].value;
+CumfWP := tstat[125].value;
+CumfDC := tstat[126].value;
+CumfDN := tstat[127].value;
+CumfDP := tstat[128].value;
+CumFCvt := tstat[129].value;
+CumFNvt := tstat[130].value;
+CumFPvt := tstat[131].value;
+CumLitCDebris := tstat[132].value;
+CumLitNDebris := tstat[133].value;
+CumLitPDebris := tstat[134].value;
+BCpeak := tstat[135].value;
+SPsT := tstat[136].value;
+SPs := tstat[137].value;
+Topt := tstat[138].value;
+Tg := tstat[139].value;
+WSmax := tstat[140].value;
 
 { And now copy the parameters into the local variables. No need to copy the
   processes from the global array into local variables. Process values will be
@@ -5023,8 +5495,8 @@ SNO3 := par[npar + 16].value;
 etaNO3 := par[npar + 17].value;
 SPO4 := par[npar + 18].value;
 etaPO4 := par[npar + 19].value;
-zW := par[npar + 20].value;
-qPadoC := par[npar + 21].value;
+CalDec := par[npar + 20].value;
+kRl := par[npar + 21].value;
 Lcrit := par[npar + 22].value;
 aLdoN := par[npar + 23].value;
 eNfix := par[npar + 24].value;
@@ -5040,12 +5512,12 @@ rPocclw := par[npar + 4].value;
  
 npar:=ParCount(ModelDef.numstate + 24);
 FlagNegLeach := par[npar + 1].value;
-kE := par[npar + 2].value;
+gW := par[npar + 2].value;
 gC := par[npar + 3].value;
-TaPs := par[npar + 4].value;
-TbPs := par[npar + 5].value;
-aPs := par[npar + 6].value;
-bPs := par[npar + 7].value;
+FLF := par[npar + 4].value;
+unused2 := par[npar + 5].value;
+unused3 := par[npar + 6].value;
+unused4 := par[npar + 7].value;
 gI := par[npar + 8].value;
 HSI := par[npar + 9].value;
 kI := par[npar + 10].value;
@@ -5053,7 +5525,7 @@ aPpt := par[npar + 11].value;
 scg := par[npar + 12].value;
 Q10R := par[npar + 13].value;
  
-npar:=ParCount(ModelDef.numstate + 35);
+npar:=ParCount(ModelDef.numstate + 36);
 gNH4 := par[npar + 1].value;
 kNH4 := par[npar + 2].value;
 Q10NH4 := par[npar + 3].value;
@@ -5071,12 +5543,12 @@ NO3Ccost := par[npar + 14].value;
 doNCcost := par[npar + 15].value;
 NfixCcost := par[npar + 16].value;
  
-npar:=ParCount(ModelDef.numstate + 37);
+npar:=ParCount(ModelDef.numstate + 38);
 gPO4 := par[npar + 1].value;
 kPO4 := par[npar + 2].value;
 Q10PO4 := par[npar + 3].value;
  
-npar:=ParCount(ModelDef.numstate + 39);
+npar:=ParCount(ModelDef.numstate + 40);
 qNL := par[npar + 1].value;
 qNW := par[npar + 2].value;
 qNR := par[npar + 3].value;
@@ -5085,7 +5557,7 @@ qNWl := par[npar + 5].value;
 qNRl := par[npar + 6].value;
 kq := par[npar + 7].value;
  
-npar:=ParCount(ModelDef.numstate + 41);
+npar:=ParCount(ModelDef.numstate + 42);
 qPL := par[npar + 1].value;
 qPW := par[npar + 2].value;
 qPR := par[npar + 3].value;
@@ -5093,32 +5565,32 @@ qPLl := par[npar + 4].value;
 qPWl := par[npar + 5].value;
 qPRl := par[npar + 6].value;
  
-npar:=ParCount(ModelDef.numstate + 42);
+npar:=ParCount(ModelDef.numstate + 43);
 maL := par[npar + 1].value;
 mW := par[npar + 2].value;
 maR := par[npar + 3].value;
  
-npar:=ParCount(ModelDef.numstate + 45);
+npar:=ParCount(ModelDef.numstate + 46);
 fDebris := par[npar + 1].value;
 qNLDebris := par[npar + 2].value;
 qPLDebris := par[npar + 3].value;
  
-npar:=ParCount(ModelDef.numstate + 48);
+npar:=ParCount(ModelDef.numstate + 49);
 mcw := par[npar + 1].value;
 mcwex := par[npar + 2].value;
 qNWwl := par[npar + 3].value;
 qPWwl := par[npar + 4].value;
  
-npar:=ParCount(ModelDef.numstate + 51);
+npar:=ParCount(ModelDef.numstate + 52);
 omega := par[npar + 1].value;
  
-npar:=ParCount(ModelDef.numstate + 55);
+npar:=ParCount(ModelDef.numstate + 56);
 rma := par[npar + 1].value;
 rmw := par[npar + 2].value;
 krmw := par[npar + 3].value;
 rg := par[npar + 4].value;
  
-npar:=ParCount(ModelDef.numstate + 59);
+npar:=ParCount(ModelDef.numstate + 60);
 acc := par[npar + 1].value;
 tau := par[npar + 2].value;
 chi0 := par[npar + 3].value;
@@ -5126,10 +5598,10 @@ omegavC := par[npar + 4].value;
 omegavN := par[npar + 5].value;
 lambda := par[npar + 6].value;
  
-npar:=ParCount(ModelDef.numstate + 88);
+npar:=ParCount(ModelDef.numstate + 89);
 qLdom := par[npar + 1].value;
  
-npar:=ParCount(ModelDef.numstate + 95);
+npar:=ParCount(ModelDef.numstate + 96);
 phiN := par[npar + 1].value;
 qNSii := par[npar + 2].value;
 alphaNH4 := par[npar + 3].value;
@@ -5140,13 +5612,13 @@ qdom := par[npar + 7].value;
 rrNitr := par[npar + 8].value;
 kNitr := par[npar + 9].value;
  
-npar:=ParCount(ModelDef.numstate + 96);
+npar:=ParCount(ModelDef.numstate + 97);
 phiP := par[npar + 1].value;
 qPSii := par[npar + 2].value;
 alphaPO4 := par[npar + 3].value;
 kPO4m := par[npar + 4].value;
  
-npar:=ParCount(ModelDef.numstate + 103);
+npar:=ParCount(ModelDef.numstate + 104);
 xiC := par[npar + 1].value;
 psiN := par[npar + 2].value;
 psiP := par[npar + 3].value;
@@ -5156,34 +5628,34 @@ Wopt := par[npar + 6].value;
 Jmoist := par[npar + 7].value;
 Wmin := par[npar + 8].value;
  
-npar:=ParCount(ModelDef.numstate + 106);
+npar:=ParCount(ModelDef.numstate + 107);
 aTii := par[npar + 1].value;
  
-npar:=ParCount(ModelDef.numstate + 109);
+npar:=ParCount(ModelDef.numstate + 110);
 aMii := par[npar + 1].value;
  
-npar:=ParCount(ModelDef.numstate + 112);
+npar:=ParCount(ModelDef.numstate + 113);
 betaNfix := par[npar + 1].value;
 gammaNfix := par[npar + 2].value;
 qSfix := par[npar + 3].value;
  
-npar:=ParCount(ModelDef.numstate + 129);
-SWC := par[npar + 1].value;
-sB := par[npar + 2].value;
-LHF := par[npar + 3].value;
-CC := par[npar + 4].value;
-Tcrit := par[npar + 5].value;
- 
 npar:=ParCount(ModelDef.numstate + 130);
+mQ := par[npar + 1].value;
+ar := par[npar + 2].value;
+sIsw := par[npar + 3].value;
+TcritR := par[npar + 4].value;
+TcritS := par[npar + 5].value;
+ 
+npar:=ParCount(ModelDef.numstate + 131);
 Ddds := par[npar + 1].value;
 Tly := par[npar + 2].value;
 lat := par[npar + 3].value;
 DoyD := par[npar + 4].value;
  
-npar:=ParCount(ModelDef.numstate + 157);
+npar:=ParCount(ModelDef.numstate + 158);
 Rdmax := par[npar + 1].value;
  
-npar:=ParCount(ModelDef.numstate + 158);
+npar:=ParCount(ModelDef.numstate + 159);
 asRl := par[npar + 1].value;
 Rr := par[npar + 2].value;
 DNH4 := par[npar + 3].value;
@@ -5191,16 +5663,16 @@ DNO3 := par[npar + 4].value;
 Ddom := par[npar + 5].value;
 DPO4 := par[npar + 6].value;
  
-npar:=ParCount(ModelDef.numstate + 159);
+npar:=ParCount(ModelDef.numstate + 160);
 aDNtr := par[npar + 1].value;
 thetaD := par[npar + 2].value;
 kDNtr := par[npar + 3].value;
  
-npar:=ParCount(ModelDef.numstate + 161);
+npar:=ParCount(ModelDef.numstate + 162);
 SoC0 := par[npar + 1].value;
 Dop0 := par[npar + 2].value;
  
-npar:=ParCount(ModelDef.numstate + 163);
+npar:=ParCount(ModelDef.numstate + 164);
 kds := par[npar + 1].value;
 bI := par[npar + 2].value;
 kso := par[npar + 3].value;
@@ -5213,11 +5685,11 @@ cw := par[npar + 9].value;
 Ql := par[npar + 10].value;
 Qh := par[npar + 11].value;
 Tds := par[npar + 12].value;
-alpha := par[npar + 13].value;
+alphamin := par[npar + 13].value;
 zTds := par[npar + 14].value;
 zTs := par[npar + 15].value;
  
-npar:=ParCount(ModelDef.numstate + 179);
+npar:=ParCount(ModelDef.numstate + 181);
 thetab := par[npar + 1].value;
 Tsb := par[npar + 2].value;
 xi1 := par[npar + 3].value;
@@ -5226,7 +5698,7 @@ xi3 := par[npar + 5].value;
 xi4 := par[npar + 6].value;
 xi5 := par[npar + 7].value;
  
-npar:=ParCount(ModelDef.numstate + 180);
+npar:=ParCount(ModelDef.numstate + 182);
 calibrate := par[npar + 1].value;
 calibrate2nd := par[npar + 2].value;
 BCpeaktar := par[npar + 3].value;
@@ -5284,24 +5756,24 @@ vNfixtar := par[npar + 54].value;
 LitCDebristar := par[npar + 55].value;
 LitNDebristar := par[npar + 56].value;
 LitPDebristar := par[npar + 57].value;
-FBCtar := par[npar + 58].value;
-FBNtar := par[npar + 59].value;
-FBPtar := par[npar + 60].value;
-FWCtar := par[npar + 61].value;
-FWNtar := par[npar + 62].value;
-FWPtar := par[npar + 63].value;
-FDCtar := par[npar + 64].value;
-FDNtar := par[npar + 65].value;
-FDPtar := par[npar + 66].value;
+fBCtar := par[npar + 58].value;
+fBNtar := par[npar + 59].value;
+fBPtar := par[npar + 60].value;
+fWCtar := par[npar + 61].value;
+fWNtar := par[npar + 62].value;
+fWPtar := par[npar + 63].value;
+fDCtar := par[npar + 64].value;
+fDNtar := par[npar + 65].value;
+fDPtar := par[npar + 66].value;
 FNvttar := par[npar + 67].value;
 FPvttar := par[npar + 68].value;
  
-npar:=ParCount(ModelDef.numstate + 183);
+npar:=ParCount(ModelDef.numstate + 185);
 FlagCa := par[npar + 1].value;
 mCdev := par[npar + 2].value;
 bCdev := par[npar + 3].value;
  
-npar:=ParCount(ModelDef.numstate + 184);
+npar:=ParCount(ModelDef.numstate + 186);
 FlagT := par[npar + 1].value;
 VSTd := par[npar + 2].value;
 FlagT35 := par[npar + 3].value;
@@ -5311,10 +5783,10 @@ PcPa := par[npar + 6].value;
 PcPno := par[npar + 7].value;
 PcPoccl := par[npar + 8].value;
  
-npar:=ParCount(ModelDef.numstate + 185);
+npar:=ParCount(ModelDef.numstate + 187);
 VWTd := par[npar + 1].value;
  
-npar:=ParCount(ModelDef.numstate + 186);
+npar:=ParCount(ModelDef.numstate + 188);
 FlagSimPpt := par[npar + 1].value;
 DoySPpts := par[npar + 2].value;
 DoySPpte := par[npar + 3].value;
@@ -5323,17 +5795,17 @@ alphaSPpt := par[npar + 5].value;
 phiWdry := par[npar + 6].value;
 alphaWPpt := par[npar + 7].value;
  
-npar:=ParCount(ModelDef.numstate + 187);
+npar:=ParCount(ModelDef.numstate + 189);
 FlagPpt := par[npar + 1].value;
 VSPd := par[npar + 2].value;
 kSPd := par[npar + 3].value;
  
-npar:=ParCount(ModelDef.numstate + 188);
+npar:=ParCount(ModelDef.numstate + 190);
 VWPd := par[npar + 1].value;
 kWPd := par[npar + 2].value;
 DaysPpt := par[npar + 3].value;
  
-npar:=ParCount(ModelDef.numstate + 190);
+npar:=ParCount(ModelDef.numstate + 192);
 Tmwi := par[npar + 1].value;
 Tmsp := par[npar + 2].value;
 Tmsu := par[npar + 3].value;
@@ -5343,12 +5815,12 @@ Tksp := par[npar + 6].value;
 Tksu := par[npar + 7].value;
 Tkfa := par[npar + 8].value;
  
-npar:=ParCount(ModelDef.numstate + 193);
+npar:=ParCount(ModelDef.numstate + 195);
 Tave0 := par[npar + 1].value;
  
-npar:=ParCount(ModelDef.numstate + 194);
+npar:=ParCount(ModelDef.numstate + 196);
 FI := par[npar + 1].value;
-DOYfire := par[npar + 2].value;
+unused5 := par[npar + 2].value;
 ffLL := par[npar + 3].value;
 ffWL := par[npar + 4].value;
 ffWDL := par[npar + 5].value;
@@ -5360,8 +5832,14 @@ fWPv := par[npar + 10].value;
 fDNv := par[npar + 11].value;
 fDPv := par[npar + 12].value;
  
-npar:=ParCount(ModelDef.numstate + 207);
+npar:=ParCount(ModelDef.numstate + 209);
 a_sdla := par[npar + 1].value;
+ 
+npar:=ParCount(ModelDef.numstate + 236);
+So := par[npar + 1].value;
+ 
+npar:=ParCount(ModelDef.numstate + 239);
+rc := par[npar + 1].value;
  
 dBCdt := -999;
 dBNdt := -999;
@@ -5395,6 +5873,7 @@ dWdt := -999;
 dWSnowdt := -999;
 dSQdt := -999;
 dfcdt := -999;
+dLAInfixdt := -999;
 dRCadt := -999;
 dRNadt := -999;
 dRPadt := -999;
@@ -5404,6 +5883,7 @@ dUPadt := -999;
 dDDaypdt := -999;
 dDDayndt := -999;
 dCumGPPdt := -999;
+dCumRCPtdt := -999;
 dCumNPPdt := -999;
 dCumNEPdt := -999;
 dCumUdoCdt := -999;
@@ -5479,6 +5959,7 @@ dCumROvfNH4dt := -999;
 dCumROvfNO3dt := -999;
 dCumROvfPO4dt := -999;
 dLAIpeakdt := -999;
+dDOYfiredt := -999;
 dCumfBCdt := -999;
 dCumfBNdt := -999;
 dCumfBPdt := -999;
@@ -5495,6 +5976,11 @@ dCumLitCDebrisdt := -999;
 dCumLitNDebrisdt := -999;
 dCumLitPDebrisdt := -999;
 dBCpeakdt := -999;
+dSPsTdt := -999;
+dSPsdt := -999;
+dToptdt := -999;
+dTgdt := -999;
+dWSmaxdt := -999;
 Ta := -999;
 Bt := -999;
 Ba := -999;
@@ -5520,6 +6006,7 @@ PsC := -999;
 PsW := -999;
 UC := -999;
 UW := -999;
+UWmax := -999;
 PET := -999;
 NH4aq := -999;
 UNH4 := -999;
@@ -5658,6 +6145,7 @@ Dop := -999;
 VpC := -999;
 fuf := -999;
 Ts := -999;
+alpha := -999;
 ks := -999;
 kst := -999;
 ksf := -999;
@@ -5703,6 +6191,40 @@ FNvol := -999;
 FPvol := -999;
 LW := -999;
 Proj_Rin := -999;
+qNSiicalc := -999;
+qPSiicalc := -999;
+phiNcalc := -999;
+phiPcalc := -999;
+LcwCatarcalc := -999;
+LcwNatarcalc := -999;
+LcWPatarcalc := -999;
+LitNDebristarcalc := -999;
+LitPDebristarcalc := -999;
+LitCtarcalc := -999;
+LitNtarcalc := -999;
+LitPtarcalc := -999;
+RCmtarcalc := -999;
+RNmtarcalc := -999;
+RPmtarcalc := -999;
+MiiCtarcalc := -999;
+DNtrtarcalc := -999;
+Nitrtarcalc := -999;
+LNO3tarcalc := -999;
+LNH4tarcalc := -999;
+LPO4tarcalc := -999;
+LDOCtarcalc := -999;
+FNvttarcalc := -999;
+FPvttarcalc := -999;
+ea := -999;
+Iswmax := -999;
+ho := -999;
+dAU := -999;
+Sdnet := -999;
+fcc := -999;
+Ld := -999;
+Lu := -999;
+Rnets := -999;
+Tsnow := -999;
  
 { Enter the equations to calculate the processes here, using the local variable
   names defined above. }
@@ -5721,6 +6243,10 @@ FNvol:=0;
 FPvol:=0;
 FNO3:=0;
 FPO4:=0;
+Sm:=0;
+Intr:=0;
+Proj_Ppt:=Ppt;
+Proj_Rin:=0;
 
 // drivers to specify ENH4, ENO3, EPO4, and W
 if INH4<0 then ENH4:=-INH4;
@@ -5768,11 +6294,6 @@ if vI<=epsilon then vI:=epsilon;
 if vW<=epsilon then vW:=epsilon;
 Vstar:= vCO2+vI+vW;
 
-{Vstar:=0;
-if vCO2>0 then Vstar:=Vstar+vCO2 else vCO2:=0;
-if vI>0 then   Vstar:=Vstar+vI   else vI:=0;
-if vW>0 then   Vstar:=Vstar+vW   else vW:=0;   }
-
 vCO2:=vCO2/Vstar;            tstat[7].value:=vCO2;
 vI:=vI/Vstar;                tstat[8].value:=vI;
 vW:=vW/Vstar;                tstat[9].value:=vW;
@@ -5787,10 +6308,6 @@ vNH4:=vNH4/Vstar;            tstat[10].value:=vNH4;
 vNO3:=vNO3/Vstar;            tstat[11].value:=vNO3;
 vdoN:=vdoN/Vstar;            tstat[12].value:=vdoN; 
 vNfix:=vNfix/Vstar;          tstat[13].value:=vNfix;
-
-{This isn't used. Ppt is actually set in the calculatediscrete section. It's here so that the Proj_Ppt<>-999 on day 0}
-Proj_Ppt:=Ppt;
-Proj_Rin:=0;
 
 {Set rooting depth}
 z:=z0;
@@ -5807,13 +6324,38 @@ if Dl>1 then Dl:=1;
 if Dl<-1 then Dl:=-1;
 Dl:= 24*arccos(Dl)/pi;
 
+{Average daily temperature}
+Ta:=(Tmax+Tmin)/2;
+Tsnow:=min(0,Ta-2.5);
+
+{Assess allometry of vegetation}
+Assess_Allometry(VC,vW);
+
+
+{snowpack max}
+WSmax:=Max(WSmax,WSnow);
+if DOY = 250 then WSmax:=0;
+if Wsmax > 0 then alpha:=max(alphamin,0.8*WSnow/WSmax)
+else alpha:=alphamin;
+
+{ Radiation }    
+ea:=6.1078*exp(17.269*Tmin/(237.3+Tmin)); // vapor pressure McMutrie 1993
+Sdnet:=(1-alpha)*Isw*exp(-kI*L*rc); // net shortwave
+dAU:=1-0.01672*cos(2*pi*(doy-4)/365); //earth-sun distance
+ho:=Dl*pi/24; // sunrise angle radians
+Iswmax:=sIsw*(So/pi)*power(1/dAU,2)*(ho*sin(lat*pi/180)*sin(delta)+cos(lat*pi/180)*cos(delta)*sin(ho));// daily max sunlight Hartmann 2016
+if Iswmax<=0 then Ld:=0.6 // cloud cover Curry, 1996 Fig 1, surface observations for Nov-Mar
+else Ld:=1-Isw/Iswmax;// cloud cover Wang & Liang 2009 used cloud cover = n in Eq 4 in Pluss & Ohmura 1997
+Ld:=(0.23+0.483*power(ea/(Ta+273.15),1/8))*(1-power(Ld,3))+0.963*power(Ld,3); // sky/cloud longwave Pluss & Ohmura 1997 Eq 4
+Ld:=Ld*exp(-kI*L*rc) + (1-exp(-kI*L*rc)); // correct for sky visible thru canopy and adding canopy
+Ld:=Ld*4.9e-9*power(273.15+Ta,4); //4.9e-9 Stefan-Boltzmann constant in MJ/m2/day/K4
+
+Lu:=4.9e-9*power(273.15+Tsnow,4); //snow emmited longwave 
+Rnets:=Sdnet+Ld-Lu; // net radiation
+
 Ndept:=INH4+INO3+IdoN;
 VpC:=Dop0/SoC0;
 Dop:=VpC*(DC+SC-SoC0) + Dop0;
-
-{Discrete processes}
-Sm:=0;
-Intr:=0;
 
 {Projected climate}
 Tave:=Tave0;
@@ -5862,7 +6404,6 @@ if FlagT>0 then
    if FlagT35>0 then
      STdev:=STdev
    else
-//     STdev:=Tdev(Doy,Tywi*(time-1)/365/(50+(time-1)/365), Tysp*(time-1)/365/(50+(time-1)/365), Tysu*(time-1)/365/(50+(time-1)/365), Tyfa*(time-1)/365/(50+(time-1)/365));
      STdev:=Tdev(Doy,Tmwi*time/(Tkwi+time), Tmsp*time/(Tksp+time), Tmsu*time/(Tksu+time), Tmfa*time/(Tkfa+time));
    Tmin:=Tmin+STdev;
    Tmax:=Tmax+STdev;
@@ -5883,11 +6424,8 @@ Proj_Rin:=Rin;
 {Depth of thaw}
 if Tsb<100 then
      Dot:=max(0,(xi1*thetab+xi2)*(xi3*Tsb+xi4)*Ddayp+xi5*Ddayn)/100
-else DOT:=zW;
+else DOT:=z0;
 {Rooting depth and Phase II soil - see discrete section}
-
-{Average daily temperature}
-Ta:=(Tmax+Tmin)/2;
 
 {Soil Water fraction}
 theta:= W/1000/z;
@@ -5895,7 +6433,7 @@ if theta>phis then theta:=phis;
 if theta<theta_w then theta:=theta_w;
 
 {unfrozen soil fraction}
-fuf:=min(zW,Dot)/zW; 
+fuf:=min(z0,Dot)/z0; 
 
 {soil heat conductance calculations}
 C:=min(Dop/z,1);
@@ -5934,7 +6472,7 @@ else
   ROvfNH4:=0;
   ROvfNO3:=0;
   ROvfPO4:=0;
- end;            
+ end;
    
 {soil water tension}
 PsiS:=water_tension(max(1e-6,W));
@@ -5950,7 +6488,7 @@ NO3aq:= ENO3 - 14E-6*W*etaNO3 - z*rho_s*SNO3;
 NO3aq:= NO3aq + sqrt(sqr(NO3aq)+ 56e-6*W*ENO3*etaNO3);
 NO3aq:=NO3aq/(28e-6*W);
 {doC}
-PadoC:= bdoC*qDOM*(DN*qPadoC/DC)/12e-6/W;
+PadoC:= bdoC*z0*theta_fro*qDOM*(DN/DC)/12e-6/W;
 
 {aqueous PO4, 31e-6 converts umoles to g P}
 PO4aq:= EPO4 - 31E-6*W*etaPO4 - z*rho_s*SPO4; 
@@ -5960,17 +6498,20 @@ PO4aq:=PO4aq/(62e-6*W);
 {Canopy fraction; included in allometric table}
 deltaGcT:=min(power((theta-theta_w)/(theta_fp-theta_w),betaGfc),1);
 deltaLcW:=max(min((gammaw*theta_w-theta)/(gammaw-1),1),0);
-if (DDayp>Ddbud) and (theta>gammaw*theta_w) and (Doy<Dfs) then
+if (DDayp>Ddbud) and (theta>gammaw*theta_w) and (Doy<Dfs) and (Ta>0) then
   Gfc:=alphaGfc*Ta*deltaGcT*power(1-fc,epsilonfc)
 else
   Gfc:=0;
 if Doy=1 then Gfc:=0;
-if (Doy<=Dfs) then
-  Lfc:=(chicW*deltaLcW)*power(fc-fcmin,epsilonfc)
-else
-  Lfc:=chicT*(1-0.99*fc)*(fc-fcmin)+(chicW*deltaLcW)*power(fc-fcmin,epsilonfc);
+if fc<=fcmin then Lfc:=0
+else  
+  begin
+    if (Doy<=Dfs) then
+      Lfc:=(chicW*deltaLcW)*power(fc-fcmin,epsilonfc)
+    else
+      Lfc:=chicT*(1-0.99*fc)*(fc-fcmin)+(chicW*deltaLcW)*power(fc-fcmin,epsilonfc);
+  end;
 
-Assess_Allometry(VC,vW);
 UC:= photosynthesis(VC*vCO2,VC*vI,VC*vW,PsC,PsIrr,PsW);
 
 {optimum element concentrations; included in allometric table}
@@ -5990,7 +6531,8 @@ UdoC:=uptake(PadoC,VN*vdoN,kdoC,Ddom,gdoC,Q10doC,12e-3);
 UdoN:=UdoC/qdom;
 UNfix:=Nfix(VN*vNfix,gNfix,Q10Nfix);
 UN:=UNH4+UNO3+UdoN+UNfix;
-UPO4:=uptake(PO4aq,VP,kPO4,DPO4,gPO4,Q10PO4,31e-3);
+UPO4:=uptake(PO4aq,VP,kPO4,DPO4,gPO4,Q10PO4,31e-3);            
+   
 
 
 {Assess dUCdvCO2}
@@ -6042,9 +6584,10 @@ LitP:=BP*(mW*BW*qPWl + maR*BR*qPRl + LL*qPLl)/(qP*Bt);
 
 if fDebris>0 then
  begin
-   LitCDebris:=fDebris*LL;
+   LitCDebris:=fDebris*Lfc*VL*Ba*BC/BT;
+  
    LitNDebris:=LitCDebris/qNLDebris;
-   LitPDebris:=LitCDebris/qPLDebris;
+   LitPDebris:=LitCDebris/qPLDebris;  
  end
 else
  begin
@@ -6063,8 +6606,11 @@ if LitP<0 then LitP:=0;
 
 
 {NUE & PUE}
-NUE:=(LitC+LitCDebris+LcWC)/(LitN+LitNDebris+LcWN);
-PUE:=(LitC+LitCDebris+LcWC)/(LitP+LitPDebris+LcWP);
+NUE:=LitN+LitNDebris+LcWN; 
+PUE:=LitP+LitPDebris+LcWP; 
+if NUE>0 then NUE:= (LitC+LitCDebris+LcWC)/NUE; 
+if PUE>0 then  PUE:= (LitC+LitCDebris+LcWC)/PUE;  
+
 
 {Resource requirement}
 {for maintenance}
@@ -6335,6 +6881,7 @@ if z>0 then
    R:=W/(z*1000*phis)
 else
    R:=0; 
+if R>1 then R:=1;
 S:=Wopt-Wmin;
 deltadW:=1-sqr((Wopt-R)/S)/(1+Jmoist*((R-Wmin)/S));
 deltadW:=deltadW*power(Q10m,Ts/10);
@@ -6390,79 +6937,110 @@ if CalculateDiscrete then
  {time step size}
       R:=FmOptions.RunOptions.discretestep;
 
+if DOY = 1 then 
+  begin
+    SPsT:=0;
+    SPs:=0;
+  end;
+SPst:=SPsT+UC*Ta;
+SPs:=SPs+UC;
+if DOY =365 then 
+  begin
+     Tg:=SPsT/SPs;
+     Topt:=25.5+0.39*Tg; //Kattge & Knorr 2007 fig 2g&h
+     LAInfix:=LAIpeak;
+  end;
+
+
+If (DOYfire = 0) and (DDayP>=DdBud) then DOYfire:=DOY;
+
 {fire losses}
-  if (FI<>0) or (DOYfire<>0) then
+  if doy=DOYfire then 
+    Begin 
+	  fBCtar:=FLF*BL*qC;
+	  par[FmCalculate.GetArrayIndex(vtparameter,'fBCtar')].value:=fBCtar;
+	end;  
+  if (FI<>0) and (DOYfire<>0) then
   begin
    if YF>=0 then
    begin
    If ((YF+1)/FI - trunc((YF+1)/FI) < 0.0001) and (abs(DOY-DOYfire) < 0.001) then
      begin
-       fc:=fc*ffLL; // Decrease canopy fraction by the same amount as leaves
+       fc:=fc*(1-ffLL); // Decrease canopy fraction by the same amount as leaves
        FBC:=R*(ffLL*BL*qC+ffWL*BW*qC);
-       FBN:=R*(ffLL*BL*qNL+ffWL*BW*qNW);
-       FBP:=R*(ffLL*BL*qPL+ffWL*BW*qPW);
+       FBN:=R*(ffLL*BL*qNL+ffWL*BW*qNW)*BN/qN/Bt;
+       FBP:=R*(ffLL*BL*qPL+ffWL*BW*qPW)*BP/qP/Bt;
+
+       RCt:= RCt + FBC*(1+rg)*power(sqrt((BN/(Bt*qN))*(BP/(Bt*qP))),kq);
+       RNt:= RNt + FBN*power(qN*Bt/BN,kq); 
+       RPt:= RPt + FBP*power(qP*Bt/BP,kq); 
+
        FWC:=R*ffWDL*WC;
        FWN:=FWC*WN/WC;
        FWP:=FWC*WP/WC;
        FDC:=R*ffSL*DC;
        FDN:=FDC*DN/DC;
        FDP:=FDC*DP/DC;
-	   FNvol:=fBNv*FBN+fWNv*FWN+fDNv*FDN;
-	   FPvol:=fBPv*FBP+fWPv*FWP+fDPv*FDP;
-	   FNO3:=FBN+FDN+FWN-FNvol;
-	   FPO4:=FBP+FDP+FWP-FPvol;
-         
-       if not(FmOptions.RunOptions.HoldStatesConstant) then
-         begin
-       if stat[FmCalculate.GetArrayIndex(vtstate,'BC')].holdconstant=false then
-       BC:=BC-FBC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'BN')].holdconstant=false then
-       BN:=BN-FBN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'BP')].holdconstant=false then
-       BP:=BP-FBP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'WC')].holdconstant=false then
-       WC:=WC-FWC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'WN')].holdconstant=false then
-       WN:=WN-FWN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'WP')].holdconstant=false then
-       WP:=WP-FWP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'DC')].holdconstant=false then
-       DC:=DC-FDC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'DN')].holdconstant=false then
-       DN:=DN-FDN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'DP')].holdconstant=false then
-       DP:=DP-FDP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'ENO3')].holdconstant=false then
-       ENO3:=ENO3+FNO3;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'EPO4')].holdconstant=false then
-       EPO4:=EPO4+FPO4;
+       FNvol:=fBNv*FBN+fWNv*FWN+fDNv*FDN;
+       FPvol:=fBPv*FBP+fWPv*FWP+fDPv*FDP;
+       FNO3:=FBN+FDN+FWN-FNvol;
+       FPO4:=FBP+FDP+FWP-FPvol;
 
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfBC')].holdconstant=false then
-       CumfBC:=CumfBC+FBC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfBN')].holdconstant=false then
-       CumfBN:=CumfBN+FBN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfBP')].holdconstant=false then
-       CumfBP:=CumfBP+FBP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfWC')].holdconstant=false then
-       CumfWC:=CumfWC+FWC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfWN')].holdconstant=false then
-       CumfWN:=CumfWN+FWN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfWP')].holdconstant=false then
-       CumfWP:=CumfWP+FWP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfDC')].holdconstant=false then
-       CumfDC:=CumfDC+FDC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfDN')].holdconstant=false then
-       CumfDN:=CumfDN+FDN;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumfDP')].holdconstant=false then
-       CumfDP:=CumfDP+FDP;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumFCvt')].holdconstant=false then
-       CumFCvt:=CumFCvt+FBC+FWC+FDC;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumFNvt')].holdconstant=false then
-       CumFNvt:=CumFNvt+FNvol;
-       if stat[FmCalculate.GetArrayIndex(vtstate,'CumFCvt')].holdconstant=false then
-       CumFPvt:=CumFPvt+FPvol;
-         end;
-	  end;
+      
+//********************************************
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'BC')].holdconstant=true) then
+          BC:=BC else BC:=BC-FBC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'BN')].holdconstant=true) then
+          BN:=BN else BN:=BN-FBN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'BP')].holdconstant=true) then
+          BP:=BP else BP:=BP-FBP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'WC')].holdconstant=true) then
+          WC:=WC else WC:=WC-FWC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'WN')].holdconstant=true) then
+          WN:=WN else WN:=WN-FWN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'WP')].holdconstant=true) then
+          WP:=WP else WP:=WP-FWP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'DC')].holdconstant=true) then
+          DC:=DC else DC:=DC-FDC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'DN')].holdconstant=true) then
+          DN:=DN else DN:=DN-FDN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'DP')].holdconstant=true) then
+          DP:=DP else DP:=DP-FDP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'ENO3')].holdconstant=true) then
+          ENO3:=ENO3 else ENO3:=ENO3+FNO3;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'EPO4')].holdconstant=true) then
+          EPO4:=EPO4 else EPO4:=EPO4+FPO4;
+
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfBC')].holdconstant=true) then
+          CumfBC:=CumfBC else CumfBC:=CumfBC+FBC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfBN')].holdconstant=true) then
+          CumfBN:=CumfBN else CumfBN:=CumfBN+FBN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfBP')].holdconstant=true) then
+          CumfBP:=CumfBP else CumfBP:=CumfBP+FBP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfWC')].holdconstant=true) then
+          CumfWC:=CumfWC else CumfWC:=CumfWC+FWC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfWN')].holdconstant=true) then
+          CumfWN:=CumfWN else CumfWN:=CumfWN+FWN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfWP')].holdconstant=true) then
+          CumfWP:=CumfWP else CumfWP:=CumfWP+FWP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfDC')].holdconstant=true) then
+          CumfDC:=CumfDC else CumfDC:=CumfDC+FDC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfDN')].holdconstant=true) then
+          CumfDN:=CumfDN else CumfDN:=CumfDN+FDN;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumfDP')].holdconstant=true) then
+          CumfDP:=CumfDP else CumfDP:=CumfDP+FDP;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumFCvt')].holdconstant=true) then
+          CumFCvt:=CumFCvt else CumFCvt:=CumFCvt+FBC+FWC+FDC;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumFNvt')].holdconstant=true) then
+          CumFNvt:=CumFNvt else CumFNvt:=CumFNvt+FNvol;
+       if (FmOptions.RunOptions.HoldStatesConstant) and (stat[FmCalculate.GetArrayIndex(vtstate,'CumFCvt')].holdconstant=true) then
+          CumFPvt:=CumFPvt else CumFPvt:=CumFPvt+FPvol;
+
+//*********************************************
+
+
+
+     end;
    end;  
   end;
 
@@ -6532,11 +7110,13 @@ if CalculateDiscrete then
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumPpt')].holdconstant=false then
          CumPpt:=CumPpt+Ppt*R;
       if Bw=0 then
-        Intr:=Intv*L
+        Intr:=Intv*(L+LW)
       else
-        Intr:= Intv*(NLsfc*power(BW,NLe)*(1-MBW/sqrt(sqr(MBW)+sqr(Bw)))+L);
+        Intr:= Intv*(NLsfc*power(BW,NLe)+L+LW);
 
-      if Ppt > Intr then
+      if Wsnow>0 then Intr:=Intr*rc;
+
+      if Ppt*R > Intr then
          begin
             Thf:= Ppt*R - Intr;
          end
@@ -6549,8 +7129,9 @@ if CalculateDiscrete then
          CumIntr:=CumIntr+Intr;
       
       {Rain or Snow}
+      if TcritR<=TcritS then TcritR:=1.001*TcritS;
       OvfI:=0;
-      if Ta>Tcrit then  
+       if Ta>=TcritR then  
         begin
           Rfl:=Ppt;
           Sfl := 0;
@@ -6560,34 +7141,152 @@ if CalculateDiscrete then
              W:=W + InfR;
           if stat[FmCalculate.GetArrayIndex(vtstate,'CumRO')].holdconstant=false then
              CumRO:=CumRO+OvfI;
-        end
-      else
+           if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvf')].holdconstant=false then
+             CumROvf:=CumROvf+OvfI;
+           if OvfI>0 then Begin
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoC')].holdconstant=false then
+			   begin
+			     dum:=OvfI*aLdoN*DN*DC*qLdom;
+                 CumROvfdoC:=CumROvfdoC+dum;
+				 DC:=DC-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoN')].holdconstant=false then
+			   begin
+			     dum:=OvfI*aLdoN*DN*DC;
+                 CumROvfdoN:=CumROvfdoN+dum;
+			     DN:=DN-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNH4')].holdconstant=false then
+			   begin
+			     dum:=OvfI*NH4aq*14e-6;
+				 CumROvfNH4:=CumROvfNH4+dum;
+				 ENH4:=ENH4-dum;
+			   end;  
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNO3')].holdconstant=false then
+			   begin
+			     dum:=OvfI*NO3aq*14e-6;
+				 CumROvfNO3:=CumROvfNO3+dum;
+				 ENO3:=ENO3-dum;
+			   end;               
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfPO4')].holdconstant=false then
+			   begin
+			     dum:=OvfI*PO4aq*31e-6;
+                 CumROvfPO4:=CumROvfPO4+dum;
+				 EPO4:=EPO4-dum;
+			   end;
+		   end;
+        end;
+
+      if (Ta>TcritS) AND (Ta<TcritR) then
+        begin
+          Rfl:=Ppt*(Ta-TcritS)/(TcritR-TcritS);
+          Sfl:=Ppt*(TcritR-Ta)/(TcritR-TcritS);
+
+          InfR:= max(0,min(Thf*(Ta-TcritS)/(TcritR-TcritS),(1000*phis*z-W)));
+          OvfI:=max(0,Thf*(Ta-TcritS)/(TcritR-TcritS)-InfR);
+          if stat[FmCalculate.GetArrayIndex(vtstate,'W')].holdconstant=false then
+             W:=W + InfR;
+          if stat[FmCalculate.GetArrayIndex(vtstate,'CumRO')].holdconstant=false then
+             CumRO:=CumRO+OvfI;
+           if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvf')].holdconstant=false then
+             CumROvf:=CumROvf+OvfI;
+           if OvfI>0 then Begin
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoC')].holdconstant=false then
+			   begin
+			     dum:=OvfI*aLdoN*DN*DC*qLdom;
+                 CumROvfdoC:=CumROvfdoC+dum;
+				 DC:=DC-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoN')].holdconstant=false then
+			   begin
+			     dum:=OvfI*aLdoN*DN*DC;
+                 CumROvfdoN:=CumROvfdoN+dum;
+			     DN:=DN-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNH4')].holdconstant=false then
+			   begin
+			     dum:=OvfI*NH4aq*14e-6;
+				 CumROvfNH4:=CumROvfNH4+dum;
+				 ENH4:=ENH4-dum;
+			   end;  
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNO3')].holdconstant=false then
+			   begin
+			     dum:=OvfI*NO3aq*14e-6;
+				 CumROvfNO3:=CumROvfNO3+dum;
+				 ENO3:=ENO3-dum;
+			   end;               
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfPO4')].holdconstant=false then
+			   begin
+			     dum:=OvfI*PO4aq*31e-6;
+                 CumROvfPO4:=CumROvfPO4+dum;
+				 EPO4:=EPO4-dum;
+			   end;
+		   end;
+
+          if stat[FmCalculate.GetArrayIndex(vtstate,'WSnow')].holdconstant=false then
+             WSnow:=WSnow+Thf*(TcritR-Ta)/(TcritR-TcritS);
+        end;
+
+      if Ta<=TcritS then
         begin
           Sfl:=Ppt;
           Rfl:=0;
           if stat[FmCalculate.GetArrayIndex(vtstate,'WSnow')].holdconstant=false then
              WSnow:=WSnow+Thf;
         end;
+
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumRfl')].holdconstant=false then
          CumRfl:= CumRfl + Rfl;
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumSfl')].holdconstant=false then
          CumSfl:= CumSfl + Sfl;
 
+
+
      {snow melt}
-      if Ta > 2.5 then Tsnow:=0 else Tsnow:=Ta-2.5; {snow sfc temperature}
-      {Dunne and Leopold 1978}
-      Sm:=SWC*Isw*exp(-kI*L)+4.9e-9*(1-exp(-kI*L))*(SB*power(273.15+Ta,4)                 
-               -power(273.15+Tsnow,4));//4.9e-9 Stefan-Boltzmann constant
-      if Ta>0 then Sm:=Sm/LHF+CC*Ta else Sm:=0;
-      if Sm>WSnow     
-         then Sm:=WSnow;
+      Sm:=mQ*max(0,Rnets)+ar*max(0,Ta); //Zhou et al. 2021
       if Sm<0 then Sm:=0;
+      if Sm>WSnow then Sm:=WSnow;
       InfS:= max(0,min(Sm,(1000*phis*z-W)));
-      OvfI:=OvfI+max(0,Sm-InfS);
+      OvfI:=OvfI+max(0,Sm-InfS);                         //***************************************here
       if stat[FmCalculate.GetArrayIndex(vtstate,'W')].holdconstant=false then
          W:=W + InfS;
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumRO')].holdconstant=false then
          CumRO:=CumRO+OvfI;
+      if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvf')].holdconstant=false then
+         CumROvf:=CumROvf+OvfI;
+      
+           if OvfI>0 then Begin
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoC')].holdconstant=false then
+			   begin
+			     dum:=OvfI*aLdoN*DN*DC*qLdom;
+                 CumROvfdoC:=CumROvfdoC+dum;
+				 DC:=DC-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfdoN')].holdconstant=false then
+			   begin
+			     dum:=OvfI*aLdoN*DN*DC;
+                 CumROvfdoN:=CumROvfdoN+dum;
+			     DN:=DN-dum;
+			   end;
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNH4')].holdconstant=false then
+			   begin
+			     dum:=OvfI*NH4aq*14e-6;
+				 CumROvfNH4:=CumROvfNH4+dum;
+				 ENH4:=ENH4-dum;
+			   end;  
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfNO3')].holdconstant=false then
+			   begin
+			     dum:=OvfI*NO3aq*14e-6;
+				 CumROvfNO3:=CumROvfNO3+dum;
+				 ENO3:=ENO3-dum;
+			   end;               
+             if stat[FmCalculate.GetArrayIndex(vtstate,'CumROvfPO4')].holdconstant=false then
+			   begin
+			     dum:=OvfI*PO4aq*31e-6;
+                 CumROvfPO4:=CumROvfPO4+dum;
+				 EPO4:=EPO4-dum;
+			   end;
+	   end;
       if stat[FmCalculate.GetArrayIndex(vtstate,'WSnow')].holdconstant=false then
          WSnow:= Wsnow - Sm;
       if stat[FmCalculate.GetArrayIndex(vtstate,'CumSm')].holdconstant=false then
@@ -6601,16 +7300,22 @@ if CalculateDiscrete then
  {calibrate}
       if (calibrate>-100) and (abs(Doy-365)<0.001) then
         begin
-       
+
+{subtract out non zero initial values}
+          for jj:= FmCalculate.GetArrayIndex(vtstate,'CumGPP') to
+                  FmCalculate.GetArrayIndex(vtstate,'CumLitPDebris') do
+                     if jj<> FmCalculate.GetArrayIndex(vtstate,'LAIpeak') then
+                     stat[jj].value:=stat[jj].value-FmShellMain.initialstates[jj].value;
+
          FlagNegLeach:=0;
    
          IF CALIBRATE <0 THEN
           begin
-           calibrate :=-calibrate*exp(-5e-6*time);
+           calibrate :=-calibrate*exp(-CalDec*time);
           end;
  
      // v2.8.5 begin
-         if calibrate2nd=1 then
+         if calibrate2nd=1 then //adjust 1 Jan biomass to match peak-season biomass
            begin
               dum:=0.1*(BCpeaktar-BCpeak)/BCpeaktar;
               FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'BC')].value:=
@@ -6628,51 +7333,78 @@ if CalculateDiscrete then
           phiN:=qNSii;       // Not saved to global par array, v2.4.17
           phiP:=qPSii;       // Not saved to global par array, v2.4.17
 
- // v2.8.5 
-          LcwNatar:=CumLcWNa;
-          LcWPatar:=CumLcWPa;
-          FBNtar:=CumfBN;
-          FBPtar:=CumfBP;
-// ********
-          if CumLcWCa>0 then LcwNatar:=CumLcWNa * LcWCatar / CumLcWCa;
-          if CumLcWCa>0 then LcWPatar:=CumLcWPa * LcWCatar / CumLcWCa;
-          if CumfBC>0 then FBNtar:=CumfBN * FBCtar / CumfBC;
-          if CumfBC>0 then FBPtar:=CumfBP * FBCtar / CumfBC;
+ 
+// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+//MASS BALANCE to correct round off errors
+LitNDebristar:=cumLitNDebris;
+LitPDebristar:=cumLitPDebris;
 
-          if fDebris>0 then
-           begin
-            LitCDebristar:=LcwCatar+FWCtar-LcWCtar;
-            LitNDebristar:=LcWNatar+FWNtar-LcWNtar;
-            LitPDebristar:=LcWPatar+FWPtar-LcWPtar;
-           end;
+MIICtar:=TIICtar;
 
-          LitCtar:=NPPtar+UdoNtar*qDOM-LcWCtar-FBCtar-LitCDebristar;
-          LitNtar:=UNH4tar+UNO3tar+UdoNtar+UNfixtar-LcWNtar-FBNtar-LitNDebristar;   
-          LitPtar:=UPO4tar-LcWPtar-FBPtar-LitPDebristar;
+// phosphorus
+FPvttar:=((fBPv+fWPv+fDPv)/3)*(cumFBP+cumFWP+cumFDP); //Collins & Wallace 1990 Fire in N Am Tallgrass Prairie p121 (Book)
 
-          RCmtar:=LitCtar+LcWCatar+cumIdoC+cumIRinDOC-UdoNtar*qDOM-TiiCtar-LdoCtar-CumROvfdoC-FDCtar;
-          RNmtar:=LitNtar+LcWNatar+UNH4mtar+UNO3mtar+cumIdoN+cumIRinDON+Nnsfixtar-UdoNtar-LdoCtar/qLDOM-TiiCtar/qNSii-CumROvfdoN-FDNtar;
-          RPmtar:=LitPtar+LcWPatar+UPO4mtar-TiiCtar/qPSii-FDPtar;
+LitPtar:=max(0, UPO4tar-LitPDebristar-cumFBP-LcWPtar);
+LcWPatar:=max(0, LcWPtar+LitPDebristar-cumFWP);
+RPmtar:=max(0, LitPtar+LcWPatar+UPO4mtar-cumFDP-TiiCtar/qPSii);
+LPO4tar:=max(0, Pawtar+Pnowtar+cumIPO4+RPmtar+MiiCtar/qPSii+cumIRinPO4-cumROvfPO4+cumFBP+cumFWP+cumFDP-FPvttar-UPO4tar-UPO4mtar-PO4Ptar);
 
-          MiiCtar:=TiiCtar;
+// nitrogen
+FNvttar:=((fBNv+fWNv+fDNv)/3)*(cumFBN+cumFWN+cumFDN); //Collins & Wallace 1990 Fire in N Am Tallgrass Prairie p121 (Book)
+LitNtar:=max(0, UNH4tar+UNO3tar+UdoNtar+UNfixtar-LitNDebristar-cumFBN-LcWNtar);
+LcWNatar:=max(0, LcWNtar+LitNDebristar-cumFWN);
 
-          PAWtar:=cumIPa; 
-          Pocclwtar:=Pnostar;
-          Pnowtar:=Pocclwtar+PO4Ptar-Pnostar;
+DUM:=cumINH4+cumINO3+cumIdoN+UNFixtar+Nnsfixtar+cumIRinNH4+cumIRinNO3+cumIRindoN-cumROvfNH4-cumROvfNO3-cumROvfdoN-FNvttar;
+ 
+DUMTAR:=LDOCtar/qLdom+LNH4tar+LNO3tar+DNtrtar;
+    DUM:=DUM/DUMTAR;
 
-   // v2.8.5 
-          dum:=DNtrtar;
-          DNtrtar:=CUMIdoN+cumINH4+cumINO3+cumIRindoN+cumIRinNH4+cumIRinNO3+UNfixtar+Nnsfixtar
-           -cumROvfdoN-cumROvfNH4-cumROvfNO3-LNH4tar-LNO3tar-LdoCtar/qLdom
-           -cumFNvt;
-          if DNtrtar<0 then DNtrtar:=dum;   
+    LDOCtar:=LDOCtar*DUM;
+    LNH4tar:=LNH4tar*DUM;
+    LNO3tar:=LNO3tar*DUM;
+    DNtrtar:=DNtrtar*DUM;
 
-         if Nitrtar>0 then  
-            Nitrtar:=-cumINO3-cumIRinNO3+UNO3tar+UNO3mtar+LNO3tar+DNtrtar+CumROvfNO3-((1-fBNv)*CumfBN+(1-fDNv)*CumfDN+(1-fWNv)*CumfWN)
-          else
-            LNO3tar:=cumINO3+cumIRinNO3-UNO3tar-UNO3mtar+Nitrtar-DNtrtar-CumROvfNO3+((1-fBNv)*CumfBN+(1-fDNv)*CumfDN+(1-fWNv)*CumfWN);
-          LNH4tar:=cumINH4+cumIRinNH4-UNH4tar-UNH4mtar+RNmtar-Nitrtar+MiiCtar/qNSii-CumROvfNH4;
-          LPO4tar:=Pawtar+Pnowtar+cumIPO4+cumIRinPO4-UPO4tar-UPO4mtar+RPmtar-PO4Ptar+MiiCtar/qPSii-CumROvfPO4+((1-fBPv)*CumfBP+(1-fDPv)*CumfDP+(1-fWPv)*CumfWP);
+RNmtar:=max(0, LitNtar+LcWNatar+UNH4mtar+UNO3mtar-LDOCtar/qLdom+cumIdoN+Nnsfixtar+cumIRindoN-cumROvfdoN-cumFDN-TiiCtar/qNSii-UdoNtar);
+Nitrtar:=max(0, cumINH4+RNmtar+MiiCtar/qNSii+cumIRinNH4-cumROvfNH4-UNH4tar-UNH4mtar-LNH4tar);
+//if DNtrtar>0 then  DNtrtar:=max(0, cumINO3+Nitrtar+cumIRinNO3-cumROvfNO3+cumFBN+cumFWN+cumFDN-FNvttar-UNO3tar-UNO3mtar-LNO3tar);
+ 
+//carbon
+LitCtar:=max(0, NPPtar+UdoNtar*qDOM-FBCtar-LitCDebristar-LcWCtar);
+LcWCatar:=max(0, LcWCtar+LitCDebristar-FWCtar);
+RCmtar:=max(0, LitCtar+LcWCatar+cumIdoC+cumIRindoC-cumROvfdoC-UdoNtar*qDOM-LDOCtar-TIICtar-FDCtar);
+
+//adjust NPP to prpportion of current GPP+UDOC
+dumBCtar:=GPPtar+UdoNtar*qDOM;
+cumdum:= cumGPP+cumUdoC;
+NPPtar:=cumdum*NPPtar/dumBCtar;
+              
+// &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+         
+
+qNSiicalc  := qNSii; 
+qPSiicalc := qPSii ;
+phiNcalc := phiN;
+phiPcalc := phiP;
+LcwCatarcalc := LcwCatar;
+LcwNatarcalc := LcwNatar;
+LcWPatarcalc := LcWPatar;  
+LitNDebristarcalc := LitNDebristar;
+LitPDebristarcalc := LitPDebristar;
+LitCtarcalc    := LitCtar;   
+LitNtarcalc  := LitNtar; 
+LitPtarcalc := LitPtar;
+RCmtarcalc := RCmtar;
+RNmtarcalc := RNmtar;
+RPmtarcalc := RPmtar;
+MiiCtarcalc := MiiCtar;
+DNtrtarcalc := DNtrtar;
+Nitrtarcalc := Nitrtar;
+LNO3tarcalc := LNO3tar;
+LNH4tarcalc := LNH4tar;
+LPO4tarcalc := LPO4tar;
+LDOCtarcalc := LDOCtar;
+FNvttarcalc := FNvttar;
+FPvttarcalc := FPvttar;
 
          
           if LNH4tar<0 then FlagNegLeach:=1;
@@ -6706,72 +7438,51 @@ if CalculateDiscrete then
               qPR:=qPR*(1+calibrate);
             end;
 
-
-          if CumGPP>GPPtar then
-            begin
-              scg:= scg*(1-calibrate);
-            end
-          else
-            begin
-              scg:= scg*(1+calibrate);
-            end;
-
           if LAIpeak > LAItar then
            begin
- //            scg:= scg *(1+calibrate)
-             gC:=gC*(1+calibrate);
-             gi:=gi*(1+calibrate);
+             vCO2tar:=vCO2tar*(1-0.1*calibrate);  // 0.1 used to damp oscillations in calibration
+             vitar:=vitar*(1-0.1*calibrate);
+             vWtar:=1-vCO2tar-vItar;
            end
           else
            begin
-             gC:=gC*(1-calibrate);
-             gi:=gi*(1-calibrate);
- //            scg:= scg *(1-calibrate);
-           end;    
+             vCO2tar:=1-(1-vCO2tar)*(1-0.1*calibrate); // this formulation to keep vCO2 < 1
+             vitar:=1-(1-vitar)*(1-0.1*calibrate);     // this formulation to keep vI < 1
+             dum:=vCO2tar+vItar;
+             if dum > 0.999 then
+               begin
+                 vCO2tar:=0.999*vCO2tar/dum;
+                 vitar:=0.999*vitar/dum;
+               end;
+             vWtar:=1-vCO2tar-vItar;
+            end;   
+
+           if CumGPP>GPPtar then scg:=scg*(1-calibrate)
+           else                  scg:=scg*(1+calibrate);  
+
+           if vCO2>vCO2tar then gC:=gC*(1+calibrate)
+           else                 gC:=gC*(1-calibrate);  
+
+           if vI>vItar then gI:=gI*(1+calibrate)
+           else             gI:=gI*(1-calibrate); 
 
                		  
-          if CumUW>=UWtar then
-            begin
-              ke:= ke*(1-calibrate);
-              scg:=scg*(1+0.5*calibrate);//here
-  	        end
-          else 
-            begin
-        	  ke:= ke*(1+calibrate);
-              scg:=scg*(1-0.5*calibrate);//here
-            end;		
-          			
- 
-   {       vW:=max(0,(VR-VN-VP)/VC);
-          vCO2:=(1-vW)*vCO2/(vCO2+vI);
-          vI:=1-vCO2-vW; 		  
-           
-           if CumGPP<GPPtar then
-            begin
-              gNH4:=gNH4*(1+calibrate);
-              gNO3:=gNO3*(1+calibrate);
-              gNFix:=gNfix*(1+calibrate);
-              gdoC:=gdoC*(1+calibrate);	
-              gPO4:=gPO4*(1+calibrate);	  
-            end			
-          else   
-	        begin
-              gNH4:=gNH4*(1-calibrate);
-              gNO3:=gNO3*(1-calibrate);
-              gNFix:=gNfix*(1-calibrate);
-              gdoC:=gdoC*(1-calibrate);
-              gPO4:=gPO4*(1-calibrate);	  
-	        end;}
+          if CumUW>UWtar then gW:= gW*(1-calibrate)
+          else                gW:= gW*(1+calibrate);
 
-         If CumGPP-CumNPP>GPPtar-NPPtar then 
+     {     if CumIntr>Intrtar then Intv:=Intv*(1-calibrate)
+          else                    Intv:=Intv*(1+calibrate);}
+        			
+ 
+          If CumGPP-CumNPP>GPPtar-NPPtar then 
             begin
-              rma:=rma*(1-calibrate);//here
-              rmw:=rmw*(1-calibrate);//here
+              rma:=rma*(1-calibrate);
+              rmw:=rmw*(1-calibrate);
             end
           else 
             begin
-              rma:=rma*(1+calibrate);//here
-              rmw:=rmw*(1+calibrate);//here
+              rma:=rma*(1+calibrate);
+              rmw:=rmw*(1+calibrate);
             end; 
 
           If CumLitC>LitCtar then 
@@ -6787,33 +7498,49 @@ if CalculateDiscrete then
               mW:=mW*(1+calibrate);
             end;
 			
-          If (CumLitN>0) and (CumLitN>LitNtar) then 
+          If (CumLitN+CumLitNdebris>0) and (CumLitN+CumLitNdebris>LitNtar+LitNdebristar) then 
             begin
               qNWl:= qNWl *(1-calibrate);
               qNRl:= qNRl *(1-calibrate); 
               qNLl:= qNLl *(1-calibrate);
+              qNLDebris:=qNLDebris/(1-calibrate); //added 
+
             end
           else 
             begin
               qNWl:= qNWl *(1+calibrate);
               qNRl:= qNRl *(1+calibrate); 
               qNLl:= qNLl *(1+calibrate);
+              qNLDebris:=qNLDebris/(1+calibrate); //added
+
             end;
+
+           If qNLl>0.999*qNL then qNLl:=0.999*qNL;
+           If qNLDebris<1/(0.999*qNL) then qNLDebris:=1/(0.999*qNL); //added 
+
          
-          If (CumLitP>0) and (CumLitP>LitPtar) then 
+          If (CumLitP+CumLitPdebris>0) and (CumLitP+CumLitPdebris>LitPtar+LitPdebristar) then 
             begin
               qPWl:= qPWl *(1-calibrate);
               qPRl:= qPRl *(1-calibrate); 
               qPLl:= qPLl *(1-calibrate);
+              qPLDebris:=qPLDebris/(1-calibrate); //added 
+
             end
           else 
             begin
               qPWl:= qPWl *(1+calibrate);
               qPRl:= qPRl *(1+calibrate); 
               qPLl:= qPLl *(1+calibrate);
+              qPLDebris:=qPLDebris/(1+calibrate); //added 
+
             end; 
+          If qPLl>0.999*qPL then qPLl:=0.999*qPL;
+          If qPLDebris<1/(0.999*qPL) then qPLDebris:=1/(0.999*qPL); //added 
+
+
 			
-          if CumLitCDebris>LitCDebristar then
+          if CumLitCDebris-1>LitCDebristar then
             fDebris:=fDebris*(1-calibrate)
           else
             fDebris:=fDebris*(1+calibrate);
@@ -6831,44 +7558,7 @@ if CalculateDiscrete then
           else                      omega:=omega*(1+calibrate);
 
 
-//***************************************************************************************************
- { If calNtar > 0 then
-    begin
-          UNttar:=UNH4tar+UNO3tar+UDONtar+UNfixtar;
-          if vNH4>vNH4tar then
-            begin
-               UNO3tar :=UNO3tar+ UNH4tar*calibrate* UNO3tar/(UNttar-UNH4tar);
-               UDONtar :=UDONtar+ UNH4tar*calibrate* UDONtar/(UNttar-UNH4tar);
-               UNfixtar:=UNfixtar+UNH4tar*calibrate*UNfixtar/(UNttar-UNH4tar);
-               UNH4tar :=UNH4tar*(1-calibrate);
-             end;
 
-          if vNO3>vNO3tar then
-            begin
-               UNH4tar:= UNH4tar+ UNO3tar*calibrate* UNH4tar/(UNttar-UNO3tar);
-               UDONtar:= UDONtar+ UNO3tar*calibrate* UDONtar/(UNttar-UNO3tar);
-               UNfixtar:=UNfixtar+UNO3tar*calibrate*UNfixtar/(UNttar-UNO3tar);
-               UNO3tar:= UNO3tar*(1-calibrate);
-             end;
-
-          if vDON>vDONtar then
-            begin
-               UNH4tar:= UNH4tar+ UDONtar*calibrate* UNH4tar/(UNttar-UDONtar);
-               UNO3tar:= UNO3tar+ UDONtar*calibrate* UNO3tar/(UNttar-UDONtar);
-               UNfixtar:=UNfixtar+UDONtar*calibrate*UNfixtar/(UNttar-UDONtar);
-               UDONtar:= UDONtar*(1-calibrate);
-             end;
-
-          if vNfix>vNfixtar then
-            begin
-               UNH4tar:=UNH4tar+UNfixtar*calibrate*UNH4tar/(UNttar-UNfixtar);
-               UNO3tar:=UNO3tar+UNfixtar*calibrate*UNO3tar/(UNttar-UNfixtar);
-               UDONtar:=UDONtar+UNfixtar*calibrate*UDONtar/(UNttar-UNfixtar);
-               UNfixtar:=UNfixtar*(1-calibrate);
-            end;
-     end;
-             }
-//***************************************************************************************************
           If UNh4tar= 0 then gnh4:=0
           else
            begin
@@ -6902,7 +7592,7 @@ if CalculateDiscrete then
             else   
               begin
                if (CumUNfix>=UNfixtar) then
-                gdoC:=gdoC*(1+1.5*calibrate); //here
+                gdoC:=gdoC*(1+1.5*calibrate); 
               end;
           end;
           
@@ -6931,45 +7621,7 @@ if CalculateDiscrete then
 
           if CumMiiC>MiiCtar then    aMii:=aMii*(1-calibrate)
            else                       aMii:=aMii*(1+calibrate);
-// v2.8.5
-{ PIIflag was set to 0, this code never ran, removed it
-      if (PIIflag>0.8) then
-      begin
-          if CumMiiC>MiiCtar then 
-           begin
-              DC:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SC')].value*calibrate;
-              DN:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SN')].value*calibrate;
-              DP:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SP')].value*calibrate;
-              SC:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SC')].value*(1-calibrate);
-              SN:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SN')].value*(1-calibrate);
-              SP:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SP')].value*(1-calibrate);
-           end
-          else
-           begin
-              deltaPII:=min(DC*SN/(SC*DN),DC*SP/(SC*DP));
-              deltaPII:=min(DN*SC/(SN*DC),deltaPII);
-              deltaPII:=min(DN*SP/(SN*DP),deltaPII);
-              deltaPII:=min(DP*SC/(SP*DC),deltaPII);
-              deltaPII:=min(DP*SN/(SP*DN),deltaPII);
-              deltaPII:=min(1,deltaPII);
-              DC:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value-
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value*calibrate*deltaPII;
-              DN:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value-
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value*calibrate*deltaPII;
-              DP:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value-
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value*calibrate*deltaPII;
-              SC:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SC')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value*calibrate*deltaPII;
-              SN:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SN')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value*calibrate*deltaPII;
-              SP:=FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SP')].value+
-                 FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value*calibrate*deltaPII;
-           end;
-      end;
-}      
+
 // ****************
           SoC0:=DC+SC;
 		  
@@ -7054,31 +7706,17 @@ if CalculateDiscrete then
           if CumPnos>Pnostar then rPnos:= rPnos *(1-calibrate)
           else                    rPnos:= rPnos *(1+calibrate); 
  
-          if CumIntr>Intrtar then Intv:= Intv *(1-calibrate)
-          else                  Intv:= Intv *(1+calibrate);
-
- {         if gI>gItar then
-            VCtar:=VCtar*(1-calibrate)
-          else
-            VCtar:=VCtar*(1+calibrate);
-		  VCtar:=min(0.95,max(0.05,VCtar));
-          FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'VC')].value:= VCtar;
-          VNtar:=(1-VCtar)/2;
-          VPtar:=VNtar; 
-          FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'VN')].value:= VNtar;
-          FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'VP')].value:= VPtar;}
-
- 
+          
  {Fire Parameters}
           if CumfBC>FBCtar then
              begin
                ffWL:=ffWL*(1-calibrate);
-               ffLL:=ffLL*(1-calibrate);
+              // ffLL:=ffLL*(1-calibrate);
              end
 	      else
              begin
                ffWL:=ffWL*(1+calibrate);
-               ffLL:=ffLL*(1+calibrate);
+              // ffLL:=ffLL*(1+calibrate);
              end;
           if CumfWC>FWCtar then ffWDL:=ffWDL*(1-calibrate)
 		          else           ffWDL:=ffWDL*(1+calibrate);
@@ -7091,21 +7729,16 @@ if CalculateDiscrete then
           if ffWDL>1 then ffWDL:=1;
           if ffSL>1 then ffSL:=1;
 				  
-          if CumLitNDebris>LitNDebristar then qNLdebris:=qNLdebris*(1+calibrate)
-                  else           qNLdebris:=qNLdebris*(1-calibrate);
-          if CumLitPDebris>LitPDebristar then qPLdebris:=qPLdebris*(1+calibrate)
-                  else           qPLdebris:=qPLdebris*(1-calibrate);				  
-
-		  
-          if CumFNvt>FNvttar then
+   	  
+ {         if CumFNvt>FNvttar then
             begin
 	            fBNv:=fBNv*(1-calibrate);
 	            fWNv:=fWNv*(1-calibrate);
-                fDNv:=fDNv*(1-calibrate);
+                 fDNv:=fDNv*(1-calibrate);
             end
           else
             begin
-	            fBNv:=fBNv*(1+calibrate);
+	           fBNv:=fBNv*(1+calibrate);
                 fWNv:=fWNv*(1+calibrate);
                 fDNv:=fDNv*(1+calibrate);
             end;
@@ -7129,15 +7762,11 @@ if CalculateDiscrete then
           if fDNv>1 then fDNv:=1;
           if fBPv>1 then fBPv:=1;
           if fWPv>1 then fWPv:=1;
-          if fDPv>1 then fDPv:=1;
+          if fDPv>1 then fDPv:=1;}
 
  
-// v2.8.5
-     //     FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'BC')].value:=BC;
-
 
           par[FmCalculate.GetArrayIndex(vtparameter,'FlagNegLeach')].value:=FlagNegLeach;
-// ********
           par[FmCalculate.GetArrayIndex(vtparameter,'ffWL')].value:=ffWL;
           par[FmCalculate.GetArrayIndex(vtparameter,'ffLL')].value:=ffLL;
           par[FmCalculate.GetArrayIndex(vtparameter,'ffWDL')].value:=ffWDL;
@@ -7156,8 +7785,7 @@ if CalculateDiscrete then
          
           par[FmCalculate.GetArrayIndex(vtparameter,'gC')].value:=gC;
           par[FmCalculate.GetArrayIndex(vtparameter,'gI')].value:=gI; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'kE')].value:=kE;
-          par[FmCalculate.GetArrayIndex(vtparameter,'scg')].value:=scg;
+          par[FmCalculate.GetArrayIndex(vtparameter,'gW')].value:=gW;
           par[FmCalculate.GetArrayIndex(vtparameter,'rma')].value:= rma;
           par[FmCalculate.GetArrayIndex(vtparameter,'rmw')].value:= rmw; 
           par[FmCalculate.GetArrayIndex(vtparameter,'maL')].value:= maL;
@@ -7183,7 +7811,11 @@ if CalculateDiscrete then
           par[FmCalculate.GetArrayIndex(vtparameter,'qPRl')].value:= qPRl;
           par[FmCalculate.GetArrayIndex(vtparameter,'omega')].value:= omega; 
           par[FmCalculate.GetArrayIndex(vtparameter,'psiC')].value:= psiC; 
-          par[FmCalculate.GetArrayIndex(vtparameter,'aTii')].value:= aTii; 
+          par[FmCalculate.GetArrayIndex(vtparameter,'aTii')].value:= aTii;  
+          par[FmCalculate.GetArrayIndex(vtparameter,'scg')].value:= scg;  
+          par[FmCalculate.GetArrayIndex(vtparameter,'vCO2tar')].value:= vCO2tar;  
+          par[FmCalculate.GetArrayIndex(vtparameter,'vItar')].value:= vItar;  
+          par[FmCalculate.GetArrayIndex(vtparameter,'vWtar')].value:= vWtar;
 
  
           par[FmCalculate.GetArrayIndex(vtparameter,'UNH4tar')].value:= UNH4tar;
@@ -7191,19 +7823,6 @@ if CalculateDiscrete then
           par[FmCalculate.GetArrayIndex(vtparameter,'UdoNtar')].value:= UDONtar;
           par[FmCalculate.GetArrayIndex(vtparameter,'UNfixtar')].value:= UNfixtar;
 
-// v2.8.5
-{
-          if PIIflag>0.8 then
-          begin
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SC')].value:=SC;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SN')].value:=SN;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'SP')].value:=SP;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DC')].value:=DC;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DN')].value:=DN;
-            FmShellMain.initialstates[FmCalculate.GetArrayIndex(vtstate,'DP')].value:=DP;
-          end;
-}
-// ***********
           par[FmCalculate.GetArrayIndex(vtparameter,'SoC0')].value:=SoC0;
           par[FmCalculate.GetArrayIndex(vtparameter,'alphaNH4')].value:=alphaNH4;
           par[FmCalculate.GetArrayIndex(vtparameter,'alphaNO3')].value:= alphaNO3; 
@@ -7233,8 +7852,32 @@ if CalculateDiscrete then
           par[FmCalculate.GetArrayIndex(vtparameter,'qPLDebris')].value:= qPLDebris;		  
           par[FmCalculate.GetArrayIndex(vtparameter,'LcWNatar')].value:= LcWNatar;
           par[FmCalculate.GetArrayIndex(vtparameter,'LcWPatar')].value:= LcWPatar;		  
+          par[FmCalculate.GetArrayIndex(vtparameter,'fBNtar')].value:= fBNtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'fBPtar')].value:= fBPtar;	
+
+         { par[FmCalculate.GetArrayIndex(vtparameter,'LitCtar')].value:= LitCtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LcWCatar')].value:= LcWCatar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'RCmtar')].value:= RCmtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'RNmtar')].value:= RNmtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'Nitrtar')].value:= Nitrtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'DNtrtar')].value:= DNtrtar;
+          //par[FmCalculate.GetArrayIndex(vtparameter,'NPPtar')].value:= NPPtar;
+         // par[FmCalculate.GetArrayIndex(vtparameter,'LDOCtar')].value:= LDOCtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LNH4tar')].value:= LNH4tar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LNO3tar')].value:= LNO3tar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LitNDebristar')].value:= LitNDebristar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LitPDebristar')].value:= LitPDebristar;
+          //par[FmCalculate.GetArrayIndex(vtparameter,'MIICtar')].value:= MIICtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LitPtar')].value:= LitPtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LcWPatar’)].value:= LcWPatar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'RPmtar')].value:= RPmtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LPO4tar')].value:= LPO4tar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LitNtar')].value:= LitNtar;
+          par[FmCalculate.GetArrayIndex(vtparameter,'LcWNatar')].value:= LcWNatar;}	  
+ 	  
         end;
    end;
+
 if CalculateDiscrete then
 begin
 // Add any discrete processes here
@@ -7247,62 +7890,62 @@ end; //discrete processes
 if (tstat[1].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dBCdt := 0
 else
- dBCdt   :=NPP+UdoC-LitC-LitCDebris-LcWC{-FBC};
+ dBCdt:=NPP+UdoC-LitC-LitCDebris-LcWC{-FBC};
  
 if (tstat[2].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dBNdt := 0
 else
- dBNdt   :=UNH4+UNO3+UdoN+UNfix-LitN-LitNDebris-LcWN{-FBN};
+ dBNdt:=UNH4+UNO3+UdoN+UNfix-LitN-LitNDebris-LcWN{-FBN};
  
 if (tstat[3].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dBPdt := 0
 else
- dBPdt   :=UPO4-LitP-LitPDebris-LcWP{-FBP};
+ dBPdt:=UPO4-LitP-LitPDebris-LcWP{-FBP};
  
 if (tstat[4].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dVCdt := 0
 else
- dVCdt   :=dVCdt;
+ dVCdt:=dVCdt;
  
 if (tstat[5].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dVNdt := 0
 else
- dVNdt   :=dVNdt;
+ dVNdt:=dVNdt;
  
 if (tstat[6].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dVPdt := 0
 else
- dVPdt   :=dVPdt;
+ dVPdt:=dVPdt;
  
 if (tstat[7].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dvCO2dt := 0
 else
- dvCO2dt :=dvCO2dt;
+ dvCO2dt:=dvCO2dt;
  
 if (tstat[8].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dvIdt := 0
 else
- dvIdt   :=dvIdt;
+ dvIdt:=dvIdt;
  
 if (tstat[9].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dvWdt := 0
 else
- dvWdt   :=dvWdt;
+ dvWdt:=dvWdt;
  
 if (tstat[10].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dvNH4dt := 0
 else
- dvNH4dt :=dvNH4dt;
+ dvNH4dt:=dvNH4dt;
  
 if (tstat[11].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dvNO3dt := 0
 else
- dvNO3dt :=dvNO3dt;
+ dvNO3dt:=dvNO3dt;
  
 if (tstat[12].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dvdoNdt := 0
 else
- dvdoNdt :=dvdoNdt;
+ dvdoNdt:=dvdoNdt;
  
 if (tstat[13].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dvNfixdt := 0
@@ -7392,7 +8035,7 @@ else
 if (tstat[30].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dWSnowdt := 0
 else
- dWsnowdt:=0 ;
+ dWSnowdt:=0 ;
  
 if (tstat[31].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dSQdt := 0
@@ -7405,504 +8048,544 @@ else
  dfcdt:=Gfc-Lfc;
  
 if (tstat[33].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dLAInfixdt := 0
+else
+ dLAInfixdt:=0;
+ 
+if (tstat[34].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dRCadt := 0
 else
  dRCadt:=tau*(RCt-RCa);
  
-if (tstat[34].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[35].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dRNadt := 0
 else
  dRNadt:=tau*(RNt-RNa);
  
-if (tstat[35].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[36].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dRPadt := 0
 else
  dRPadt:=tau*(RPt-RPa);
  
-if (tstat[36].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[37].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dUCadt := 0
 else
  dUCadt:=tau*(UC-UCa);
  
-if (tstat[37].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[38].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dUNadt := 0
 else
  dUNadt:=tau*(UN-UNa);
  
-if (tstat[38].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[39].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dUPadt := 0
 else
  dUPadt:=tau*(UPO4-UPa);
  
-if (tstat[39].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[40].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dDDaypdt := 0
 else
  dDDaypdt:=0;
  
-if (tstat[40].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[41].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dDDayndt := 0
 else
  dDDayndt:=0;
  
-if (tstat[41].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[42].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumGPPdt := 0
 else
  dCumGPPdt:=UC;
  
-if (tstat[42].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[43].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dCumRCPtdt := 0
+else
+ dcumRCPtdt:=RCPt;
+ 
+if (tstat[44].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumNPPdt := 0
 else
  dCumNPPdt:=NPP;
  
-if (tstat[43].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[45].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumNEPdt := 0
 else
  dCumNEPdt:=NEP;
  
-if (tstat[44].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[46].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUdoCdt := 0
 else
  dCumUdoCdt:=UdoC;
  
-if (tstat[45].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[47].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLitCdt := 0
 else
  dCumLitCdt:=LitC;
  
-if (tstat[46].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[48].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLcWCdt := 0
 else
  dCumLcWCdt:=LcWC;
  
-if (tstat[47].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[49].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumtotalLitCdt := 0
 else
  dCumtotalLitCdt:=LitC+LcWC+LitCDebris;
  
-if (tstat[48].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[50].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumtotalLitNdt := 0
 else
  dCumtotalLitNdt:=LitN+LcWN+LitNDebris;
  
-if (tstat[49].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[51].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumtotalLitPdt := 0
 else
  dCumtotalLitPdt:=LitP+LcWP+LitPDebris;
  
-if (tstat[50].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[52].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumRCmtotaldt := 0
 else
  dCumRCmtotaldt:=RCm+MiiC;
  
-if (tstat[51].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[53].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumNmintotdt := 0
 else
  dCumNmintotdt:=-UNH4m-UNO3m+RNm+MiiN;
  
-if (tstat[52].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[54].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumPmintotdt := 0
 else
  dCumPmintotdt:=-UPO4m+RPm+MiiP;
  
-if (tstat[53].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[55].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUNdt := 0
 else
  dCumUNdt:=UNH4+UNO3+UdoN+UNfix;
  
-if (tstat[54].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[56].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUNH4dt := 0
 else
  dCumUNH4dt:=UNH4;
  
-if (tstat[55].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[57].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUNO3dt := 0
 else
  dCumUNO3dt:=UNO3;
  
-if (tstat[56].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[58].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUdoNdt := 0
 else
  dCumUdoNdt:=UdoN;
  
-if (tstat[57].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[59].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUNfixdt := 0
 else
  dCumUNfixdt:=UNfix;
  
-if (tstat[58].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[60].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLitNdt := 0
 else
  dCumLitNdt:=LitN;
  
-if (tstat[59].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[61].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLcWNdt := 0
 else
  dCumLcWNdt:=LcWN;
  
-if (tstat[60].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[62].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUPO4dt := 0
 else
  dCumUPO4dt:=UPO4;
  
-if (tstat[61].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[63].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLitPdt := 0
 else
  dCumLitPdt:=LitP;
  
-if (tstat[62].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[64].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLcWPdt := 0
 else
  dCumLcWPdt:=LcWP;
  
-if (tstat[63].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[65].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLcWCadt := 0
 else
  dCumLcWCadt:=LcWCa;
  
-if (tstat[64].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[66].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumRCmdt := 0
 else
  dCumRCmdt:=RCm;
  
-if (tstat[65].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[67].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumTiiCdt := 0
 else
  dCumTiiCdt:=TiiC;
  
-if (tstat[66].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[68].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLcWNadt := 0
 else
  dCumLcWNadt:=LcWNa;
  
-if (tstat[67].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[69].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUNH4mdt := 0
 else
  dCumUNH4mdt:=UNH4m;
  
-if (tstat[68].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[70].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUNO3mdt := 0
 else
  dCumUNO3mdt:=UNO3m;
  
-if (tstat[69].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[71].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumRNmdt := 0
 else
  dCumRNmdt:=RNm;
  
-if (tstat[70].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[72].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumTiiNdt := 0
 else
  dCumTiiNdt:=TiiN;
  
-if (tstat[71].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[73].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumNnsfixdt := 0
 else
  dCumNnsfixdt:=Nnsfix;
  
-if (tstat[72].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[74].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLcWPadt := 0
 else
  dCumLcWPadt:=LcWPa;
  
-if (tstat[73].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[75].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUPO4mdt := 0
 else
  dCumUPO4mdt:=UPO4m;
  
-if (tstat[74].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[76].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumRPmdt := 0
 else
  dCumRPmdt:=RPm;
  
-if (tstat[75].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[77].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumTiiPdt := 0
 else
  dCumTiiPdt:=TiiP;
  
-if (tstat[76].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[78].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumMiiCdt := 0
 else
  dCumMiiCdt:=MiiC;
  
-if (tstat[77].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[79].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumMiiNdt := 0
 else
  dCumMiiNdt:=MiiN;
  
-if (tstat[78].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[80].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumMiiPdt := 0
 else
  dCumMiiPdt:=MiiP;
  
-if (tstat[79].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[81].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumINH4dt := 0
 else
  dCumINH4dt:=INH4;
  
-if (tstat[80].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[82].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLNH4dt := 0
 else
  dCumLNH4dt:=LNH4;
  
-if (tstat[81].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[83].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumNitrdt := 0
 else
  dCumNitrdt:=Nitr;
  
-if (tstat[82].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[84].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumINO3dt := 0
 else
  dCumINO3dt:=INO3;
  
-if (tstat[83].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[85].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLNO3dt := 0
 else
  dCumLNO3dt:=LNO3;
  
-if (tstat[84].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[86].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumDNtrdt := 0
 else
  dCumDNtrdt:=DNtr;
  
-if (tstat[85].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[87].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumPawdt := 0
 else
  dCumPawdt:=Paw;
  
-if (tstat[86].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[88].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumPnowdt := 0
 else
  dCumPnowdt:=Pnow;
  
-if (tstat[87].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[89].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIPO4dt := 0
 else
  dCumIPO4dt:=IPO4;
  
-if (tstat[88].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[90].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLPO4dt := 0
 else
  dCumLPO4dt:=LPO4;
  
-if (tstat[89].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[91].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumPO4Pdt := 0
 else
  dCumPO4Pdt:=PO4P;
  
-if (tstat[90].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[92].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIPadt := 0
 else
  dCumIPadt:=IPa;
  
-if (tstat[91].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[93].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumPocclwdt := 0
 else
  dCumPocclwdt:=Pocclw;
  
-if (tstat[92].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[94].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumPnosdt := 0
 else
  dCumPnosdt:=Pnos;
  
-if (tstat[93].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[95].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIdoCdt := 0
 else
  dCumIdoCdt:=IdoC;
  
-if (tstat[94].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[96].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIdoNdt := 0
 else
  dCumIdoNdt:=IdoN;
  
-if (tstat[95].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[97].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLdoCdt := 0
 else
  dCumLdoCdt:=LdoC;
  
-if (tstat[96].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[98].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLdoNdt := 0
 else
  dCumLdoNdt:=LdoN;
  
-if (tstat[97].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[99].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumUWdt := 0
 else
  dCumUWdt:=UW;
  
-if (tstat[98].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[100].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumROdt := 0
 else
- dCumRodt:=Ro+OvfR;
+ dCumROdt:=Ro+OvfR;
  
-if (tstat[99].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[101].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumPptdt := 0
 else
  dCumPptdt:=0;
  
-if (tstat[100].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[102].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIntrdt := 0
 else
  dCumIntrdt:=0;
  
-if (tstat[101].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[103].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumRfldt := 0
 else
  dCumRfldt:=0;
  
-if (tstat[102].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[104].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumSfldt := 0
 else
  dCumSfldt:=0;
  
-if (tstat[103].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[105].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumSmdt := 0
 else
  dCumSmdt:=0;
  
-if (tstat[104].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[106].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumRindt := 0
 else
  dCumRindt:=Rin;//???
  
-if (tstat[105].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[107].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIRindoCdt := 0
 else
  dCumIRindoCdt:=IRindoC;
  
-if (tstat[106].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[108].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIRindoNdt := 0
 else
  dCumIRindoNdt:=IRindoN;
  
-if (tstat[107].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[109].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIRinNH4dt := 0
 else
  dCumIRinNH4dt:=IRinNH4;
  
-if (tstat[108].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[110].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIRinNO3dt := 0
 else
  dCumIRinNO3dt:=IRinNO3;
  
-if (tstat[109].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[111].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumIRinPO4dt := 0
 else
  dCumIRinPO4dt:=IRinPO4;
  
-if (tstat[110].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[112].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumROvfdt := 0
 else
  dCumROvfdt:=OvfR;
  
-if (tstat[111].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[113].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumROvfdoCdt := 0
 else
  dCumROvfdoCdt:=ROvfdoC;
  
-if (tstat[112].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[114].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumROvfdoNdt := 0
 else
  dCumROvfdoNdt:=ROvfdoN;
  
-if (tstat[113].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[115].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumROvfNH4dt := 0
 else
  dCumROvfNH4dt:=ROvfNH4;
  
-if (tstat[114].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[116].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumROvfNO3dt := 0
 else
  dCumROvfNO3dt:=ROvfNO3;
  
-if (tstat[115].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[117].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumROvfPO4dt := 0
 else
  dCumROvfPO4dt:=ROvfPO4;
  
-if (tstat[116].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[118].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dLAIpeakdt := 0
 else
  dLAIpeakdt:=0;
  
-if (tstat[117].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfBCdt := 0
-else
- dCumFBCdt:=0;
- 
-if (tstat[118].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfBNdt := 0
-else
- dCumFBNdt:=0;
- 
 if (tstat[119].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfBPdt := 0
+ dDOYfiredt := 0
 else
- dCumFBPdt:=0;
+ dDOYfiredt:=0;
  
 if (tstat[120].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfWCdt := 0
+ dCumfBCdt := 0
 else
- dCumFWCdt:=0;
+ dCumfBCdt:=0;
  
 if (tstat[121].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfWNdt := 0
+ dCumfBNdt := 0
 else
- dCumFWNdt:=0;
+ dCumfBNdt:=0;
  
 if (tstat[122].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfWPdt := 0
+ dCumfBPdt := 0
 else
- dCumFWPdt:=0;
+ dCumfBPdt:=0;
  
 if (tstat[123].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfDCdt := 0
+ dCumfWCdt := 0
 else
- dCumFDCdt:=0;
+ dCumfWCdt:=0;
  
 if (tstat[124].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfDNdt := 0
+ dCumfWNdt := 0
 else
- dCumFDNdt:=0;
+ dCumfWNdt:=0;
  
 if (tstat[125].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
- dCumfDPdt := 0
+ dCumfWPdt := 0
 else
- dCumFDPdt:=0;
+ dCumfWPdt:=0;
  
 if (tstat[126].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dCumfDCdt := 0
+else
+ dCumfDCdt:=0;
+ 
+if (tstat[127].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dCumfDNdt := 0
+else
+ dCumfDNdt:=0;
+ 
+if (tstat[128].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dCumfDPdt := 0
+else
+ dCumfDPdt:=0;
+ 
+if (tstat[129].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumFCvtdt := 0
 else
  dCumFCvtdt:=0;
  
-if (tstat[127].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[130].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumFNvtdt := 0
 else
  dCumFNvtdt:=0;
  
-if (tstat[128].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[131].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumFPvtdt := 0
 else
  dCumFPvtdt:=0;
  
-if (tstat[129].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[132].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLitCDebrisdt := 0
 else
  dCumLitCDebrisdt:=LitCDebris;
  
-if (tstat[130].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[133].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLitNDebrisdt := 0
 else
  dCumLitNDebrisdt:=LitNDebris;
  
-if (tstat[131].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[134].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dCumLitPDebrisdt := 0
 else
  dCumLitPDebrisdt:=LitPDebris;
  
-if (tstat[132].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+if (tstat[135].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
  dBCpeakdt := 0
 else
  dBCpeakdt:=0; // v2.8.5
+ 
+if (tstat[136].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dSPsTdt := 0
+else
+ dSPsTdt:=0;
+ 
+if (tstat[137].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dSPsdt := 0
+else
+ dSPsdt:=0;
+ 
+if (tstat[138].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dToptdt := 0
+else
+ dToptdt:=0;
+ 
+if (tstat[139].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dTgdt := 0
+else
+ dTgdt:=0;
+ 
+if (tstat[140].HoldConstant) and (FmOptions.RunOptions.HoldStatesConstant) then
+ dWSmaxdt := 0
+else
+ dWSmaxdt:=0;
  
 
 { Now that the calculations are complete, assign everything back into the arrays
@@ -7944,106 +8627,114 @@ tstat[29].value := W;
 tstat[30].value := WSnow;
 tstat[31].value := SQ;
 tstat[32].value := fc;
-tstat[33].value := RCa;
-tstat[34].value := RNa;
-tstat[35].value := RPa;
-tstat[36].value := UCa;
-tstat[37].value := UNa;
-tstat[38].value := UPa;
-tstat[39].value := DDayp;
-tstat[40].value := DDayn;
-tstat[41].value := CumGPP;
-tstat[42].value := CumNPP;
-tstat[43].value := CumNEP;
-tstat[44].value := CumUdoC;
-tstat[45].value := CumLitC;
-tstat[46].value := CumLcWC;
-tstat[47].value := CumtotalLitC;
-tstat[48].value := CumtotalLitN;
-tstat[49].value := CumtotalLitP;
-tstat[50].value := CumRCmtotal;
-tstat[51].value := CumNmintot;
-tstat[52].value := CumPmintot;
-tstat[53].value := CumUN;
-tstat[54].value := CumUNH4;
-tstat[55].value := CumUNO3;
-tstat[56].value := CumUdoN;
-tstat[57].value := CumUNfix;
-tstat[58].value := CumLitN;
-tstat[59].value := CumLcWN;
-tstat[60].value := CumUPO4;
-tstat[61].value := CumLitP;
-tstat[62].value := CumLcWP;
-tstat[63].value := CumLcWCa;
-tstat[64].value := CumRCm;
-tstat[65].value := CumTiiC;
-tstat[66].value := CumLcWNa;
-tstat[67].value := CumUNH4m;
-tstat[68].value := CumUNO3m;
-tstat[69].value := CumRNm;
-tstat[70].value := CumTiiN;
-tstat[71].value := CumNnsfix;
-tstat[72].value := CumLcWPa;
-tstat[73].value := CumUPO4m;
-tstat[74].value := CumRPm;
-tstat[75].value := CumTiiP;
-tstat[76].value := CumMiiC;
-tstat[77].value := CumMiiN;
-tstat[78].value := CumMiiP;
-tstat[79].value := CumINH4;
-tstat[80].value := CumLNH4;
-tstat[81].value := CumNitr;
-tstat[82].value := CumINO3;
-tstat[83].value := CumLNO3;
-tstat[84].value := CumDNtr;
-tstat[85].value := CumPaw;
-tstat[86].value := CumPnow;
-tstat[87].value := CumIPO4;
-tstat[88].value := CumLPO4;
-tstat[89].value := CumPO4P;
-tstat[90].value := CumIPa;
-tstat[91].value := CumPocclw;
-tstat[92].value := CumPnos;
-tstat[93].value := CumIdoC;
-tstat[94].value := CumIdoN;
-tstat[95].value := CumLdoC;
-tstat[96].value := CumLdoN;
-tstat[97].value := CumUW;
-tstat[98].value := CumRO;
-tstat[99].value := CumPpt;
-tstat[100].value := CumIntr;
-tstat[101].value := CumRfl;
-tstat[102].value := CumSfl;
-tstat[103].value := CumSm;
-tstat[104].value := CumRin;
-tstat[105].value := CumIRindoC;
-tstat[106].value := CumIRindoN;
-tstat[107].value := CumIRinNH4;
-tstat[108].value := CumIRinNO3;
-tstat[109].value := CumIRinPO4;
-tstat[110].value := CumROvf;
-tstat[111].value := CumROvfdoC;
-tstat[112].value := CumROvfdoN;
-tstat[113].value := CumROvfNH4;
-tstat[114].value := CumROvfNO3;
-tstat[115].value := CumROvfPO4;
-tstat[116].value := LAIpeak;
-tstat[117].value := CumfBC;
-tstat[118].value := CumfBN;
-tstat[119].value := CumfBP;
-tstat[120].value := CumfWC;
-tstat[121].value := CumfWN;
-tstat[122].value := CumfWP;
-tstat[123].value := CumfDC;
-tstat[124].value := CumfDN;
-tstat[125].value := CumfDP;
-tstat[126].value := CumFCvt;
-tstat[127].value := CumFNvt;
-tstat[128].value := CumFPvt;
-tstat[129].value := CumLitCDebris;
-tstat[130].value := CumLitNDebris;
-tstat[131].value := CumLitPDebris;
-tstat[132].value := BCpeak;
+tstat[33].value := LAInfix;
+tstat[34].value := RCa;
+tstat[35].value := RNa;
+tstat[36].value := RPa;
+tstat[37].value := UCa;
+tstat[38].value := UNa;
+tstat[39].value := UPa;
+tstat[40].value := DDayp;
+tstat[41].value := DDayn;
+tstat[42].value := CumGPP;
+tstat[43].value := CumRCPt;
+tstat[44].value := CumNPP;
+tstat[45].value := CumNEP;
+tstat[46].value := CumUdoC;
+tstat[47].value := CumLitC;
+tstat[48].value := CumLcWC;
+tstat[49].value := CumtotalLitC;
+tstat[50].value := CumtotalLitN;
+tstat[51].value := CumtotalLitP;
+tstat[52].value := CumRCmtotal;
+tstat[53].value := CumNmintot;
+tstat[54].value := CumPmintot;
+tstat[55].value := CumUN;
+tstat[56].value := CumUNH4;
+tstat[57].value := CumUNO3;
+tstat[58].value := CumUdoN;
+tstat[59].value := CumUNfix;
+tstat[60].value := CumLitN;
+tstat[61].value := CumLcWN;
+tstat[62].value := CumUPO4;
+tstat[63].value := CumLitP;
+tstat[64].value := CumLcWP;
+tstat[65].value := CumLcWCa;
+tstat[66].value := CumRCm;
+tstat[67].value := CumTiiC;
+tstat[68].value := CumLcWNa;
+tstat[69].value := CumUNH4m;
+tstat[70].value := CumUNO3m;
+tstat[71].value := CumRNm;
+tstat[72].value := CumTiiN;
+tstat[73].value := CumNnsfix;
+tstat[74].value := CumLcWPa;
+tstat[75].value := CumUPO4m;
+tstat[76].value := CumRPm;
+tstat[77].value := CumTiiP;
+tstat[78].value := CumMiiC;
+tstat[79].value := CumMiiN;
+tstat[80].value := CumMiiP;
+tstat[81].value := CumINH4;
+tstat[82].value := CumLNH4;
+tstat[83].value := CumNitr;
+tstat[84].value := CumINO3;
+tstat[85].value := CumLNO3;
+tstat[86].value := CumDNtr;
+tstat[87].value := CumPaw;
+tstat[88].value := CumPnow;
+tstat[89].value := CumIPO4;
+tstat[90].value := CumLPO4;
+tstat[91].value := CumPO4P;
+tstat[92].value := CumIPa;
+tstat[93].value := CumPocclw;
+tstat[94].value := CumPnos;
+tstat[95].value := CumIdoC;
+tstat[96].value := CumIdoN;
+tstat[97].value := CumLdoC;
+tstat[98].value := CumLdoN;
+tstat[99].value := CumUW;
+tstat[100].value := CumRO;
+tstat[101].value := CumPpt;
+tstat[102].value := CumIntr;
+tstat[103].value := CumRfl;
+tstat[104].value := CumSfl;
+tstat[105].value := CumSm;
+tstat[106].value := CumRin;
+tstat[107].value := CumIRindoC;
+tstat[108].value := CumIRindoN;
+tstat[109].value := CumIRinNH4;
+tstat[110].value := CumIRinNO3;
+tstat[111].value := CumIRinPO4;
+tstat[112].value := CumROvf;
+tstat[113].value := CumROvfdoC;
+tstat[114].value := CumROvfdoN;
+tstat[115].value := CumROvfNH4;
+tstat[116].value := CumROvfNO3;
+tstat[117].value := CumROvfPO4;
+tstat[118].value := LAIpeak;
+tstat[119].value := DOYfire;
+tstat[120].value := CumfBC;
+tstat[121].value := CumfBN;
+tstat[122].value := CumfBP;
+tstat[123].value := CumfWC;
+tstat[124].value := CumfWN;
+tstat[125].value := CumfWP;
+tstat[126].value := CumfDC;
+tstat[127].value := CumfDN;
+tstat[128].value := CumfDP;
+tstat[129].value := CumFCvt;
+tstat[130].value := CumFNvt;
+tstat[131].value := CumFPvt;
+tstat[132].value := CumLitCDebris;
+tstat[133].value := CumLitNDebris;
+tstat[134].value := CumLitPDebris;
+tstat[135].value := BCpeak;
+tstat[136].value := SPsT;
+tstat[137].value := SPs;
+tstat[138].value := Topt;
+tstat[139].value := Tg;
+tstat[140].value := WSmax;
 
 {  Put all process values into process variable array. The first numstate
   processes are the derivatives of the state variables (Calculated above).}
@@ -8079,106 +8770,114 @@ tproc[29].value := dWdt;
 tproc[30].value := dWSnowdt;
 tproc[31].value := dSQdt;
 tproc[32].value := dfcdt;
-tproc[33].value := dRCadt;
-tproc[34].value := dRNadt;
-tproc[35].value := dRPadt;
-tproc[36].value := dUCadt;
-tproc[37].value := dUNadt;
-tproc[38].value := dUPadt;
-tproc[39].value := dDDaypdt;
-tproc[40].value := dDDayndt;
-tproc[41].value := dCumGPPdt;
-tproc[42].value := dCumNPPdt;
-tproc[43].value := dCumNEPdt;
-tproc[44].value := dCumUdoCdt;
-tproc[45].value := dCumLitCdt;
-tproc[46].value := dCumLcWCdt;
-tproc[47].value := dCumtotalLitCdt;
-tproc[48].value := dCumtotalLitNdt;
-tproc[49].value := dCumtotalLitPdt;
-tproc[50].value := dCumRCmtotaldt;
-tproc[51].value := dCumNmintotdt;
-tproc[52].value := dCumPmintotdt;
-tproc[53].value := dCumUNdt;
-tproc[54].value := dCumUNH4dt;
-tproc[55].value := dCumUNO3dt;
-tproc[56].value := dCumUdoNdt;
-tproc[57].value := dCumUNfixdt;
-tproc[58].value := dCumLitNdt;
-tproc[59].value := dCumLcWNdt;
-tproc[60].value := dCumUPO4dt;
-tproc[61].value := dCumLitPdt;
-tproc[62].value := dCumLcWPdt;
-tproc[63].value := dCumLcWCadt;
-tproc[64].value := dCumRCmdt;
-tproc[65].value := dCumTiiCdt;
-tproc[66].value := dCumLcWNadt;
-tproc[67].value := dCumUNH4mdt;
-tproc[68].value := dCumUNO3mdt;
-tproc[69].value := dCumRNmdt;
-tproc[70].value := dCumTiiNdt;
-tproc[71].value := dCumNnsfixdt;
-tproc[72].value := dCumLcWPadt;
-tproc[73].value := dCumUPO4mdt;
-tproc[74].value := dCumRPmdt;
-tproc[75].value := dCumTiiPdt;
-tproc[76].value := dCumMiiCdt;
-tproc[77].value := dCumMiiNdt;
-tproc[78].value := dCumMiiPdt;
-tproc[79].value := dCumINH4dt;
-tproc[80].value := dCumLNH4dt;
-tproc[81].value := dCumNitrdt;
-tproc[82].value := dCumINO3dt;
-tproc[83].value := dCumLNO3dt;
-tproc[84].value := dCumDNtrdt;
-tproc[85].value := dCumPawdt;
-tproc[86].value := dCumPnowdt;
-tproc[87].value := dCumIPO4dt;
-tproc[88].value := dCumLPO4dt;
-tproc[89].value := dCumPO4Pdt;
-tproc[90].value := dCumIPadt;
-tproc[91].value := dCumPocclwdt;
-tproc[92].value := dCumPnosdt;
-tproc[93].value := dCumIdoCdt;
-tproc[94].value := dCumIdoNdt;
-tproc[95].value := dCumLdoCdt;
-tproc[96].value := dCumLdoNdt;
-tproc[97].value := dCumUWdt;
-tproc[98].value := dCumROdt;
-tproc[99].value := dCumPptdt;
-tproc[100].value := dCumIntrdt;
-tproc[101].value := dCumRfldt;
-tproc[102].value := dCumSfldt;
-tproc[103].value := dCumSmdt;
-tproc[104].value := dCumRindt;
-tproc[105].value := dCumIRindoCdt;
-tproc[106].value := dCumIRindoNdt;
-tproc[107].value := dCumIRinNH4dt;
-tproc[108].value := dCumIRinNO3dt;
-tproc[109].value := dCumIRinPO4dt;
-tproc[110].value := dCumROvfdt;
-tproc[111].value := dCumROvfdoCdt;
-tproc[112].value := dCumROvfdoNdt;
-tproc[113].value := dCumROvfNH4dt;
-tproc[114].value := dCumROvfNO3dt;
-tproc[115].value := dCumROvfPO4dt;
-tproc[116].value := dLAIpeakdt;
-tproc[117].value := dCumfBCdt;
-tproc[118].value := dCumfBNdt;
-tproc[119].value := dCumfBPdt;
-tproc[120].value := dCumfWCdt;
-tproc[121].value := dCumfWNdt;
-tproc[122].value := dCumfWPdt;
-tproc[123].value := dCumfDCdt;
-tproc[124].value := dCumfDNdt;
-tproc[125].value := dCumfDPdt;
-tproc[126].value := dCumFCvtdt;
-tproc[127].value := dCumFNvtdt;
-tproc[128].value := dCumFPvtdt;
-tproc[129].value := dCumLitCDebrisdt;
-tproc[130].value := dCumLitNDebrisdt;
-tproc[131].value := dCumLitPDebrisdt;
-tproc[132].value := dBCpeakdt;
+tproc[33].value := dLAInfixdt;
+tproc[34].value := dRCadt;
+tproc[35].value := dRNadt;
+tproc[36].value := dRPadt;
+tproc[37].value := dUCadt;
+tproc[38].value := dUNadt;
+tproc[39].value := dUPadt;
+tproc[40].value := dDDaypdt;
+tproc[41].value := dDDayndt;
+tproc[42].value := dCumGPPdt;
+tproc[43].value := dCumRCPtdt;
+tproc[44].value := dCumNPPdt;
+tproc[45].value := dCumNEPdt;
+tproc[46].value := dCumUdoCdt;
+tproc[47].value := dCumLitCdt;
+tproc[48].value := dCumLcWCdt;
+tproc[49].value := dCumtotalLitCdt;
+tproc[50].value := dCumtotalLitNdt;
+tproc[51].value := dCumtotalLitPdt;
+tproc[52].value := dCumRCmtotaldt;
+tproc[53].value := dCumNmintotdt;
+tproc[54].value := dCumPmintotdt;
+tproc[55].value := dCumUNdt;
+tproc[56].value := dCumUNH4dt;
+tproc[57].value := dCumUNO3dt;
+tproc[58].value := dCumUdoNdt;
+tproc[59].value := dCumUNfixdt;
+tproc[60].value := dCumLitNdt;
+tproc[61].value := dCumLcWNdt;
+tproc[62].value := dCumUPO4dt;
+tproc[63].value := dCumLitPdt;
+tproc[64].value := dCumLcWPdt;
+tproc[65].value := dCumLcWCadt;
+tproc[66].value := dCumRCmdt;
+tproc[67].value := dCumTiiCdt;
+tproc[68].value := dCumLcWNadt;
+tproc[69].value := dCumUNH4mdt;
+tproc[70].value := dCumUNO3mdt;
+tproc[71].value := dCumRNmdt;
+tproc[72].value := dCumTiiNdt;
+tproc[73].value := dCumNnsfixdt;
+tproc[74].value := dCumLcWPadt;
+tproc[75].value := dCumUPO4mdt;
+tproc[76].value := dCumRPmdt;
+tproc[77].value := dCumTiiPdt;
+tproc[78].value := dCumMiiCdt;
+tproc[79].value := dCumMiiNdt;
+tproc[80].value := dCumMiiPdt;
+tproc[81].value := dCumINH4dt;
+tproc[82].value := dCumLNH4dt;
+tproc[83].value := dCumNitrdt;
+tproc[84].value := dCumINO3dt;
+tproc[85].value := dCumLNO3dt;
+tproc[86].value := dCumDNtrdt;
+tproc[87].value := dCumPawdt;
+tproc[88].value := dCumPnowdt;
+tproc[89].value := dCumIPO4dt;
+tproc[90].value := dCumLPO4dt;
+tproc[91].value := dCumPO4Pdt;
+tproc[92].value := dCumIPadt;
+tproc[93].value := dCumPocclwdt;
+tproc[94].value := dCumPnosdt;
+tproc[95].value := dCumIdoCdt;
+tproc[96].value := dCumIdoNdt;
+tproc[97].value := dCumLdoCdt;
+tproc[98].value := dCumLdoNdt;
+tproc[99].value := dCumUWdt;
+tproc[100].value := dCumROdt;
+tproc[101].value := dCumPptdt;
+tproc[102].value := dCumIntrdt;
+tproc[103].value := dCumRfldt;
+tproc[104].value := dCumSfldt;
+tproc[105].value := dCumSmdt;
+tproc[106].value := dCumRindt;
+tproc[107].value := dCumIRindoCdt;
+tproc[108].value := dCumIRindoNdt;
+tproc[109].value := dCumIRinNH4dt;
+tproc[110].value := dCumIRinNO3dt;
+tproc[111].value := dCumIRinPO4dt;
+tproc[112].value := dCumROvfdt;
+tproc[113].value := dCumROvfdoCdt;
+tproc[114].value := dCumROvfdoNdt;
+tproc[115].value := dCumROvfNH4dt;
+tproc[116].value := dCumROvfNO3dt;
+tproc[117].value := dCumROvfPO4dt;
+tproc[118].value := dLAIpeakdt;
+tproc[119].value := dDOYfiredt;
+tproc[120].value := dCumfBCdt;
+tproc[121].value := dCumfBNdt;
+tproc[122].value := dCumfBPdt;
+tproc[123].value := dCumfWCdt;
+tproc[124].value := dCumfWNdt;
+tproc[125].value := dCumfWPdt;
+tproc[126].value := dCumfDCdt;
+tproc[127].value := dCumfDNdt;
+tproc[128].value := dCumfDPdt;
+tproc[129].value := dCumFCvtdt;
+tproc[130].value := dCumFNvtdt;
+tproc[131].value := dCumFPvtdt;
+tproc[132].value := dCumLitCDebrisdt;
+tproc[133].value := dCumLitNDebrisdt;
+tproc[134].value := dCumLitPDebrisdt;
+tproc[135].value := dBCpeakdt;
+tproc[136].value := dSPsTdt;
+tproc[137].value := dSPsdt;
+tproc[138].value := dToptdt;
+tproc[139].value := dTgdt;
+tproc[140].value := dWSmaxdt;
 
 { Now the remaining processes. Be sure to number the processes the same here as
   you did in the procedure counts above. }
@@ -8207,189 +8906,225 @@ tproc[ModelDef.numstate + 22].value := PsC;
 tproc[ModelDef.numstate + 23].value := PsW;
 tproc[ModelDef.numstate + 24].value := UC;
 tproc[ModelDef.numstate + 25].value := UW;
-tproc[ModelDef.numstate + 26].value := PET;
-tproc[ModelDef.numstate + 27].value := NH4aq;
-tproc[ModelDef.numstate + 28].value := UNH4;
-tproc[ModelDef.numstate + 29].value := NO3aq;
-tproc[ModelDef.numstate + 30].value := UNO3;
-tproc[ModelDef.numstate + 31].value := PaDoC;
-tproc[ModelDef.numstate + 32].value := UdoC;
-tproc[ModelDef.numstate + 33].value := UdoN;
-tproc[ModelDef.numstate + 34].value := UNfix;
-tproc[ModelDef.numstate + 35].value := UN;
-tproc[ModelDef.numstate + 36].value := PO4aq;
-tproc[ModelDef.numstate + 37].value := UPO4;
-tproc[ModelDef.numstate + 38].value := aqN;
-tproc[ModelDef.numstate + 39].value := qN;
-tproc[ModelDef.numstate + 40].value := aqP;
-tproc[ModelDef.numstate + 41].value := qP;
-tproc[ModelDef.numstate + 42].value := LitC;
-tproc[ModelDef.numstate + 43].value := LitN;
-tproc[ModelDef.numstate + 44].value := LitP;
-tproc[ModelDef.numstate + 45].value := LitCDebris;
-tproc[ModelDef.numstate + 46].value := LitNDebris;
-tproc[ModelDef.numstate + 47].value := LitPDebris;
-tproc[ModelDef.numstate + 48].value := LcWC;
-tproc[ModelDef.numstate + 49].value := LcWN;
-tproc[ModelDef.numstate + 50].value := LcWP;
-tproc[ModelDef.numstate + 51].value := LcWCa;
-tproc[ModelDef.numstate + 52].value := LcWNa;
-tproc[ModelDef.numstate + 53].value := LcWPa;
-tproc[ModelDef.numstate + 54].value := RCPm;
-tproc[ModelDef.numstate + 55].value := RCPt;
-tproc[ModelDef.numstate + 56].value := NUE;
-tproc[ModelDef.numstate + 57].value := PUE;
-tproc[ModelDef.numstate + 58].value := WUE;
-tproc[ModelDef.numstate + 59].value := Vstar;
-tproc[ModelDef.numstate + 60].value := RCg;
-tproc[ModelDef.numstate + 61].value := RNg;
-tproc[ModelDef.numstate + 62].value := RPg;
-tproc[ModelDef.numstate + 63].value := yNH4;
-tproc[ModelDef.numstate + 64].value := yNO3;
-tproc[ModelDef.numstate + 65].value := ydoN;
-tproc[ModelDef.numstate + 66].value := yNfix;
-tproc[ModelDef.numstate + 67].value := yCO2;
-tproc[ModelDef.numstate + 68].value := yI;
-tproc[ModelDef.numstate + 69].value := yW;
-tproc[ModelDef.numstate + 70].value := yCa;
-tproc[ModelDef.numstate + 71].value := yNa;
-tproc[ModelDef.numstate + 72].value := RCt;
-tproc[ModelDef.numstate + 73].value := RNt;
-tproc[ModelDef.numstate + 74].value := RPt;
-tproc[ModelDef.numstate + 75].value := phi;
-tproc[ModelDef.numstate + 76].value := Ci;
-tproc[ModelDef.numstate + 77].value := VTot;
-tproc[ModelDef.numstate + 78].value := VR;
-tproc[ModelDef.numstate + 79].value := VL;
-tproc[ModelDef.numstate + 80].value := SoCt;
-tproc[ModelDef.numstate + 81].value := SoNt;
-tproc[ModelDef.numstate + 82].value := SoPt;
-tproc[ModelDef.numstate + 83].value := NPP;
-tproc[ModelDef.numstate + 84].value := Ro;
-tproc[ModelDef.numstate + 85].value := LNH4;
-tproc[ModelDef.numstate + 86].value := LNO3;
-tproc[ModelDef.numstate + 87].value := LdoC;
-tproc[ModelDef.numstate + 88].value := LdoN;
-tproc[ModelDef.numstate + 89].value := LNtot;
-tproc[ModelDef.numstate + 90].value := LPO4;
-tproc[ModelDef.numstate + 91].value := thetaN;
-tproc[ModelDef.numstate + 92].value := thetaP;
-tproc[ModelDef.numstate + 93].value := UNH4m;
-tproc[ModelDef.numstate + 94].value := UNO3m;
-tproc[ModelDef.numstate + 95].value := UNmtot;
-tproc[ModelDef.numstate + 96].value := UPO4m;
-tproc[ModelDef.numstate + 97].value := MC;
-tproc[ModelDef.numstate + 98].value := MN;
-tproc[ModelDef.numstate + 99].value := MP;
-tproc[ModelDef.numstate + 100].value := LambdaC;
-tproc[ModelDef.numstate + 101].value := LambdaN;
-tproc[ModelDef.numstate + 102].value := LambdaP;
-tproc[ModelDef.numstate + 103].value := RCm;
-tproc[ModelDef.numstate + 104].value := RNm;
-tproc[ModelDef.numstate + 105].value := RPm;
-tproc[ModelDef.numstate + 106].value := TiiC;
-tproc[ModelDef.numstate + 107].value := TiiN;
-tproc[ModelDef.numstate + 108].value := TiiP;
-tproc[ModelDef.numstate + 109].value := MiiC;
-tproc[ModelDef.numstate + 110].value := MiiN;
-tproc[ModelDef.numstate + 111].value := MiiP;
-tproc[ModelDef.numstate + 112].value := Nnsfix;
-tproc[ModelDef.numstate + 113].value := Nitr;
-tproc[ModelDef.numstate + 114].value := dVtot;
-tproc[ModelDef.numstate + 115].value := Ndept;
-tproc[ModelDef.numstate + 116].value := netNmin;
-tproc[ModelDef.numstate + 117].value := netPmin;
-tproc[ModelDef.numstate + 118].value := NEP;
-tproc[ModelDef.numstate + 119].value := NeNb;
-tproc[ModelDef.numstate + 120].value := NePB;
-tproc[ModelDef.numstate + 121].value := NeCB;
-tproc[ModelDef.numstate + 122].value := NEWB;
-tproc[ModelDef.numstate + 123].value := CumNeCB;
-tproc[ModelDef.numstate + 124].value := CumNeNB;
-tproc[ModelDef.numstate + 125].value := CumNePB;
-tproc[ModelDef.numstate + 126].value := CumNeWB;
-tproc[ModelDef.numstate + 127].value := Btstar;
-tproc[ModelDef.numstate + 128].value := LL;
-tproc[ModelDef.numstate + 129].value := Sm;
-tproc[ModelDef.numstate + 130].value := Doy;
-tproc[ModelDef.numstate + 131].value := Dl;
-tproc[ModelDef.numstate + 132].value := delta;
-tproc[ModelDef.numstate + 133].value := Intr;
-tproc[ModelDef.numstate + 134].value := OmegaC;
-tproc[ModelDef.numstate + 135].value := OmegaN;
-tproc[ModelDef.numstate + 136].value := OmegaP;
-tproc[ModelDef.numstate + 137].value := dUCdvCO2;
-tproc[ModelDef.numstate + 138].value := dUCdvW;
-tproc[ModelDef.numstate + 139].value := dUCdvI;
-tproc[ModelDef.numstate + 140].value := dUNdvNH4;
-tproc[ModelDef.numstate + 141].value := dUNdvNO3;
-tproc[ModelDef.numstate + 142].value := dUNdvdoN;
-tproc[ModelDef.numstate + 143].value := dUNdvNfix;
-tproc[ModelDef.numstate + 144].value := dUCdVC;
-tproc[ModelDef.numstate + 145].value := chiC;
-tproc[ModelDef.numstate + 146].value := chiN;
-tproc[ModelDef.numstate + 147].value := chiP;
-tproc[ModelDef.numstate + 148].value := zetaCO2;
-tproc[ModelDef.numstate + 149].value := zetaW;
-tproc[ModelDef.numstate + 150].value := zetaI;
-tproc[ModelDef.numstate + 151].value := zetaNH4;
-tproc[ModelDef.numstate + 152].value := zetaNO3;
-tproc[ModelDef.numstate + 153].value := zetaNfix;
-tproc[ModelDef.numstate + 154].value := zetadoN;
-tproc[ModelDef.numstate + 155].value := z;
-tproc[ModelDef.numstate + 156].value := betanRd;
-tproc[ModelDef.numstate + 157].value := Rd;
-tproc[ModelDef.numstate + 158].value := Rl;
-tproc[ModelDef.numstate + 159].value := DNtr;
-tproc[ModelDef.numstate + 160].value := Dop;
-tproc[ModelDef.numstate + 161].value := VpC;
-tproc[ModelDef.numstate + 162].value := fuf;
-tproc[ModelDef.numstate + 163].value := Ts;
-tproc[ModelDef.numstate + 164].value := ks;
-tproc[ModelDef.numstate + 165].value := kst;
-tproc[ModelDef.numstate + 166].value := ksf;
-tproc[ModelDef.numstate + 167].value := aQl;
-tproc[ModelDef.numstate + 168].value := aQh;
-tproc[ModelDef.numstate + 169].value := Sfl;
-tproc[ModelDef.numstate + 170].value := Rfl;
-tproc[ModelDef.numstate + 171].value := theta;
-tproc[ModelDef.numstate + 172].value := OvfR;
-tproc[ModelDef.numstate + 173].value := ROvfdoC;
-tproc[ModelDef.numstate + 174].value := ROvfdoN;
-tproc[ModelDef.numstate + 175].value := ROvfNH4;
-tproc[ModelDef.numstate + 176].value := ROvfNO3;
-tproc[ModelDef.numstate + 177].value := ROvfPO4;
-tproc[ModelDef.numstate + 178].value := OvfI;
-tproc[ModelDef.numstate + 179].value := Dot;
-tproc[ModelDef.numstate + 180].value := calib;
-tproc[ModelDef.numstate + 181].value := deltaDW;
-tproc[ModelDef.numstate + 182].value := Yf;
-tproc[ModelDef.numstate + 183].value := SCdev;
-tproc[ModelDef.numstate + 184].value := STdev;
-tproc[ModelDef.numstate + 185].value := WTdev;
-tproc[ModelDef.numstate + 186].value := Pptsim;
-tproc[ModelDef.numstate + 187].value := SPdev;
-tproc[ModelDef.numstate + 188].value := WPdev;
-tproc[ModelDef.numstate + 189].value := Proj_Ca;
-tproc[ModelDef.numstate + 190].value := Proj_Tmax;
-tproc[ModelDef.numstate + 191].value := Proj_Tmin;
-tproc[ModelDef.numstate + 192].value := Proj_Ppt;
-tproc[ModelDef.numstate + 193].value := Tave;
-tproc[ModelDef.numstate + 194].value := FBC;
-tproc[ModelDef.numstate + 195].value := FBN;
-tproc[ModelDef.numstate + 196].value := FBP;
-tproc[ModelDef.numstate + 197].value := FWC;
-tproc[ModelDef.numstate + 198].value := FWN;
-tproc[ModelDef.numstate + 199].value := FWP;
-tproc[ModelDef.numstate + 200].value := FDC;
-tproc[ModelDef.numstate + 201].value := FDN;
-tproc[ModelDef.numstate + 202].value := FDP;
-tproc[ModelDef.numstate + 203].value := FNO3;
-tproc[ModelDef.numstate + 204].value := FPO4;
-tproc[ModelDef.numstate + 205].value := FNvol;
-tproc[ModelDef.numstate + 206].value := FPvol;
-tproc[ModelDef.numstate + 207].value := LW;
-tproc[ModelDef.numstate + 208].value := Proj_Rin;
+tproc[ModelDef.numstate + 26].value := UWmax;
+tproc[ModelDef.numstate + 27].value := PET;
+tproc[ModelDef.numstate + 28].value := NH4aq;
+tproc[ModelDef.numstate + 29].value := UNH4;
+tproc[ModelDef.numstate + 30].value := NO3aq;
+tproc[ModelDef.numstate + 31].value := UNO3;
+tproc[ModelDef.numstate + 32].value := PaDoC;
+tproc[ModelDef.numstate + 33].value := UdoC;
+tproc[ModelDef.numstate + 34].value := UdoN;
+tproc[ModelDef.numstate + 35].value := UNfix;
+tproc[ModelDef.numstate + 36].value := UN;
+tproc[ModelDef.numstate + 37].value := PO4aq;
+tproc[ModelDef.numstate + 38].value := UPO4;
+tproc[ModelDef.numstate + 39].value := aqN;
+tproc[ModelDef.numstate + 40].value := qN;
+tproc[ModelDef.numstate + 41].value := aqP;
+tproc[ModelDef.numstate + 42].value := qP;
+tproc[ModelDef.numstate + 43].value := LitC;
+tproc[ModelDef.numstate + 44].value := LitN;
+tproc[ModelDef.numstate + 45].value := LitP;
+tproc[ModelDef.numstate + 46].value := LitCDebris;
+tproc[ModelDef.numstate + 47].value := LitNDebris;
+tproc[ModelDef.numstate + 48].value := LitPDebris;
+tproc[ModelDef.numstate + 49].value := LcWC;
+tproc[ModelDef.numstate + 50].value := LcWN;
+tproc[ModelDef.numstate + 51].value := LcWP;
+tproc[ModelDef.numstate + 52].value := LcWCa;
+tproc[ModelDef.numstate + 53].value := LcWNa;
+tproc[ModelDef.numstate + 54].value := LcWPa;
+tproc[ModelDef.numstate + 55].value := RCPm;
+tproc[ModelDef.numstate + 56].value := RCPt;
+tproc[ModelDef.numstate + 57].value := NUE;
+tproc[ModelDef.numstate + 58].value := PUE;
+tproc[ModelDef.numstate + 59].value := WUE;
+tproc[ModelDef.numstate + 60].value := Vstar;
+tproc[ModelDef.numstate + 61].value := RCg;
+tproc[ModelDef.numstate + 62].value := RNg;
+tproc[ModelDef.numstate + 63].value := RPg;
+tproc[ModelDef.numstate + 64].value := yNH4;
+tproc[ModelDef.numstate + 65].value := yNO3;
+tproc[ModelDef.numstate + 66].value := ydoN;
+tproc[ModelDef.numstate + 67].value := yNfix;
+tproc[ModelDef.numstate + 68].value := yCO2;
+tproc[ModelDef.numstate + 69].value := yI;
+tproc[ModelDef.numstate + 70].value := yW;
+tproc[ModelDef.numstate + 71].value := yCa;
+tproc[ModelDef.numstate + 72].value := yNa;
+tproc[ModelDef.numstate + 73].value := RCt;
+tproc[ModelDef.numstate + 74].value := RNt;
+tproc[ModelDef.numstate + 75].value := RPt;
+tproc[ModelDef.numstate + 76].value := phi;
+tproc[ModelDef.numstate + 77].value := Ci;
+tproc[ModelDef.numstate + 78].value := VTot;
+tproc[ModelDef.numstate + 79].value := VR;
+tproc[ModelDef.numstate + 80].value := VL;
+tproc[ModelDef.numstate + 81].value := SoCt;
+tproc[ModelDef.numstate + 82].value := SoNt;
+tproc[ModelDef.numstate + 83].value := SoPt;
+tproc[ModelDef.numstate + 84].value := NPP;
+tproc[ModelDef.numstate + 85].value := Ro;
+tproc[ModelDef.numstate + 86].value := LNH4;
+tproc[ModelDef.numstate + 87].value := LNO3;
+tproc[ModelDef.numstate + 88].value := LdoC;
+tproc[ModelDef.numstate + 89].value := LdoN;
+tproc[ModelDef.numstate + 90].value := LNtot;
+tproc[ModelDef.numstate + 91].value := LPO4;
+tproc[ModelDef.numstate + 92].value := thetaN;
+tproc[ModelDef.numstate + 93].value := thetaP;
+tproc[ModelDef.numstate + 94].value := UNH4m;
+tproc[ModelDef.numstate + 95].value := UNO3m;
+tproc[ModelDef.numstate + 96].value := UNmtot;
+tproc[ModelDef.numstate + 97].value := UPO4m;
+tproc[ModelDef.numstate + 98].value := MC;
+tproc[ModelDef.numstate + 99].value := MN;
+tproc[ModelDef.numstate + 100].value := MP;
+tproc[ModelDef.numstate + 101].value := LambdaC;
+tproc[ModelDef.numstate + 102].value := LambdaN;
+tproc[ModelDef.numstate + 103].value := LambdaP;
+tproc[ModelDef.numstate + 104].value := RCm;
+tproc[ModelDef.numstate + 105].value := RNm;
+tproc[ModelDef.numstate + 106].value := RPm;
+tproc[ModelDef.numstate + 107].value := TiiC;
+tproc[ModelDef.numstate + 108].value := TiiN;
+tproc[ModelDef.numstate + 109].value := TiiP;
+tproc[ModelDef.numstate + 110].value := MiiC;
+tproc[ModelDef.numstate + 111].value := MiiN;
+tproc[ModelDef.numstate + 112].value := MiiP;
+tproc[ModelDef.numstate + 113].value := Nnsfix;
+tproc[ModelDef.numstate + 114].value := Nitr;
+tproc[ModelDef.numstate + 115].value := dVtot;
+tproc[ModelDef.numstate + 116].value := Ndept;
+tproc[ModelDef.numstate + 117].value := netNmin;
+tproc[ModelDef.numstate + 118].value := netPmin;
+tproc[ModelDef.numstate + 119].value := NEP;
+tproc[ModelDef.numstate + 120].value := NeNb;
+tproc[ModelDef.numstate + 121].value := NePB;
+tproc[ModelDef.numstate + 122].value := NeCB;
+tproc[ModelDef.numstate + 123].value := NEWB;
+tproc[ModelDef.numstate + 124].value := CumNeCB;
+tproc[ModelDef.numstate + 125].value := CumNeNB;
+tproc[ModelDef.numstate + 126].value := CumNePB;
+tproc[ModelDef.numstate + 127].value := CumNeWB;
+tproc[ModelDef.numstate + 128].value := Btstar;
+tproc[ModelDef.numstate + 129].value := LL;
+tproc[ModelDef.numstate + 130].value := Sm;
+tproc[ModelDef.numstate + 131].value := Doy;
+tproc[ModelDef.numstate + 132].value := Dl;
+tproc[ModelDef.numstate + 133].value := delta;
+tproc[ModelDef.numstate + 134].value := Intr;
+tproc[ModelDef.numstate + 135].value := OmegaC;
+tproc[ModelDef.numstate + 136].value := OmegaN;
+tproc[ModelDef.numstate + 137].value := OmegaP;
+tproc[ModelDef.numstate + 138].value := dUCdvCO2;
+tproc[ModelDef.numstate + 139].value := dUCdvW;
+tproc[ModelDef.numstate + 140].value := dUCdvI;
+tproc[ModelDef.numstate + 141].value := dUNdvNH4;
+tproc[ModelDef.numstate + 142].value := dUNdvNO3;
+tproc[ModelDef.numstate + 143].value := dUNdvdoN;
+tproc[ModelDef.numstate + 144].value := dUNdvNfix;
+tproc[ModelDef.numstate + 145].value := dUCdVC;
+tproc[ModelDef.numstate + 146].value := chiC;
+tproc[ModelDef.numstate + 147].value := chiN;
+tproc[ModelDef.numstate + 148].value := chiP;
+tproc[ModelDef.numstate + 149].value := zetaCO2;
+tproc[ModelDef.numstate + 150].value := zetaW;
+tproc[ModelDef.numstate + 151].value := zetaI;
+tproc[ModelDef.numstate + 152].value := zetaNH4;
+tproc[ModelDef.numstate + 153].value := zetaNO3;
+tproc[ModelDef.numstate + 154].value := zetaNfix;
+tproc[ModelDef.numstate + 155].value := zetadoN;
+tproc[ModelDef.numstate + 156].value := z;
+tproc[ModelDef.numstate + 157].value := betanRd;
+tproc[ModelDef.numstate + 158].value := Rd;
+tproc[ModelDef.numstate + 159].value := Rl;
+tproc[ModelDef.numstate + 160].value := DNtr;
+tproc[ModelDef.numstate + 161].value := Dop;
+tproc[ModelDef.numstate + 162].value := VpC;
+tproc[ModelDef.numstate + 163].value := fuf;
+tproc[ModelDef.numstate + 164].value := Ts;
+tproc[ModelDef.numstate + 165].value := alpha;
+tproc[ModelDef.numstate + 166].value := ks;
+tproc[ModelDef.numstate + 167].value := kst;
+tproc[ModelDef.numstate + 168].value := ksf;
+tproc[ModelDef.numstate + 169].value := aQl;
+tproc[ModelDef.numstate + 170].value := aQh;
+tproc[ModelDef.numstate + 171].value := Sfl;
+tproc[ModelDef.numstate + 172].value := Rfl;
+tproc[ModelDef.numstate + 173].value := theta;
+tproc[ModelDef.numstate + 174].value := OvfR;
+tproc[ModelDef.numstate + 175].value := ROvfdoC;
+tproc[ModelDef.numstate + 176].value := ROvfdoN;
+tproc[ModelDef.numstate + 177].value := ROvfNH4;
+tproc[ModelDef.numstate + 178].value := ROvfNO3;
+tproc[ModelDef.numstate + 179].value := ROvfPO4;
+tproc[ModelDef.numstate + 180].value := OvfI;
+tproc[ModelDef.numstate + 181].value := Dot;
+tproc[ModelDef.numstate + 182].value := calib;
+tproc[ModelDef.numstate + 183].value := deltaDW;
+tproc[ModelDef.numstate + 184].value := Yf;
+tproc[ModelDef.numstate + 185].value := SCdev;
+tproc[ModelDef.numstate + 186].value := STdev;
+tproc[ModelDef.numstate + 187].value := WTdev;
+tproc[ModelDef.numstate + 188].value := Pptsim;
+tproc[ModelDef.numstate + 189].value := SPdev;
+tproc[ModelDef.numstate + 190].value := WPdev;
+tproc[ModelDef.numstate + 191].value := Proj_Ca;
+tproc[ModelDef.numstate + 192].value := Proj_Tmax;
+tproc[ModelDef.numstate + 193].value := Proj_Tmin;
+tproc[ModelDef.numstate + 194].value := Proj_Ppt;
+tproc[ModelDef.numstate + 195].value := Tave;
+tproc[ModelDef.numstate + 196].value := FBC;
+tproc[ModelDef.numstate + 197].value := FBN;
+tproc[ModelDef.numstate + 198].value := FBP;
+tproc[ModelDef.numstate + 199].value := FWC;
+tproc[ModelDef.numstate + 200].value := FWN;
+tproc[ModelDef.numstate + 201].value := FWP;
+tproc[ModelDef.numstate + 202].value := FDC;
+tproc[ModelDef.numstate + 203].value := FDN;
+tproc[ModelDef.numstate + 204].value := FDP;
+tproc[ModelDef.numstate + 205].value := FNO3;
+tproc[ModelDef.numstate + 206].value := FPO4;
+tproc[ModelDef.numstate + 207].value := FNvol;
+tproc[ModelDef.numstate + 208].value := FPvol;
+tproc[ModelDef.numstate + 209].value := LW;
+tproc[ModelDef.numstate + 210].value := Proj_Rin;
+tproc[ModelDef.numstate + 211].value := qNSiicalc;
+tproc[ModelDef.numstate + 212].value := qPSiicalc;
+tproc[ModelDef.numstate + 213].value := phiNcalc;
+tproc[ModelDef.numstate + 214].value := phiPcalc;
+tproc[ModelDef.numstate + 215].value := LcwCatarcalc;
+tproc[ModelDef.numstate + 216].value := LcwNatarcalc;
+tproc[ModelDef.numstate + 217].value := LcWPatarcalc;
+tproc[ModelDef.numstate + 218].value := LitNDebristarcalc;
+tproc[ModelDef.numstate + 219].value := LitPDebristarcalc;
+tproc[ModelDef.numstate + 220].value := LitCtarcalc;
+tproc[ModelDef.numstate + 221].value := LitNtarcalc;
+tproc[ModelDef.numstate + 222].value := LitPtarcalc;
+tproc[ModelDef.numstate + 223].value := RCmtarcalc;
+tproc[ModelDef.numstate + 224].value := RNmtarcalc;
+tproc[ModelDef.numstate + 225].value := RPmtarcalc;
+tproc[ModelDef.numstate + 226].value := MiiCtarcalc;
+tproc[ModelDef.numstate + 227].value := DNtrtarcalc;
+tproc[ModelDef.numstate + 228].value := Nitrtarcalc;
+tproc[ModelDef.numstate + 229].value := LNO3tarcalc;
+tproc[ModelDef.numstate + 230].value := LNH4tarcalc;
+tproc[ModelDef.numstate + 231].value := LPO4tarcalc;
+tproc[ModelDef.numstate + 232].value := LDOCtarcalc;
+tproc[ModelDef.numstate + 233].value := FNvttarcalc;
+tproc[ModelDef.numstate + 234].value := FPvttarcalc;
+tproc[ModelDef.numstate + 235].value := ea;
+tproc[ModelDef.numstate + 236].value := Iswmax;
+tproc[ModelDef.numstate + 237].value := ho;
+tproc[ModelDef.numstate + 238].value := dAU;
+tproc[ModelDef.numstate + 239].value := Sdnet;
+tproc[ModelDef.numstate + 240].value := fcc;
+tproc[ModelDef.numstate + 241].value := Ld;
+tproc[ModelDef.numstate + 242].value := Lu;
+tproc[ModelDef.numstate + 243].value := Rnets;
+tproc[ModelDef.numstate + 244].value := Tsnow;
 
 end;  // End of processes procedure
 

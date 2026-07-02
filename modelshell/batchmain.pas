@@ -42,7 +42,6 @@ type
     { Public declarations }
     BatchFilename: string;
     Defpath: string;
-
   end;
 
 var
@@ -105,134 +104,49 @@ begin
  BtnCancelBatch.Enabled := False;
  RunCrashed := False;
  LogFilename := ChangeFileExt(BatchFilename,'.log');
-// ChangeExtension(LogFilename,'log');
  OpenLogFile(LogFilename, BatchFilename);
  OpenBatchFile(BatchFilename);
  try
-  ReadBatchFile(paramfilename,driverfilename,outfilename,time_start,time_stop,
-                   stat,FmOptions.RunOptions);
+  ReadBatchFile(BatchFilename, stat,FmOptions.RunOptions);
   if (Application.Title = 'sensitivity') and (paramfilename <> 'senstest.par')
     then raise Exception.Create('Invalid parameter file for sensitivity test.');
   repeat
    try
-    ReadParamFile(paramfilename, ModelDef.numparam,par, ModelDef.numstate,stat,temp);
+    FmShellMain.MeStopTime.text:=floattostr(FmOptions.RunOptions.StopTime);
+    FmShellMain.MEStartTime.text:=floattostr(FmOptions.RunOptions.StartTime);
+    FmShellMain.ParamBox.Text:=FmOptions.RunOptions.parfilename;
+    FmShellMain.DriverBox.text:=FmOptions.RunOptions.driverfilename;
+    FmShellMain.OutputBox.text:=FmOptions.RunOptions.OutputFilename;
+    ReadParamFile(FmOptions.RunOptions.parfilename, ModelDef.numparam,par, ModelDef.numstate,stat,temp);
 
-    // MEL Multisite Code, create subsequent parameter files and spin up efforts for regrow simulations
-    parname:=ExtractFileNameOnly(paramfilename);
-    dotpos:=rpos('.',parname);
-    lastsec:=copy(parname,dotpos+1,5);
-    if lastsec='SS' then
-     begin
-       // Create climate driver files
-       //CO2
-       Caidx:=FmCalculate.GetArrayIndex(vtParameter, 'FlagCa');
-       Tidx:=FmCalculate.GetArrayIndex(vtParameter, 'FlagT');
-       T35idx:=FmCalculate.GetArrayIndex(vtParameter,'FlagT35');
-       Pptidx:=FmCalculate.GetArrayIndex(vtParameter, 'FlagPpt');
-
-       par[Tidx].value:=0;
-       par[T35idx].value:=0;
-       par[Pptidx].value:=0;
-       par[Caidx].value:=1;
-       WriteParamFile(parname+'.Ca.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //T
-       par[Tidx].value:=1;
-       par[T35idx].value:=1;
-       par[Pptidx].value:=0;
-       par[Caidx].value:=0;
-       WriteParamFile(parname+'.T.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //Ppti
-       par[Pptidx].value:=1;
-       par[Tidx].value:=0;
-       par[T35idx].value:=0;
-       par[Caidx].value:=0;
-       WriteParamFile(parname+'.Ppti.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //Pptd
-       par[Pptidx].value:=-1;
-       par[Tidx].value:=0;
-       par[T35idx].value:=0;
-       par[Caidx].value:=0;
-       WriteParamFile(parname+'.Pptd.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //PptiT
-       par[Caidx].value:=0;
-       par[Tidx].value:=1;
-       par[T35idx].value:=1;
-       par[Pptidx].value:=1;
-       WriteParamFile(parname+'.PptiT.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //PptdT
-       par[Caidx].value:=0;
-       par[Tidx].value:=1;
-       par[T35idx].value:=1;
-       par[Pptidx].value:=-1;
-       WriteParamFile(parname+'.PptdT.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //CaT
-       par[Caidx].value:=1;
-       par[Tidx].value:=1;
-       par[T35idx].value:=1;
-       par[Pptidx].value:=0;
-       WriteParamFile(parname+'.CaT.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //CaPpti
-       par[Caidx].value:=1;
-       par[Tidx].value:=0;
-       par[T35idx].value:=0;
-       par[Pptidx].value:=1;
-       WriteParamFile(parname+'.CaPpti.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //CaPptd
-       par[Caidx].value:=1;
-       par[Tidx].value:=0;
-       par[T35idx].value:=0;
-       par[Pptidx].value:=-1;
-       WriteParamFile(parname+'.CaPptd.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //Calli
-       par[Caidx].value:=1;
-       par[Tidx].value:=1;
-       par[T35idx].value:=1;
-       par[Pptidx].value:=1;
-       WriteParamFile(parname+'.Calli.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-
-       //Calld
-       par[Caidx].value:=1;
-       par[Tidx].value:=1;
-       par[T35idx].value:=1;
-       par[Pptidx].value:=-1;
-       WriteParamFile(parname+'.Calld.par',ModelDef.numparam,par,ModelDef.numstate,stat,FmShellMain.Currentresid);
-end;
-
-    // Spin up efforts for regrow simulations and save par file for actual regrow run
+   // Spin up efforts for regrow simulations and save par file for actual regrow run
     if AnsiContainsStr(lowercase(parname),'spinup regrow') and stat[1].Reset then
      begin
-       RunSpinup(paramfilename,driverfilename,outfilename);
+       RunSpinup(FmOptions.RunOptions.parfilename,FmOptions.RunOptions.driverfilename,FmOptions.RunOptions.OutputFilename);
      end
     else
      begin
        FmShellMain.BtnRunClick(Sender);
+       if AnsiContainsStr(lowercase(FmOptions.RunOptions.OutputFilename),'spinup') then
+         begin
+           FmOptions.RunOptions.parfilename:=stringreplace(FmOptions.RunOptions.parfilename,'spun','spun2',[rfIgnoreCase,rfReplaceAll]);
+           WriteParamFile(FmOptions.RunOptions.parfilename, ModelDef.numparam,par, ModelDef.numstate,stat,FmShellMain.Currentresid);
+         end;
      end;
 
-    WriteLogFile(LogFilename,outfilename,'Run Complete - '+ DateTimeToStr(Now));
-  // single layer version
- ///   CreateNextDriver(outfilename, driverfilename);
-  // 4 layer version
- //   CreateNextDriver4L(outfilename, driverfilename);
+     WriteLogFile(LogFilename,FmOptions.RunOptions.OutputFilename,'Run Complete - '+ DateTimeToStr(Now));
+{ // single layer version
+    CreateNextDriver(FmOptions.RunOptions.OutputFilename, FmOptions.RunOptions.driverfilename);
+ // 4 layer version
+    CreateNextDriver4L(FmOptions.RunOptions.OutputFilename, FmOptions.RunOptions.driverfilename);      }
    except
     on E: Exception do
      begin
-      WriteLogFile(LogFilename, outfilename, E.Message + ' - '
+      WriteLogFile(LogFilename, FmOptions.RunOptions.OutputFilename, E.Message + ' - '
         + DateTimeToStr(Now));
-      if not (Application.Title = 'modelbatch') then RunCrashed := True;
      end;
    end;
-  until (ReadBatchFile(paramfilename,driverfilename,outfilename,
-              time_start,time_stop,stat,FmOptions.RunOptions) = False) or
-        (RunCrashed);
+  until (ReadBatchFile(BatchFilename, stat,FmOptions.RunOptions) = False);
   WriteLogFile(LogFilename,batchfilename,'Batch Job Complete.');
  finally
   CloseBatchFile;
@@ -277,7 +191,7 @@ begin
    outcounter := 0;
    WriteEvery := 0;
    ErrorMult := 1;
-   OutputFile:=false;
+ //  OutputFile:=false;
   end;
 end;
 

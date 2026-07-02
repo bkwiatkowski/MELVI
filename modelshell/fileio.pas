@@ -8,7 +8,7 @@ unit fileio;
 
 interface
 
-uses sysutils, classes, Dialogs, stypes, frontend, Options, Lazfileutils;
+uses sysutils, classes, Dialogs, stypes, frontend, Options, Lazfileutils,batchmain;
 
 type  TAction = (flRead, flWrite);
       EFileError = Class(Exception);
@@ -36,8 +36,7 @@ procedure CloseOutputFile;
 
 // Batch I/O
 procedure OpenBatchFile(filename:string);
-function  ReadBatchFile(var paramname, drivername, outputname:string; var begintime,
-             endtime:double; var tstat:statearray; var opt:TRunOptions):Boolean;
+function  ReadBatchFile(filename:string; var tstat:statearray; var opt:TRunOptions):Boolean;
 procedure CloseBatchFile;
 procedure OpenLogFile(filename, batchfile:string);
 function  WriteLogFile(filename:string; outputname:string;
@@ -508,57 +507,63 @@ end;
 
 { Reads a line from the batch file. Returns true if the read was successful and
   returns false otherwise. }
-function  ReadBatchFile(var paramname, drivername, outputname:string; var begintime,
-             endtime:double; var tstat:statearray; var opt:TRunOptions):Boolean;
+function  ReadBatchFile(filename:string; var tstat:statearray; var opt:TRunOptions):Boolean;
 var
- tempstring1, tempstring2: string;
+ tempstring1, tempstring2,currentpath: string;
  numbegin, numend:integer;
 begin
+ CurrentPath := ExtractFilePath(filename);
  if not eof(batchfile) then // Check for end of file
   begin
    readln(batchfile,tempstring1);   // Read line
    numbegin := 1;
    numend := pos(',',tempstring1);                  // param filename
-   paramname := copy(tempstring1,numbegin,numend-numbegin+1);
+   opt.Parfilename := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
-   delete(paramname,pos(',',paramname),1);
-   paramname := trim(paramname);
+   delete(opt.Parfilename,pos(',',opt.Parfilename),1);
+   opt.Parfilename:=concat(CurrentPath,trim(opt.Parfilename));
 
    numend := pos(',',tempstring1);                  // driver filename
-   drivername := copy(tempstring1,numbegin,numend-numbegin+1);
+   opt.DriverFilename:=copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
-   delete(drivername,pos(',',drivername),1);
-   drivername := trim(drivername);
+   delete(opt.DriverFilename,pos(',',opt.DriverFilename),1);
+   opt.DriverFilename := concat(CurrentPath,trim(opt.DriverFilename));
 
    numend := pos(',',tempstring1);                  // output filename
-   outputname := copy(tempstring1,numbegin,numend-numbegin+1);
+   opt.OutputFilename:=copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
-   delete(outputname,pos(',',outputname),1);
-   outputname := trim(outputname);
+   delete(opt.OutputFilename,pos(',',opt.OutputFilename),1);
+   opt.OutputFilename := concat(CurrentPath,trim(opt.OutputFilename));
 
    numend := pos(',',tempstring1);                  // Start time
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
-   begintime := strtofloat(tempstring2);
+   opt.StartTime:=strtofloat(tempstring2);
 
    numend := pos(',',tempstring1);                  // Stop time
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
-   endtime := strtofloat(tempstring2);
+   opt.StopTime := strtofloat(tempstring2);
 
    numend := pos(',',tempstring1);                 // Time step
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    opt.Time_step := strtofloat(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.METimeStep.Text:=floattostr(Opt.Time_Step);
+   FmOptions.METimeStepExit(FmOptions);    }
 
    numend := pos(',',tempstring1);                // Discrete step
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    opt.Discretestep := strtofloat(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.MEDiscretestep.Text:=floattostr(Opt.Discretestep);
+   FmOptions.MEDiscreteStepExit(FmOptions);   }
 
    numend := pos(',',tempstring1);               // Normal Run?
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
@@ -568,6 +573,9 @@ begin
      Opt.NormalRun := True
    else
      Opt.NormalRun := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.RbNormalRun.Checked:=Opt.NormalRun;
+   FmOptions.RbNormalRunClick(FmOptions);       }
 
    numend := pos(',',tempstring1);               // Repeat Drivers?
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
@@ -577,12 +585,19 @@ begin
      Opt.RepeatDrivers := True
    else
      Opt.RepeatDrivers := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.CbRepeatDrivers.Checked:=Opt.RepeatDrivers;
+   FmOptions.CbRepeatDriversClick(FmOptions);      }
+
 
    numend := pos(',',tempstring1);               // Repeat drive time
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    Opt.RepeatDriveTime := strtofloat(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.EdRepeatDriveTIme.Text:=floattostr(Opt.RepeatDriveTime);
+   FmOptions.EdRepeatDriveTimeExit(FmOptions);    }
 
    numend := pos(',',tempstring1);               // Reset States?
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
@@ -592,12 +607,18 @@ begin
      Opt.ResetStates := True
    else
      Opt.ResetStates := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.CbResetStates.Checked:=Opt.ResetStates;
+   FmOptions.CbResetStatesClick(FmOptions);        }
 
    numend := pos(',',tempstring1);               // Reset State Time
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    Opt.ResetStateTime := strtofloat(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.EdResetStateTIme.Text:=floattostr(Opt.ResetStateTime);
+   FmOptions.EdResetStateTimeExit(FmOptions);   }
 
    numend := pos(',',tempstring1);              // Run to SS
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
@@ -607,18 +628,25 @@ begin
      Opt.RuntoSS := True
    else
      Opt.RuntoSS := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.CbRuntoSS.Checked:=Opt.RuntoSS;
+   FmOptions.CbRuntoSSClick(FmOptions);     }
 
    numend := pos(',',tempstring1);             // SS Criteria
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    Opt.SSCriteria := strtofloat(tempstring2)/100;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.EdSSCriteria.Text:=floattostr(Opt.SSCriteria);
+   FmOptions.EdSSCriteriaExit(FmOptions);   }
 
    numend := pos(',',tempstring1);             // SS Time
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    Opt.SSTime := strtofloat(tempstring2);
+   //   FmOptions.UpdateFmRunOptions(FmBatchMain);
 
    numend := pos(',',tempstring1);             // Hold States Constant
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
@@ -628,18 +656,26 @@ begin
      Opt.HoldStatesConstant := True
    else
      Opt.HoldStatesConstant := False;
+ //  FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.CbHoldStatesConstant.Checked:=Opt.HoldStatesConstant;
+   FmOptions.CbHoldStatesConstantClick(FmOptions);     }
 
    numend := pos(',',tempstring1);             // Output Step
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    Opt.OutputStep := strtofloat(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.EdOutputTimeStep.Text:=floattostr(Opt.OutputStep);
+   FmOptions.EdOutputTimeStepExit(FmOptions); }
 
    numend := pos(',',tempstring1);             // Output Offset
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    Opt.OutputOffset := strtofloat(tempstring2);
+{   FmOptions.EdOutputOffset.Text:=floattostr(Opt.OutputOffset);
+   FmOptions.EdOutputOffsetExit(FmOptions); }
 
    numend := pos(',',tempstring1);             //Output EOR only
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
@@ -649,6 +685,9 @@ begin
      Opt.OutputEORonly := True
    else
      Opt.OutputEORonly := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.RbOutEndofRunOnly.Checked:=Opt.OutputEORonly;
+   FmOptions.RbOutputIntervalsClick(FmOptions);     }
 
    numend := pos(',',tempstring1);            // Output Annually
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
@@ -658,12 +697,18 @@ begin
      Opt.OutputAnnually := True
    else
      Opt.OutputAnnually := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.RbOutputIntervalsAnnual.Checked:=Opt.OutputAnnually;
+   FmOptions.RbOutputIntervalsClick(FmOptions);    }
 
    numend := pos(',',tempstring1);             // Day of Year for annual output
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    delete(tempstring2,pos(',',tempstring2),1);
    Opt.OutputAnnuallyDay := strtofloat(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.EdOutputDayofYear.Text:=floattostr(Opt.OutputAnnuallyDay);
+   FmOptions.EdOutputDayofYearExit(FmOptions);       }
 
    numend := pos(',',tempstring1);            // Append Output File
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
@@ -673,17 +718,78 @@ begin
      Opt.AppendOutputFile := True
    else
      Opt.AppendOutputFile := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.CbAppendOutput.Checked:=Opt.AppendOutputFile;
+   FmOptions.CbxOutFileClick(FmOptions);      }
 
    numend := pos(',',tempstring1);            // No Output File
    tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
    delete(tempstring1,numbegin,numend);
    tempstring2 := trim(tempstring2);
    if (tempstring2[1] = 't') or (tempstring2[1] = 'T') then
-     Opt.OutputFile := True
+     Opt.SaveOutputFile := True
    else
-     Opt.OutputFile := False;
+     Opt.SaveOutputFile := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.RbOutputFile.Checked:=Opt.SaveOutputFile;
+   FmOptions.CbNoOutputFileClick(FmOptions);  }
 
-   Opt.ErrorMult := strtoint(tempstring1);    // Error Mult
+   numend := pos(',',tempstring1);            // Error Mult
+   tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
+   delete(tempstring1,numbegin,numend);
+   delete(tempstring2,pos(',',tempstring2),1);
+   Opt.ErrorMult := strtoint(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.MEErrorMult.Text:=floattostr(Opt.ErrorMult);
+   FmOptions.MEErrorMultExit(FmOptions);    }
+
+   numend := pos(',',tempstring1);             // Write Every
+   tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
+   delete(tempstring1,numbegin,numend);
+   delete(tempstring2,pos(',',tempstring2),1);
+   Opt.WriteEvery := strtofloat(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.EdWriteEvery.Text:=floattostr(Opt.WriteEvery);
+   FmOptions.EdWriteEveryExit(FmOptions);      }
+
+   numend := pos(',',tempstring1);            // SaveBeginning
+   tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
+   delete(tempstring1,numbegin,numend);
+   tempstring2 := trim(tempstring2);
+   if (tempstring2[1] = 't') or (tempstring2[1] = 'T') then
+     Opt.SaveBeginning := True
+   else
+     Opt.SaveBeginning := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.CbxSaveBegin.Checked:=Opt.SaveBeginning;
+   FmOptions.CbxOutFileClick(FmOptions);      }
+
+   numend := pos(',',tempstring1);             // SaveBeginTime
+   tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
+   delete(tempstring1,numbegin,numend);
+   delete(tempstring2,pos(',',tempstring2),1);
+   Opt.SaveBeginTime := strtofloat(tempstring2);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.EdSaveBegin.Text:=floattostr(Opt.SaveBeginTime);
+   FmOptions.EdSaveTimeExit(FmOptions);      }
+
+   numend := pos(',',tempstring1);            // SaveEnding
+   tempstring2 := copy(tempstring1,numbegin,numend-numbegin+1);
+   delete(tempstring1,numbegin,numend);
+   tempstring2 := trim(tempstring2);
+   if (tempstring2[1] = 't') or (tempstring2[1] = 'T') then
+     Opt.SaveEnding := True
+   else
+     Opt.SaveEnding := False;
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.CbxSaveEnd.Checked:=Opt.SaveEnding;
+   FmOptions.CbxOutFileClick(FmOptions);   }
+
+   tempstring1 := trim(tempstring1);             // SaveEndTime
+   Opt.SaveEndTime := strtofloat(tempstring1);
+//   FmOptions.UpdateFmRunOptions(FmBatchMain);
+{   FmOptions.EdSaveEnd.Text:=floattostr(Opt.SaveEndTime);
+   FmOptions.EdSaveTimeExit(FmOptions); }
 
    ReadBatchFile := True;
   end

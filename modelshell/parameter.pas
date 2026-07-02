@@ -49,6 +49,23 @@ procedure TFmParameter.FormCreate(Sender: TObject);
 var
   i:integer;
 begin
+  // Make sure form is visible and fits on the screen
+  with FmParameter do
+   begin
+     if Width>Screen.WorkAreaWidth then Width:=Screen.WorkAreaWidth;
+     if Height>Screen.WorkAreaHeight then Height:=Screen.WorkAreaHeight;
+     if Left<Screen.WorkAreaLeft then Left:=Screen.WorkAreaLeft;
+     if Top<Screen.WorkAreaTop then Top:=Screen.WorkAreaTop;
+   end;
+
+  //Switch OK and cancel buttons on a Mac
+{$ifdef Darwin}
+  BtnCancel.AnchorSideRight.Control:=PnTop;
+  BtnCancel.AnchorSideRight.Side:=asrRight;
+  BtnOK.AnchorSideRight.Control:=BtnCancel;
+  BtnOK.AnchorSideRight.Side:=asrLeft;
+{$endif}
+
   SgParameter.RowCount:= ModelDef.numparam + 1;
   SgParameter.AutoSizeColumns;
   SgParameter.cells[0,0]:='Parameter Symbol';

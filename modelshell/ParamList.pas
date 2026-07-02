@@ -8,13 +8,19 @@ uses
   SysUtils, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, ExtCtrls;
 
 type
+
+  { TFmParamList }
+
   TFmParamList = class(TForm)
-    lbParamSymbols: TListBox;
-    btnSelect: TButton;
     btnCancel: TButton;
+    btnSelect: TButton;
     lbParamNames: TListBox;
-    rbParameterSymbol: TRadioButton;
+    lbParamSymbols: TListBox;
+    PnlListBoxes: TPanel;
+    PnlButtons: TPanel;
     rbParameterName: TRadioButton;
+    rbParameterSymbol: TRadioButton;
+    procedure btnCancelClick(Sender: TObject);
     procedure btnSelectClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure rbParameterSymbolClick(Sender: TObject);
@@ -25,6 +31,8 @@ type
     { Private declarations }
   public
     whichEdparselected: integer;
+    ParSelected: string;
+    ParSelectSuccess: Boolean;
     { Public declarations }
   end;
 
@@ -39,6 +47,13 @@ procedure TFmParamList.FormCreate(Sender: TObject);
 var
  i : integer;
 begin
+{$ifdef Darwin}
+  BtnCancel.AnchorSideRight.Control:=PnlButtons;
+  BtnCancel.AnchorSideRight.Side:=asrRight;
+  BtnSelect.AnchorSideRight.Control:=BtnCancel;
+  BtnSelect.AnchorSideRight.Side:=asrLeft;
+{$endif}
+
  // fill the boxes with names and symbols
  for i := 1 to modelDef.numparam do begin
   lbParamSymbols.Items.Add(par[i].symbol);
@@ -51,8 +66,7 @@ begin
  // make sure the symbols box is on top
  lbParamSymbols.visible := true;
  lbParamNames.visible := false;
- LbparamSymbols.Align:=alTop;
- LbParamNames.Align:=alNone;
+ ParSelectSuccess:=False;
 end;
 
 procedure TFmParamList.btnSelectClick(Sender: TObject);
@@ -61,70 +75,86 @@ var
  tempIndex : integer;
  ParAlreadySelected:Boolean;
 begin
-
 ParAlreadySelected:=False;
+ParSelectSuccess:=False;
+ParSelected:='';
 tempString := lbParamSymbols.items[lbParamSymbols.itemIndex];
 tempIndex := fmCalculate.getArrayIndex(vtParameter,tempString);
 
 // Check if the selected parameter is already displayed.
-if (FmDisplayOutput.lblEdPar1.EditLabel.caption = tempString) or
-   (FmDisplayOutput.lblEdPar2.EditLabel.caption = tempString) or
-   (FmDisplayOutput.lblEdPar3.EditLabel.caption = tempString) or
-   (FmDisplayOutput.lblEdPar4.EditLabel.caption = tempString) then
+if (FmDisplayOutput.LblPar1.caption = tempString) or
+   (FmDisplayOutput.LblPar2.caption = tempString) or
+   (FmDisplayOutput.LblPar3.caption = tempString) or
+   (FmDisplayOutput.LblPar4.caption = tempString) or
+   (FmDisplayOutput.LblPar5.caption = tempString) or
+   (FmDisplayOutput.LblPar6.caption = tempString) then
  begin
   messageDlg('That parameter is already displayed', mtWarning, [mbOK], 0);
   ParAlreadySelected:=True;
  end
 else
  begin
- // which of the four labels in the display form was selected
+  ParSelected:=tempString;
+  ParSelectSuccess:=True;
+{ // which of the labels in the display form was selected
   case whichEdparselected of
    1: begin
-       FmDisplayOutput.lblEdPar1.EditLabel.caption := tempString;
-       FmDisplayOutput.LblEdPar1.text := floatToStr(par[tempIndex].value);
-       FmDisplayOutput.LblEdPar1.Enabled := true;
+       FmDisplayOutput.LblPar1.caption := tempString;
+       FmDisplayOutput.EdPar1.text := floatToStr(par[tempIndex].value);
+       FmDisplayOutput.EdPar1.Enabled := true;
       end;
    2: begin
-       FmDisplayOutput.lblEdPar2.EditLabel.caption := tempString;
-       FmDisplayOutput.lblEdPar2.text := floatToStr(par[tempIndex].value);
-       FmDisplayOutput.lblEdPar2.Enabled := true;   // fix necessary?
+       FmDisplayOutput.LblPar2.caption := tempString;
+       FmDisplayOutput.EdPar2.text := floatToStr(par[tempIndex].value);
+       FmDisplayOutput.EdPar2.Enabled := true;   // fix necessary?
       end;
    3: begin
-       FmDisplayOutput.lblEdPar3.EditLabel.caption := tempString;
-       FmDisplayOutput.lblEdPar3.text := floatToStr(par[tempIndex].value);
-       FmDisplayOutput.lblEdPar3.Enabled := true;
+       FmDisplayOutput.LblPar3.caption := tempString;
+       FmDisplayOutput.EdPar3.text := floatToStr(par[tempIndex].value);
+       FmDisplayOutput.EdPar3.Enabled := true;
       end;
    4: begin
-       FmDisplayOutput.lblEdPar4.EditLabel.caption := tempString;
-       FmDisplayOutput.lblEdPar4.text := floatToStr(par[tempIndex].value);
-       FmDisplayOutput.lblEdPar4.Enabled := true;
+       FmDisplayOutput.LblPar4.caption := tempString;
+       FmDisplayOutput.EdPar4.text := floatToStr(par[tempIndex].value);
+       FmDisplayOutput.EdPar4.Enabled := true;
+      end;
+   5: begin
+       FmDisplayOutput.LblPar5.caption := tempString;
+       FmDisplayOutput.EdPar5.text := floatToStr(par[tempIndex].value);
+       FmDisplayOutput.EdPar5.Enabled := true;
+      end;
+   6: begin
+       FmDisplayOutput.LblPar6.caption := tempString;
+       FmDisplayOutput.EdPar6.text := floatToStr(par[tempIndex].value);
+       FmDisplayOutput.EdPar6.Enabled := true;
       end;
    else
     begin
-     messageDlg('There`s a problem with the selection of a parameter',
+     messageDlg('The value of whichEdparselected in FmParamList is invalid.',
       mtInformation, [mbOK], 0);
     end;
-  end;
+  end;    }
  end;
 if not ParAlreadySelected then FmParamList.Close;
+end;
+
+procedure TFmParamList.btnCancelClick(Sender: TObject);
+begin
+  ParSelectSuccess:=False;
 end;
 
 procedure TFmParamList.rbParameterSymbolClick(Sender: TObject);
 begin
  // make sure the symbols box is on top
- lbParamSymbols.visible := true;
- LbParamSymbols.Align:=alTop;
- lbParamNames.visible := false;
- LbParamNames.Align:=alNone;
+ lbParamNames.Hide;
+ lbParamSymbols.Show
 end;
 
 procedure TFmParamList.rbParameterNameClick(Sender: TObject);
 begin
  // make sure the names box is on top
- fmParamList.lbParamSymbols.visible := false;
- LbParamSymbols.Align:=alNone;
- fmParamList.lbParamNames.visible := true;
- LbParamNames.Align:=alTop;
+ lbParamSymbols.Hide;
+ lbParamNames.Show;
 end;
 
 procedure TFmParamList.lbParamSymbolsClick(Sender: TObject);

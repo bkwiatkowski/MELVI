@@ -1,8 +1,8 @@
 object FmTrouble: TFmTrouble
-  Left = -851
+  Left = 200
   Height = 413
   Hint = 'Creative Commons "Fruit Market in Bogota" by Michael Tieso is licensed under CC0 1.0.'
-  Top = 351
+  Top = 200
   Width = 489
   Caption = 'Error'
   ClientHeight = 413

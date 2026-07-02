@@ -116,9 +116,15 @@ type
   TVarType = (vtDriver, vtState, vtParameter, vtProcess);
 
   TRunOptions = record
-    NormalRun: Boolean;
+    Parfilename:string;
+    DriverFilename:string;
+    OutputFilename:string;
+    StartTime:double;
+    StopTime:double;
     Time_step: double;
     DiscreteStep: double;
+    errormult: integer;
+    NormalRun: Boolean;
     RepeatDrivers: Boolean;
     RepeatDriveTime: double;
     ResetStates: Boolean;
@@ -135,9 +141,13 @@ type
     AppendOutputFile: Boolean;
     stepcounter: integer;
     outcounter: integer;   // The current number of timesteps since last output, output occurs when outcounter=outputfreq
-    OutputFile: Boolean;
+    SaveOutputFile: Boolean;
     WriteEvery: double;
-    errormult: integer;
+    SaveBeginning: Boolean;
+    SaveBeginTime: double;
+    SaveEnding: Boolean;
+    SaveEndTime: double;
+    SavePar2Out: Boolean;
   end;
 
   TCalOptions = record
