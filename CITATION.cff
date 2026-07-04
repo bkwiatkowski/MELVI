@@ -3,13 +3,12 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Rastetter"
   given-names: "Edward"
-orcid: "https://orcid.org/0000-0002-8620-5431"
-- family-names: "Kwiatkowski"
-  given-names: "Bonnie"
-orcid: "https://orcid.org/0000-0003-0158-9753"
-
+  orcid: "https://orcid.org/0000-0002-8620-5431"
+- family-names: "Bonnie"
+  given-names: "Kwiatkowski"
+  orcid: "https://orcid.org/0000-0003-0158-9753"
 title: "Multiple Element Limitation (MEL) model"
-version: v3.5.1
+version: 3.5.1
 doi: 10.5281/zenodo.21107204
 date-released: 2026-07-03
 url: "https://github.com/bkwiatkowski/MELVI"
